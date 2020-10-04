@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import RootPage from './pages/RootPage';
 import { GlobalStoreProvider } from './components/GlobalStore';
+import 'antd/dist/antd.css';
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,0 +1,28 @@
+$background: #0e2b37;
+$main: #4a90ff;
+
+.rui-logform-wrap{
+  width: 100vw;
+  height: 100vh;
+  background: $background;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .rui-logform-body{
+    width: 400px;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0px 2px 5px 1px #c7c7c7;
+    border-top: 5px solid #4a90ff;
+    padding: 30px 40px;
+    padding-top: 20px;
+
+    .title{
+      text-align: center;
+      font-size: 25px;
+      font-weight: bold;
+      color: $main;
+    }
+  }
+}

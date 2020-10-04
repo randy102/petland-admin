@@ -1,28 +1,56 @@
-import { Button } from 'antd';
-import React, { useCallback } from 'react';
-import { useGlobalStore } from '../../components/GlobalStore';
-import './Login.scss';
+import React, { useCallback } from "react";
+import { Button } from "antd";
+import { MailOutlined, LockOutlined } from "@ant-design/icons";
+import { useGlobalStore } from "../../components/GlobalStore";
+import "./Login.scss";
+import RInput from "components/RForm/RInput";
+import RForm from "components/RForm";
+import RPassword from "components/RForm/RPassword";
+import LogForm from "components/Shared/LoginForm";
 
 function Login() {
-  const [state, dispatch] = useGlobalStore()
+  const [state, dispatch] = useGlobalStore();
 
-  console.log(state)
+  console.log(state);
 
   const onLogin = useCallback(() => {
     dispatch({
       type: "SAVE_USER_INFO",
       payload: {
         username: "test",
-        token: "wertrwer"
-      }
-    })
-  }, [dispatch])
+        token: "wertrwer",
+      },
+    });
+  }, [dispatch]);
+
+  function handleLogin(){
+    onLogin()
+  }
 
   return (
-    <div className="Login">
-      Login Page
-      <Button onClick={onLogin}>Login</Button>
-    </div>
+    <LogForm title="Đăng nhập">
+      <RForm onEnter={handleLogin}>
+        <RInput
+          label="Email"
+          placeholder="Nhập email..."
+          name="email"
+          rules={{ type: "email", required: true }}
+          prefix={<MailOutlined />}
+        />
+
+        <RPassword
+          label="Mật khẩu"
+          placeholder="Nhập mật khẩu..."
+          name="password"
+          rules={{ required: true, min: 8 }}
+          prefix={<LockOutlined />}
+        />
+
+        <Button onClick={handleLogin} style={{ marginTop: 5 }} block type="primary">
+          Đăng nhập
+        </Button>
+      </RForm>
+    </LogForm>
   );
 }
 
