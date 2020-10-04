@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Form, Upload, message } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import * as axios from "axios";
@@ -64,6 +64,14 @@ export default function RUpload(props: RUploadsProps) {
     );
   }, [initIds, viewUrl]);
 
+  const handleRemove = useCallback((file: UploadFile<any>) => {
+    Axios.delete(url || "", { data: { id: file.response } })
+      .then(() => {
+        message.success("Xóa thành công!");
+      })
+      .catch((err) => message.error(err.message));
+  }, [url])
+
   useEffect(() => {
     uploadApi({
       reset() {
@@ -76,7 +84,7 @@ export default function RUpload(props: RUploadsProps) {
         setFileList(undefined);
       },
     });
-  }, [fileList, uploadApi]);
+  }, [fileList, uploadApi, handleRemove]);
 
   function handleChange({ fileList }: UploadChangeParam<UploadFile<any>>) {
     const filterList = fileList.filter((file) => file.type.includes("image"));
@@ -84,13 +92,7 @@ export default function RUpload(props: RUploadsProps) {
     onChange(filterList.map((file) => file.response));
   }
 
-  function handleRemove(file: UploadFile<any>) {
-    Axios.delete(url || "", { data: { id: file.response } })
-      .then(() => {
-        message.success("Xóa thành công!");
-      })
-      .catch((err) => message.error(err.message));
-  }
+  
 
   function beforeUpload(file: RcFile) {
     const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";

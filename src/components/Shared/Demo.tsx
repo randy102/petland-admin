@@ -1,13 +1,14 @@
-import React from "react";
-import { Form } from "antd";
+import React, { useState } from "react";
+import { Button, Form } from "antd";
 import { EditOutlined, LockOutlined } from "@ant-design/icons";
-import RForm from ".";
-import RInput from "./RInput";
-import RDate from "./RDate";
-import RPassword from "./RPassword";
-import RRadio from "./RRadio";
-import RSelect from "./RSelect";
-import RSwitch from "./RSwitch";
+import RForm from "./RForm";
+import RInput from "./RForm/RInput";
+import RDate from "./RForm/RDate";
+import RPassword from "./RForm/RPassword";
+import RRadio from "./RForm/RRadio";
+import RSelect from "./RForm/RSelect";
+import RSwitch from "./RForm/RSwitch";
+import RDrawer from "./RDrawer";
 
 const FAKE_DATA = [
   {
@@ -26,6 +27,7 @@ const FAKE_DATA = [
 
 export default function Demo() {
   const [form] = Form.useForm();
+  const [showDrawer, setShowDrawer] = useState<boolean>(false)
 
   return (
     <div style={{ width: 500, margin: "20px auto" }}>
@@ -124,6 +126,22 @@ export default function Demo() {
         />
 
       </RForm>
+      
+      <Button onClick={() => setShowDrawer(true)}>Open Drawer</Button>
+      <RDrawer 
+        title="Drawer Title"
+        visible={showDrawer}
+        onClose={() => setShowDrawer(false)}
+        footDef={[
+          {
+            name: "Close",
+            onClick: () => setShowDrawer(false),
+            type: "primary",
+          }
+        ]}
+      >
+        This is Drawer's content
+      </RDrawer>
     </div>
   );
 }

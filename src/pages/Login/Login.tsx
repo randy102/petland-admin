@@ -3,10 +3,10 @@ import { Button } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
 import { useGlobalStore } from "../../components/GlobalStore";
 import "./Login.scss";
-import RInput from "components/RForm/RInput";
-import RForm from "components/RForm";
-import RPassword from "components/RForm/RPassword";
-import LogForm from "components/Shared/LoginForm";
+import RInput from "components/Shared/RForm/RInput";
+import RForm from "components/Shared/RForm";
+import RPassword from "components/Shared/RForm/RPassword";
+import LogForm from "components/LoginForm";
 
 function Login() {
   const [state, dispatch] = useGlobalStore();

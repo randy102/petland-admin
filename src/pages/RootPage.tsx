@@ -4,7 +4,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import { Dashboard } from "./Dashboard";
+import Admin from "./Admin";
 import { Login } from "./Login";
 
 export const ROUTES = {
@@ -20,7 +20,7 @@ export default function RootPage() {
             <Login />
           </Route>
           <Route path={ROUTES.HOME}>
-            <Dashboard />
+            <Admin/>
           </Route>
         </Switch>
     </Router>
