@@ -1,4 +1,4 @@
-export const HEAD_DATA = {
+export const HEAD_DATA: any = {
   create: {
     icon: 'PlusOutlined',
     name: 'Thêm',

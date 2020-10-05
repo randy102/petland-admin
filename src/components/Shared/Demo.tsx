@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form } from "antd";
+import { Form } from "antd";
 import { EditOutlined, LockOutlined } from "@ant-design/icons";
 import RForm from "./RForm";
 import RInput from "./RForm/RInput";
@@ -9,6 +9,7 @@ import RRadio from "./RForm/RRadio";
 import RSelect from "./RForm/RSelect";
 import RSwitch from "./RForm/RSwitch";
 import RDrawer from "./RDrawer";
+import RGrid from "./RGrid";
 
 const FAKE_DATA = [
   {
@@ -27,7 +28,7 @@ const FAKE_DATA = [
 
 export default function Demo() {
   const [form] = Form.useForm();
-  const [showDrawer, setShowDrawer] = useState<boolean>(false)
+  const [showDrawer, setShowDrawer] = useState<boolean>(false);
 
   return (
     <div style={{ width: 500, margin: "20px auto" }}>
@@ -100,7 +101,6 @@ export default function Demo() {
           optionValue={(r) => r._id}
           labelRender={(r) => `${r.name} label`}
           filterProps={(r) => [r.name]}
-          
           showSearch
           mode="multiple"
         />
@@ -124,11 +124,38 @@ export default function Demo() {
           checkedText="True"
           unCheckedText="False"
         />
-
       </RForm>
-      
-      <Button onClick={() => setShowDrawer(true)}>Open Drawer</Button>
-      <RDrawer 
+
+      <RGrid
+        data={FAKE_DATA}
+        headDef={[
+          {
+            type: "refresh",
+          },
+          {
+            type: "create",
+            onClick: () => setShowDrawer(true),
+          },
+          {
+            type: "delete"
+          }
+        ]}
+        colDef={[
+          {
+            title: "Id",
+            dataIndex: "_id",
+            key: "_id",
+          },
+          {
+            title: "Name",
+            dataIndex: "name",
+            key: "name",
+            render: (name: string) => name.toUpperCase(),
+          },
+        ]}
+      />
+
+      <RDrawer
         title="Drawer Title"
         visible={showDrawer}
         onClose={() => setShowDrawer(false)}
@@ -137,7 +164,7 @@ export default function Demo() {
             name: "Close",
             onClick: () => setShowDrawer(false),
             type: "primary",
-          }
+          },
         ]}
       >
         This is Drawer's content

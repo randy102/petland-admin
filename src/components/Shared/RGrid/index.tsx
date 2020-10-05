@@ -1,3 +1,4 @@
+/* tslint:disable */
 import React, { useState, useEffect } from "react";
 import { Button, Table, Input, Space, Modal } from "antd";
 import { SearchOutlined, ExclamationCircleOutlined } from "@ant-design/icons";
@@ -24,15 +25,15 @@ declare type ExpandedRowRender<ValueType> = (
 ) => React.ReactNode;
 
 interface HeaderType {
-  icon: string;
-  name: string;
+  icon?: string;
+  name?: string;
   selection?: "multiple" | "single" | undefined;
-  onClick: (rows: any[], setSelectedRow: Function) => void;
+  onClick?: (rows: any[], setSelectedRow: Function) => void;
   type?: HeaderBtnType;
-  confirm: boolean;
-  confirmMessage: string;
-  loading: boolean;
-  disabled: boolean;
+  confirm?: boolean;
+  confirmMessage?: string;
+  loading?: boolean;
+  disabled?: boolean;
 }
 
 type HeaderBtnType =
@@ -160,7 +161,7 @@ export default function RGrid(props: RGridProps) {
                   icon,
                   selection,
                   name,
-                  onClick,
+                  onClick = () => {},
                   type,
                   confirm,
                   confirmMessage,
@@ -170,7 +171,8 @@ export default function RGrid(props: RGridProps) {
                   name = name || HEAD_DATA[type || "create"]?.name;
                   selection = selection || (type && HEAD_DATA[type].selection);
                   confirm = confirm || HEAD_DATA[type || "create"]?.confirm;
-
+                 
+                  // @ts-ignore
                   const Icon = AntIcon[icon];
                   const singleError =
                     selection === "single" && selectedRows.length !== 1;
