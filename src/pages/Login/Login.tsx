@@ -1,52 +1,54 @@
 import React, { useCallback } from "react";
-import { Button } from "antd";
-import { MailOutlined, LockOutlined } from "@ant-design/icons";
-import { useGlobalStore } from "../../components/GlobalStore";
-import "./Login.scss";
+import { Button, Form } from "antd";
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import RInput from "components/Shared/RForm/RInput";
 import RForm from "components/Shared/RForm";
 import RPassword from "components/Shared/RForm/RPassword";
 import LogForm from "components/LoginForm";
+import { logIn } from "utils/auth";
+import { useMutation } from "utils/request";
+import { useHistory, useLocation } from "react-router-dom";
+import "./Login.scss";
 
 function Login() {
-  const [state, dispatch] = useGlobalStore();
+  const requestLogin = useMutation({api: "/login",method: "post"});
+  const [form] = Form.useForm();
+  const history = useHistory()
 
-  console.log(state);
-
-  const onLogin = useCallback(() => {
-    dispatch({
-      type: "SAVE_USER_INFO",
-      payload: {
-        username: "test",
-        token: "wertrwer",
-      },
+  const onLogin = () => {
+    form.validateFields().then((inputs) => {
+      requestLogin(inputs)
+        .then((res) => {
+          logIn(res.data);
+          history.push('/user');
+        })
+        .catch((error) => {
+          console.table("error", error.response);
+        });
     });
-  }, [dispatch]);
 
-  function handleLogin(){
-    onLogin()
   }
 
   return (
     <LogForm title="Đăng nhập">
-      <RForm onEnter={handleLogin}>
+      <RForm form={form} onEnter={onLogin}>
         <RInput
-          label="Email"
-          placeholder="Nhập email..."
-          name="email"
-          rules={{ type: "email", required: true }}
-          prefix={<MailOutlined />}
+          label="Tên đăng nhập"
+          placeholder="Nhập tên..."
+          name="username"
+          rules={{ required: true }}
+          prefix={<UserOutlined />}
         />
 
         <RPassword
           label="Mật khẩu"
           placeholder="Nhập mật khẩu..."
           name="password"
-          rules={{ required: true, min: 8 }}
+          rules={{ required: true }}
           prefix={<LockOutlined />}
         />
 
-        <Button onClick={handleLogin} style={{ marginTop: 5 }} block type="primary">
+        <Button onClick={onLogin} style={{ marginTop: 5 }} block type="primary">
           Đăng nhập
         </Button>
       </RForm>
