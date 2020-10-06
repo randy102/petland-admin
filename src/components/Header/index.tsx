@@ -29,7 +29,7 @@ export default function Header() {
             }
           >
             <Menu.Item key="setting:1">
-              <Link to="/" replace onClick={handleLogOut}>
+              <Link to="/logout" replace onClick={handleLogOut}>
                 <LogoutOutlined />
                 Log out
               </Link>

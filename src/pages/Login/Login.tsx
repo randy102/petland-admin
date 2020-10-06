@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { Button, Form } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import RInput from "components/Shared/RForm/RInput";
@@ -7,7 +7,7 @@ import RPassword from "components/Shared/RForm/RPassword";
 import LogForm from "components/LoginForm";
 import { logIn } from "utils/auth";
 import { useMutation } from "utils/request";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./Login.scss";
 
 function Login() {

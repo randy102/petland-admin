@@ -6,10 +6,12 @@ import {
 } from "react-router-dom";
 import Admin from "./Admin";
 import { Login } from "./Login";
+import Logout from "./Logout";
 
 export const ROUTES = {
   HOME: "/",
   LOGIN: "/login",
+  LOGOUT: "/logout"
 }
 
 export default function RootPage() {
@@ -18,6 +20,9 @@ export default function RootPage() {
         <Switch>
           <Route path={ROUTES.LOGIN}>
             <Login />
+          </Route>
+          <Route path={ROUTES.LOGOUT}>
+            <Logout/>
           </Route>
           <Route path={ROUTES.HOME}>
             <Admin/>
