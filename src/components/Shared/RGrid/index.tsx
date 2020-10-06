@@ -38,7 +38,6 @@ interface HeaderType {
 
 type HeaderBtnType =
   | "create"
-  | "read"
   | "update"
   | "delete"
   | "refresh"
@@ -189,7 +188,7 @@ export default function RGrid(props: RGridProps) {
                     Modal.confirm({
                       title:
                         confirmMessage ||
-                        "Bạn có chắc muốn thực hiện hành động này?",
+                        "Are you sure?",
                       icon: <ExclamationCircleOutlined />,
                       onOk: () => cb(selectedRows, setSelectedRows),
                     });
@@ -225,12 +224,12 @@ export default function RGrid(props: RGridProps) {
         rowKey="_id"
         expandedRowRender={expandRender}
         locale={{
-          emptyText: "Không có dữ liệu",
+          emptyText: "Data empty!",
         }}
         rowSelection={
           showSelection
             ? {
-                type: "checkbox",
+                type: "radio",
                 onChange: (keys, rows) => {
                   setSelectedRows(rows);
                   setSelectedRowKeys(keys);

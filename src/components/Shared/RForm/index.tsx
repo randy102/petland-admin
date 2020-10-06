@@ -4,6 +4,8 @@ import "./index.scss";
 import { FormInstance } from "antd/lib/form";
 import { Store } from "antd/lib/form/interface";
 
+export const useForm = AntForm.useForm;
+
 interface RFormProps{
   style?: React.CSSProperties
   children: any
@@ -31,37 +33,37 @@ export default function RForm(props: RFormProps) {
 
 const validateMessages = {
   // eslint-disable-next-line
-  required: "'${label}' không được trống!",
+  required: "'${label}' is required!",
   // eslint-disable-next-line
-  whitespace: "'${label}' không được trống!",
+  whitespace: "'${label}' is required!",
   string: {
     // eslint-disable-next-line
-    min: "'${label}' phải tối thiểu ${min} ký tự",
+    min: "'Minimum of ${label}' must be ${min} symbols",
     // eslint-disable-next-line
-    max: "'${label}' không được quá ${max} ký tự",
+    max: "'Maximum of ${label}' must be ${max} symbols",
     // eslint-disable-next-line
-    range: "'${label}' phải từ ${min} đến ${max} ký tự",
+    range: "'${label}' length must in range from ${min} to ${max} symbols",
   },
   number: {
     // eslint-disable-next-line
-    min: "'${label}' phải lớn hơn ${min}",
+    min: "'${label}' must at least ${min}",
     // eslint-disable-next-line
-    max: "'${label}' phải nhỏ hơn ${max}",
+    max: "'${label}' must greater than ${max}",
     // eslint-disable-next-line
-    range: "'${label}' phải trong khoảng ${min} đến ${max}",
+    range: "'${label}' must in range from ${min} to ${max}",
   },
   pattern: {
     // eslint-disable-next-line
-    mismatch: "'${label}' không đúng",
+    mismatch: "'${label}' invalid",
   },
   types: {
     // eslint-disable-next-line
-    integer: "'${label}' phải là số nguyên",
+    integer: "'${label}' must be integer",
     // eslint-disable-next-line
-    number: "'${label}' phải là số",
+    number: "'${label}' must be number",
     // eslint-disable-next-line
-    email: "'${label}' không đúng định dạng",
+    email: "'${label}' invalid",
     // eslint-disable-next-line
-    url: "'${label}' phải có dạng http://... hoặc https://...",
+    url: "'${label}' must in type http://... or https://...",
   },
 };

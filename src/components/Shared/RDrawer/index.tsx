@@ -15,15 +15,17 @@ export interface FootDef {
   onClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   visible?: boolean;
   type?: "text" | "link" | "ghost" | "default" | "primary" | "dashed";
+  loading?: boolean;
 }
 
 export default function RDrawer(props: DrawerProps) {
   const { visible, onClose, title, footDef = [], children } = props;
   const footer =
     footDef.length &&
-    footDef.map(({ name, onClick, visible = true, type }: FootDef) => {
+    footDef.map(({ name, onClick, visible = true, type, loading=false }: FootDef) => {
       return (
         <Button
+          loading={loading}
           key={name}
           type={type}
           onClick={onClick}

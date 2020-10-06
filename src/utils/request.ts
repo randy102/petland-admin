@@ -4,7 +4,7 @@ import { getToken } from './auth';
 
 interface UseAxiosProps {
   method?: 'get' | 'post' | 'put' | 'delete';
-  api: string
+  api?: string
   data?: any
 }
 
@@ -15,7 +15,7 @@ interface RequestInfo {
 }
 
 export function useFetch(props: UseAxiosProps): [any, RequestInfo] {
-  const { method, api, data } = props;
+  const { method, api = "", data } = props;
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<any>();
   const [res, setRes] = useState<any>();
@@ -28,7 +28,7 @@ export function useFetch(props: UseAxiosProps): [any, RequestInfo] {
       method,
       data: fetchData || data,
       headers: {
-        Authorization: `Bearer ${getToken()}`,
+        token: `Bearer ${getToken()}`,
       },
     }).then((response) => {
       setRes(response);
@@ -51,7 +51,7 @@ export function useFetch(props: UseAxiosProps): [any, RequestInfo] {
 }
 
 export function useLazyFetch(props: UseAxiosProps): [any, RequestInfo] {
-  const { method, api, data } = props;
+  const { method, api="", data } = props;
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<any>();
   const [res, setRes] = useState<any>();
@@ -64,7 +64,7 @@ export function useLazyFetch(props: UseAxiosProps): [any, RequestInfo] {
       method,
       data: fetchData || data,
       headers: {
-        Authorization: `Bearer ${getToken()}`,
+        token: `Bearer ${getToken()}`,
       },
     }).then((response) => {
       setRes(response);
@@ -80,16 +80,17 @@ export function useLazyFetch(props: UseAxiosProps): [any, RequestInfo] {
   return [res, { loading, error, refetch: fetchData }]
 }
 
-export function useMutation(props: UseAxiosProps): (data: any) => AxiosPromise{
+export function useMutation(props: UseAxiosProps): (data: UseAxiosProps) => AxiosPromise{
   const { method, api, data } = props;
 
-  const fetchData = (fetchData: any) => {
+  const fetchData = (fetchProps: UseAxiosProps = {}) => {
+    const fetchApi = fetchProps.api || api || "";
     return axios({
-      url: `${process.env.REACT_APP_BACKEND_URL + api}`,
+      url: `${process.env.REACT_APP_BACKEND_URL + fetchApi}`,
       method,
-      data: fetchData || data,
+      data: fetchProps.data || data,
       headers: {
-        Authorization: `Bearer ${getToken()}`,
+        token: `Bearer ${getToken()}`,
       },
     })
   };

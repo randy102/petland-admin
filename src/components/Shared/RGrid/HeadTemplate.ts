@@ -1,36 +1,30 @@
 export const HEAD_DATA: any = {
   create: {
     icon: 'PlusOutlined',
-    name: 'Thêm',
+    name: 'Add',
     selection: undefined,
   },
   refresh: {
     icon: 'RedoOutlined',
-    name: 'Làm mới',
+    name: 'Refresh',
     selection: '',
     confirm: false,
   },
   detail: {
     icon: 'EyeOutlined',
-    name: 'Chi tiết',
-    selection: 'single',
-    confirm: false,
-  },
-  read: {
-    icon: 'EyeOutlined',
-    name: 'Chi tiết',
+    name: 'Detail',
     selection: 'single',
     confirm: false,
   },
   update: {
     icon: 'EditOutlined',
-    name: 'Sửa',
+    name: 'Edit',
     selection: 'single',
     confirm: false,
   },
   delete: {
     icon: 'DeleteOutlined',
-    name: 'Xóa',
+    name: 'Delete',
     selection: 'multiple',
     confirm: true
   }

@@ -1,55 +1,56 @@
 import React from "react";
-import { Button, Form } from "antd";
+import { Button, Form, message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import RInput from "components/Shared/RForm/RInput";
 import RForm from "components/Shared/RForm";
 import RPassword from "components/Shared/RForm/RPassword";
 import LogForm from "components/LoginForm";
-import { logIn } from "utils/auth";
+import { isLogin, logIn } from "utils/auth";
 import { useMutation } from "utils/request";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import "./Login.scss";
 
 function Login() {
-  const requestLogin = useMutation({api: "/login",method: "post"});
+  const requestLogin = useMutation({ api: "/login", method: "post" });
   const [form] = Form.useForm();
-  const history = useHistory()
+  const history = useHistory();
 
-  const onLogin = () => {
+  function onLogin() {
     form.validateFields().then((inputs) => {
-      requestLogin(inputs)
+      requestLogin({data: inputs})
         .then((res) => {
           logIn(res.data);
-          history.push('/user');
+          history.push("/");
         })
         .catch((error) => {
-          console.table("error", error.response);
+          message.error(`Error: ${error.response.data}`)
         });
     });
-
   }
+  
+  if(isLogin()) return <Redirect to="/"/>
 
   return (
-    <LogForm title="Đăng nhập">
+    <LogForm title="Login">
       <RForm form={form} onEnter={onLogin}>
         <RInput
-          label="Tên đăng nhập"
-          placeholder="Nhập tên..."
+          label="Username"
+          placeholder="Type username..."
           name="username"
           rules={{ required: true }}
           prefix={<UserOutlined />}
         />
 
         <RPassword
-          label="Mật khẩu"
-          placeholder="Nhập mật khẩu..."
+          label="Password"
+          placeholder="Type password..."
           name="password"
           rules={{ required: true }}
           prefix={<LockOutlined />}
         />
 
         <Button onClick={onLogin} style={{ marginTop: 5 }} block type="primary">
-          Đăng nhập
+          Submit
         </Button>
       </RForm>
     </LogForm>
