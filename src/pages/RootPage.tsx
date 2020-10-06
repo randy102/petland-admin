@@ -4,12 +4,14 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import { Dashboard } from "./Dashboard";
+import Admin from "./Admin";
 import { Login } from "./Login";
+import Logout from "./Logout";
 
 export const ROUTES = {
   HOME: "/",
   LOGIN: "/login",
+  LOGOUT: "/logout"
 }
 
 export default function RootPage() {
@@ -19,8 +21,11 @@ export default function RootPage() {
           <Route path={ROUTES.LOGIN}>
             <Login />
           </Route>
+          <Route path={ROUTES.LOGOUT}>
+            <Logout/>
+          </Route>
           <Route path={ROUTES.HOME}>
-            <Dashboard />
+            <Admin/>
           </Route>
         </Switch>
     </Router>

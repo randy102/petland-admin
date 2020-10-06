@@ -1,0 +1,32 @@
+#left-bar-wrap {
+  li {
+    margin: 0;
+
+    &.ant-menu-item-selected {
+      background: rgb(2, 0, 36);
+      background: linear-gradient(
+        90deg,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(24, 144, 255, 1) 0%,
+        rgba(0, 212, 255, 1) 96%
+      );
+    }
+  }
+
+  a {
+    color: white;
+    font-weight: 600;
+  }
+
+  .anticon {
+    font-size: 16px;
+  }
+
+  aside {
+    overflow: auto;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 40px;
+  }
+}

@@ -1,28 +1,59 @@
-import { Button } from 'antd';
-import React, { useCallback } from 'react';
-import { useGlobalStore } from '../../components/GlobalStore';
-import './Login.scss';
+import React from "react";
+import { Button, Form, message } from "antd";
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import RInput from "components/Shared/RForm/RInput";
+import RForm from "components/Shared/RForm";
+import RPassword from "components/Shared/RForm/RPassword";
+import LogForm from "components/LoginForm";
+import { isLogin, logIn } from "utils/auth";
+import { useMutation } from "utils/request";
+import { Redirect, useHistory } from "react-router-dom";
+import "./Login.scss";
 
 function Login() {
-  const [state, dispatch] = useGlobalStore()
+  const requestLogin = useMutation({ api: "/login", method: "post" });
+  const [form] = Form.useForm();
+  const history = useHistory();
 
-  console.log(state)
-
-  const onLogin = useCallback(() => {
-    dispatch({
-      type: "SAVE_USER_INFO",
-      payload: {
-        username: "test",
-        token: "wertrwer"
-      }
-    })
-  }, [dispatch])
+  function onLogin() {
+    form.validateFields().then((inputs) => {
+      requestLogin({data: inputs})
+        .then((res) => {
+          logIn(res.data);
+          history.push("/");
+        })
+        .catch((error) => {
+          message.error(`Error: ${error.response.data}`)
+        });
+    });
+  }
+  
+  if(isLogin()) return <Redirect to="/"/>
 
   return (
-    <div className="Login">
-      Login Page
-      <Button onClick={onLogin}>Login</Button>
-    </div>
+    <LogForm title="Login">
+      <RForm form={form} onEnter={onLogin}>
+        <RInput
+          label="Username"
+          placeholder="Type username..."
+          name="username"
+          rules={{ required: true }}
+          prefix={<UserOutlined />}
+        />
+
+        <RPassword
+          label="Password"
+          placeholder="Type password..."
+          name="password"
+          rules={{ required: true }}
+          prefix={<LockOutlined />}
+        />
+
+        <Button onClick={onLogin} style={{ marginTop: 5 }} block type="primary">
+          Submit
+        </Button>
+      </RForm>
+    </LogForm>
   );
 }
 
