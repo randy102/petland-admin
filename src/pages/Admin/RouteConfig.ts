@@ -1,4 +1,5 @@
-import { UserOutlined } from "@ant-design/icons";
+import { ProjectOutlined, UserOutlined } from "@ant-design/icons";
+import Project from "./Project";
 import User from "./User";
 
 interface RouteConfig {
@@ -14,5 +15,11 @@ export const ROUTES: RouteConfig[] = [
     name: 'User',
     icon: UserOutlined,
     component: User
+  },
+  {
+    path: '/project',
+    name: 'Project',
+    icon: ProjectOutlined,
+    component: Project
   }
 ]
