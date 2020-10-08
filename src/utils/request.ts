@@ -1,3 +1,4 @@
+import { message } from 'antd';
 import axios, { AxiosPromise } from 'axios';
 import { useCallback, useEffect, useState } from 'react';
 import { getToken } from './auth';
@@ -96,4 +97,8 @@ export function useMutation(props: UseAxiosProps): (data: UseAxiosProps) => Axio
   };
 
   return fetchData
+}
+
+export function handleRequestError(error: any){
+  message.error(`Error: ${error.response.data}`)
 }
