@@ -100,5 +100,5 @@ export function useMutation(props: UseAxiosProps): (data: UseAxiosProps) => Axio
 }
 
 export function handleRequestError(error: any){
-  message.error(`Error: ${error.response.data}`)
+  message.error(`Error: ${error?.response?.data}`)
 }

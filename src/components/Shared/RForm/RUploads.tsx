@@ -4,7 +4,12 @@ import { PlusOutlined } from "@ant-design/icons";
 import * as axios from "axios";
 import "./ruploads.scss";
 import Modal from "antd/lib/modal/Modal";
-import { RcFile, UploadChangeParam, UploadFile } from "antd/lib/upload/interface";
+import {
+  RcFile,
+  UploadChangeParam,
+  UploadFile,
+} from "antd/lib/upload/interface";
+import { getToken } from "utils/auth";
 
 const Axios = axios.default;
 
@@ -15,14 +20,14 @@ interface UploadApi {
 
 interface RUploadsProps {
   // URL to upload image
-  url: string;
+  url?: string;
 
   // URL to load uploaded image
-  viewUrl: string;
+  viewUrl?: string;
 
   label?: string;
   initIds?: string[];
-  disabled: boolean;
+  disabled?: boolean;
   onChange?: (fileList: string[]) => void;
   uploadApi?: (uploadApi: UploadApi) => void;
 }
@@ -36,14 +41,14 @@ function getBase64(file: any): Promise<string> {
   });
 }
 
-export default function RUpload(props: RUploadsProps) {
+export default function RUploads(props: RUploadsProps) {
   const {
     disabled = false,
     uploadApi = () => {},
     label,
-    url = process.env.REACT_APP_PHOTO_POST,
+    url = process.env.REACT_APP_FILE_POST,
     initIds,
-    viewUrl = process.env.REACT_APP_PHOTO_GET,
+    viewUrl = process.env.REACT_APP_FILE_GET,
     onChange = () => {},
   } = props;
 
@@ -52,25 +57,29 @@ export default function RUpload(props: RUploadsProps) {
   const [previewImage, setPreviewImage] = useState<any>();
 
   useEffect(() => {
-    setFileList(
-      initIds?.map((id) => ({
-        uid: id,
-        url: `${viewUrl}/${id}`,
-        status: "done",
-        name: id,
-        response: id,
-        type: "image/*",
-      }))
-    );
+    if (initIds?.filter(id => id))
+      setFileList(
+        initIds?.filter(id => id).map((id) => ({
+          uid: id,
+          url: `${viewUrl}/${id}`,
+          status: "done",
+          name: id,
+          response: { fileId: id },
+          type: "image/*",
+        }))
+      );
   }, [initIds, viewUrl]);
-
-  const handleRemove = useCallback((file: UploadFile<any>) => {
-    Axios.delete(url || "", { data: { id: file.response } })
-      .then(() => {
-        message.success("Xóa thành công!");
-      })
-      .catch((err) => message.error(err.message));
-  }, [url])
+  const handleRemove = useCallback(
+    (file: UploadFile<any>) => {
+      const id = file.response.fileId;
+      Axios.delete(`${url}/${id}`, { headers: { token: getToken() } })
+        .then(() => {
+          message.success("Xóa thành công!");
+        })
+        .catch((err) => message.error(err.message));
+    },
+    [url]
+  );
 
   useEffect(() => {
     uploadApi({
@@ -87,12 +96,12 @@ export default function RUpload(props: RUploadsProps) {
   }, [fileList, uploadApi, handleRemove]);
 
   function handleChange({ fileList }: UploadChangeParam<UploadFile<any>>) {
-    const filterList = fileList.filter((file) => file.type.includes("image"));
-    setFileList(filterList);
-    onChange(filterList.map((file) => file.response));
+    const filtered = fileList.filter(
+      (file) => file.type.includes("image")
+    );
+    setFileList(filtered);
+    onChange(filtered?.map((file) => file.response?.fileId || "") || []);
   }
-
-  
 
   function beforeUpload(file: RcFile) {
     const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
@@ -129,6 +138,7 @@ export default function RUpload(props: RUploadsProps) {
         onRemove={handleRemove}
         onPreview={handlePreview}
         fileList={fileList}
+        headers={{ token: getToken() || "" }}
       >
         <div>
           <PlusOutlined />

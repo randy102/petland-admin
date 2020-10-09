@@ -25,7 +25,7 @@ export default class UploadAdapter {
         .then((res) => {
           const resData = res.data;
           const url = process.env.REACT_APP_BACKEND_URL
-          resData.default = `${url}/file/${resData.fileName}`;
+          resData.default = `${url}/file/${resData.fileId}`;
           resolve(resData);
         })
         .catch((error) => {

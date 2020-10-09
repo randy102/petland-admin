@@ -10,6 +10,7 @@ import * as axios from "axios";
 import "./rupload.scss";
 import { UploadChangeParam } from "antd/lib/upload";
 import { RcFile, UploadFile } from "antd/lib/upload/interface";
+import { getToken } from "utils/auth";
 
 const Axios = axios.default;
 
@@ -40,9 +41,9 @@ export default function RUpload(props: RUploadProps) {
     disabled = false,
     uploadApi = () => {},
     label,
-    url = process.env.REACT_APP_PHOTO_POST || "",
+    url = process.env.REACT_APP_FILE_POST || "",
     initId,
-    viewUrl = process.env.REACT_APP_PHOTO_GET,
+    viewUrl = process.env.REACT_APP_FILE_GET,
     onChange = () => {},
   } = props;
 
@@ -64,14 +65,14 @@ export default function RUpload(props: RUploadProps) {
       return;
     }
     if (info.file.status === "done") {
-      setImageId(info.file.response);
+      setImageId(info.file.response?.fileId);
       setLoading(false);
-      onChange(info.file.response);
+      onChange(info.file.response?.fileId);
     }
   }
 
   function handleRemove() {
-    Axios.delete(url, { data: { id: imageId } })
+    Axios.delete(`${url}/${imageId}`, {headers: {token: getToken()}})
       .then(() => {
         message.success("Xóa thành công!");
         setImageId(undefined);
@@ -112,6 +113,7 @@ export default function RUpload(props: RUploadProps) {
             action={url}
             beforeUpload={beforeUpload}
             onChange={handleChange}
+            headers={{token: getToken() || ""}}
           >
             {imageId ? (
               <img

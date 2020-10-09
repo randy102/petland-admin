@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form, message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import RInput from "components/Shared/RForm/RInput";
@@ -11,20 +11,23 @@ import { Redirect, useHistory } from "react-router-dom";
 import "./Login.scss";
 
 function Login() {
+  const [loading, setLoading] = useState(false);
   const requestLogin = useMutation({ api: "/login", method: "post" });
   const [form] = Form.useForm();
   const history = useHistory();
 
   function onLogin() {
     form.validateFields().then((inputs) => {
+      setLoading(true);
       requestLogin({data: inputs})
         .then((res) => {
           logIn(res.data);
           history.push("/");
         })
         .catch((error) => {
-          message.error(`Error: ${error.response.data}`)
-        });
+          message.error(`Error: ${error.response?.data}`)
+        })
+        .finally(() => setLoading(false))
     });
   }
   
@@ -49,7 +52,7 @@ function Login() {
           prefix={<LockOutlined />}
         />
 
-        <Button onClick={onLogin} style={{ marginTop: 5 }} block type="primary">
+        <Button loading={loading} onClick={onLogin} style={{ marginTop: 5 }} block type="primary">
           Submit
         </Button>
       </RForm>

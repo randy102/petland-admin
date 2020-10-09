@@ -63,7 +63,6 @@ function RSelect(props: RSelectProps) {
     key: name,
     showSearch,
     filterOption: (input: string, option: any) => {
-      console.log({data, option})
       let row = data?.find((r: any) => String(r._id) === option.key);
       let filterArr: any = row && filterProps(row);
       return filterArr?.some(

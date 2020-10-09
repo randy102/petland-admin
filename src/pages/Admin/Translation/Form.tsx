@@ -17,6 +17,12 @@ export default function Form(props: FormProps) {
         {(fields, { add, remove }) => {
           return (
             <div>
+              <AndForm.Item>
+                <Button type="dashed" onClick={() => add({},0)}>
+                  <PlusOutlined /> Add field
+                </Button>
+              </AndForm.Item>
+
               {fields.map((field) => (
                 <Space
                   key={field.key}
@@ -39,27 +45,18 @@ export default function Form(props: FormProps) {
                   >
                     <Input placeholder="Value" />
                   </AndForm.Item>
-                  <Button danger icon={<MinusCircleOutlined/>} onClick={() => {
-                    Modal.confirm({
-                      title: "Are you sure?",
-                      onOk: () => remove(field.name)
-                    })
-                  }}
+                  <Button
+                    danger
+                    icon={<MinusCircleOutlined />}
+                    onClick={() => {
+                      Modal.confirm({
+                        title: "Are you sure?",
+                        onOk: () => remove(field.name),
+                      });
+                    }}
                   />
                 </Space>
               ))}
-
-              <AndForm.Item>
-                <Button
-                  type="dashed"
-                  onClick={() => {
-                    add();
-                  }}
-                  block
-                >
-                  <PlusOutlined /> Add field
-                </Button>
-              </AndForm.Item>
             </div>
           );
         }}
