@@ -215,7 +215,9 @@ export default function RGrid(props: RGridProps) {
       )}
 
       <Table
-        size="middle"
+        size="small"
+        scroll={{x : true}}
+        tableLayout="auto"
         showSorterTooltip={false}
         pagination={pagination && { defaultPageSize: 10 }}
         loading={loading}
