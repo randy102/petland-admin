@@ -5,6 +5,7 @@ import { handleRequestError, useMutation } from "utils/request";
 import { filterLang } from "utils/languages";
 import Update from "./Update";
 import moment from "moment";
+import RImage from "components/Shared/RImage";
 
 interface GridProps {
   res: any;
@@ -23,7 +24,7 @@ export default function Grid(props: GridProps) {
   const requestDelete = useMutation({ method: "delete" });
 
   function handleDelete(row: any[]) {
-    requestDelete({ api: "/project/" + row[0]._id })
+    requestDelete({ api: "/partner/" + row[0]._id })
       .then(() => {
         message.success("Success!");
         refetch();
@@ -63,49 +64,15 @@ export default function Grid(props: GridProps) {
         ]}
         colDef={[
           {
+            title: "Logo",
+            dataIndex: "logo",
+            key: "logo",
+            render: (id) => id && <RImage id={id} width={60}/>
+          },
+          { 
             title: "Name",
             dataIndex: "name",
             key: "name",
-          },
-          {
-            title: "Type",
-            dataIndex: "type",
-            key: "type",
-          },
-          {
-            title: "Address",
-            key: "address",
-            dataIndex: "address",
-          },
-          {
-            title: "Year",
-            dataIndex: "year",
-            key: "year",
-          },
-          {
-            title: "Status",
-            dataIndex: "status",
-            key: "status",
-          },
-          {
-            title: "Investor",
-            dataIndex: "investor",
-            key: "investor",
-          },
-          {
-            title: "Investor",
-            dataIndex: "investor",
-            key: "investor",
-          },
-          {
-            title: "Area",
-            dataIndex: "area",
-            key: "area",
-          },
-          {
-            title: "Title",
-            dataIndex: "title",
-            key: "title",
           },
           {
             title: "Description",
@@ -113,16 +80,21 @@ export default function Grid(props: GridProps) {
             key: "description",
           },
           {
+            title: "Link",
+            key: "link",
+            dataIndex: "link",
+          },
+          {
             title: "Created",
             key: "created",
             dataIndex: "createdAt",
-            render: (val) => moment(val).format("D/M/YYYY")
+            render: (val) => val && moment(val).format("D/M/YYYY")
           },
           {
             title: "Updated",
             key: "updated",
             dataIndex: "updatedAt",
-            render: (val) => moment(val).format("D/M/YYYY")
+            render: (val) => val && moment(val).format("D/M/YYYY")
           }
         ]}
       />

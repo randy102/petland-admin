@@ -1,4 +1,4 @@
-import { Button, message, Skeleton, Tabs } from "antd";
+import { Button, message, Skeleton, Space, Tabs } from "antd";
 import { useForm } from "components/Shared/RForm";
 import React, { useEffect, useState } from "react";
 import { handleRequestError, useFetch, useMutation } from "utils/request";
@@ -18,32 +18,42 @@ export default function Translation() {
     const viData = res?.data.find((i18n: any) => i18n.lang === "vi");
     enForm.setFieldsValue({ en: enData?.data });
     viForm.setFieldsValue({ vi: viData?.data });
-  },[res, enForm, viForm]);
+  }, [res, enForm, viForm]);
 
   async function handleSave() {
     const enInputs = await enForm.validateFields();
     const viInputs = await viForm.validateFields();
-    
+
     setSaveLoading(true);
 
-    const upsertEn = await requestSave({
+    const upsertEn = requestSave({
       data: {
-        lang: 'en',
-        data: enInputs.en
-      }
-    }).catch(handleRequestError)
-    const upsertVi = await requestSave({
+        lang: "en",
+        data: enInputs.en,
+      },
+    }).catch(handleRequestError);
+    const upsertVi = requestSave({
       data: {
-        lang: 'vi',
-        data: viInputs.vi || []
-      }
-    }).catch(handleRequestError)
+        lang: "vi",
+        data: viInputs.vi || [],
+      },
+    }).catch(handleRequestError);
 
     Promise.all([upsertEn, upsertVi]).then(() => {
-      setSaveLoading(false)
-      message.success("Success!")
-      refetch()
-    })
+      setSaveLoading(false);
+      message.success("Success!");
+      refetch();
+    });
+  }
+
+  function handleCopy() {
+    if (curTab === "en") {
+      enForm.setFieldsValue({en: viForm.getFieldsValue().vi});
+      message.success("Copied!");
+    } else {
+      viForm.setFieldsValue({vi: enForm.getFieldsValue().en});
+      message.success("Copied!");
+    }
   }
 
   if (loading) return <Skeleton active />;
@@ -52,9 +62,14 @@ export default function Translation() {
     <Tabs
       style={{ maxWidth: 600 }}
       tabBarExtraContent={
-        <Button loading={saveLoading} onClick={handleSave} type="primary">
-          Save
-        </Button>
+        <Space style={{ transform: "translateY(7px)" }}>
+          <Button onClick={handleCopy}>
+            Copy from {curTab === "vi" ? "English" : "Vietnamese"}
+          </Button>
+          <Button loading={saveLoading} onClick={handleSave} type="primary">
+            Save
+          </Button>
+        </Space>
       }
       activeKey={curTab}
       onTabClick={(key) => setCurTab(key)}

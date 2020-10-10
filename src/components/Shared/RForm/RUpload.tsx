@@ -20,16 +20,16 @@ interface UploadApi {
 
 interface RUploadProps {
   // URL to upload image
-  url: string;
+  url?: string;
 
   // URL to load uploaded image
-  viewUrl: string;
+  viewUrl?: string;
 
-  crop: boolean;
-  cropShape: "round" | "rect";
+  crop?: boolean;
+  cropShape?: "round" | "rect";
   label?: string;
   initId?: string;
-  disabled: boolean;
+  disabled?: boolean;
   onChange?: (uploadedId: string | undefined) => void;
   uploadApi?: (uploadApi: UploadApi) => void;
 }
