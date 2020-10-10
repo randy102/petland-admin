@@ -14,7 +14,7 @@ interface GridProps {
 export default function Grid(props: GridProps) {
   const { res, loading, refetch } = props;
 
-  const [lang, setLang] = useState<string>("en");
+  const [lang, setLang] = useState<string>("vi");
   const [showForm, setShowForm] = useState<boolean>(false);
   const [initRow, setInitRow] = useState<any>();
  
@@ -46,8 +46,8 @@ export default function Grid(props: GridProps) {
         optionType="button"
         buttonStyle="solid"
         options={[
-          { label: "En", value: "en" },
           { label: "Vi", value: "vi" },
+          { label: "En", value: "en" },
         ]}
         value={lang}
         onChange={(e) => setLang(e.target.value)}

@@ -1,4 +1,4 @@
-import { Button, message, Tabs } from "antd";
+import { Button, message, Space, Tabs } from "antd";
 import { useForm } from "components/Shared/RForm";
 import RUploads from "components/Shared/RForm/RUploads";
 import { StdCreateProps } from "components/Shared/RForm/types";
@@ -17,49 +17,61 @@ export default function Create(props: CreateProps) {
 
   const [enForm] = useForm();
   const [viForm] = useForm();
-  const [enCK, setEnCK] = useState<any>();
-  const [viCK, setViCK] = useState<any>();
+  const [enCK, setEnCK] = useState<string>();
+  const [viCK, setViCK] = useState<string>();
   const [imgs, setImgs] = useState<string[]>();
 
+  const [lang, setLang] = useState<string>("vi");
   const [saveLoading, setSaveLoading] = useState(false);
   const requestCreate = useMutation({ api: "/project", method: "post" });
 
-  async function handleSave() {
-    try {
-      const enInputs = await enForm.validateFields();
-      const viInputs = await viForm.validateFields();
+  function handleSave() {
+    const enInputs = enForm.validateFields();
+    const viInputs = viForm.validateFields();
 
-      setSaveLoading(true);
+    Promise.all([enInputs, viInputs])
+      .then(([en, vi]) => {
+        setSaveLoading(true);
 
-      requestCreate({
-        data: {
-          images: imgs,
-          data: [
-            {
-              ...enInputs,
-              content: enCK,
-              lang: "en",
-            },
-            {
-              ...viInputs,
-              content: viCK,
-              lang: "vi",
-            },
-          ],
-        },
-      })
-        .then(() => {
-          message.success("Success!");
-          refetch();
-          setCurTab("list");
-          viForm.resetFields();
-          enForm.resetFields();
-          setEnCK("");
-          setViCK("");
+        let toCreateData = [];
+        if (en.name) {
+          toCreateData.push({ ...en, content: enCK, lang: "en" });
+        }
+        if (vi.name) {
+          toCreateData.push({ ...vi, content: viCK, lang: "vi" });
+        }
+
+        requestCreate({
+          data: {
+            images: imgs || [],
+            data: toCreateData,
+          },
         })
-        .catch(handleRequestError)
-        .finally(() => setSaveLoading(false));
-    } catch (err) {handleFieldError(err)}
+          .then(() => {
+            message.success("Success!");
+            refetch();
+            setCurTab("list");
+            viForm.resetFields();
+            enForm.resetFields();
+            setEnCK("");
+            setViCK("");
+          })
+          .catch(handleRequestError)
+          .finally(() => setSaveLoading(false));
+      })
+      .catch(handleFieldError);
+  }
+
+  function handleCopy() {
+    if (lang === "en") {
+      enForm.setFieldsValue(viForm.getFieldsValue());
+      setEnCK(viCK);
+      message.success("Copied!");
+    } else {
+      viForm.setFieldsValue(enForm.getFieldsValue());
+      setViCK(enCK);
+      message.success("Copied!");
+    }
   }
 
   return (
@@ -67,23 +79,25 @@ export default function Create(props: CreateProps) {
       <Tabs
         style={{ maxWidth: 600 }}
         type="card"
+        activeKey={lang}
+        onTabClick={setLang}
         tabBarExtraContent={
-          <Button
-            style={{ transform: "translateY(4px)" }}
-            loading={saveLoading}
-            onClick={handleSave}
-            type="primary"
-          >
-            Save
-          </Button>
+          <Space style={{ transform: "translateY(4px)" }}>
+            <Button onClick={handleCopy}>
+              Copy from {lang === "vi" ? "English" : "Vietnamese"}
+            </Button>
+            <Button loading={saveLoading} onClick={handleSave} type="primary">
+              Save
+            </Button>
+          </Space>
         }
       >
-        <Tabs.TabPane key="en" tab="English">
-          <Form form={enForm} onChange={setEnCK} initCK={enCK} />
-        </Tabs.TabPane>
-
         <Tabs.TabPane key="vi" tab="Vietnamese">
           <Form form={viForm} onChange={setViCK} initCK={viCK} />
+        </Tabs.TabPane>
+
+        <Tabs.TabPane key="en" tab="English">
+          <Form form={enForm} onChange={setEnCK} initCK={enCK} />
         </Tabs.TabPane>
       </Tabs>
       <RUploads onChange={setImgs} label="Images" />

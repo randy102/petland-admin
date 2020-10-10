@@ -31,23 +31,23 @@ export default function Update(props: UpdateProps) {
 
   const [enForm] = useForm();
   const [viForm] = useForm();
-  const [enCK, setEnCK] = useState<any>();
-  const [viCK, setViCK] = useState<any>();
+  const [enCK, setEnCK] = useState<string>();
+  const [viCK, setViCK] = useState<string>();
   const [imgs, setImgs] = useState<string[]>();
 
   const [submitLoading, setSubmitLoading] = useState(false);
   const requestUpdate = useMutation({ method: "put" });
 
   const initData: any = {
-    en: getLang("en", initRow),
     vi: getLang("vi", initRow),
+    en: getLang("en", initRow),
   };
 
   useEffect(() => {
     enForm.setFieldsValue(initData["en"]);
     viForm.setFieldsValue(initData["vi"]);
-    setEnCK(initData["en"].content);
-    setViCK(initData["vi"].content);
+    setEnCK(initData["en"]?.content || "");
+    setViCK(initData["vi"]?.content || "");
     setImgs(initRow?.images);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initRow, lang]);
@@ -55,52 +55,49 @@ export default function Update(props: UpdateProps) {
   function handleClose() {
     setInitRow(undefined);
     setShowForm(false);
-    setEnCK(undefined);
-    setViCK(undefined);
+    setEnCK('');
+    setViCK('');
     setImgs(undefined);
+    enForm.resetFields();
+    viForm.resetFields();
   }
 
-  async function handleSubmit(submitImgs?: string[]) {
-    try {
-      const enInputs = await enForm.validateFields();
-      const viInputs = await viForm.validateFields();
-
-      setSubmitLoading(true);
-      requestUpdate({
-        api: "/project/" + initRow?._id,
-        data: {
-          images: submitImgs || imgs,
-          data: [
-            {
-              ...(enInputs.name ? enInputs : initData["en"]),
-              content: enCK,
-              lang: "en",
-            },
-            {
-              ...(viInputs.name ? viInputs : initData["vi"]),
-              content: viCK,
-              lang: "vi",
-            },
-          ],
-        },
-      })
-        .then(() => {
-          if(!submitImgs){
-            handleClose();
-            message.success("Success!");
-          }
-          refetch();
+  function handleSubmit(submitImgs?: string[]) {
+    const enInputs =  enForm.validateFields();
+    const viInputs =  viForm.validateFields();
+    Promise.all([enInputs, viInputs])
+      .then(([en, vi]) => {
+        setSubmitLoading(true);
+        let toUpdateData = [];
+        if (en.name) {
+          toUpdateData.push({ ...en, content: enCK, lang: "en" });
+        }
+        if (vi.name) {
+          toUpdateData.push({ ...vi, content: viCK, lang: "vi" });
+        }
+        requestUpdate({
+          api: "/project/" + initRow?._id,
+          data: {
+            images: submitImgs || imgs,
+            data: toUpdateData,
+          },
         })
-        .catch(handleRequestError)
-        .finally(() => setSubmitLoading(false));
-    } catch (err) {
-      handleFieldError(err);
-    }
+          .then(() => {
+            if (!submitImgs) {
+              handleClose();
+              message.success("Success!");
+            }
+            refetch();
+          })
+          .catch(handleRequestError)
+          .finally(() => setSubmitLoading(false));
+      })
+      .catch(handleFieldError);
   }
 
   function handleImgsChange(imgs: string[]) {
     setImgs(imgs);
-    handleSubmit(imgs)
+    handleSubmit(imgs);
   }
 
   return (
@@ -122,19 +119,18 @@ export default function Update(props: UpdateProps) {
       ]}
     >
       <Tabs type="card" activeKey={lang} onTabClick={setLang}>
-        <Tabs.TabPane key="en" tab="English">
-          <Form
-            form={enForm}
-            onChange={setEnCK}
-            initCK={initData.en?.content}
-          />
-        </Tabs.TabPane>
-
         <Tabs.TabPane key="vi" tab="Vietnamese">
           <Form
             form={viForm}
             onChange={setViCK}
-            initCK={initData.vi?.content}
+            initCK={viCK}
+          />
+        </Tabs.TabPane>
+        <Tabs.TabPane key="en" tab="English">
+          <Form
+            form={enForm}
+            onChange={setEnCK}
+            initCK={enCK}
           />
         </Tabs.TabPane>
       </Tabs>

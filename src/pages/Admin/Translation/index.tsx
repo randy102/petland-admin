@@ -9,7 +9,7 @@ export default function Translation() {
   const [saveLoading, setSaveLoading] = useState(false);
   const requestSave = useMutation({ api: "/i18n", method: "post" });
 
-  const [curTab, setCurTab] = useState("en");
+  const [curTab, setCurTab] = useState("vi");
   const [enForm] = useForm();
   const [viForm] = useForm();
 
@@ -59,12 +59,11 @@ export default function Translation() {
       activeKey={curTab}
       onTabClick={(key) => setCurTab(key)}
     >
-      <Tabs.TabPane key="en" tab="English">
-        <Form name="en" form={enForm} />
-      </Tabs.TabPane>
-
       <Tabs.TabPane key="vi" tab="Vietnamese">
         <Form name="vi" form={viForm} />
+      </Tabs.TabPane>
+      <Tabs.TabPane key="en" tab="English">
+        <Form name="en" form={enForm} />
       </Tabs.TabPane>
     </Tabs>
   );
