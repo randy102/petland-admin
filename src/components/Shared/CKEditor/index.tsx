@@ -10,12 +10,14 @@ interface EditorProps {
 
 export default function CKEditor(props: EditorProps) {
   const { init = '', onChange } = props;
+
   return (
     <div style={{ marginBottom: 15, marginTop: 10 }}>
       <MainCKEditor
         data={init}
         editor={ClassicEditor}
         onInit={(editor: any) => {
+          editor.setData(init);
           editor.plugins.get("FileRepository").createUploadAdapter = function (
             loader: any
           ) {

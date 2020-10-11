@@ -3,7 +3,7 @@ import { useForm } from "components/Shared/RForm";
 import RUploads, { UploadApi } from "components/Shared/RForm/RUploads";
 import { StdCreateProps } from "components/Shared/RForm/types";
 import React, { Dispatch, useState } from "react";
-import { handleFieldError } from "utils/form";
+import { handleFieldError, isEmpty } from "utils/form";
 import { handleRequestError, useMutation } from "utils/request";
 import Form from "./Form";
 
@@ -24,7 +24,7 @@ export default function Create(props: CreateProps) {
   const [uploadAPI, setUploadAPI] = useState<UploadApi>();
   const [lang, setLang] = useState<string>("vi");
   const [saveLoading, setSaveLoading] = useState(false);
-  const requestCreate = useMutation({ api: "/project", method: "post" });
+  const requestCreate = useMutation({ api: "/career", method: "post" });
 
   function handleSave() {
     const enInputs = enForm.validateFields();
@@ -35,10 +35,10 @@ export default function Create(props: CreateProps) {
         setSaveLoading(true);
 
         let toCreateData = [];
-        if (en.name) {
+        if (!isEmpty(en)) {
           toCreateData.push({ ...en, content: enCK, lang: "en" });
         }
-        if (vi.name) {
+        if (!isEmpty(vi)) {
           toCreateData.push({ ...vi, content: viCK, lang: "vi" });
         }
 

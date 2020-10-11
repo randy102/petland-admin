@@ -1,7 +1,9 @@
 export function getLang(lang: string, row: any) {
+  const {data, ...rest} = row || {}
   return row && {
     _id: row?._id,
     ...row.data.find((record: any) => record.lang === lang),
+    ...rest
   };
 }
 

@@ -24,13 +24,13 @@ export default function Grid(props: GridProps) {
 
   function handleDelete(row: any[]) {
     setDeleteLoading(true);
-    requestDelete({ api: "/project/" + row[0]._id })
+    requestDelete({ api: "/news/" + row[0]._id })
       .then(() => {
         message.success("Success!");
         refetch();
       })
       .catch(handleRequestError)
-      .finally(() => setDeleteLoading(false))
+      .finally(() => setDeleteLoading(false));
   }
 
   function handleUpdate(row: any[]) {
@@ -60,32 +60,8 @@ export default function Grid(props: GridProps) {
         ]}
         colDef={[
           {
-            title: "Name",
-            dataIndex: "name",
-          },
-          {
             title: "Type",
             dataIndex: "type",
-          },
-          {
-            title: "Address",
-            dataIndex: "address",
-          },
-          {
-            title: "Year",
-            dataIndex: "year",
-          },
-          {
-            title: "Status",
-            dataIndex: "status",
-          },
-          {
-            title: "Investor",
-            dataIndex: "investor",
-          },
-          {
-            title: "Area",
-            dataIndex: "area",
           },
           {
             title: "Title",

@@ -5,6 +5,7 @@ import { handleRequestError, useMutation } from "utils/request";
 import { filterLang } from "utils/languages";
 import Update from "./Update";
 import moment from "moment";
+import RImage from "components/Shared/RImage";
 
 interface GridProps {
   res: any;
@@ -23,14 +24,14 @@ export default function Grid(props: GridProps) {
   const requestDelete = useMutation({ method: "delete" });
 
   function handleDelete(row: any[]) {
-    setDeleteLoading(true);
-    requestDelete({ api: "/project/" + row[0]._id })
+    setDeleteLoading(true)
+    requestDelete({ api: "/partner/" + row[0]._id })
       .then(() => {
         message.success("Success!");
         refetch();
       })
       .catch(handleRequestError)
-      .finally(() => setDeleteLoading(false))
+      .finally(() => setDeleteLoading(false));
   }
 
   function handleUpdate(row: any[]) {
@@ -60,50 +61,33 @@ export default function Grid(props: GridProps) {
         ]}
         colDef={[
           {
+            title: "Logo",
+            dataIndex: "logo",
+            render: (id) => id && <RImage id={id} width={60} />,
+          },
+          {
             title: "Name",
             dataIndex: "name",
-          },
-          {
-            title: "Type",
-            dataIndex: "type",
-          },
-          {
-            title: "Address",
-            dataIndex: "address",
-          },
-          {
-            title: "Year",
-            dataIndex: "year",
-          },
-          {
-            title: "Status",
-            dataIndex: "status",
-          },
-          {
-            title: "Investor",
-            dataIndex: "investor",
-          },
-          {
-            title: "Area",
-            dataIndex: "area",
-          },
-          {
-            title: "Title",
-            dataIndex: "title",
           },
           {
             title: "Description",
             dataIndex: "description",
           },
           {
+            title: "Link",
+            dataIndex: "link",
+            render: (link) => <a href={link}>{link}</a>,
+          },
+          {
             title: "Created",
             dataIndex: "createdAt",
-            render: (val) => moment(val).format("D/M/YYYY"),
+            render: (val) => val && moment(val).format("D/M/YYYY"),
           },
           {
             title: "Updated",
+
             dataIndex: "updatedAt",
-            render: (val) => moment(val).format("D/M/YYYY"),
+            render: (val) => val && moment(val).format("D/M/YYYY"),
           },
         ]}
       />

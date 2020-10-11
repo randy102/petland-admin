@@ -14,22 +14,22 @@ import { getToken } from "utils/auth";
 
 const Axios = axios.default;
 
-interface UploadApi {
+export interface UploadApi {
   reset: () => void;
 }
 
 interface RUploadProps {
   // URL to upload image
-  url: string;
+  url?: string;
 
   // URL to load uploaded image
-  viewUrl: string;
+  viewUrl?: string;
 
-  crop: boolean;
-  cropShape: "round" | "rect";
+  crop?: boolean;
+  cropShape?: "round" | "rect";
   label?: string;
   initId?: string;
-  disabled: boolean;
+  disabled?: boolean;
   onChange?: (uploadedId: string | undefined) => void;
   uploadApi?: (uploadApi: UploadApi) => void;
 }
@@ -160,7 +160,7 @@ export default function RUpload(props: RUploadProps) {
           onClick={handleRemove}
           icon={<DeleteOutlined />}
         >
-          Xóa ảnh
+          Delete
         </Button>
       )}
 

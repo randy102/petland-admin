@@ -5,9 +5,9 @@ import Create from "./Create";
 import { useFetch } from "utils/request";
 import Grid from "./Grid";
 
-export default function Project() {
+export default function Career() {
   const [curTab, setCurTab] = useState('list')
-  const [res, { loading, refetch }] = useFetch({ api: "/project" });
+  const [res, { loading, refetch }] = useFetch({ api: "/career" });
 
   return (
     <div>

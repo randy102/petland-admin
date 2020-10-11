@@ -1,6 +1,6 @@
 import { Button, message, Space, Tabs } from "antd";
 import { useForm } from "components/Shared/RForm";
-import RUploads, { UploadApi } from "components/Shared/RForm/RUploads";
+import RUpload, {UploadApi} from "components/Shared/RForm/RUpload";
 import { StdCreateProps } from "components/Shared/RForm/types";
 import React, { Dispatch, useState } from "react";
 import { handleFieldError } from "utils/form";
@@ -17,14 +17,12 @@ export default function Create(props: CreateProps) {
 
   const [enForm] = useForm();
   const [viForm] = useForm();
-  const [enCK, setEnCK] = useState<string>();
-  const [viCK, setViCK] = useState<string>();
-  const [imgs, setImgs] = useState<string[]>();
+  const [logo, setLogo] = useState<string>();
 
   const [uploadAPI, setUploadAPI] = useState<UploadApi>();
   const [lang, setLang] = useState<string>("vi");
   const [saveLoading, setSaveLoading] = useState(false);
-  const requestCreate = useMutation({ api: "/project", method: "post" });
+  const requestCreate = useMutation({ api: "/partner", method: "post" });
 
   function handleSave() {
     const enInputs = enForm.validateFields();
@@ -36,15 +34,15 @@ export default function Create(props: CreateProps) {
 
         let toCreateData = [];
         if (en.name) {
-          toCreateData.push({ ...en, content: enCK, lang: "en" });
+          toCreateData.push({ ...en, lang: "en" });
         }
         if (vi.name) {
-          toCreateData.push({ ...vi, content: viCK, lang: "vi" });
+          toCreateData.push({ ...vi, lang: "vi" });
         }
 
         requestCreate({
           data: {
-            images: imgs || [],
+            logo: logo || "",
             data: toCreateData,
           },
         })
@@ -54,8 +52,6 @@ export default function Create(props: CreateProps) {
             setCurTab("list");
             viForm.resetFields();
             enForm.resetFields();
-            setEnCK("");
-            setViCK("");
             uploadAPI?.reset();
           })
           .catch(handleRequestError)
@@ -67,11 +63,9 @@ export default function Create(props: CreateProps) {
   function handleCopy() {
     if (lang === "en") {
       enForm.setFieldsValue(viForm.getFieldsValue());
-      setEnCK(viCK);
       message.success("Copied!");
     } else {
       viForm.setFieldsValue(enForm.getFieldsValue());
-      setViCK(enCK);
       message.success("Copied!");
     }
   }
@@ -95,14 +89,19 @@ export default function Create(props: CreateProps) {
         }
       >
         <Tabs.TabPane key="vi" tab="Vietnamese">
-          <Form form={viForm} onChange={setViCK} initCK={viCK} />
+          <Form form={viForm} />
         </Tabs.TabPane>
 
         <Tabs.TabPane key="en" tab="English">
-          <Form form={enForm} onChange={setEnCK} initCK={enCK} />
+          <Form form={enForm} />
         </Tabs.TabPane>
       </Tabs>
-      <RUploads onChange={setImgs} label="Images" uploadApi={setUploadAPI}/>
+      <RUpload
+        onChange={setLogo}
+        label="Logo"
+        cropShape="rect"
+        uploadApi={setUploadAPI}
+      />
     </>
   );
 }
