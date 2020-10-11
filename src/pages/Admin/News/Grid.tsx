@@ -15,6 +15,7 @@ interface GridProps {
 export default function Grid(props: GridProps) {
   const { res, loading, refetch } = props;
 
+  const [deleteLoading, setDeleteLoading] = useState<boolean>(false);
   const [lang, setLang] = useState<string>("vi");
   const [showForm, setShowForm] = useState<boolean>(false);
   const [initRow, setInitRow] = useState<any>();
@@ -22,12 +23,14 @@ export default function Grid(props: GridProps) {
   const requestDelete = useMutation({ method: "delete" });
 
   function handleDelete(row: any[]) {
-    requestDelete({ api: "/project/" + row[0]._id })
+    setDeleteLoading(true);
+    requestDelete({ api: "/news/" + row[0]._id })
       .then(() => {
         message.success("Success!");
         refetch();
       })
-      .catch(handleRequestError);
+      .catch(handleRequestError)
+      .finally(() => setDeleteLoading(false));
   }
 
   function handleUpdate(row: any[]) {
@@ -53,63 +56,28 @@ export default function Grid(props: GridProps) {
         headDef={[
           { type: "refresh", onClick: () => refetch() },
           { type: "update", onClick: handleUpdate },
-          { type: "delete", onClick: handleDelete },
+          { type: "delete", onClick: handleDelete, loading: deleteLoading },
         ]}
         colDef={[
           {
-            title: "Name",
-            dataIndex: "name",
-            key: "name",
-          },
-          {
             title: "Type",
             dataIndex: "type",
-            key: "type",
-          },
-          {
-            title: "Address",
-            key: "address",
-            dataIndex: "address",
-          },
-          {
-            title: "Year",
-            dataIndex: "year",
-            key: "year",
-          },
-          {
-            title: "Status",
-            dataIndex: "status",
-            key: "status",
-          },
-          {
-            title: "Investor",
-            dataIndex: "investor",
-            key: "investor",
-          },
-          {
-            title: "Area",
-            dataIndex: "area",
-            key: "area",
           },
           {
             title: "Title",
             dataIndex: "title",
-            key: "title",
           },
           {
             title: "Description",
             dataIndex: "description",
-            key: "description",
           },
           {
             title: "Created",
-            key: "created",
             dataIndex: "createdAt",
             render: (val) => moment(val).format("D/M/YYYY"),
           },
           {
             title: "Updated",
-            key: "updated",
             dataIndex: "updatedAt",
             render: (val) => moment(val).format("D/M/YYYY"),
           },

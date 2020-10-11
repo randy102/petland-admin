@@ -93,7 +93,6 @@ export default function Update(props: UpdateProps) {
   }
 
   function handleLogoChange(logo: string | undefined) {
-    console.log({logo})
     setLogo(logo);
     handleSubmit(logo || "");
   }
@@ -107,7 +106,10 @@ export default function Update(props: UpdateProps) {
         {
           name: "Save",
           type: "primary",
-          onClick: () => handleSubmit(),
+          onClick: () => {
+            if(lang==='vi') setLang('en');
+            setTimeout(() => handleSubmit());
+          },
           loading: submitLoading,
         },
         {

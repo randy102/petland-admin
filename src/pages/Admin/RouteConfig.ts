@@ -1,8 +1,9 @@
-import { ProjectOutlined, TranslationOutlined, UserOutlined, TeamOutlined } from "@ant-design/icons";
+import { ProjectOutlined, TranslationOutlined, UserOutlined, TeamOutlined, EditOutlined } from "@ant-design/icons";
 import Translation from "./Translation";
 import Project from "./Project";
 import User from "./User";
 import Partner from "./Partner";
+import News from "./News";
 
 interface RouteConfig {
   path: string
@@ -29,6 +30,12 @@ export const ROUTES: RouteConfig[] = [
     name: 'Partners',
     icon: TeamOutlined,
     component: Partner
+  },
+  {
+    path: '/news',
+    name: 'News',
+    icon: EditOutlined,
+    component: News
   },
   {
     path: '/translation',
