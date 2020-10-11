@@ -1,7 +1,7 @@
 export function getLang(lang: string, row: any) {
-  return {
+  return row && {
     _id: row?._id,
-    ...row?.data.find((record: any) => record.lang === lang),
+    ...row.data.find((record: any) => record.lang === lang),
   };
 }
 
