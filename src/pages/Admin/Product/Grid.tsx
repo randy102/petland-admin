@@ -23,8 +23,8 @@ export default function Grid(props: GridProps) {
   const requestDelete = useMutation({ method: "delete" });
 
   function handleDelete(row: any[]) {
-    setDeleteLoading(true);
-    requestDelete({ api: "/project/" + row[0]._id })
+    setDeleteLoading(true)
+    requestDelete({ api: "/product/" + row[0]._id })
       .then(() => {
         message.success("Success!");
         refetch();
@@ -62,34 +62,6 @@ export default function Grid(props: GridProps) {
           {
             title: "Name",
             dataIndex: "name",
-          },
-          {
-            title: "Type",
-            dataIndex: "type",
-          },
-          {
-            title: "Address",
-            dataIndex: "address",
-          },
-          {
-            title: "Year",
-            dataIndex: "year",
-          },
-          {
-            title: "Status",
-            dataIndex: "status",
-          },
-          {
-            title: "Investor",
-            dataIndex: "investor",
-          },
-          {
-            title: "Area",
-            dataIndex: "area",
-          },
-          {
-            title: "Title",
-            dataIndex: "title",
           },
           {
             title: "Description",

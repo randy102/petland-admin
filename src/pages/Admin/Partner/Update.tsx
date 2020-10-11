@@ -1,9 +1,9 @@
 import { message, Tabs } from "antd";
 import RDrawer from "components/Shared/RDrawer";
 import { useForm } from "components/Shared/RForm";
-import RUploads from "components/Shared/RForm/RUploads";
+import RUpload from "components/Shared/RForm/RUpload";
 import React, { useEffect, useState } from "react";
-import { handleFieldError, isEmpty } from "utils/form";
+import { handleFieldError } from "utils/form";
 import { getLang } from "utils/languages";
 import { handleRequestError, useMutation } from "utils/request";
 import Form from "./Form";
@@ -31,9 +31,7 @@ export default function Update(props: UpdateProps) {
 
   const [enForm] = useForm();
   const [viForm] = useForm();
-  const [enCK, setEnCK] = useState<string>();
-  const [viCK, setViCK] = useState<string>();
-  const [imgs, setImgs] = useState<string[]>();
+  const [logo, setLogo] = useState<string>();
 
   const [submitLoading, setSubmitLoading] = useState(false);
   const requestUpdate = useMutation({ method: "put" });
@@ -46,47 +44,43 @@ export default function Update(props: UpdateProps) {
   useEffect(() => {
     enForm.setFieldsValue(initData["en"]);
     viForm.setFieldsValue(initData["vi"]);
-    setEnCK(initData["en"]?.content || "");
-    setViCK(initData["vi"]?.content || "");
-    setImgs(initRow?.images);
+    setLogo(initRow?.logo);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initRow, lang]);
 
   function handleClose() {
     setInitRow(undefined);
     setShowForm(false);
-    setEnCK('');
-    setViCK('');
-    setImgs(undefined);
+    setLogo(undefined);
     enForm.resetFields();
     viForm.resetFields();
   }
 
-  function handleSubmit(submitImgs?: string[]) {
-    const enInputs =  enForm.validateFields();
-    const viInputs =  viForm.validateFields();
+  function handleSubmit(submitLogo?: string) {
+    const enInputs = enForm.validateFields();
+    const viInputs = viForm.validateFields();
     Promise.all([enInputs, viInputs])
       .then(([en, vi]) => {
         setSubmitLoading(true);
+        
         const enData = {
           lang: 'en',
-          content: enCK,
-          ...(isEmpty(en) ? initData["en"] : en),
+          ...(en.name ? en : initData['en'])
         }
         const viData = {
           lang: 'vi',
-          content: viCK,
-          ...(isEmpty(vi) ? initData["vi"] : vi),
+          ...(vi.name ? vi : initData['vi'])
         }
+        
         requestUpdate({
-          api: "/project/" + initRow?._id,
+          api: "/partner/" + initRow?._id,
           data: {
-            images: submitImgs || imgs,
+            logo: submitLogo !== undefined ? submitLogo : logo,
             data: [enData, viData],
           },
         })
           .then(() => {
-            if (!submitImgs) {
+            if (!submitLogo && submitLogo !== "") {
               handleClose();
               message.success("Success!");
             }
@@ -98,9 +92,9 @@ export default function Update(props: UpdateProps) {
       .catch(handleFieldError);
   }
 
-  function handleImgsChange(imgs: string[]) {
-    setImgs(imgs);
-    handleSubmit(imgs);
+  function handleLogoChange(logo: string | undefined) {
+    setLogo(logo);
+    handleSubmit(logo || "");
   }
 
   return (
@@ -126,24 +120,17 @@ export default function Update(props: UpdateProps) {
     >
       <Tabs type="card" activeKey={lang} onTabClick={setLang}>
         <Tabs.TabPane key="vi" tab="Vietnamese">
-          <Form
-            form={viForm}
-            onChange={setViCK}
-            initCK={viCK}
-          />
+          <Form form={viForm} />
         </Tabs.TabPane>
         <Tabs.TabPane key="en" tab="English">
-          <Form
-            form={enForm}
-            onChange={setEnCK}
-            initCK={enCK}
-          />
+          <Form form={enForm} />
         </Tabs.TabPane>
       </Tabs>
-      <RUploads
-        onChange={handleImgsChange}
+      <RUpload
+        onChange={handleLogoChange}
         label="Images"
-        initIds={initRow?.images}
+        cropShape="rect"
+        initId={initRow?.logo}
       />
     </RDrawer>
   );

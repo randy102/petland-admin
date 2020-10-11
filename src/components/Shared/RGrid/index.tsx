@@ -68,6 +68,7 @@ export default function RGrid(props: RGridProps) {
 
   useEffect(() => {
     setSelectedRowKeys([]);
+    setSelectedRows([]);
   }, [data]);
 
   // Filter =>

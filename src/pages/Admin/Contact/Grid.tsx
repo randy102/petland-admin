@@ -1,4 +1,4 @@
-import { message, Radio } from "antd";
+import { message, Radio, Tag } from "antd";
 import RGrid from "components/Shared/RGrid";
 import React, { useState } from "react";
 import { handleRequestError, useMutation } from "utils/request";
@@ -23,8 +23,8 @@ export default function Grid(props: GridProps) {
   const requestDelete = useMutation({ method: "delete" });
 
   function handleDelete(row: any[]) {
-    setDeleteLoading(true);
-    requestDelete({ api: "/project/" + row[0]._id })
+    setDeleteLoading(true)
+    requestDelete({ api: "/contact/" + row[0]._id })
       .then(() => {
         message.success("Success!");
         refetch();
@@ -64,36 +64,50 @@ export default function Grid(props: GridProps) {
             dataIndex: "name",
           },
           {
-            title: "Type",
-            dataIndex: "type",
-          },
-          {
             title: "Address",
             dataIndex: "address",
           },
           {
-            title: "Year",
-            dataIndex: "year",
+            title: "Phone",
+            dataIndex: "phone",
           },
           {
-            title: "Status",
-            dataIndex: "status",
+            title: "Email",
+            dataIndex: "email",
           },
           {
-            title: "Investor",
-            dataIndex: "investor",
+            title: "Primary",
+            dataIndex: "isPrimary",
+            render: (val) => val ? <Tag color="green">True</Tag> : <Tag color="red">False</Tag>
+          },
+          {
+            title: "Fax",
+            dataIndex: "fax",
+          },
+          {
+            title: "Map",
+            dataIndex: "map",
+          },
+          {
+            title: "Manufactory",
+            dataIndex: "isManufactory",
+            render: (val) => val ? <Tag color="green">True</Tag> : <Tag color="red">False</Tag>
           },
           {
             title: "Area",
             dataIndex: "area",
           },
           {
-            title: "Title",
-            dataIndex: "title",
+            title: "Core area",
+            dataIndex: "coreArea",
           },
           {
-            title: "Description",
-            dataIndex: "description",
+            title: "Management",
+            dataIndex: "managementSystem",
+          },
+          {
+            title: "Total wattage",
+            dataIndex: "totalWattage",
           },
           {
             title: "Created",

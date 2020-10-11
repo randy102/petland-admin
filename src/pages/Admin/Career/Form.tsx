@@ -17,21 +17,9 @@ export default function Form(props: FormProps) {
 
   return (
     <RForm form={form} initialValues={init}>
-      <RInput label="Project's name" name="name" rules={{ required: true }} />
+      <RInput label="Name" name="name" rules={{ required: true }} />
 
       <RInput label="Type" name="type" rules={{ required: true }} />
-
-      <RInput label="Address" name="address" rules={{ required: true }} />
-
-      <RInput number label="Year" name="year" rules={{ required: true }} />
-
-      <RInput label="Status" name="status" rules={{ required: true }} />
-
-      <RInput label="Investor" name="investor" rules={{ required: true }} />
-
-      <RInput label="Area" name="area" rules={{ required: true }} />
-
-      <RInput label="Title" name="title" rules={{ required: true }} />
 
       <label>Content</label>
       <CKEditor init={initCK} onChange={onChange}/>

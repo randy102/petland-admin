@@ -1,9 +1,11 @@
 import { Button, message, Space, Tabs } from "antd";
-import { useForm } from "components/Shared/RForm";
+import RForm, { useForm } from "components/Shared/RForm";
+import RInput from "components/Shared/RForm/RInput";
+import RSwitch from "components/Shared/RForm/RSwitch";
 import RUploads, { UploadApi } from "components/Shared/RForm/RUploads";
 import { StdCreateProps } from "components/Shared/RForm/types";
 import React, { Dispatch, useState } from "react";
-import { handleFieldError } from "utils/form";
+import { handleFieldError, isEmpty } from "utils/form";
 import { handleRequestError, useMutation } from "utils/request";
 import Form from "./Form";
 
@@ -17,34 +19,37 @@ export default function Create(props: CreateProps) {
 
   const [enForm] = useForm();
   const [viForm] = useForm();
-  const [enCK, setEnCK] = useState<string>();
-  const [viCK, setViCK] = useState<string>();
-  const [imgs, setImgs] = useState<string[]>();
+  const [form] = useForm();
 
-  const [uploadAPI, setUploadAPI] = useState<UploadApi>();
+  const [imgs, setImgs] = useState<string[]>();
+  const [manufact, setManufact] = useState<boolean>(false);
   const [lang, setLang] = useState<string>("vi");
+  const [uploadAPI, setUploadAPI] = useState<UploadApi>();
   const [saveLoading, setSaveLoading] = useState(false);
-  const requestCreate = useMutation({ api: "/project", method: "post" });
+  const requestCreate = useMutation({ api: "/contact", method: "post" });
 
   function handleSave() {
     const enInputs = enForm.validateFields();
     const viInputs = viForm.validateFields();
-
-    Promise.all([enInputs, viInputs])
-      .then(([en, vi]) => {
+    const formInputs = form.validateFields();
+    Promise.all([enInputs, viInputs, formInputs])
+      .then(([en, vi, form]) => {
         setSaveLoading(true);
 
         let toCreateData = [];
-        if (en.name) {
-          toCreateData.push({ ...en, content: enCK, lang: "en" });
+        if (!isEmpty(en)) {
+          toCreateData.push({ ...en, lang: "en" });
         }
-        if (vi.name) {
-          toCreateData.push({ ...vi, content: viCK, lang: "vi" });
+        if (!isEmpty(vi)) {
+          toCreateData.push({ ...vi, lang: "vi" });
         }
 
         requestCreate({
           data: {
             images: imgs || [],
+            map: form.map,
+            isPrimary: !!form.isPrimary,
+            isManufactory: !!form.isManufactory,
             data: toCreateData,
           },
         })
@@ -54,9 +59,8 @@ export default function Create(props: CreateProps) {
             setCurTab("list");
             viForm.resetFields();
             enForm.resetFields();
-            setEnCK("");
-            setViCK("");
             uploadAPI?.reset();
+            setManufact(false);
           })
           .catch(handleRequestError)
           .finally(() => setSaveLoading(false));
@@ -67,11 +71,9 @@ export default function Create(props: CreateProps) {
   function handleCopy() {
     if (lang === "en") {
       enForm.setFieldsValue(viForm.getFieldsValue());
-      setEnCK(viCK);
       message.success("Copied!");
     } else {
       viForm.setFieldsValue(enForm.getFieldsValue());
-      setViCK(enCK);
       message.success("Copied!");
     }
   }
@@ -95,14 +97,30 @@ export default function Create(props: CreateProps) {
         }
       >
         <Tabs.TabPane key="vi" tab="Vietnamese">
-          <Form form={viForm} onChange={setViCK} initCK={viCK} />
+          <Form form={viForm} isManufact={manufact} />
         </Tabs.TabPane>
 
         <Tabs.TabPane key="en" tab="English">
-          <Form form={enForm} onChange={setEnCK} initCK={enCK} />
+          <Form form={enForm} isManufact={manufact} />
         </Tabs.TabPane>
       </Tabs>
-      <RUploads onChange={setImgs} label="Images" uploadApi={setUploadAPI}/>
+      <RForm form={form}>
+        <RSwitch
+          name="isPrimary"
+          label="Primary"
+          checkedText="True"
+          unCheckedText="False"
+        />
+        <RSwitch
+          name="isManufactory"
+          label="Manufactory"
+          onChange={setManufact}
+          checkedText="True"
+          unCheckedText="False"
+        />
+        <RInput name="map" label="Map" />
+      </RForm>
+      <RUploads onChange={setImgs} label="Images" uploadApi={setUploadAPI} />
     </>
   );
 }

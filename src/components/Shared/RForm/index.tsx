@@ -64,6 +64,6 @@ const validateMessages = {
     // eslint-disable-next-line
     email: "'${label}' invalid",
     // eslint-disable-next-line
-    url: "'${label}' must in type http://... or https://...",
+    url: "'${label}' is not a valid URL",
   },
 };

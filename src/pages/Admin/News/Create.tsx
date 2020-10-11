@@ -1,9 +1,8 @@
 import { Button, message, Space, Tabs } from "antd";
 import { useForm } from "components/Shared/RForm";
-import RUploads, { UploadApi } from "components/Shared/RForm/RUploads";
 import { StdCreateProps } from "components/Shared/RForm/types";
 import React, { Dispatch, useState } from "react";
-import { handleFieldError } from "utils/form";
+import { handleFieldError, isEmpty } from "utils/form";
 import { handleRequestError, useMutation } from "utils/request";
 import Form from "./Form";
 
@@ -19,12 +18,10 @@ export default function Create(props: CreateProps) {
   const [viForm] = useForm();
   const [enCK, setEnCK] = useState<string>();
   const [viCK, setViCK] = useState<string>();
-  const [imgs, setImgs] = useState<string[]>();
 
-  const [uploadAPI, setUploadAPI] = useState<UploadApi>();
   const [lang, setLang] = useState<string>("vi");
   const [saveLoading, setSaveLoading] = useState(false);
-  const requestCreate = useMutation({ api: "/project", method: "post" });
+  const requestCreate = useMutation({ api: "/news", method: "post" });
 
   function handleSave() {
     const enInputs = enForm.validateFields();
@@ -35,16 +32,15 @@ export default function Create(props: CreateProps) {
         setSaveLoading(true);
 
         let toCreateData = [];
-        if (en.name) {
+        if (!isEmpty(en)) {
           toCreateData.push({ ...en, content: enCK, lang: "en" });
         }
-        if (vi.name) {
+        if (!isEmpty(vi)) {
           toCreateData.push({ ...vi, content: viCK, lang: "vi" });
         }
 
         requestCreate({
           data: {
-            images: imgs || [],
             data: toCreateData,
           },
         })
@@ -56,7 +52,6 @@ export default function Create(props: CreateProps) {
             enForm.resetFields();
             setEnCK("");
             setViCK("");
-            uploadAPI?.reset();
           })
           .catch(handleRequestError)
           .finally(() => setSaveLoading(false));
@@ -102,7 +97,6 @@ export default function Create(props: CreateProps) {
           <Form form={enForm} onChange={setEnCK} initCK={enCK} />
         </Tabs.TabPane>
       </Tabs>
-      <RUploads onChange={setImgs} label="Images" uploadApi={setUploadAPI}/>
     </>
   );
 }

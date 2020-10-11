@@ -1,15 +1,16 @@
-import React from "react";
-import { Layout, Menu } from "antd";
+import React, { useState } from "react";
+import { Layout, Menu, Modal } from "antd";
 import {
   SettingOutlined,
   LogoutOutlined,
   LockOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import ChangePassword from "components/ChangePassword";
 import "./styles.scss";
 
 export default function Header() {
-  function handleLogOut() {}
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   return (
     <div>
@@ -29,21 +30,24 @@ export default function Header() {
             }
           >
             <Menu.Item key="setting:1">
-              <Link to="/logout" replace onClick={handleLogOut}>
+              <Link to="/logout" replace>
                 <LogoutOutlined />
                 Log out
               </Link>
             </Menu.Item>
 
             <Menu.Item key="setting:2">
-              <Link to="/" replace>
+              <div onClick={() => setShowModal(true)}>
                 <LockOutlined />
                 Change Password
-              </Link>
+              </div>
             </Menu.Item>
           </Menu.SubMenu>
         </Menu>
       </Layout.Header>
+      <Modal visible={showModal} footer={false}>
+        <ChangePassword setShowModal={setShowModal}/>
+      </Modal>
     </div>
   );
 }

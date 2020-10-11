@@ -79,7 +79,7 @@ export default function Update(props: UpdateProps) {
           ...(isEmpty(vi) ? initData["vi"] : vi),
         }
         requestUpdate({
-          api: "/project/" + initRow?._id,
+          api: "/product/" + initRow?._id,
           data: {
             images: submitImgs || imgs,
             data: [enData, viData],
