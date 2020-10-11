@@ -1,11 +1,10 @@
-import { message, Radio } from "antd";
+import { message, Radio, Tag } from "antd";
 import RGrid from "components/Shared/RGrid";
 import React, { useState } from "react";
 import { handleRequestError, useMutation } from "utils/request";
 import { filterLang } from "utils/languages";
 import Update from "./Update";
 import moment from "moment";
-import RImage from "components/Shared/RImage";
 
 interface GridProps {
   res: any;
@@ -25,13 +24,13 @@ export default function Grid(props: GridProps) {
 
   function handleDelete(row: any[]) {
     setDeleteLoading(true)
-    requestDelete({ api: "/partner/" + row[0]._id })
+    requestDelete({ api: "/contact/" + row[0]._id })
       .then(() => {
         message.success("Success!");
         refetch();
       })
       .catch(handleRequestError)
-      .finally(() => setDeleteLoading(false));
+      .finally(() => setDeleteLoading(false))
   }
 
   function handleUpdate(row: any[]) {
@@ -61,33 +60,64 @@ export default function Grid(props: GridProps) {
         ]}
         colDef={[
           {
-            title: "Logo",
-            dataIndex: "logo",
-            render: (id) => id && <RImage id={id} width={60} />,
-          },
-          {
             title: "Name",
             dataIndex: "name",
           },
           {
-            title: "Description",
-            dataIndex: "description",
+            title: "Address",
+            dataIndex: "address",
           },
           {
-            title: "Link",
-            dataIndex: "link",
-            render: (link) => <a href={link}>{link}</a>,
+            title: "Phone",
+            dataIndex: "phone",
+          },
+          {
+            title: "Email",
+            dataIndex: "email",
+          },
+          {
+            title: "Primary",
+            dataIndex: "isPrimary",
+            render: (val) => val ? <Tag color="green">True</Tag> : <Tag color="red">False</Tag>
+          },
+          {
+            title: "Fax",
+            dataIndex: "fax",
+          },
+          {
+            title: "Map",
+            dataIndex: "map",
+          },
+          {
+            title: "Manufactory",
+            dataIndex: "isManufactory",
+            render: (val) => val ? <Tag color="green">True</Tag> : <Tag color="red">False</Tag>
+          },
+          {
+            title: "Area",
+            dataIndex: "area",
+          },
+          {
+            title: "Core area",
+            dataIndex: "coreArea",
+          },
+          {
+            title: "Management",
+            dataIndex: "managementSystem",
+          },
+          {
+            title: "Total wattage",
+            dataIndex: "totalWattage",
           },
           {
             title: "Created",
             dataIndex: "createdAt",
-            render: (val) => val && moment(val).format("D/M/YYYY"),
+            render: (val) => moment(val).format("D/M/YYYY"),
           },
           {
             title: "Updated",
-
             dataIndex: "updatedAt",
-            render: (val) => val && moment(val).format("D/M/YYYY"),
+            render: (val) => moment(val).format("D/M/YYYY"),
           },
         ]}
       />

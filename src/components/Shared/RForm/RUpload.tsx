@@ -14,7 +14,7 @@ import { getToken } from "utils/auth";
 
 const Axios = axios.default;
 
-interface UploadApi {
+export interface UploadApi {
   reset: () => void;
 }
 

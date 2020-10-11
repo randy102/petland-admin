@@ -5,7 +5,6 @@ import { handleRequestError, useMutation } from "utils/request";
 import { filterLang } from "utils/languages";
 import Update from "./Update";
 import moment from "moment";
-import RImage from "components/Shared/RImage";
 
 interface GridProps {
   res: any;
@@ -25,13 +24,13 @@ export default function Grid(props: GridProps) {
 
   function handleDelete(row: any[]) {
     setDeleteLoading(true)
-    requestDelete({ api: "/partner/" + row[0]._id })
+    requestDelete({ api: "/product/" + row[0]._id })
       .then(() => {
         message.success("Success!");
         refetch();
       })
       .catch(handleRequestError)
-      .finally(() => setDeleteLoading(false));
+      .finally(() => setDeleteLoading(false))
   }
 
   function handleUpdate(row: any[]) {
@@ -61,11 +60,6 @@ export default function Grid(props: GridProps) {
         ]}
         colDef={[
           {
-            title: "Logo",
-            dataIndex: "logo",
-            render: (id) => id && <RImage id={id} width={60} />,
-          },
-          {
             title: "Name",
             dataIndex: "name",
           },
@@ -74,20 +68,14 @@ export default function Grid(props: GridProps) {
             dataIndex: "description",
           },
           {
-            title: "Link",
-            dataIndex: "link",
-            render: (link) => <a href={link}>{link}</a>,
-          },
-          {
             title: "Created",
             dataIndex: "createdAt",
-            render: (val) => val && moment(val).format("D/M/YYYY"),
+            render: (val) => moment(val).format("D/M/YYYY"),
           },
           {
             title: "Updated",
-
             dataIndex: "updatedAt",
-            render: (val) => val && moment(val).format("D/M/YYYY"),
+            render: (val) => moment(val).format("D/M/YYYY"),
           },
         ]}
       />

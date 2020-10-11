@@ -1,6 +1,8 @@
 import { message, Tabs } from "antd";
 import RDrawer from "components/Shared/RDrawer";
-import { useForm } from "components/Shared/RForm";
+import RForm, { useForm } from "components/Shared/RForm";
+import RInput from "components/Shared/RForm/RInput";
+import RSwitch from "components/Shared/RForm/RSwitch";
 import RUploads from "components/Shared/RForm/RUploads";
 import React, { useEffect, useState } from "react";
 import { handleFieldError, isEmpty } from "utils/form";
@@ -31,10 +33,10 @@ export default function Update(props: UpdateProps) {
 
   const [enForm] = useForm();
   const [viForm] = useForm();
-  const [enCK, setEnCK] = useState<string>();
-  const [viCK, setViCK] = useState<string>();
-  const [imgs, setImgs] = useState<string[]>();
+  const [form] = useForm();
 
+  const [imgs, setImgs] = useState<string[]>();
+  const [manufact, setManufact] = useState<boolean>(false);
   const [submitLoading, setSubmitLoading] = useState(false);
   const requestUpdate = useMutation({ method: "put" });
 
@@ -44,10 +46,16 @@ export default function Update(props: UpdateProps) {
   };
 
   useEffect(() => {
+    setManufact(initRow?.isManufactory);
+  },[initRow])
+
+  useEffect(() => {
+    form.setFieldsValue(initRow);
+  },[initRow,form])
+
+  useEffect(() => {
     enForm.setFieldsValue(initData["en"]);
     viForm.setFieldsValue(initData["vi"]);
-    setEnCK(initData["en"]?.content || "");
-    setViCK(initData["vi"]?.content || "");
     setImgs(initRow?.images);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initRow, lang]);
@@ -55,33 +63,35 @@ export default function Update(props: UpdateProps) {
   function handleClose() {
     setInitRow(undefined);
     setShowForm(false);
-    setEnCK('');
-    setViCK('');
     setImgs(undefined);
     enForm.resetFields();
     viForm.resetFields();
+    setManufact(false);
   }
 
   function handleSubmit(submitImgs?: string[]) {
-    const enInputs =  enForm.validateFields();
-    const viInputs =  viForm.validateFields();
-    Promise.all([enInputs, viInputs])
-      .then(([en, vi]) => {
+    const enInputs = enForm.validateFields();
+    const viInputs = viForm.validateFields();
+    const formInputs = form.validateFields();
+
+    Promise.all([enInputs, viInputs, formInputs])
+      .then(([en, vi, form]) => {
         setSubmitLoading(true);
         const enData = {
-          lang: 'en',
-          content: enCK,
+          lang: "en",
           ...(isEmpty(en) ? initData["en"] : en),
-        }
+        };
         const viData = {
-          lang: 'vi',
-          content: viCK,
+          lang: "vi",
           ...(isEmpty(vi) ? initData["vi"] : vi),
-        }
+        };
         requestUpdate({
-          api: "/project/" + initRow?._id,
+          api: "/contact/" + initRow?._id,
           data: {
             images: submitImgs || imgs,
+            map: form.map,
+            isPrimary: !!form.isPrimary,
+            isManufactory: !!form.isManufactory,
             data: [enData, viData],
           },
         })
@@ -113,7 +123,7 @@ export default function Update(props: UpdateProps) {
           name: "Save",
           type: "primary",
           onClick: () => {
-            if(lang==='vi') setLang('en');
+            if (lang === "vi") setLang("en");
             setTimeout(() => handleSubmit());
           },
           loading: submitLoading,
@@ -126,20 +136,29 @@ export default function Update(props: UpdateProps) {
     >
       <Tabs type="card" activeKey={lang} onTabClick={setLang}>
         <Tabs.TabPane key="vi" tab="Vietnamese">
-          <Form
-            form={viForm}
-            onChange={setViCK}
-            initCK={viCK}
-          />
+          <Form form={viForm} isManufact={manufact} />
         </Tabs.TabPane>
         <Tabs.TabPane key="en" tab="English">
-          <Form
-            form={enForm}
-            onChange={setEnCK}
-            initCK={enCK}
-          />
+          <Form form={enForm} isManufact={manufact} />
         </Tabs.TabPane>
       </Tabs>
+      <RForm form={form}>
+        <RSwitch
+          name="isPrimary"
+          label="Primary"
+          
+          checkedText="True"
+          unCheckedText="False"
+        />
+        <RSwitch
+          name="isManufactory"
+          label="Manufactory"
+          onChange={setManufact}
+          checkedText="True"
+          unCheckedText="False"
+        />
+        <RInput name="map" label="Map" />
+      </RForm>
       <RUploads
         onChange={handleImgsChange}
         label="Images"

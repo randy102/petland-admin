@@ -13,7 +13,7 @@ import { getToken } from "utils/auth";
 
 const Axios = axios.default;
 
-interface UploadApi {
+export interface UploadApi {
   reset: () => void;
   removeAll: () => void;
 }
@@ -84,7 +84,7 @@ export default function RUploads(props: RUploadsProps) {
   useEffect(() => {
     uploadApi({
       reset() {
-        setFileList(undefined);
+        setFileList([]);
       },
       removeAll() {
         for (let file of fileList) {

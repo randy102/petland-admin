@@ -1,9 +1,9 @@
 import { Button, message, Space, Tabs } from "antd";
 import { useForm } from "components/Shared/RForm";
-import RUpload, {UploadApi} from "components/Shared/RForm/RUpload";
+import RUploads, { UploadApi } from "components/Shared/RForm/RUploads";
 import { StdCreateProps } from "components/Shared/RForm/types";
 import React, { Dispatch, useState } from "react";
-import { handleFieldError } from "utils/form";
+import { handleFieldError, isEmpty } from "utils/form";
 import { handleRequestError, useMutation } from "utils/request";
 import Form from "./Form";
 
@@ -17,12 +17,14 @@ export default function Create(props: CreateProps) {
 
   const [enForm] = useForm();
   const [viForm] = useForm();
-  const [logo, setLogo] = useState<string>();
+  const [enCK, setEnCK] = useState<string>();
+  const [viCK, setViCK] = useState<string>();
+  const [imgs, setImgs] = useState<string[]>();
 
   const [uploadAPI, setUploadAPI] = useState<UploadApi>();
   const [lang, setLang] = useState<string>("vi");
   const [saveLoading, setSaveLoading] = useState(false);
-  const requestCreate = useMutation({ api: "/partner", method: "post" });
+  const requestCreate = useMutation({ api: "/career", method: "post" });
 
   function handleSave() {
     const enInputs = enForm.validateFields();
@@ -33,16 +35,16 @@ export default function Create(props: CreateProps) {
         setSaveLoading(true);
 
         let toCreateData = [];
-        if (en.name) {
-          toCreateData.push({ ...en, lang: "en" });
+        if (!isEmpty(en)) {
+          toCreateData.push({ ...en, content: enCK, lang: "en" });
         }
-        if (vi.name) {
-          toCreateData.push({ ...vi, lang: "vi" });
+        if (!isEmpty(vi)) {
+          toCreateData.push({ ...vi, content: viCK, lang: "vi" });
         }
 
         requestCreate({
           data: {
-            logo: logo || "",
+            images: imgs || [],
             data: toCreateData,
           },
         })
@@ -52,6 +54,8 @@ export default function Create(props: CreateProps) {
             setCurTab("list");
             viForm.resetFields();
             enForm.resetFields();
+            setEnCK("");
+            setViCK("");
             uploadAPI?.reset();
           })
           .catch(handleRequestError)
@@ -63,9 +67,11 @@ export default function Create(props: CreateProps) {
   function handleCopy() {
     if (lang === "en") {
       enForm.setFieldsValue(viForm.getFieldsValue());
+      setEnCK(viCK);
       message.success("Copied!");
     } else {
       viForm.setFieldsValue(enForm.getFieldsValue());
+      setViCK(enCK);
       message.success("Copied!");
     }
   }
@@ -89,19 +95,14 @@ export default function Create(props: CreateProps) {
         }
       >
         <Tabs.TabPane key="vi" tab="Vietnamese">
-          <Form form={viForm} />
+          <Form form={viForm} onChange={setViCK} initCK={viCK} />
         </Tabs.TabPane>
 
         <Tabs.TabPane key="en" tab="English">
-          <Form form={enForm} />
+          <Form form={enForm} onChange={setEnCK} initCK={enCK} />
         </Tabs.TabPane>
       </Tabs>
-      <RUpload
-        onChange={setLogo}
-        label="Logo"
-        cropShape="rect"
-        uploadApi={setUploadAPI}
-      />
+      <RUploads onChange={setImgs} label="Images" uploadApi={setUploadAPI}/>
     </>
   );
 }
