@@ -1,4 +1,4 @@
-import { ProjectOutlined, TranslationOutlined, UserOutlined, TeamOutlined, EditOutlined, CodeSandboxOutlined, ReconciliationOutlined, WhatsAppOutlined } from "@ant-design/icons";
+import { ProjectOutlined, TranslationOutlined, UserOutlined, TeamOutlined, EditOutlined, CodeSandboxOutlined, ReconciliationOutlined, WhatsAppOutlined, InfoCircleOutlined } from "@ant-design/icons";
 import Translation from "./Translation";
 import Project from "./Project";
 import User from "./User";
@@ -7,6 +7,7 @@ import News from "./News";
 import Product from "./Product";
 import Career from "./Career";
 import Contact from "./Contact";
+import Info from "./Info";
 
 interface RouteConfig {
   path: string
@@ -57,6 +58,12 @@ export const ROUTES: RouteConfig[] = [
     name: 'Contacts',
     icon: WhatsAppOutlined,
     component: Contact
+  },
+  {
+    path: '/info',
+    name: 'Company Infos',
+    icon: InfoCircleOutlined,
+    component: Info
   },
   {
     path: '/translation',
