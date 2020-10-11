@@ -62,18 +62,21 @@ export default function Update(props: UpdateProps) {
     Promise.all([enInputs, viInputs])
       .then(([en, vi]) => {
         setSubmitLoading(true);
-        let toUpdateData = [];
-        if (en.name) {
-          toUpdateData.push({ ...en, lang: "en" });
+        
+        const enData = {
+          lang: 'en',
+          ...(en.name ? en : initData['en'])
         }
-        if (vi.name) {
-          toUpdateData.push({ ...vi, lang: "vi" });
+        const viData = {
+          lang: 'vi',
+          ...(vi.name ? vi : initData['vi'])
         }
+        
         requestUpdate({
           api: "/partner/" + initRow?._id,
           data: {
             logo: submitLogo !== undefined ? submitLogo : logo,
-            data: toUpdateData,
+            data: [enData, viData],
           },
         })
           .then(() => {

@@ -18,7 +18,7 @@ export default function Form(props: FormProps) {
 
       <RInput label="Description" name="description" rules={{ required: true }} />
 
-      <RInput label="Link" name="link" rules={{ required: true }} />
+      <RInput label="Link" name="link" rules={{ required: true, type: 'url' }} />
     </RForm>
   );
 }

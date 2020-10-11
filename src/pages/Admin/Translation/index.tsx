@@ -23,15 +23,17 @@ export default function Translation() {
   async function handleSave() {
     const enInputs = await enForm.validateFields();
     const viInputs = await viForm.validateFields();
+    const enData = res?.data.find((i18n: any) => i18n.lang === "en");
 
     setSaveLoading(true);
 
     const upsertEn = requestSave({
       data: {
         lang: "en",
-        data: enInputs.en,
+        data: enInputs.en || enData?.data,
       },
     }).catch(handleRequestError);
+    
     const upsertVi = requestSave({
       data: {
         lang: "vi",

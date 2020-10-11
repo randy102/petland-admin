@@ -160,7 +160,7 @@ export default function RUpload(props: RUploadProps) {
           onClick={handleRemove}
           icon={<DeleteOutlined />}
         >
-          Xóa ảnh
+          Delete
         </Button>
       )}
 
