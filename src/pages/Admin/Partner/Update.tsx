@@ -3,7 +3,7 @@ import RDrawer from "components/Shared/RDrawer";
 import { useForm } from "components/Shared/RForm";
 import RUpload from "components/Shared/RForm/RUpload";
 import React, { useEffect, useState } from "react";
-import { handleFieldError } from "utils/form";
+import { handleFieldError, isEmpty } from "utils/form";
 import { getLang } from "utils/languages";
 import { handleRequestError, useMutation } from "utils/request";
 import Form from "./Form";
@@ -31,6 +31,7 @@ export default function Update(props: UpdateProps) {
 
   const [enForm] = useForm();
   const [viForm] = useForm();
+
   const [logo, setLogo] = useState<string>();
 
   const [submitLoading, setSubmitLoading] = useState(false);
@@ -62,16 +63,16 @@ export default function Update(props: UpdateProps) {
     Promise.all([enInputs, viInputs])
       .then(([en, vi]) => {
         setSubmitLoading(true);
-        
+
         const enData = {
-          lang: 'en',
-          ...(en.name ? en : initData['en'])
-        }
+          lang: "en",
+          ...(isEmpty(en) ? initData["en"] : en),
+        };
         const viData = {
-          lang: 'vi',
-          ...(vi.name ? vi : initData['vi'])
-        }
-        
+          lang: "vi",
+          ...(isEmpty(vi) ? initData["vi"] : vi),
+        };
+
         requestUpdate({
           api: "/partner/" + initRow?._id,
           data: {
@@ -107,7 +108,7 @@ export default function Update(props: UpdateProps) {
           name: "Save",
           type: "primary",
           onClick: () => {
-            if(lang==='vi') setLang('en');
+            if (lang === "vi") setLang("en");
             setTimeout(() => handleSubmit());
           },
           loading: submitLoading,

@@ -55,29 +55,30 @@ export default function Update(props: UpdateProps) {
   function handleClose() {
     setInitRow(undefined);
     setShowForm(false);
-    setEnCK('');
-    setViCK('');
+    setEnCK("");
+    setViCK("");
     setImgs(undefined);
     enForm.resetFields();
     viForm.resetFields();
   }
 
   function handleSubmit(submitImgs?: string[]) {
-    const enInputs =  enForm.validateFields();
-    const viInputs =  viForm.validateFields();
+    const enInputs = enForm.validateFields();
+    const viInputs = viForm.validateFields();
     Promise.all([enInputs, viInputs])
       .then(([en, vi]) => {
         setSubmitLoading(true);
         const enData = {
-          lang: 'en',
+          lang: "en",
           content: enCK,
           ...(isEmpty(en) ? initData["en"] : en),
-        }
+        };
         const viData = {
-          lang: 'vi',
+          lang: "vi",
           content: viCK,
           ...(isEmpty(vi) ? initData["vi"] : vi),
-        }
+        };
+
         requestUpdate({
           api: "/project/" + initRow?._id,
           data: {
@@ -113,7 +114,7 @@ export default function Update(props: UpdateProps) {
           name: "Save",
           type: "primary",
           onClick: () => {
-            if(lang==='vi') setLang('en');
+            if (lang === "vi") setLang("en");
             setTimeout(() => handleSubmit());
           },
           loading: submitLoading,
@@ -126,18 +127,10 @@ export default function Update(props: UpdateProps) {
     >
       <Tabs type="card" activeKey={lang} onTabClick={setLang}>
         <Tabs.TabPane key="vi" tab="Vietnamese">
-          <Form
-            form={viForm}
-            onChange={setViCK}
-            initCK={viCK}
-          />
+          <Form form={viForm} onChange={setViCK} initCK={viCK} />
         </Tabs.TabPane>
         <Tabs.TabPane key="en" tab="English">
-          <Form
-            form={enForm}
-            onChange={setEnCK}
-            initCK={enCK}
-          />
+          <Form form={enForm} onChange={setEnCK} initCK={enCK} />
         </Tabs.TabPane>
       </Tabs>
       <RUploads

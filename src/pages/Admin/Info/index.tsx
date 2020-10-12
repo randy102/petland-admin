@@ -76,12 +76,12 @@ export default function Info() {
   }
 
   function handleCopy() {
-    if (lang === "en") {
-      enForm.setFieldsValue(viForm.getFieldsValue());
-      message.success("Copied!");
-    } else {
-      viForm.setFieldsValue(enForm.getFieldsValue());
-      message.success("Copied!");
+    const viData = viForm.getFieldsValue()
+    switch(lang){
+      case 'en':
+        setEnCK(viCK);
+        enForm.setFieldsValue(viData);
+        return;
     }
   }
 
@@ -98,9 +98,9 @@ export default function Info() {
         style={{ maxWidth: 600 }}
         tabBarExtraContent={
           <Space style={{ transform: "translateY(7px)" }}>
-            <Button onClick={handleCopy}>
-              Copy from {lang === "vi" ? "English" : "Vietnamese"}
-            </Button>
+            {lang !== "vi" && (
+              <Button onClick={handleCopy}>Copy from Vietnamese</Button>
+            )}
             <Button
               loading={submitLoading}
               onClick={() => handleSubmit()}
