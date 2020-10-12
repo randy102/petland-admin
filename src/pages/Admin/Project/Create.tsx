@@ -3,7 +3,7 @@ import { useForm } from "components/Shared/RForm";
 import RUploads, { UploadApi } from "components/Shared/RForm/RUploads";
 import { StdCreateProps } from "components/Shared/RForm/types";
 import React, { Dispatch, useState } from "react";
-import { handleFieldError } from "utils/form";
+import { handleFieldError, isEmpty } from "utils/form";
 import { handleRequestError, useMutation } from "utils/request";
 import Form from "./Form";
 
@@ -35,10 +35,10 @@ export default function Create(props: CreateProps) {
         setSaveLoading(true);
 
         let toCreateData = [];
-        if (en.name) {
+        if (!isEmpty(en)) {
           toCreateData.push({ ...en, content: enCK, lang: "en" });
         }
-        if (vi.name) {
+        if (!isEmpty(vi)) {
           toCreateData.push({ ...vi, content: viCK, lang: "vi" });
         }
 
@@ -65,14 +65,12 @@ export default function Create(props: CreateProps) {
   }
 
   function handleCopy() {
-    if (lang === "en") {
-      enForm.setFieldsValue(viForm.getFieldsValue());
-      setEnCK(viCK);
-      message.success("Copied!");
-    } else {
-      viForm.setFieldsValue(enForm.getFieldsValue());
-      setViCK(enCK);
-      message.success("Copied!");
+    const viData = viForm.getFieldsValue()
+    switch (lang) {
+      case "en":
+        setEnCK(viCK);
+        enForm.setFieldsValue(viData);
+        return;
     }
   }
 
@@ -85,9 +83,9 @@ export default function Create(props: CreateProps) {
         onTabClick={setLang}
         tabBarExtraContent={
           <Space style={{ transform: "translateY(4px)" }}>
-            <Button onClick={handleCopy}>
-              Copy from {lang === "vi" ? "English" : "Vietnamese"}
-            </Button>
+            {lang !== "vi" && (
+              <Button onClick={handleCopy}>Copy from Vietnamese</Button>
+            )}
             <Button loading={saveLoading} onClick={handleSave} type="primary">
               Save
             </Button>

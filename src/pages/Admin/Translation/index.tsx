@@ -49,12 +49,11 @@ export default function Translation() {
   }
 
   function handleCopy() {
-    if (curTab === "en") {
-      enForm.setFieldsValue({en: viForm.getFieldsValue().vi});
-      message.success("Copied!");
-    } else {
-      viForm.setFieldsValue({vi: enForm.getFieldsValue().en});
-      message.success("Copied!");
+    const viData = viForm.getFieldsValue()
+    switch(curTab){
+      case 'en':
+        enForm.setFieldsValue({en: viData.vi});
+        return;
     }
   }
 

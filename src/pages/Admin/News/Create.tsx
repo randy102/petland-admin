@@ -60,14 +60,12 @@ export default function Create(props: CreateProps) {
   }
 
   function handleCopy() {
-    if (lang === "en") {
-      enForm.setFieldsValue(viForm.getFieldsValue());
-      setEnCK(viCK);
-      message.success("Copied!");
-    } else {
-      viForm.setFieldsValue(enForm.getFieldsValue());
-      setViCK(enCK);
-      message.success("Copied!");
+    const viData = viForm.getFieldsValue()
+    switch (lang) {
+      case "en":
+        setEnCK(viCK);
+        enForm.setFieldsValue(viData);
+        return;
     }
   }
 
@@ -80,9 +78,9 @@ export default function Create(props: CreateProps) {
         onTabClick={setLang}
         tabBarExtraContent={
           <Space style={{ transform: "translateY(4px)" }}>
-            <Button onClick={handleCopy}>
-              Copy from {lang === "vi" ? "English" : "Vietnamese"}
-            </Button>
+            {lang !== "vi" && (
+              <Button onClick={handleCopy}>Copy from Vietnamese</Button>
+            )}
             <Button loading={saveLoading} onClick={handleSave} type="primary">
               Save
             </Button>

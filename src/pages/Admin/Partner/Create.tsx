@@ -1,9 +1,9 @@
 import { Button, message, Space, Tabs } from "antd";
 import { useForm } from "components/Shared/RForm";
-import RUpload, {UploadApi} from "components/Shared/RForm/RUpload";
+import RUpload, { UploadApi } from "components/Shared/RForm/RUpload";
 import { StdCreateProps } from "components/Shared/RForm/types";
 import React, { Dispatch, useState } from "react";
-import { handleFieldError } from "utils/form";
+import { handleFieldError, isEmpty } from "utils/form";
 import { handleRequestError, useMutation } from "utils/request";
 import Form from "./Form";
 
@@ -27,16 +27,15 @@ export default function Create(props: CreateProps) {
   function handleSave() {
     const enInputs = enForm.validateFields();
     const viInputs = viForm.validateFields();
-
     Promise.all([enInputs, viInputs])
       .then(([en, vi]) => {
         setSaveLoading(true);
 
         let toCreateData = [];
-        if (en.name) {
+        if (!isEmpty(en)) {
           toCreateData.push({ ...en, lang: "en" });
         }
-        if (vi.name) {
+        if (!isEmpty(vi)) {
           toCreateData.push({ ...vi, lang: "vi" });
         }
 
@@ -61,12 +60,11 @@ export default function Create(props: CreateProps) {
   }
 
   function handleCopy() {
-    if (lang === "en") {
-      enForm.setFieldsValue(viForm.getFieldsValue());
-      message.success("Copied!");
-    } else {
-      viForm.setFieldsValue(enForm.getFieldsValue());
-      message.success("Copied!");
+    const viData = viForm.getFieldsValue();
+    switch (lang) {
+      case "en":
+        enForm.setFieldsValue(viData);
+        return;
     }
   }
 
@@ -79,9 +77,9 @@ export default function Create(props: CreateProps) {
         onTabClick={setLang}
         tabBarExtraContent={
           <Space style={{ transform: "translateY(4px)" }}>
-            <Button onClick={handleCopy}>
-              Copy from {lang === "vi" ? "English" : "Vietnamese"}
-            </Button>
+            {lang !== "vi" && (
+              <Button onClick={handleCopy}>Copy from Vietnamese</Button>
+            )}
             <Button loading={saveLoading} onClick={handleSave} type="primary">
               Save
             </Button>
