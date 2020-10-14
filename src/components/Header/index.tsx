@@ -45,7 +45,7 @@ export default function Header() {
           </Menu.SubMenu>
         </Menu>
       </Layout.Header>
-      <Modal visible={showModal} footer={false}>
+      <Modal visible={showModal} footer={false} onCancel={() => setShowModal(false)}>
         <ChangePassword setShowModal={setShowModal}/>
       </Modal>
     </div>
