@@ -3,6 +3,7 @@ import RDrawer from "components/Shared/RDrawer";
 import { useForm } from "components/Shared/RForm";
 import RGrid from "components/Shared/RGrid";
 import React, { useState } from "react";
+import { getUser } from "utils/auth";
 import { useMutation } from "utils/request";
 import Form from "./Form";
 
@@ -85,13 +86,15 @@ export default function Grid(props: GridProps) {
           {
             title: "Fullname",
             key: "fullname",
-            render: (_, row) => row.lastName + " " + row.firstName,
+            render: (_, row) => `${row.lastName || ""} ${row.firstName || ""}`,
           },
           {
             title: "Role",
             dataIndex: "roleName",
             key: "role",
-            render: (row) => <Tag color="red">{row}</Tag>,
+            render: (role) => (
+              <Tag color={role === "Admin" ? "blue" : "default"}>{role}</Tag>
+            ),
           },
         ]}
       />
@@ -113,7 +116,19 @@ export default function Grid(props: GridProps) {
           },
         ]}
       >
-        <Form form={form} init={initRow} requirePassword={false} />
+        <Form
+          form={form}
+          init={initRow}
+          requirePassword={false}
+          roleDisabled={
+            // As a SubUser, not able to change roles
+            getUser("roleName") === "SubUser" ||
+            // As a Admin, not able to change it's own role
+            (initRow?.username === "admin" && getUser("username") === "admin")
+          }
+          // Not able to edit admin's username
+          usernameDisabled={initRow?.username === "admin"}
+        />
       </RDrawer>
     </>
   );
