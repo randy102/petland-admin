@@ -129,7 +129,7 @@ export default function Update(props: UpdateProps) {
       </Tabs>
       <RUpload
         onChange={handleLogoChange}
-        label="Images"
+        label="Logo"
         cropShape="rect"
         initId={initRow?.logo}
       />

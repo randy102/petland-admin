@@ -1,6 +1,7 @@
 import { message, Tabs } from "antd";
 import RDrawer from "components/Shared/RDrawer";
 import { useForm } from "components/Shared/RForm";
+import RUpload from "components/Shared/RForm/RUpload";
 import React, { useEffect, useState } from "react";
 import { handleFieldError, isEmpty } from "utils/form";
 import { getLang } from "utils/languages";
@@ -33,6 +34,7 @@ export default function Update(props: UpdateProps) {
   const [enCK, setEnCK] = useState<string>();
   const [viCK, setViCK] = useState<string>();
 
+  const [image, setImage] = useState<string>();
   const [submitLoading, setSubmitLoading] = useState(false);
   const requestUpdate = useMutation({ method: "put" });
 
@@ -46,6 +48,7 @@ export default function Update(props: UpdateProps) {
     viForm.setFieldsValue(initData["vi"]);
     setEnCK(initData["en"]?.content || "");
     setViCK(initData["vi"]?.content || "");
+    setImage(initRow?.image);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initRow, lang]);
 
@@ -54,11 +57,12 @@ export default function Update(props: UpdateProps) {
     setShowForm(false);
     setEnCK("");
     setViCK("");
+    setImage(undefined);
     enForm.resetFields();
     viForm.resetFields();
   }
 
-  function handleSubmit() {
+  function handleSubmit(submitImage?: string) {
     const enInputs = enForm.validateFields();
     const viInputs = viForm.validateFields();
     Promise.all([enInputs, viInputs])
@@ -77,18 +81,26 @@ export default function Update(props: UpdateProps) {
         requestUpdate({
           api: "/news/" + initRow?._id,
           data: {
+            image: submitImage !== undefined ? submitImage : image,
             data: [enData, viData],
           },
         })
           .then(() => {
-            handleClose();
-            message.success("Success!");
+            if (!submitImage && submitImage !== "") {
+              handleClose();
+              message.success("Success!");
+            }
             refetch();
           })
           .catch(handleRequestError)
           .finally(() => setSubmitLoading(false));
       })
       .catch(handleFieldError);
+  }
+
+  function handleImageChange(image: string | undefined) {
+    setImage(image);
+    handleSubmit(image || "");
   }
 
   return (
@@ -120,6 +132,12 @@ export default function Update(props: UpdateProps) {
           <Form form={enForm} onChange={setEnCK} initCK={enCK} />
         </Tabs.TabPane>
       </Tabs>
+      <RUpload
+        onChange={handleImageChange}
+        label="Image"
+        cropShape="rect"
+        initId={initRow?.image}
+      />
     </RDrawer>
   );
 }

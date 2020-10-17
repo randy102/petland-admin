@@ -1,5 +1,6 @@
 import { Button, message, Space, Tabs } from "antd";
 import { useForm } from "components/Shared/RForm";
+import RUpload, { UploadApi } from "components/Shared/RForm/RUpload";
 import { StdCreateProps } from "components/Shared/RForm/types";
 import React, { Dispatch, useState } from "react";
 import { handleFieldError, isEmpty } from "utils/form";
@@ -18,7 +19,9 @@ export default function Create(props: CreateProps) {
   const [viForm] = useForm();
   const [enCK, setEnCK] = useState<string>();
   const [viCK, setViCK] = useState<string>();
+  const [image, setImage] = useState<string>();
 
+  const [uploadAPI, setUploadAPI] = useState<UploadApi>();
   const [lang, setLang] = useState<string>("vi");
   const [saveLoading, setSaveLoading] = useState(false);
   const requestCreate = useMutation({ api: "/news", method: "post" });
@@ -42,6 +45,7 @@ export default function Create(props: CreateProps) {
         requestCreate({
           data: {
             data: toCreateData,
+            image
           },
         })
           .then(() => {
@@ -52,6 +56,7 @@ export default function Create(props: CreateProps) {
             enForm.resetFields();
             setEnCK("");
             setViCK("");
+            uploadAPI?.reset();
           })
           .catch(handleRequestError)
           .finally(() => setSaveLoading(false));
@@ -60,7 +65,7 @@ export default function Create(props: CreateProps) {
   }
 
   function handleCopy() {
-    const viData = viForm.getFieldsValue()
+    const viData = viForm.getFieldsValue();
     switch (lang) {
       case "en":
         setEnCK(viCK);
@@ -95,6 +100,12 @@ export default function Create(props: CreateProps) {
           <Form form={enForm} onChange={setEnCK} initCK={enCK} />
         </Tabs.TabPane>
       </Tabs>
+      <RUpload
+          onChange={setImage}
+          label="Image"
+          cropShape="rect"
+          uploadApi={setUploadAPI}
+        />
     </>
   );
 }
