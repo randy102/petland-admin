@@ -2,16 +2,8 @@ import jwt from "jsonwebtoken"
 
 interface UserPayload {
   username: string
-  lastName: string
-  firstName: string
-  token: string
-}
-
-export function userPayload(payload: UserPayload) {
-  return {
-    type: "SAVE_USER_INFO",
-    payload,
-  }
+  roleName: 'Admin' | 'SubUser'
+  _id: string
 }
 
 export function isLogin() {
@@ -41,10 +33,11 @@ export function getToken() {
   return window.localStorage.getItem("token");
 }
 
-export function getUser(field: string): string | undefined {
+export function getUser(field: keyof UserPayload): string | undefined {
   const token = getToken()
   if (field && !!token) {
     const payload: any = jwt.decode(token)
+    console.log({payload})
     return payload ? payload[field] : undefined;
   }
   return undefined
