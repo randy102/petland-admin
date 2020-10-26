@@ -44,11 +44,16 @@ export default function Update(props: UpdateProps) {
   };
 
   useEffect(() => {
-    enForm.setFieldsValue(initData["en"]);
-    viForm.setFieldsValue(initData["vi"]);
-    setEnCK(initData["en"]?.content || "");
-    setViCK(initData["vi"]?.content || "");
-    setImgs(initRow?.images);
+    if (!enForm.isFieldsTouched()){
+      enForm.setFieldsValue(initData["en"]);
+      setEnCK(initData["en"]?.content || "");
+    }
+
+    if (!viForm.isFieldsTouched()){
+      viForm.setFieldsValue(initData["vi"]);
+      setViCK(initData["vi"]?.content || "");
+      setImgs(initRow?.images);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initRow, lang]);
 
@@ -68,22 +73,27 @@ export default function Update(props: UpdateProps) {
     Promise.all([enInputs, viInputs])
       .then(([en, vi]) => {
         setSubmitLoading(true);
-        const enData = {
-          lang: "en",
-          content: enCK,
-          ...(isEmpty(en) ? initData["en"] : en),
-        };
-        const viData = {
+        let data = [];
+
+        if (initData["en"].name || enForm.isFieldsTouched())
+          data.push({
+            lang: "en",
+            content: enCK,
+            ...(isEmpty(en) ? initData["en"] : en),
+          });
+
+        data.push({
           lang: "vi",
           content: viCK,
           ...(isEmpty(vi) ? initData["vi"] : vi),
-        };
+        });
+
 
         requestUpdate({
           api: "/project/" + initRow?._id,
           data: {
             images: submitImgs || imgs,
-            data: [enData, viData],
+            data,
           },
         })
           .then(() => {
@@ -114,8 +124,7 @@ export default function Update(props: UpdateProps) {
           name: "Save",
           type: "primary",
           onClick: () => {
-            if (lang === "vi") setLang("en");
-            setTimeout(() => handleSubmit());
+            handleSubmit();
           },
           loading: submitLoading,
         },
