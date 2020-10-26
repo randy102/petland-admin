@@ -46,9 +46,9 @@ export default function RUploads(props: RUploadsProps) {
     disabled = false,
     uploadApi = () => {},
     label,
-    url = process.env.REACT_APP_FILE_POST,
+    url = process.env.REACT_APP_BACKEND_URL + '/file',
     initIds,
-    viewUrl = process.env.REACT_APP_FILE_GET,
+    viewUrl = process.env.REACT_APP_BACKEND_URL + '/file',
     onChange = () => {},
   } = props;
 
