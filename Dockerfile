@@ -1,7 +1,7 @@
 # Step 1
 FROM node:12-alpine as build-step
-ENV NODE_ENV production
-ENV REACT_APP_BACKEND_URL none
+ENV NODE_ENV $NODE_ENV
+ENV REACT_APP_BACKEND_URL $REACT_APP_BACKEND_URL
 RUN mkdir /app
 WORKDIR /app
 COPY package.json /app
