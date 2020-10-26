@@ -8,15 +8,8 @@ interface UserPayload {
 
 export function isLogin() {
   const token = getToken();
-  const secret = process.env.REACT_APP_JWT_SECRET
-  if (!!token && !!secret) {
-    try {
-      jwt.verify(token, secret);
+  if (!!token) {
       return true
-    }
-    catch (err) {
-      return false;
-    }
   }
   return false;
 }
