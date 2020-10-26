@@ -10,5 +10,9 @@ COPY . /app
 RUN REACT_APP_BACKEND_URL=$REACT_APP_BACKEND_URL npm run build
 
 # Stage 2
-FROM nginx:1.17.1-alpine
+FROM nginx:stable-alpine
 COPY --from=build-step /app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
+RUN ls /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
