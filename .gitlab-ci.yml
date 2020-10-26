@@ -10,7 +10,7 @@ variables:
   DOCKER_DRIVER: overlay2
   # See https://github.com/docker-library/docker/pull/166
   DOCKER_TLS_CERTDIR: ""
-  REGISTRY: "registry.gitlab.com/bebuy.vn/clients/daidung/website"
+  REGISTRY: "registry.gitlab.com/bebuy.vn/clients/daidung/back-office"
 
 stages:
   # - prepare
@@ -41,7 +41,7 @@ build-back-office:
     - docker login registry.gitlab.com -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
   
   script:
-    - docker build -t $REGISTRY .  --no-cache
+    - docker build --build-arg="REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}" -t $REGISTRY .  --no-cache
     - docker tag $REGISTRY $REGISTRY:latest
     - docker push $REGISTRY:latest
 
