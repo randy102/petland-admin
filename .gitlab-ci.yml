@@ -10,30 +10,54 @@ variables:
   DOCKER_DRIVER: overlay2
   # See https://github.com/docker-library/docker/pull/166
   DOCKER_TLS_CERTDIR: ""
-  REGISTRY: "registry.gitlab.com/bebuy.vn/clients/daidung/back-office"
+  REGISTRY: "registry.gitlab.com/bebuy.vn/clients/daidung/website"
 
 stages:
   # - prepare
   - build
   # - lint
   # - test
-  # - deploy
+  - deploy
 
-.build_image:
-  tags:
-    - bebuy-gitlab-ci
+.pre-dev-deploy:
   before_script:
-    - docker login registry.gitlab.com -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
+    - apk update  && apk add --no-cache curl git
+    - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+    - chmod +x ./kubectl && mv ./kubectl /usr/local/bin/kubectl
+    - mkdir -p $HOME/.kube
+    - cp $KUBE_CONFIG $HOME/.kube/config
+    - git clone https://${DOCKER_USER}:${DOCKER_PASSWORD}@gitlab.com/bebuy.vn/clients/daidung/deployment.git
 
-build-service:
+build-back-office:
   stage: build
   only:
     - master
 
-  extends:
-    - .build_image
+  tags:
+    - bebuy-gitlab-ci
+    - bb-gitlab-ci
+
+  before_script:
+    - docker login registry.gitlab.com -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
   
   script:
     - docker build -t $REGISTRY .  --no-cache
     - docker tag $REGISTRY $REGISTRY:latest
     - docker push $REGISTRY:latest
+
+deploy-back-office-master:
+  stage: deploy
+  image: alpine/helm
+  only:
+    - master
+
+  tags:
+    - bebuy-gitlab-ci
+    - bb-gitlab-ci
+  
+  extends:
+    - .pre-dev-deploy
+
+  script:
+    - cd ./deployment/charts/back-office
+    - helm upgrade --install -n daidung back-office "./" -f "./custom-values.dev.yaml"
