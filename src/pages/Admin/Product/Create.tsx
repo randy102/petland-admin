@@ -28,7 +28,7 @@ export default function Create(props: CreateProps) {
   const [lang, setLang] = useState<string>("vi");
   const [saveLoading, setSaveLoading] = useState(false);
 
-  const [resCategory] = useFetch({api: "/product/category"})
+  const [resCategory, {refetch: refetchCategory}] = useFetch({api: "/product/category"})
   const requestCreate = useMutation({ api: "/product", method: "post" });
 
   function handleSave() {
@@ -115,6 +115,7 @@ export default function Create(props: CreateProps) {
           unCheckedText="Product"
         />
         <RSelect
+          refetch={refetchCategory}
           data={resCategory?.data}
           label="Category"
           name="categoryId"

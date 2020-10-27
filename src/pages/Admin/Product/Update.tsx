@@ -73,6 +73,7 @@ export default function Update(props: UpdateProps) {
     setImgs(undefined);
     enForm.resetFields();
     viForm.resetFields();
+    form.resetFields();
   }
 
   function handleSubmit(submitImgs?: string[]) {
