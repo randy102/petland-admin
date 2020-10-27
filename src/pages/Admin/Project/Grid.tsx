@@ -64,6 +64,11 @@ export default function Grid(props: GridProps) {
             dataIndex: "name",
           },
           {
+            title: "Category",
+            dataIndex: "category",
+            render: (category) => category && category[lang]
+          },
+          {
             title: "Type",
             dataIndex: "type",
           },
@@ -103,7 +108,7 @@ export default function Grid(props: GridProps) {
           {
             title: "Updated",
             dataIndex: "updatedAt",
-            render: (val) => moment(val).format("D/M/YYYY"),
+            render: (val) => val && moment(val).format("D/M/YYYY"),
           },
         ]}
       />

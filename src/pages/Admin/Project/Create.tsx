@@ -1,10 +1,11 @@
 import { Button, message, Space, Tabs } from "antd";
-import { useForm } from "components/Shared/RForm";
+import RForm, { useForm } from "components/Shared/RForm";
+import RSelect from "components/Shared/RForm/RSelect";
 import RUploads, { UploadApi } from "components/Shared/RForm/RUploads";
 import { StdCreateProps } from "components/Shared/RForm/types";
 import React, { Dispatch, useState } from "react";
 import { handleFieldError, isEmpty } from "utils/form";
-import { handleRequestError, useMutation } from "utils/request";
+import { handleRequestError, useFetch, useMutation } from "utils/request";
 import Form from "./Form";
 
 interface CreateProps extends StdCreateProps {
@@ -17,6 +18,7 @@ export default function Create(props: CreateProps) {
 
   const [enForm] = useForm();
   const [viForm] = useForm();
+  const [form] = useForm();
   const [enCK, setEnCK] = useState<string>();
   const [viCK, setViCK] = useState<string>();
   const [imgs, setImgs] = useState<string[]>();
@@ -24,14 +26,16 @@ export default function Create(props: CreateProps) {
   const [uploadAPI, setUploadAPI] = useState<UploadApi>();
   const [lang, setLang] = useState<string>("vi");
   const [saveLoading, setSaveLoading] = useState(false);
+
+  const [resCategory, {refetch: refetchCategory}] = useFetch({api: "/project/category"})
   const requestCreate = useMutation({ api: "/project", method: "post" });
 
   function handleSave() {
     const enInputs = enForm.validateFields();
     const viInputs = viForm.validateFields();
-
-    Promise.all([enInputs, viInputs])
-      .then(([en, vi]) => {
+    const formInputs = form.validateFields();
+    Promise.all([enInputs, viInputs, formInputs])
+      .then(([en, vi, form]) => {
         setSaveLoading(true);
 
         let toCreateData = [];
@@ -45,6 +49,7 @@ export default function Create(props: CreateProps) {
         requestCreate({
           data: {
             images: imgs || [],
+            categoryId: form.categoryId,
             data: toCreateData,
           },
         })
@@ -100,6 +105,19 @@ export default function Create(props: CreateProps) {
           <Form form={enForm} onChange={setEnCK} initCK={enCK} />
         </Tabs.TabPane>
       </Tabs>
+      <RForm form={form}>
+        <RSelect
+          refetch={refetchCategory}
+          data={resCategory?.data}
+          label="Category"
+          name="categoryId"
+          labelRender={(row) => row[lang]}
+          optionRender={(row) => row[lang]}
+          optionValue={(row) => row._id}
+          filterProps={(row) => [row.en, row.vi]}
+          required
+        />
+      </RForm>
       <RUploads onChange={setImgs} label="Images" uploadApi={setUploadAPI}/>
     </>
   );

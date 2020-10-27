@@ -117,7 +117,7 @@ export default function Grid(props: GridProps) {
           {
             title: "Updated",
             dataIndex: "updatedAt",
-            render: (val) => moment(val).format("D/M/YYYY"),
+            render: (val) => val && moment(val).format("D/M/YYYY"),
           },
         ]}
       />

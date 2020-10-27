@@ -1,4 +1,4 @@
-import { ProjectOutlined, TranslationOutlined, UserOutlined, TeamOutlined, EditOutlined, CodeSandboxOutlined, ReconciliationOutlined, WhatsAppOutlined, InfoCircleOutlined } from "@ant-design/icons";
+import {  ProjectOutlined, TranslationOutlined, UserOutlined, TeamOutlined, EditOutlined, CodeSandboxOutlined, ReconciliationOutlined, WhatsAppOutlined, InfoCircleOutlined, PictureOutlined, SettingOutlined } from "@ant-design/icons";
 import Translation from "./Translation";
 import Project from "./Project";
 import User from "./User";
@@ -8,6 +8,8 @@ import Product from "./Product";
 import Career from "./Career";
 import Contact from "./Contact";
 import Info from "./Info";
+import Slider from "./Slider";
+import Config from "./Config";
 
 interface RouteConfig {
   path: string
@@ -70,5 +72,17 @@ export const ROUTES: RouteConfig[] = [
     name: 'Translations',
     icon: TranslationOutlined,
     component: Translation
+  },
+  {
+    path: '/slider',
+    name: 'Slider',
+    icon: PictureOutlined,
+    component: Slider,
+  },
+  {
+    path: '/config',
+    name: 'Config',
+    icon: SettingOutlined,
+    component: Config
   }
 ]

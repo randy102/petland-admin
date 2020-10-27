@@ -14,6 +14,8 @@ export const ROUTES = {
   LOGOUT: "/logout"
 }
 
+document.title = 'Daidung Back-office';
+
 export default function RootPage() {
   return (
     <Router>
