@@ -1,4 +1,4 @@
-import { message, Radio } from "antd";
+import { message, Radio, Tag } from "antd";
 import RGrid from "components/Shared/RGrid";
 import React, { useState } from "react";
 import { handleRequestError, useMutation } from "utils/request";
@@ -68,6 +68,16 @@ export default function Grid(props: GridProps) {
             dataIndex: "description",
           },
           {
+            title: "Type",
+            dataIndex: "isService",
+            render: (isService) => isService ? <Tag color="cyan">Service</Tag> : <Tag>Product</Tag>
+          },
+          {
+            title: "Category",
+            dataIndex: "category",
+            render: (category) => category && category[lang]
+          },
+          {
             title: "Created",
             dataIndex: "createdAt",
             render: (val) => moment(val).format("D/M/YYYY"),
@@ -75,7 +85,7 @@ export default function Grid(props: GridProps) {
           {
             title: "Updated",
             dataIndex: "updatedAt",
-            render: (val) => moment(val).format("D/M/YYYY"),
+            render: (val) => val && moment(val).format("D/M/YYYY"),
           },
         ]}
       />
