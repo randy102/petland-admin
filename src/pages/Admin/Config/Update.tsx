@@ -1,8 +1,7 @@
 import { message } from "antd";
 import RDrawer from "components/Shared/RDrawer";
 import { useForm } from "components/Shared/RForm";
-import RUpload from "components/Shared/RForm/RUpload";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useMutation } from "utils/request";
 import Form from "./Form";
 
@@ -19,46 +18,31 @@ export default function Update(props: UpdateProps) {
 
   const [form] = useForm();
 
-  const [image, setImage] = useState<string>();
-
   const [submitLoading, setSubmitLoading] = useState(false);
   const requestUpdate = useMutation({ method: "put" });
-
-  useEffect(() => {
-    setImage(initRow?.image);
-  }, [initRow]);
-
+  console.log({initRow})
   function handleClose() {
     setInitRow(undefined);
     setShowForm(false);
   }
 
-  function handleSubmit(submitImage?: string) {
+  function handleSubmit() {
     form.validateFields().then((inputs) => {
       setSubmitLoading(true);
       requestUpdate({
-        api: "/slider/" + initRow?._id,
+        api: "/config/" + initRow?._id,
         data: {
           ...inputs,
-          image: submitImage !== undefined ? submitImage : image,
         },
-        
       })
         .then(() => {
-          if (!submitImage && submitImage !== "") {
-            handleClose();
-            message.success("Success!");
-          }
+          handleClose();
+          message.success("Success!");
           refetch();
         })
         .catch((error) => message.error(`Error: ${error.response.data}`))
         .finally(() => setSubmitLoading(false));
     });
-  }
-
-  function handleImageChange(image: string | undefined) {
-    setImage(image);
-    handleSubmit(image || "");
   }
 
   return (
@@ -82,12 +66,6 @@ export default function Update(props: UpdateProps) {
       ]}
     >
       <Form form={form} init={initRow} />
-      <RUpload
-        onChange={handleImageChange}
-        label="Image"
-        cropShape="rect"
-        initId={initRow?.image}
-      />
     </RDrawer>
   );
 }
