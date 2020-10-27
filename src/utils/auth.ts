@@ -30,7 +30,6 @@ export function getUser(field: keyof UserPayload): string | undefined {
   const token = getToken()
   if (field && !!token) {
     const payload: any = jwt.decode(token)
-    console.log({payload})
     return payload ? payload[field] : undefined;
   }
   return undefined

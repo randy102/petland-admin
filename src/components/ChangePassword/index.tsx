@@ -16,7 +16,6 @@ export default function ChangePassword(props: ChangePassProps) {
 
   function handleSubmit() {
     form.validateFields().then((inputs) => {
-      console.log({inputs})
       if (inputs.new_password !== inputs.confirm) {
         message.error("Confirm password not correct!");
         return;

@@ -47,16 +47,18 @@ export default function Update(props: UpdateProps) {
 
   useEffect(() => {
     setManufact(initRow?.isManufactory);
-  },[initRow])
+  }, [initRow]);
 
   useEffect(() => {
     form.setFieldsValue(initRow);
-  },[initRow,form])
+  }, [initRow, form]);
 
   useEffect(() => {
-    enForm.setFieldsValue(initData["en"]);
-    viForm.setFieldsValue(initData["vi"]);
-    setImgs(initRow?.images);
+    if (!enForm.isFieldsTouched()) enForm.setFieldsValue(initData["en"]);
+    if (!viForm.isFieldsTouched()) {
+      viForm.setFieldsValue(initData["vi"]);
+      setImgs(initRow?.images);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initRow, lang]);
 
@@ -77,14 +79,19 @@ export default function Update(props: UpdateProps) {
     Promise.all([enInputs, viInputs, formInputs])
       .then(([en, vi, form]) => {
         setSubmitLoading(true);
-        const enData = {
-          lang: "en",
-          ...(isEmpty(en) ? initData["en"] : en),
-        };
-        const viData = {
+        let data = [];
+
+        if (initData["en"].name || enForm.isFieldsTouched())
+          data.push({
+            lang: "en",
+            ...(isEmpty(en) ? initData["en"] : en),
+          });
+
+        data.push({
           lang: "vi",
           ...(isEmpty(vi) ? initData["vi"] : vi),
-        };
+        });
+
         requestUpdate({
           api: "/contact/" + initRow?._id,
           data: {
@@ -92,7 +99,7 @@ export default function Update(props: UpdateProps) {
             map: form.map,
             isPrimary: !!form.isPrimary,
             isManufactory: !!form.isManufactory,
-            data: [enData, viData],
+            data,
           },
         })
           .then(() => {
@@ -123,8 +130,7 @@ export default function Update(props: UpdateProps) {
           name: "Save",
           type: "primary",
           onClick: () => {
-            if (lang === "vi") setLang("en");
-            setTimeout(() => handleSubmit());
+            handleSubmit();
           },
           loading: submitLoading,
         },
@@ -146,7 +152,6 @@ export default function Update(props: UpdateProps) {
         <RSwitch
           name="isPrimary"
           label="Primary"
-          
           checkedText="True"
           unCheckedText="False"
         />

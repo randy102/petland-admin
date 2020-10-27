@@ -43,9 +43,11 @@ export default function Update(props: UpdateProps) {
   };
 
   useEffect(() => {
-    enForm.setFieldsValue(initData["en"]);
-    viForm.setFieldsValue(initData["vi"]);
-    setLogo(initRow?.logo);
+    if (!enForm.isFieldsTouched()) enForm.setFieldsValue(initData["en"]);
+    if (!viForm.isFieldsTouched()) {
+      viForm.setFieldsValue(initData["vi"]);
+      setLogo(initRow?.logo);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initRow, lang]);
 
@@ -60,24 +62,29 @@ export default function Update(props: UpdateProps) {
   function handleSubmit(submitLogo?: string) {
     const enInputs = enForm.validateFields();
     const viInputs = viForm.validateFields();
+
     Promise.all([enInputs, viInputs])
       .then(([en, vi]) => {
         setSubmitLoading(true);
 
-        const enData = {
-          lang: "en",
-          ...(isEmpty(en) ? initData["en"] : en),
-        };
-        const viData = {
+        let data = [];
+
+        if (initData["en"].name || enForm.isFieldsTouched())
+          data.push({
+            lang: "en",
+            ...(isEmpty(en) ? initData["en"] : en),
+          });
+
+        data.push({
           lang: "vi",
           ...(isEmpty(vi) ? initData["vi"] : vi),
-        };
+        });
 
         requestUpdate({
           api: "/partner/" + initRow?._id,
           data: {
             logo: submitLogo !== undefined ? submitLogo : logo,
-            data: [enData, viData],
+            data,
           },
         })
           .then(() => {
@@ -108,8 +115,7 @@ export default function Update(props: UpdateProps) {
           name: "Save",
           type: "primary",
           onClick: () => {
-            if (lang === "vi") setLang("en");
-            setTimeout(() => handleSubmit());
+            handleSubmit();
           },
           loading: submitLoading,
         },
