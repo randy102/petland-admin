@@ -1,4 +1,4 @@
-import { message, Radio } from "antd";
+import { message, Radio, Tag } from "antd";
 import RGrid from "components/Shared/RGrid";
 import React, { useState } from "react";
 import { handleRequestError, useMutation } from "utils/request";
@@ -60,16 +60,21 @@ export default function Grid(props: GridProps) {
         ]}
         colDef={[
           {
-            title: "Type",
-            dataIndex: "type",
-          },
-          {
             title: "Title",
             dataIndex: "title",
           },
           {
+            title: "Type",
+            dataIndex: "type",
+          },
+          {
             title: "Description",
             dataIndex: "description",
+          },
+          {
+            title: "Primary",
+            dataIndex: "isPrimary",
+            render: (val) => val ? <Tag color="green">True</Tag> : <Tag color="red">False</Tag>
           },
           {
             title: "Created",
