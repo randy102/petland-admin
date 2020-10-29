@@ -14,7 +14,8 @@ export default function Form(props: FormProps) {
 
   return (
     <RForm form={form} initialValues={init}>
-      <RInput label="Title" name="title" rules={{ required: true }} />
+      <RInput label="Title (Vi)" name="vi" rules={{ required: true }} />
+      <RInput label="Title (En)" name="en" />
 
       <RInput label="Link" name="link" rules={{ required: true, type: 'url' }} />
     </RForm>

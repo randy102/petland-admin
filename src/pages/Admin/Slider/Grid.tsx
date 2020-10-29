@@ -54,8 +54,12 @@ export default function Grid(props: GridProps) {
             render: (id) => id && <RImage id={id} width={60} />,
           },
           {
-            title: "Title",
-            dataIndex: "title",
+            title: "Vi",
+            dataIndex: "vi",
+          },
+          {
+            title: "En",
+            dataIndex: "en",
           },
           {
             title: "Link",

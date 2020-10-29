@@ -27,6 +27,7 @@ export default function Create(props: CreateProps) {
   const [uploadAPI, setUploadAPI] = useState<UploadApi>();
   const [lang, setLang] = useState<string>("vi");
   const [saveLoading, setSaveLoading] = useState(false);
+  const [isService, setIsService] = useState(false);
 
   const [resCategory, {refetch: refetchCategory}] = useFetch({api: "/product/category"})
   const requestCreate = useMutation({ api: "/product", method: "post" });
@@ -81,6 +82,11 @@ export default function Create(props: CreateProps) {
     }
   }
 
+  function handleTypeChange(isService: boolean){
+    form.resetFields(['categoryId'])
+    setIsService(isService)
+  }
+
   return (
     <>
       <Tabs
@@ -113,10 +119,11 @@ export default function Create(props: CreateProps) {
           label="Type"
           checkedText="Service"
           unCheckedText="Product"
+          onChange={handleTypeChange}
         />
         <RSelect
           refetch={refetchCategory}
-          data={resCategory?.data}
+          data={resCategory?.data.filter((cate: any) => (isService ? cate.type === 'service' : cate.type !== 'service'))}
           label="Category"
           name="categoryId"
           labelRender={(row) => row[lang]}

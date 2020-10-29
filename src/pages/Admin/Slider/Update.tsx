@@ -85,7 +85,7 @@ export default function Update(props: UpdateProps) {
       <RUpload
         onChange={handleImageChange}
         label="Image"
-        cropShape="rect"
+        crop={false}
         initId={initRow?.image}
       />
     </RDrawer>
