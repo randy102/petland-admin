@@ -1,6 +1,7 @@
 import { message, Tabs } from "antd";
 import RDrawer from "components/Shared/RDrawer";
-import { useForm } from "components/Shared/RForm";
+import RForm, { useForm } from "components/Shared/RForm";
+import RSwitch from "components/Shared/RForm/RSwitch";
 import RUpload from "components/Shared/RForm/RUpload";
 import React, { useEffect, useState } from "react";
 import { handleFieldError, isEmpty } from "utils/form";
@@ -31,6 +32,7 @@ export default function Update(props: UpdateProps) {
 
   const [enForm] = useForm();
   const [viForm] = useForm();
+  const [form] = useForm();
   const [enCK, setEnCK] = useState<string>();
   const [viCK, setViCK] = useState<string>();
 
@@ -57,6 +59,10 @@ export default function Update(props: UpdateProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initRow, lang]);
 
+  useEffect(() => {
+    form.setFieldsValue(initRow);
+  }, [initRow, form]);
+
   function handleClose() {
     setInitRow(undefined);
     setShowForm(false);
@@ -70,8 +76,10 @@ export default function Update(props: UpdateProps) {
   function handleSubmit(submitImage?: string) {
     const enInputs = enForm.validateFields();
     const viInputs = viForm.validateFields();
-    Promise.all([enInputs, viInputs])
-      .then(([en, vi]) => {
+    const formInputs = form.validateFields();
+
+    Promise.all([enInputs, viInputs, formInputs])
+      .then(([en, vi, form]) => {
         setSubmitLoading(true);
         let data = [];
 
@@ -91,6 +99,7 @@ export default function Update(props: UpdateProps) {
         requestUpdate({
           api: "/news/" + initRow?._id,
           data: {
+            isPrimary: !!form.isPrimary,
             image: submitImage !== undefined ? submitImage : image,
             data,
           },
@@ -141,6 +150,14 @@ export default function Update(props: UpdateProps) {
           <Form form={enForm} onChange={setEnCK} initCK={enCK} />
         </Tabs.TabPane>
       </Tabs>
+      <RForm form={form}>
+        <RSwitch
+          name="isPrimary"
+          label="Primary"
+          checkedText="True"
+          unCheckedText="False"
+        />
+      </RForm>
       <RUpload
         onChange={handleImageChange}
         label="Image"

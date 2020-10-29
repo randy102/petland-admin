@@ -1,5 +1,6 @@
 import { Button, message, Space, Tabs } from "antd";
-import { useForm } from "components/Shared/RForm";
+import RForm, { useForm } from "components/Shared/RForm";
+import RSwitch from "components/Shared/RForm/RSwitch";
 import RUpload, { UploadApi } from "components/Shared/RForm/RUpload";
 import { StdCreateProps } from "components/Shared/RForm/types";
 import React, { Dispatch, useState } from "react";
@@ -17,6 +18,7 @@ export default function Create(props: CreateProps) {
 
   const [enForm] = useForm();
   const [viForm] = useForm();
+  const [form] = useForm();
   const [enCK, setEnCK] = useState<string>();
   const [viCK, setViCK] = useState<string>();
   const [image, setImage] = useState<string>();
@@ -29,9 +31,9 @@ export default function Create(props: CreateProps) {
   function handleSave() {
     const enInputs = enForm.validateFields();
     const viInputs = viForm.validateFields();
-
-    Promise.all([enInputs, viInputs])
-      .then(([en, vi]) => {
+    const formInputs = form.validateFields();
+    Promise.all([enInputs, viInputs, formInputs])
+      .then(([en, vi, form]) => {
         setSaveLoading(true);
 
         let toCreateData = [];
@@ -44,6 +46,7 @@ export default function Create(props: CreateProps) {
 
         requestCreate({
           data: {
+            isPrimary: !!form.isPrimary,
             data: toCreateData,
             image
           },
@@ -100,6 +103,14 @@ export default function Create(props: CreateProps) {
           <Form form={enForm} onChange={setEnCK} initCK={enCK} />
         </Tabs.TabPane>
       </Tabs>
+      <RForm form={form}>
+        <RSwitch
+          name="isPrimary"
+          label="Primary"
+          checkedText="True"
+          unCheckedText="False"
+        />
+      </RForm>
       <RUpload
           onChange={setImage}
           label="Image"
