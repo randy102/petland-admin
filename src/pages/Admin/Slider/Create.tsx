@@ -46,7 +46,7 @@ export default function Create(props: CreateProps) {
       <RUpload
         onChange={setImage}
         label="Image"
-        cropShape="rect"
+        crop={false}
         uploadApi={setUploadAPI}
       />
       <Space>

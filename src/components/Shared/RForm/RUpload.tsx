@@ -137,6 +137,7 @@ export default function RUpload(props: RUploadProps) {
         action={url}
         beforeUpload={beforeUpload}
         onChange={handleChange}
+        headers={{token: getToken() || ""}}
       >
         {imageId ? (
           <img
