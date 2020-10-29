@@ -3,6 +3,10 @@
   margin-bottom: -40px;
   position: relative;
   z-index: 1;
+
+  &.reset{
+    margin-bottom: 15px;
+  }
 }
 
 .ant-table-column-sorters{

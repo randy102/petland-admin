@@ -152,7 +152,7 @@ export default function RGrid(props: RGridProps) {
   return (
     <div>
       {headDef?.length && !loading && (
-        <div className="rui-grid-btn">
+        <div className={`rui-grid-btn ${!data?.length ? 'reset' : ''}`}>
           <Space>
             {headDef &&
               headDef.map(
