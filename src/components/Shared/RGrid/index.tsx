@@ -151,7 +151,7 @@ export default function RGrid(props: RGridProps) {
 
   return (
     <div>
-      {headDef?.length && (
+      {headDef?.length && !loading && (
         <div className="rui-grid-btn">
           <Space>
             {headDef &&
@@ -216,11 +216,12 @@ export default function RGrid(props: RGridProps) {
       )}
 
       <Table
+        className="rui-grid-table"
         size="small"
         scroll={{x : true}}
         tableLayout="auto"
         showSorterTooltip={false}
-        pagination={pagination && { defaultPageSize: 10 }}
+        pagination={pagination && { defaultPageSize: 8, position: ['topRight','bottomCenter'] }}
         loading={loading}
         columns={colDef}
         dataSource={data}

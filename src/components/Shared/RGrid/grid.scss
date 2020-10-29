@@ -1,12 +1,19 @@
 .rui-grid-btn{
-  margin-bottom: 20px;
   margin-top: 10px;
+  margin-bottom: -40px;
+  position: relative;
+  z-index: 1;
 }
 
 .ant-table-column-sorters{
   font-weight: bold;
 }
 
+.rui-grid-table {
+  ul.ant-pagination > li {
+    z-index: 1;
+  }
+}
 /* width */
 ::-webkit-scrollbar {
   width:5px;
