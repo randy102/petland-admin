@@ -39,6 +39,7 @@ export default function Update(props: UpdateProps) {
   const [imgs, setImgs] = useState<string[]>();
 
   const [submitLoading, setSubmitLoading] = useState(false);
+  const [isService, setIsService] = useState(false);
   const [resCategory] = useFetch({api: "/product/category"})
   const requestUpdate = useMutation({ method: "put" });
 
@@ -126,6 +127,11 @@ export default function Update(props: UpdateProps) {
     handleSubmit(imgs);
   }
 
+  function handleTypeChange(isService: boolean){
+    form.resetFields(['categoryId'])
+    setIsService(isService)
+  }
+
   return (
     <RDrawer
       title="Edit"
@@ -160,9 +166,10 @@ export default function Update(props: UpdateProps) {
           label="Type"
           checkedText="Service"
           unCheckedText="Product"
+          onChange={handleTypeChange}
         />
         <RSelect
-          data={resCategory?.data}
+          data={resCategory?.data.filter((cate: any) => (isService ? cate.type === 'service' : cate.type !== 'service'))}
           label="Category"
           name="categoryId"
           labelRender={(row) => row[lang]}

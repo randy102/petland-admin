@@ -1,4 +1,4 @@
-import { message } from "antd";
+import { message, Tag } from "antd";
 import RGrid from "components/Shared/RGrid";
 import React, { useState } from "react";
 import { handleRequestError, useMutation } from "utils/request";
@@ -55,6 +55,11 @@ export default function GridCategory(props: GridProps) {
           {
             title: "Vi",
             dataIndex: "vi",
+          },
+          {
+            title: "Type",
+            dataIndex: "type",
+            render: (type) => type === 'service' ? <Tag color="cyan">Service</Tag> : <Tag>Product</Tag>
           },
           {
             title: "Created",
