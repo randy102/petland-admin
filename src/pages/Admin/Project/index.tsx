@@ -14,11 +14,11 @@ export default function Project() {
   return (
     <div>
       <Tabs activeKey={curTab} onTabClick={(key) => setCurTab(key)}>
-        <Tabs.TabPane key="list" tab={<span><UnorderedListOutlined />List</span>}>
+        <Tabs.TabPane key="list" tab={<span><UnorderedListOutlined />Projects</span>}>
           <Grid res={res} loading={loading} refetch={refetch}/>
         </Tabs.TabPane>
 
-        <Tabs.TabPane key="add" tab={<span><PlusOutlined />Create</span>}>
+        <Tabs.TabPane key="add" tab={<span><PlusOutlined />Create Project</span>}>
           <Create refetch={refetch} setCurTab={setCurTab}/>
         </Tabs.TabPane>
 
