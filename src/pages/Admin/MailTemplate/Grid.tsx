@@ -1,10 +1,9 @@
-import { message, Tag } from "antd";
+import { message } from "antd";
 import RGrid from "components/Shared/RGrid";
 import React, { useState } from "react";
 import { handleRequestError, useMutation } from "utils/request";
-
+import Update from "./Update";
 import moment from "moment";
-import UpdateCategory from "./UpdateCategory";
 
 interface GridProps {
   res: any;
@@ -12,7 +11,7 @@ interface GridProps {
   refetch: Function;
 }
 
-export default function GridCategory(props: GridProps) {
+export default function Grid(props: GridProps) {
   const { res, loading, refetch } = props;
 
   const [deleteLoading, setDeleteLoading] = useState<boolean>(false);
@@ -23,13 +22,13 @@ export default function GridCategory(props: GridProps) {
 
   function handleDelete(row: any[]) {
     setDeleteLoading(true)
-    requestDelete({ api: "/project/category/" + row[0]._id })
+    requestDelete({ api: "/mailtemplate/" + row[0]._id })
       .then(() => {
         message.success("Success!");
         refetch();
       })
       .catch(handleRequestError)
-      .finally(() => setDeleteLoading(false))
+      .finally(() => setDeleteLoading(false));
   }
 
   function handleUpdate(row: any[]) {
@@ -48,23 +47,19 @@ export default function GridCategory(props: GridProps) {
           { type: "delete", onClick: handleDelete, loading: deleteLoading },
         ]}
         colDef={[
+          
           {
-            title: "En",
-            dataIndex: "en",
+            title: "Name",
+            dataIndex: "name",
           },
           {
-            title: "Vi",
-            dataIndex: "vi",
-          },
-          {
-            title: "Type",
-            dataIndex: "type",
-            render: (type) => type === 'light' ? <Tag color="cyan">Light</Tag> : <Tag>Heavy</Tag>
+            title: "Description",
+            dataIndex: "description",
           },
           {
             title: "Created",
             dataIndex: "createdAt",
-            render: (val) => moment(val).format("D/M/YYYY"),
+            render: (val) => val && moment(val).format("D/M/YYYY"),
           },
           {
             title: "Updated",
@@ -74,7 +69,7 @@ export default function GridCategory(props: GridProps) {
         ]}
       />
 
-      <UpdateCategory
+      <Update
         {...{
           setInitRow,
           initRow,
