@@ -1,12 +1,12 @@
 import { Button, message, Space, Tabs } from "antd";
 import RForm, { useForm } from "components/Shared/RForm";
 import RSelect from "components/Shared/RForm/RSelect";
-import RSwitch from "components/Shared/RForm/RSwitch";
 import RUploads, { UploadApi } from "components/Shared/RForm/RUploads";
 import { StdCreateProps } from "components/Shared/RForm/types";
 import React, { Dispatch, useState } from "react";
 import { handleFieldError, isEmpty } from "utils/form";
 import { handleRequestError, useFetch, useMutation } from "utils/request";
+import { CATEGORY_TYPES } from "./CATEGORY_TYPES";
 import Form from "./Form";
 
 interface CreateProps extends StdCreateProps {
@@ -27,9 +27,11 @@ export default function Create(props: CreateProps) {
   const [uploadAPI, setUploadAPI] = useState<UploadApi>();
   const [lang, setLang] = useState<string>("vi");
   const [saveLoading, setSaveLoading] = useState(false);
-  const [isService, setIsService] = useState(false);
+  const [type, setType] = useState<string>();
 
-  const [resCategory, {refetch: refetchCategory}] = useFetch({api: "/product/category"})
+  const [resCategory, { refetch: refetchCategory }] = useFetch({
+    api: "/product/category",
+  });
   const requestCreate = useMutation({ api: "/product", method: "post" });
 
   function handleSave() {
@@ -51,7 +53,7 @@ export default function Create(props: CreateProps) {
         requestCreate({
           data: {
             images: imgs || [],
-            isService: !!form.isService,
+            type: form.type,
             categoryId: form.categoryId,
             data: toCreateData,
           },
@@ -73,7 +75,7 @@ export default function Create(props: CreateProps) {
   }
 
   function handleCopy() {
-    const viData = viForm.getFieldsValue()
+    const viData = viForm.getFieldsValue();
     switch (lang) {
       case "en":
         setEnCK(viCK);
@@ -82,9 +84,9 @@ export default function Create(props: CreateProps) {
     }
   }
 
-  function handleTypeChange(isService: boolean){
-    form.resetFields(['categoryId'])
-    setIsService(isService)
+  function handleTypeChange(type: string) {
+    form.resetFields(["categoryId"]);
+    setType(type);
   }
 
   return (
@@ -114,16 +116,19 @@ export default function Create(props: CreateProps) {
         </Tabs.TabPane>
       </Tabs>
       <RForm form={form}>
-        <RSwitch
-          name="isService"
+        <RSelect
+          data={CATEGORY_TYPES}
           label="Type"
-          checkedText="Service"
-          unCheckedText="Product"
+          name="type"
+          labelRender={(row) => row.name}
+          optionRender={(row) => row.name}
+          optionValue={(row) => row._id}
+          required
           onChange={handleTypeChange}
         />
         <RSelect
           refetch={refetchCategory}
-          data={resCategory?.data.filter((cate: any) => (isService ? cate.type === 'service' : cate.type !== 'service'))}
+          data={resCategory?.data.filter((cate: any) => cate.type === type)}
           label="Category"
           name="categoryId"
           labelRender={(row) => row[lang]}

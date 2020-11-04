@@ -1,10 +1,11 @@
-import { message, Radio } from "antd";
+import { message, Radio, Tag } from "antd";
 import RGrid from "components/Shared/RGrid";
 import React, { useState } from "react";
 import { handleRequestError, useMutation } from "utils/request";
 import { filterLang } from "utils/languages";
 import Update from "./Update";
 import moment from "moment";
+import { CATEGORY_TYPE_GRID } from "./CATEGORY_TYPES";
 
 interface GridProps {
   res: any;
@@ -64,13 +65,18 @@ export default function Grid(props: GridProps) {
             dataIndex: "name",
           },
           {
-            title: "Category",
-            dataIndex: "category",
-            render: (category) => category && category[lang]
+            title: "Title",
+            dataIndex: "title",
           },
           {
             title: "Type",
             dataIndex: "type",
+            render: (type) => <Tag color={CATEGORY_TYPE_GRID[type]?.color}>{CATEGORY_TYPE_GRID[type]?.name}</Tag>
+          },
+          {
+            title: "Category",
+            dataIndex: "category",
+            render: (category) => category && category[lang]
           },
           {
             title: "Address",
@@ -91,10 +97,6 @@ export default function Grid(props: GridProps) {
           {
             title: "Area",
             dataIndex: "area",
-          },
-          {
-            title: "Title",
-            dataIndex: "title",
           },
           {
             title: "Description",

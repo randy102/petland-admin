@@ -6,11 +6,11 @@ import React, { useEffect } from "react";
 import { CATEGORY_TYPES } from "./CATEGORY_TYPES";
 
 interface FormProps extends StdRFormProps {
-
+  disableType?: boolean
 }
 
 export default function FormCategory(props: FormProps) {
-  const { form, init } = props;
+  const { form, init, disableType = false } = props;
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => form?.resetFields(), [init]);
@@ -20,6 +20,7 @@ export default function FormCategory(props: FormProps) {
       <RInput label="Vi" name="vi" rules={{ required: true }} />
       <RInput label="En" name="en" />
       <RSelect
+        disabled={disableType}
         label="Type"
         name="type"
         data={CATEGORY_TYPES}
