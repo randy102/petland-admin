@@ -67,6 +67,7 @@ export default function UpdateCategory(props: UpdateProps) {
       <FormCategory
           form={form}
           init={initRow}
+          disableType
         />
     </RDrawer>
   );

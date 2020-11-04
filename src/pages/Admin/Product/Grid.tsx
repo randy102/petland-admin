@@ -5,6 +5,7 @@ import { handleRequestError, useMutation } from "utils/request";
 import { filterLang } from "utils/languages";
 import Update from "./Update";
 import moment from "moment";
+import { CATEGORY_TYPE_GRID } from "./CATEGORY_TYPES";
 
 interface GridProps {
   res: any;
@@ -69,8 +70,8 @@ export default function Grid(props: GridProps) {
           },
           {
             title: "Type",
-            dataIndex: "isService",
-            render: (isService) => isService ? <Tag color="cyan">Service</Tag> : <Tag>Product</Tag>
+            dataIndex: "type",
+            render: (type) => <Tag color={CATEGORY_TYPE_GRID[type]?.color}>{CATEGORY_TYPE_GRID[type]?.name}</Tag>
           },
           {
             title: "Category",

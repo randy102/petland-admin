@@ -6,6 +6,7 @@ import { StdCreateProps } from "components/Shared/RForm/types";
 import React, { Dispatch, useState } from "react";
 import { handleFieldError, isEmpty } from "utils/form";
 import { handleRequestError, useFetch, useMutation } from "utils/request";
+import { CATEGORY_TYPES } from "./CATEGORY_TYPES";
 import Form from "./Form";
 
 interface CreateProps extends StdCreateProps {
@@ -23,11 +24,14 @@ export default function Create(props: CreateProps) {
   const [viCK, setViCK] = useState<string>();
   const [imgs, setImgs] = useState<string[]>();
 
+  const [type, setType] = useState<string>();
   const [uploadAPI, setUploadAPI] = useState<UploadApi>();
   const [lang, setLang] = useState<string>("vi");
   const [saveLoading, setSaveLoading] = useState(false);
 
-  const [resCategory, {refetch: refetchCategory}] = useFetch({api: "/project/category"})
+  const [resCategory, { refetch: refetchCategory }] = useFetch({
+    api: "/project/category",
+  });
   const requestCreate = useMutation({ api: "/project", method: "post" });
 
   function handleSave() {
@@ -50,6 +54,7 @@ export default function Create(props: CreateProps) {
           data: {
             images: imgs || [],
             categoryId: form.categoryId,
+            type: form.type,
             data: toCreateData,
           },
         })
@@ -70,13 +75,18 @@ export default function Create(props: CreateProps) {
   }
 
   function handleCopy() {
-    const viData = viForm.getFieldsValue()
+    const viData = viForm.getFieldsValue();
     switch (lang) {
       case "en":
         setEnCK(viCK);
         enForm.setFieldsValue(viData);
         return;
     }
+  }
+
+  function handleTypeChange(type: string){
+    form.resetFields(['categoryId'])
+    setType(type)
   }
 
   return (
@@ -107,8 +117,18 @@ export default function Create(props: CreateProps) {
       </Tabs>
       <RForm form={form}>
         <RSelect
+          data={CATEGORY_TYPES}
+          label="Type"
+          name="type"
+          labelRender={(row) => row.name}
+          optionRender={(row) => row.name}
+          optionValue={(row) => row._id}
+          required
+          onChange={handleTypeChange}
+        />
+        <RSelect
           refetch={refetchCategory}
-          data={resCategory?.data}
+          data={resCategory?.data.filter((cate: any) => cate.type === type)}
           label="Category"
           name="categoryId"
           labelRender={(row) => row[lang]}
@@ -118,7 +138,7 @@ export default function Create(props: CreateProps) {
           required
         />
       </RForm>
-      <RUploads onChange={setImgs} label="Images" uploadApi={setUploadAPI}/>
+      <RUploads onChange={setImgs} label="Images" uploadApi={setUploadAPI} />
     </>
   );
 }

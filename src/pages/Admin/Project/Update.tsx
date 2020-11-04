@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import { handleFieldError, isEmpty } from "utils/form";
 import { getLang } from "utils/languages";
 import { handleRequestError, useFetch, useMutation } from "utils/request";
+import { CATEGORY_TYPES } from "./CATEGORY_TYPES";
 import Form from "./Form";
 
 interface UpdateProps {
@@ -37,7 +38,8 @@ export default function Update(props: UpdateProps) {
   const [viCK, setViCK] = useState<string>();
   const [imgs, setImgs] = useState<string[]>();
   const [submitLoading, setSubmitLoading] = useState(false);
-  
+  const [type, setType] = useState<string>();
+
   const requestUpdate = useMutation({ method: "put" });
   const [resCategory, {refetch: refetchCategory}] = useFetch({api: "/project/category"})
 
@@ -63,6 +65,7 @@ export default function Update(props: UpdateProps) {
 
   useEffect(() => {
     form.setFieldsValue(initRow);
+    setType(initRow?.type)
   }, [initRow, form]);
 
   function handleClose() {
@@ -102,6 +105,7 @@ export default function Update(props: UpdateProps) {
         requestUpdate({
           api: "/project/" + initRow?._id,
           data: {
+            type: form.type,
             categoryId: form.categoryId,
             images: submitImgs || imgs,
             data,
@@ -123,6 +127,11 @@ export default function Update(props: UpdateProps) {
   function handleImgsChange(imgs: string[]) {
     setImgs(imgs);
     handleSubmit(imgs);
+  }
+
+  function handleTypeChange(type: string) {
+    form.resetFields(["categoryId"]);
+    setType(type);
   }
 
   return (
@@ -155,8 +164,19 @@ export default function Update(props: UpdateProps) {
       </Tabs>
       <RForm form={form}>
         <RSelect
+          data={CATEGORY_TYPES}
+          label="Type"
+          name="type"
+          labelRender={(row) => row.name}
+          optionRender={(row) => row.name}
+          optionValue={(row) => row._id}
+          required
+          onChange={handleTypeChange}
+        />
+
+        <RSelect
           refetch={refetchCategory}
-          data={resCategory?.data}
+          data={resCategory?.data.filter((cate: any) => cate.type === type)}
           label="Category"
           name="categoryId"
           labelRender={(row) => row[lang]}

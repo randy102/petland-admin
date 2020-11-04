@@ -20,7 +20,7 @@ export default function Update(props: UpdateProps) {
 
   const [submitLoading, setSubmitLoading] = useState(false);
   const requestUpdate = useMutation({ method: "put" });
-  console.log({initRow})
+
   function handleClose() {
     setInitRow(undefined);
     setShowForm(false);
@@ -33,6 +33,7 @@ export default function Update(props: UpdateProps) {
         api: "/config/" + initRow?._id,
         data: {
           ...inputs,
+          isPublished: !!inputs.isPublished
         },
       })
         .then(() => {

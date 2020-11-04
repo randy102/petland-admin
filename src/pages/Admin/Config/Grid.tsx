@@ -1,4 +1,4 @@
-import { message } from "antd";
+import { message, Tag } from "antd";
 import RGrid from "components/Shared/RGrid";
 import React, { useState } from "react";
 import { handleRequestError, useMutation } from "utils/request";
@@ -59,6 +59,11 @@ export default function Grid(props: GridProps) {
           {
             title: "Description",
             dataIndex: "description",
+          },
+          {
+            title: "Permission",
+            dataIndex: "isPublished",
+            render: (isPublished) => isPublished ? <Tag color="blue">Public</Tag> : <Tag color="red">Private</Tag>
           },
           {
             title: "Created",

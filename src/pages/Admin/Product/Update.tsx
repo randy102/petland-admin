@@ -2,12 +2,12 @@ import { message, Tabs } from "antd";
 import RDrawer from "components/Shared/RDrawer";
 import RForm, { useForm } from "components/Shared/RForm";
 import RSelect from "components/Shared/RForm/RSelect";
-import RSwitch from "components/Shared/RForm/RSwitch";
 import RUploads from "components/Shared/RForm/RUploads";
 import React, { useEffect, useState } from "react";
 import { handleFieldError, isEmpty } from "utils/form";
 import { getLang } from "utils/languages";
 import { handleRequestError, useFetch, useMutation } from "utils/request";
+import { CATEGORY_TYPES } from "./CATEGORY_TYPES";
 import Form from "./Form";
 
 interface UpdateProps {
@@ -37,10 +37,9 @@ export default function Update(props: UpdateProps) {
   const [enCK, setEnCK] = useState<string>();
   const [viCK, setViCK] = useState<string>();
   const [imgs, setImgs] = useState<string[]>();
-
   const [submitLoading, setSubmitLoading] = useState(false);
-  const [isService, setIsService] = useState(false);
-  const [resCategory] = useFetch({api: "/product/category"})
+  const [type, setType] = useState<string>();
+  const [resCategory,  { refetch: refetchCategory }] = useFetch({api: "/product/category"})
   const requestUpdate = useMutation({ method: "put" });
 
   const initData: any = {
@@ -64,6 +63,7 @@ export default function Update(props: UpdateProps) {
 
   useEffect(() => {
     form.setFieldsValue(initRow);
+    setType(initRow?.type)
   }, [initRow, form]);
 
   function handleClose() {
@@ -103,7 +103,7 @@ export default function Update(props: UpdateProps) {
         requestUpdate({
           api: "/product/" + initRow?._id,
           data: {
-            isService: !!form.isService,
+            type: form.type,
             categoryId: form.categoryId,
             images: submitImgs || imgs,
             data,
@@ -127,9 +127,9 @@ export default function Update(props: UpdateProps) {
     handleSubmit(imgs);
   }
 
-  function handleTypeChange(isService: boolean){
-    form.resetFields(['categoryId'])
-    setIsService(isService)
+  function handleTypeChange(type: string) {
+    form.resetFields(["categoryId"]);
+    setType(type);
   }
 
   return (
@@ -161,15 +161,20 @@ export default function Update(props: UpdateProps) {
         </Tabs.TabPane>
       </Tabs>
       <RForm form={form}>
-        <RSwitch
-          name="isService"
+      <RSelect
+          data={CATEGORY_TYPES}
           label="Type"
-          checkedText="Service"
-          unCheckedText="Product"
+          name="type"
+          labelRender={(row) => row.name}
+          optionRender={(row) => row.name}
+          optionValue={(row) => row._id}
+          required
           onChange={handleTypeChange}
         />
+        
         <RSelect
-          data={resCategory?.data.filter((cate: any) => (isService ? cate.type === 'service' : cate.type !== 'service'))}
+          refetch={refetchCategory}
+          data={resCategory?.data.filter((cate: any) => cate.type === type)}
           label="Category"
           name="categoryId"
           labelRender={(row) => row[lang]}

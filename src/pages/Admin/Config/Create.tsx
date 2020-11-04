@@ -22,6 +22,7 @@ export default function Create(props: CreateProps) {
       setLoading(true);
       requestCreate({data: {
         ...inputs,
+        isPublished: !!inputs.isPublished
       }})
         .then(() => {
           message.success("Success!");

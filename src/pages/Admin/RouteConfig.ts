@@ -33,6 +33,12 @@ export const ROUTES: RouteConfig[] = [
     component: Project
   },
   {
+    path: '/product',
+    name: 'Products',
+    icon: CodeSandboxOutlined,
+    component: Product
+  },
+  {
     path: '/partner',
     name: 'Partners',
     icon: TeamOutlined,
@@ -43,12 +49,6 @@ export const ROUTES: RouteConfig[] = [
     name: 'News',
     icon: EditOutlined,
     component: News
-  },
-  {
-    path: '/product',
-    name: 'Products',
-    icon: CodeSandboxOutlined,
-    component: Product
   },
   {
     path: '/career',
