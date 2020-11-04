@@ -1,5 +1,6 @@
 import RForm from "components/Shared/RForm";
 import RInput from "components/Shared/RForm/RInput";
+import RSwitch from "components/Shared/RForm/RSwitch";
 import { StdRFormProps } from "components/Shared/RForm/types";
 import React, { useEffect } from "react";
 
@@ -19,6 +20,13 @@ export default function Form(props: FormProps) {
       <RInput label="Value" name="value" rules={{ required: true }} />
 
       <RInput label="Description" name="description" />
+
+      <RSwitch
+        label="Permission"
+        checkedText="Public"
+        unCheckedText="Private"
+        name="isPublished"
+      />
     </RForm>
   );
 }
