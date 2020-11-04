@@ -1,10 +1,11 @@
-import { message } from "antd";
+import { message, Tag } from "antd";
 import RGrid from "components/Shared/RGrid";
 import React, { useState } from "react";
 import { handleRequestError, useMutation } from "utils/request";
 import Update from "./Update";
 import moment from "moment";
 import RImage from "components/Shared/RImage";
+import { SLIDER_TYPE_GRID } from "./SLIDER_TYPES";
 
 interface GridProps {
   res: any;
@@ -65,6 +66,11 @@ export default function Grid(props: GridProps) {
             title: "Link",
             dataIndex: "link",
             render: (link) => <a href={link}>{link}</a>,
+          },
+          {
+            title: "Type",
+            dataIndex: "type",
+            render: (type) => <Tag color={SLIDER_TYPE_GRID[type]?.color}>{SLIDER_TYPE_GRID[type]?.name}</Tag>
           },
           {
             title: "Created",
