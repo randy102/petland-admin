@@ -9,7 +9,7 @@ interface EditorProps {
 }
 
 export default function CKEditor(props: EditorProps) {
-  const { init = '', onChange } = props;
+  const { init = "", onChange } = props;
 
   return (
     <div style={{ marginBottom: 15, marginTop: 10 }}>

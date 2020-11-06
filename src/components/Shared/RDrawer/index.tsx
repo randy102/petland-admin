@@ -38,7 +38,7 @@ export default function RDrawer(props: DrawerProps) {
 
   return (
     <AntDrawer
-      width={600}
+      width={900}
       visible={visible}
       onClose={onClose}
       title={title}
