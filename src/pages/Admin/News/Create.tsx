@@ -80,7 +80,7 @@ export default function Create(props: CreateProps) {
   return (
     <>
       <Tabs
-        style={{ maxWidth: 600 }}
+        style={{ maxWidth: 900 }}
         type="card"
         activeKey={lang}
         onTabClick={setLang}

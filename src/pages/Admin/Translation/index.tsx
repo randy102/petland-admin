@@ -61,7 +61,7 @@ export default function Translation() {
 
   return (
     <Tabs
-      style={{ maxWidth: 600 }}
+      style={{ maxWidth: 900 }}
       tabBarExtraContent={
         <Space style={{ transform: "translateY(7px)" }}>
           <Button onClick={handleCopy}>

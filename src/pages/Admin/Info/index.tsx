@@ -95,7 +95,7 @@ export default function Info() {
   return (
     <>
       <Tabs
-        style={{ maxWidth: 600 }}
+        style={{ maxWidth: 900 }}
         tabBarExtraContent={
           <Space style={{ transform: "translateY(7px)" }}>
             {lang !== "vi" && (
