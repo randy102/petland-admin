@@ -93,8 +93,8 @@ export default function Grid(props: GridProps) {
             dataIndex: "year",
           },
           {
-            title: "Status",
-            dataIndex: "status",
+            title: "Project Status",
+            dataIndex: "project_status",
           },
           {
             title: "Investor",
