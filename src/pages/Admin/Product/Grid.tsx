@@ -6,6 +6,7 @@ import { filterLang } from "utils/languages";
 import Update from "./Update";
 import moment from "moment";
 import { CATEGORY_TYPE_GRID } from "./CATEGORY_TYPES";
+import { POST_STATUS_GRID } from "components/Shared/POST_STATUS";
 
 interface GridProps {
   res: any;
@@ -77,6 +78,11 @@ export default function Grid(props: GridProps) {
             title: "Category",
             dataIndex: "category",
             render: (category) => category && category[lang]
+          },
+          {
+            title: "Status",
+            dataIndex: "status",
+            render: (type) => <Tag color={POST_STATUS_GRID[type]?.color}>{POST_STATUS_GRID[type]?.name}</Tag>
           },
           {
             title: "Created",

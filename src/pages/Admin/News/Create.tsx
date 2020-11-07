@@ -1,5 +1,7 @@
 import { Button, message, Space, Tabs } from "antd";
+import { POST_STATUS } from "components/Shared/POST_STATUS";
 import RForm, { useForm } from "components/Shared/RForm";
+import RSelect from "components/Shared/RForm/RSelect";
 import RSwitch from "components/Shared/RForm/RSwitch";
 import RUpload, { UploadApi } from "components/Shared/RForm/RUpload";
 import { StdCreateProps } from "components/Shared/RForm/types";
@@ -46,6 +48,7 @@ export default function Create(props: CreateProps) {
 
         requestCreate({
           data: {
+            ...form,
             isPrimary: !!form.isPrimary,
             data: toCreateData,
             image
@@ -109,6 +112,16 @@ export default function Create(props: CreateProps) {
           label="Primary"
           checkedText="True"
           unCheckedText="False"
+        />
+
+        <RSelect
+          data={POST_STATUS}
+          label="Status"
+          name="status"
+          labelRender={(row) => row.name}
+          optionRender={(row) => row.name}
+          optionValue={(row) => row._id}
+          required
         />
       </RForm>
       <RUpload

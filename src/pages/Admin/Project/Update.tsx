@@ -1,4 +1,5 @@
 import { message, Tabs } from "antd";
+import { POST_STATUS } from "components/Shared/POST_STATUS";
 import RDrawer from "components/Shared/RDrawer";
 import RForm, { useForm } from "components/Shared/RForm";
 import RSelect from "components/Shared/RForm/RSelect";
@@ -41,7 +42,9 @@ export default function Update(props: UpdateProps) {
   const [type, setType] = useState<string>();
 
   const requestUpdate = useMutation({ method: "put" });
-  const [resCategory, {refetch: refetchCategory}] = useFetch({api: "/project/category"})
+  const [resCategory, { refetch: refetchCategory }] = useFetch({
+    api: "/project/category",
+  });
 
   const initData: any = {
     vi: getLang("vi", initRow),
@@ -49,12 +52,12 @@ export default function Update(props: UpdateProps) {
   };
 
   useEffect(() => {
-    if (!enForm.isFieldsTouched()){
+    if (!enForm.isFieldsTouched()) {
       enForm.setFieldsValue(initData["en"]);
       setEnCK(initData["en"]?.content || "");
     }
 
-    if (!viForm.isFieldsTouched()){
+    if (!viForm.isFieldsTouched()) {
       viForm.setFieldsValue(initData["vi"]);
       setViCK(initData["vi"]?.content || "");
       setImgs(initRow?.images);
@@ -62,10 +65,9 @@ export default function Update(props: UpdateProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initRow, lang]);
 
-
   useEffect(() => {
     form.setFieldsValue(initRow);
-    setType(initRow?.type)
+    setType(initRow?.type);
   }, [initRow, form]);
 
   function handleClose() {
@@ -101,12 +103,10 @@ export default function Update(props: UpdateProps) {
           ...(isEmpty(vi) ? initData["vi"] : vi),
         });
 
-
         requestUpdate({
           api: "/project/" + initRow?._id,
           data: {
-            type: form.type,
-            categoryId: form.categoryId,
+            ...form,
             images: submitImgs || imgs,
             data,
           },
@@ -183,6 +183,16 @@ export default function Update(props: UpdateProps) {
           optionRender={(row) => row[lang]}
           optionValue={(row) => row._id}
           filterProps={(row) => [row.en, row.vi]}
+          required
+        />
+
+        <RSelect
+          data={POST_STATUS}
+          label="Status"
+          name="status"
+          labelRender={(row) => row.name}
+          optionRender={(row) => row.name}
+          optionValue={(row) => row._id}
           required
         />
       </RForm>

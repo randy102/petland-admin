@@ -1,4 +1,5 @@
 import { Button, message, Space, Tabs } from "antd";
+import { POST_STATUS } from "components/Shared/POST_STATUS";
 import RForm, { useForm } from "components/Shared/RForm";
 import RSelect from "components/Shared/RForm/RSelect";
 import RUploads, { UploadApi } from "components/Shared/RForm/RUploads";
@@ -52,9 +53,8 @@ export default function Create(props: CreateProps) {
 
         requestCreate({
           data: {
+            ...form,
             images: imgs || [],
-            categoryId: form.categoryId,
-            type: form.type,
             data: toCreateData,
           },
         })
@@ -135,6 +135,15 @@ export default function Create(props: CreateProps) {
           optionRender={(row) => row[lang]}
           optionValue={(row) => row._id}
           filterProps={(row) => [row.en, row.vi]}
+          required
+        />
+        <RSelect
+          data={POST_STATUS}
+          label="Status"
+          name="status"
+          labelRender={(row) => row.name}
+          optionRender={(row) => row.name}
+          optionValue={(row) => row._id}
           required
         />
       </RForm>
