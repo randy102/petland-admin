@@ -1,6 +1,8 @@
 import { message, Tabs } from "antd";
+import { POST_STATUS } from "components/Shared/POST_STATUS";
 import RDrawer from "components/Shared/RDrawer";
 import RForm, { useForm } from "components/Shared/RForm";
+import RSelect from "components/Shared/RForm/RSelect";
 import RSwitch from "components/Shared/RForm/RSwitch";
 import RUpload from "components/Shared/RForm/RUpload";
 import React, { useEffect, useState } from "react";
@@ -99,6 +101,7 @@ export default function Update(props: UpdateProps) {
         requestUpdate({
           api: "/news/" + initRow?._id,
           data: {
+            ...form,
             isPrimary: !!form.isPrimary,
             image: submitImage !== undefined ? submitImage : image,
             data,
@@ -156,6 +159,15 @@ export default function Update(props: UpdateProps) {
           label="Primary"
           checkedText="True"
           unCheckedText="False"
+        />
+        <RSelect
+          data={POST_STATUS}
+          label="Status"
+          name="status"
+          labelRender={(row) => row.name}
+          optionRender={(row) => row.name}
+          optionValue={(row) => row._id}
+          required
         />
       </RForm>
       <RUpload

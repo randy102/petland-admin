@@ -1,4 +1,5 @@
 import { message, Tabs } from "antd";
+import { POST_STATUS } from "components/Shared/POST_STATUS";
 import RDrawer from "components/Shared/RDrawer";
 import RForm, { useForm } from "components/Shared/RForm";
 import RSelect from "components/Shared/RForm/RSelect";
@@ -103,8 +104,7 @@ export default function Update(props: UpdateProps) {
         requestUpdate({
           api: "/product/" + initRow?._id,
           data: {
-            type: form.type,
-            categoryId: form.categoryId,
+            ...form,
             images: submitImgs || imgs,
             data,
           },
@@ -181,6 +181,16 @@ export default function Update(props: UpdateProps) {
           optionRender={(row) => row[lang]}
           optionValue={(row) => row._id}
           filterProps={(row) => [row.en, row.vi]}
+          required
+        />
+
+<RSelect
+          data={POST_STATUS}
+          label="Status"
+          name="status"
+          labelRender={(row) => row.name}
+          optionRender={(row) => row.name}
+          optionValue={(row) => row._id}
           required
         />
       </RForm>
