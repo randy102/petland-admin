@@ -47,7 +47,9 @@ build-back-office:
 
 deploy-back-office-master:
   stage: deploy
-  image: alpine/helm
+  image:
+    name: alpine/helm:3.2.4
+    entrypoint: [""]
   only:
     - master
 
