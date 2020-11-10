@@ -1,8 +1,6 @@
 import { Button, message, Space, Tabs } from "antd";
-import { POST_STATUS } from "components/Shared/POST_STATUS";
 import RForm, { useForm } from "components/Shared/RForm";
-import RSelect from "components/Shared/RForm/RSelect";
-import RSwitch from "components/Shared/RForm/RSwitch";
+import RInput from "components/Shared/RForm/RInput";
 import RUpload, { UploadApi } from "components/Shared/RForm/RUpload";
 import { StdCreateProps } from "components/Shared/RForm/types";
 import React, { Dispatch, useState } from "react";
@@ -21,37 +19,34 @@ export default function Create(props: CreateProps) {
   const [enForm] = useForm();
   const [viForm] = useForm();
   const [form] = useForm();
-  const [enCK, setEnCK] = useState<string>();
-  const [viCK, setViCK] = useState<string>();
   const [image, setImage] = useState<string>();
 
   const [uploadAPI, setUploadAPI] = useState<UploadApi>();
   const [lang, setLang] = useState<string>("vi");
   const [saveLoading, setSaveLoading] = useState(false);
-  const requestCreate = useMutation({ api: "/news", method: "post" });
+  const requestCreate = useMutation({ api: "/history", method: "post" });
 
   function handleSave() {
     const enInputs = enForm.validateFields();
     const viInputs = viForm.validateFields();
     const formInputs = form.validateFields();
     Promise.all([enInputs, viInputs, formInputs])
-      .then(([en, vi, form]) => {
+      .then(([en, vi, fo]) => {
         setSaveLoading(true);
 
         let toCreateData = [];
         if (!isEmpty(en)) {
-          toCreateData.push({ ...en, content: enCK, lang: "en" });
+          toCreateData.push({ ...en, lang: "en" });
         }
         if (!isEmpty(vi)) {
-          toCreateData.push({ ...vi, content: viCK, lang: "vi" });
+          toCreateData.push({ ...vi, lang: "vi" });
         }
 
         requestCreate({
           data: {
-            ...form,
-            isPrimary: !!form.isPrimary,
+            ...fo,
+            image: image || "",
             data: toCreateData,
-            image
           },
         })
           .then(() => {
@@ -60,9 +55,8 @@ export default function Create(props: CreateProps) {
             setCurTab("list");
             viForm.resetFields();
             enForm.resetFields();
-            setEnCK("");
-            setViCK("");
             uploadAPI?.reset();
+            form.resetFields();
           })
           .catch(handleRequestError)
           .finally(() => setSaveLoading(false));
@@ -74,7 +68,6 @@ export default function Create(props: CreateProps) {
     const viData = viForm.getFieldsValue();
     switch (lang) {
       case "en":
-        setEnCK(viCK);
         enForm.setFieldsValue(viData);
         return;
     }
@@ -99,37 +92,22 @@ export default function Create(props: CreateProps) {
         }
       >
         <Tabs.TabPane key="vi" tab="Vietnamese">
-          <Form form={viForm} onChange={setViCK} initCK={viCK} />
+          <Form form={viForm} />
         </Tabs.TabPane>
 
         <Tabs.TabPane key="en" tab="English">
-          <Form form={enForm} onChange={setEnCK} initCK={enCK} />
+          <Form form={enForm} />
         </Tabs.TabPane>
       </Tabs>
       <RForm form={form}>
-        <RSwitch
-          name="isPrimary"
-          label="Primary"
-          checkedText="True"
-          unCheckedText="False"
-        />
-
-        <RSelect
-          data={POST_STATUS}
-          label="Status"
-          name="status"
-          labelRender={(row) => row.name}
-          optionRender={(row) => row.name}
-          optionValue={(row) => row._id}
-          required
-        />
+        <RInput label="Time" number name="time" rules={{ required: true }} />
       </RForm>
       <RUpload
-          onChange={setImage}
-          label="Image"
-          crop={false}
-          uploadApi={setUploadAPI}
-        />
+        onChange={setImage}
+        label="Image"
+        crop={false}
+        uploadApi={setUploadAPI}
+      />
     </>
   );
 }

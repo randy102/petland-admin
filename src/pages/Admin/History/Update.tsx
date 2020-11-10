@@ -1,9 +1,7 @@
 import { message, Tabs } from "antd";
-import { POST_STATUS } from "components/Shared/POST_STATUS";
 import RDrawer from "components/Shared/RDrawer";
 import RForm, { useForm } from "components/Shared/RForm";
-import RSelect from "components/Shared/RForm/RSelect";
-import RSwitch from "components/Shared/RForm/RSwitch";
+import RInput from "components/Shared/RForm/RInput";
 import RUpload from "components/Shared/RForm/RUpload";
 import React, { useEffect, useState } from "react";
 import { handleFieldError, isEmpty } from "utils/form";
@@ -35,10 +33,9 @@ export default function Update(props: UpdateProps) {
   const [enForm] = useForm();
   const [viForm] = useForm();
   const [form] = useForm();
-  const [enCK, setEnCK] = useState<string>();
-  const [viCK, setViCK] = useState<string>();
 
   const [image, setImage] = useState<string>();
+
   const [submitLoading, setSubmitLoading] = useState(false);
   const requestUpdate = useMutation({ method: "put" });
 
@@ -48,14 +45,9 @@ export default function Update(props: UpdateProps) {
   };
 
   useEffect(() => {
-    if (!enForm.isFieldsTouched()){
-      enForm.setFieldsValue(initData["en"]);
-      setEnCK(initData["en"]?.content || "");
-    }
-
-    if (!viForm.isFieldsTouched()){
+    if (!enForm.isFieldsTouched()) enForm.setFieldsValue(initData["en"]);
+    if (!viForm.isFieldsTouched()) {
       viForm.setFieldsValue(initData["vi"]);
-      setViCK(initData["vi"]?.content || "");
       setImage(initRow?.image);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -68,8 +60,6 @@ export default function Update(props: UpdateProps) {
   function handleClose() {
     setInitRow(undefined);
     setShowForm(false);
-    setEnCK("");
-    setViCK("");
     setImage(undefined);
     enForm.resetFields();
     viForm.resetFields();
@@ -83,26 +73,24 @@ export default function Update(props: UpdateProps) {
     Promise.all([enInputs, viInputs, formInputs])
       .then(([en, vi, form]) => {
         setSubmitLoading(true);
+
         let data = [];
 
         if (initData["en"].name || enForm.isFieldsTouched())
           data.push({
             lang: "en",
-            content: enCK,
             ...(isEmpty(en) ? initData["en"] : en),
           });
 
         data.push({
           lang: "vi",
-          content: viCK,
           ...(isEmpty(vi) ? initData["vi"] : vi),
         });
 
         requestUpdate({
-          api: "/news/" + initRow?._id,
+          api: "/history/" + initRow?._id,
           data: {
             ...form,
-            isPrimary: !!form.isPrimary,
             image: submitImage !== undefined ? submitImage : image,
             data,
           },
@@ -135,7 +123,7 @@ export default function Update(props: UpdateProps) {
           name: "Save",
           type: "primary",
           onClick: () => {
-            handleSubmit()
+            handleSubmit();
           },
           loading: submitLoading,
         },
@@ -147,28 +135,14 @@ export default function Update(props: UpdateProps) {
     >
       <Tabs type="card" activeKey={lang} onTabClick={setLang}>
         <Tabs.TabPane key="vi" tab="Vietnamese">
-          <Form form={viForm} onChange={setViCK} initCK={viCK} />
+          <Form form={viForm} />
         </Tabs.TabPane>
         <Tabs.TabPane key="en" tab="English">
-          <Form form={enForm} onChange={setEnCK} initCK={enCK} />
+          <Form form={enForm} />
         </Tabs.TabPane>
       </Tabs>
       <RForm form={form}>
-        <RSwitch
-          name="isPrimary"
-          label="Primary"
-          checkedText="True"
-          unCheckedText="False"
-        />
-        <RSelect
-          data={POST_STATUS}
-          label="Status"
-          name="status"
-          labelRender={(row) => row.name}
-          optionRender={(row) => row.name}
-          optionValue={(row) => row._id}
-          required
-        />
+        <RInput label="Time" number name="time" rules={{ required: true }} />
       </RForm>
       <RUpload
         onChange={handleImageChange}
