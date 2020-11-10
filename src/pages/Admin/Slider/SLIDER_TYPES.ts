@@ -9,5 +9,5 @@ export const SLIDER_TYPE_GRID: any = {
   main: {color: 'blue', name: 'Main'},
   certificate: {color: 'red', name: 'Certificate'},
   testimonial: {color: 'green', name: 'Testimonial'},
-  popup: {color: 'yellow', name: 'Popup'}
+  popup: {color: 'orange', name: 'Popup'}
 }
