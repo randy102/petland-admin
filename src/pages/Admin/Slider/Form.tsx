@@ -19,7 +19,7 @@ export default function Form(props: FormProps) {
       <RInput label="Title (Vi)" name="vi" rules={{ required: true }} />
       <RInput label="Title (En)" name="en" />
 
-      <RInput label="Link" name="link" rules={{ required: true, type: 'url' }} />
+      <RInput label="Link" name="link" />
 
       <RSelect
         label="Type"
