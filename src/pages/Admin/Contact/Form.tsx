@@ -17,7 +17,7 @@ export default function Form(props: FormProps) {
     <RForm form={form} initialValues={init}>
       <RInput label="Name" name="name" rules={{ required: true }} />
 
-      <RInput label="Phone" name="phone" rules={{ pattern: /^[0-9]/ }} />
+      <RInput label="Phone" name="phone" rules={{ pattern: /^[0-9()\-\s)]+$/ }} />
 
       <RInput label="Address" name="address" />
 
