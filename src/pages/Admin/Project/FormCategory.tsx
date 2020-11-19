@@ -29,6 +29,9 @@ export default function FormCategory(props: FormProps) {
         optionValue={r => r._id}
         required
       />
+      <RInput label="Icon" name="icon" />
+      <RInput label="Description (Vi)" name="desVi" />
+      <RInput label="Description (En)" name="desEn" />
     </RForm>
   );
 }

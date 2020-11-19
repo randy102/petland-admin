@@ -62,6 +62,10 @@ export default function GridCategory(props: GridProps) {
             render: (type) => type === 'light' ? <Tag color="cyan">Light</Tag> : <Tag>Heavy</Tag>
           },
           {
+            title: "Icon",
+            dataIndex: "icon",
+          },
+          {
             title: "Created",
             dataIndex: "createdAt",
             render: (val) => moment(val).format("D/M/YYYY"),
