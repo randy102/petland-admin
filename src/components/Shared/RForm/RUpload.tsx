@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, Upload, message, Button } from "antd";
+import { Form, Upload, message, Button, Modal } from "antd";
 import ImgCrop from "antd-img-crop";
 import {
   LoadingOutlined,
@@ -41,9 +41,9 @@ export default function RUpload(props: RUploadProps) {
     disabled = false,
     uploadApi = () => {},
     label,
-    url = process.env.REACT_APP_BACKEND_URL + '/file',
+    url = process.env.REACT_APP_BACKEND_URL + "/file",
     initId,
-    viewUrl = process.env.REACT_APP_BACKEND_URL + '/file',
+    viewUrl = process.env.REACT_APP_BACKEND_URL + "/file",
     onChange = () => {},
   } = props;
 
@@ -72,13 +72,20 @@ export default function RUpload(props: RUploadProps) {
   }
 
   function handleRemove() {
-    Axios.delete(`${url}/${imageId}`, {headers: {token: getToken()}})
-      .then(() => {
-        message.success("Xóa thành công!");
-        setImageId(undefined);
-        onChange(undefined);
-      })
-      .catch((err) => message.error(err.message));
+    Modal.confirm({
+      title: "Image will be delete permanently! Are you sure?",
+      okText: "Yes",
+      cancelText: "No",
+      onOk: () => {
+        Axios.delete(`${url}/${imageId}`, { headers: { token: getToken() } })
+          .then(() => {
+            message.success("Xóa thành công!");
+            setImageId(undefined);
+            onChange(undefined);
+          })
+          .catch((err) => message.error(err.message));
+      }
+    });
   }
 
   function beforeUpload(file: RcFile) {
@@ -113,7 +120,7 @@ export default function RUpload(props: RUploadProps) {
             action={url}
             beforeUpload={beforeUpload}
             onChange={handleChange}
-            headers={{token: getToken() || ""}}
+            headers={{ token: getToken() || "" }}
           >
             {imageId ? (
               <img
@@ -137,7 +144,7 @@ export default function RUpload(props: RUploadProps) {
         action={url}
         beforeUpload={beforeUpload}
         onChange={handleChange}
-        headers={{token: getToken() || ""}}
+        headers={{ token: getToken() || "" }}
       >
         {imageId ? (
           <img
