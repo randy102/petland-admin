@@ -74,8 +74,12 @@ export default function Grid(props: GridProps) {
             dataIndex: "content",
           },
           {
-            title: "Time",
-            dataIndex: "time",
+            title: "From",
+            dataIndex: "from",
+          },
+          {
+            title: "To",
+            dataIndex: "to",
           },
           {
             title: "Created",

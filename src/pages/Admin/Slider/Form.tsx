@@ -21,6 +21,8 @@ export default function Form(props: FormProps) {
 
       <RInput label="Link" name="link" />
 
+      <RInput label="Extra link" name="extraLink" />
+
       <RSelect
         label="Type"
         name="type"
