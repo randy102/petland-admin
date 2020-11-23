@@ -142,7 +142,8 @@ export default function Update(props: UpdateProps) {
         </Tabs.TabPane>
       </Tabs>
       <RForm form={form}>
-        <RInput label="Time" number name="time" rules={{ required: true }} />
+        <RInput label="From" number name="from" rules={{ required: true }} />
+        <RInput label="To" number name="to" />
       </RForm>
       <RUpload
         onChange={handleImageChange}
