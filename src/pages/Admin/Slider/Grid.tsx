@@ -68,6 +68,11 @@ export default function Grid(props: GridProps) {
             render: (link) => <a href={link}>{link}</a>,
           },
           {
+            title: "Extra link",
+            dataIndex: "extraLink",
+            render: (link) => <a href={link}>{link}</a>,
+          },
+          {
             title: "Type",
             dataIndex: "type",
             render: (type) => <Tag color={SLIDER_TYPE_GRID[type]?.color}>{SLIDER_TYPE_GRID[type]?.name}</Tag>
