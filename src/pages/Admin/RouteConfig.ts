@@ -12,6 +12,7 @@ import Slider from "./Slider";
 import Config from "./Config";
 import MailTemplate from "./MailTemplate";
 import History from "./History"
+import Member from "./Member";
 
 interface RouteConfig {
   path: string
@@ -40,12 +41,6 @@ export const ROUTES: RouteConfig[] = [
     component: Product
   },
   {
-    path: '/partner',
-    name: 'Partners',
-    icon: TeamOutlined,
-    component: Partner
-  },
-  {
     path: '/news',
     name: 'News',
     icon: EditOutlined,
@@ -56,6 +51,18 @@ export const ROUTES: RouteConfig[] = [
     name: 'Careers',
     icon: ReconciliationOutlined,
     component: Career
+  },
+  {
+    path: '/partner',
+    name: 'Partners',
+    icon: TeamOutlined,
+    component: Partner
+  },
+  {
+    path: '/member',
+    name: 'Members',
+    icon: TeamOutlined,
+    component: Member
   },
   {
     path: '/contact',

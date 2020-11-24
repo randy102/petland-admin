@@ -3,8 +3,7 @@ import RInput from "components/Shared/RForm/RInput";
 import { StdRFormProps } from "components/Shared/RForm/types";
 import React, { useEffect } from "react";
 
-interface FormProps extends StdRFormProps {
-}
+interface FormProps extends StdRFormProps {}
 
 export default function Form(props: FormProps) {
   const { form, init } = props;
@@ -16,9 +15,13 @@ export default function Form(props: FormProps) {
     <RForm form={form} initialValues={init}>
       <RInput label="Name" name="name" rules={{ required: true }} />
 
-      <RInput label="Description" name="description" textarea />
+      <RInput label="Position" name="position" />
 
-      <RInput label="Link" name="link" />
+      <RInput label="Profile" name="profile" textarea />
+
+      <RInput label="Facebook" name="linkFb" />
+
+      <RInput label="Twitter" name="linkTw" />
     </RForm>
   );
 }

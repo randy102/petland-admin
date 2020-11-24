@@ -22,7 +22,7 @@ export default function FormCategory(props: FormProps) {
       <label>Content</label>
       <CKEditor init={initCK} onChange={onChange}/>
       
-      <RInput label="Description" name="description" />
+      <RInput label="Description" name="description" textarea />
     </RForm>
   );
 }
