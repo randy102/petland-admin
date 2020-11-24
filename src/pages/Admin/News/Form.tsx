@@ -24,7 +24,7 @@ export default function Form(props: FormProps) {
       <label>Content</label>
       <CKEditor init={initCK} onChange={onChange}/>
 
-      <RInput label="Description" name="description" />
+      <RInput label="Description" name="description" textarea />
     </RForm>
   );
 }

@@ -19,7 +19,7 @@ export default function Form(props: FormProps) {
 
       <RInput label="Value" name="value" rules={{ required: true }} />
 
-      <RInput label="Description" name="description" />
+      <RInput label="Description" name="description" textarea />
 
       <RSwitch
         label="Permission"
