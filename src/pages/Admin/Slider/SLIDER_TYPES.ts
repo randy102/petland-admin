@@ -3,7 +3,7 @@ export const SLIDER_TYPES = [
   {_id: 'certificate', name: 'Certificate'},
   {_id: 'testimonial', name: 'Testimonial'},
   {_id: 'popup', name: 'Popup'},
-  {_id: 'leader', name: 'Leader'}
+  {_id: 'qhse', name: 'QHSE'}
 ]
 
 export const SLIDER_TYPE_GRID: any = {
@@ -11,5 +11,5 @@ export const SLIDER_TYPE_GRID: any = {
   certificate: {color: 'red', name: 'Certificate'},
   testimonial: {color: 'green', name: 'Testimonial'},
   popup: {color: 'orange', name: 'Popup'},
-  leader: {color: 'brown', name: 'Leader'}
+  qhse: {color: 'brown', name: 'QHSE'}
 }
