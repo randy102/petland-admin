@@ -57,7 +57,7 @@ export default function RUploads(props: RUploadsProps) {
   const [previewImage, setPreviewImage] = useState<any>();
 
   useEffect(() => {
-    if (initIds?.filter(id => id))
+    if (initIds)
       setFileList(
         initIds?.filter(id => id).map((id) => ({
           uid: id,
@@ -69,6 +69,7 @@ export default function RUploads(props: RUploadsProps) {
         }))
       );
   }, [initIds, viewUrl]);
+  
   const handleRemove = useCallback(
     (file: UploadFile<any>) => {
       const id = file.response.fileId;

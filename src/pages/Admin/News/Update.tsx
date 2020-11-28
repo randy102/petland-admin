@@ -10,6 +10,7 @@ import { handleFieldError, isEmpty } from "utils/form";
 import { getLang } from "utils/languages";
 import { handleRequestError, useMutation } from "utils/request";
 import Form from "./Form";
+import { NEWS_TYPES } from "./NEWS_TYPES";
 
 interface UpdateProps {
   setInitRow: React.Dispatch<any>;
@@ -167,6 +168,15 @@ export default function Update(props: UpdateProps) {
           labelRender={(row) => row.name}
           optionRender={(row) => row.name}
           optionValue={(row) => row._id}
+          required
+        />
+        <RSelect
+          label="Type"
+          name="type"
+          data={NEWS_TYPES}
+          labelRender={(r) => r.name}
+          optionRender={(r) => r.name}
+          optionValue={(r) => r._id}
           required
         />
       </RForm>

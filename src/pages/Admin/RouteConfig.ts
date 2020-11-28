@@ -13,6 +13,7 @@ import Config from "./Config";
 import MailTemplate from "./MailTemplate";
 import History from "./History"
 import Member from "./Member";
+import Library from "./Library"
 
 interface RouteConfig {
   path: string
@@ -42,7 +43,7 @@ export const ROUTES: RouteConfig[] = [
   },
   {
     path: '/news',
-    name: 'News',
+    name: 'News & QHSE',
     icon: EditOutlined,
     component: News
   },
@@ -87,6 +88,12 @@ export const ROUTES: RouteConfig[] = [
     name: 'Slider',
     icon: PictureOutlined,
     component: Slider,
+  },
+  {
+    path: '/library',
+    name: 'Library',
+    icon: PictureOutlined,
+    component: Library,
   },
   {
     path: '/history',
