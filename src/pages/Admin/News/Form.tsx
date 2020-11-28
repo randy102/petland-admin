@@ -19,7 +19,7 @@ export default function Form(props: FormProps) {
     <RForm form={form} initialValues={init}>
       <RInput label="Title" name="title" rules={{ required: true }} />
       
-      <RInput label="Type" name="type" rules={{ required: true }} />
+      <RInput label="Category" name="category" rules={{ required: true }} />
 
       <label>Content</label>
       <CKEditor init={initCK} onChange={onChange}/>

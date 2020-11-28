@@ -9,6 +9,7 @@ import React, { Dispatch, useState } from "react";
 import { handleFieldError, isEmpty } from "utils/form";
 import { handleRequestError, useMutation } from "utils/request";
 import Form from "./Form";
+import { NEWS_TYPES } from "./NEWS_TYPES";
 
 interface CreateProps extends StdCreateProps {
   refetch: Function;
@@ -51,7 +52,7 @@ export default function Create(props: CreateProps) {
             ...form,
             isPrimary: !!form.isPrimary,
             data: toCreateData,
-            image
+            image,
           },
         })
           .then(() => {
@@ -123,13 +124,23 @@ export default function Create(props: CreateProps) {
           optionValue={(row) => row._id}
           required
         />
+
+        <RSelect
+          label="Type"
+          name="type"
+          data={NEWS_TYPES}
+          labelRender={(r) => r.name}
+          optionRender={(r) => r.name}
+          optionValue={(r) => r._id}
+          required
+        />
       </RForm>
       <RUpload
-          onChange={setImage}
-          label="Image"
-          crop={false}
-          uploadApi={setUploadAPI}
-        />
+        onChange={setImage}
+        label="Image"
+        crop={false}
+        uploadApi={setUploadAPI}
+      />
     </>
   );
 }

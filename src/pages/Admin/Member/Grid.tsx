@@ -25,7 +25,7 @@ export default function Grid(props: GridProps) {
 
   function handleDelete(row: any[]) {
     setDeleteLoading(true)
-    requestDelete({ api: "/partner/" + row[0]._id })
+    requestDelete({ api: "/member/" + row[0]._id })
       .then(() => {
         message.success("Success!");
         refetch();

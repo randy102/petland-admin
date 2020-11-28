@@ -1,12 +1,10 @@
-import { message, Radio, Tag } from "antd";
+import { message, Tag } from "antd";
 import RGrid from "components/Shared/RGrid";
 import React, { useState } from "react";
 import { handleRequestError, useMutation } from "utils/request";
-import { filterLang } from "utils/languages";
 import Update from "./Update";
 import moment from "moment";
-import { POST_STATUS_GRID } from "components/Shared/POST_STATUS";
-import { NEWS_TYPES_GRID } from "./NEWS_TYPES";
+import { LIBRARY_TYPE_GRID } from "./LIBRARY_TYPES";
 
 interface GridProps {
   res: any;
@@ -18,15 +16,14 @@ export default function Grid(props: GridProps) {
   const { res, loading, refetch } = props;
 
   const [deleteLoading, setDeleteLoading] = useState<boolean>(false);
-  const [lang, setLang] = useState<string>("vi");
   const [showForm, setShowForm] = useState<boolean>(false);
   const [initRow, setInitRow] = useState<any>();
 
   const requestDelete = useMutation({ method: "delete" });
 
   function handleDelete(row: any[]) {
-    setDeleteLoading(true);
-    requestDelete({ api: "/news/" + row[0]._id })
+    setDeleteLoading(true)
+    requestDelete({ api: "/library/" + row[0]._id })
       .then(() => {
         message.success("Success!");
         refetch();
@@ -42,19 +39,9 @@ export default function Grid(props: GridProps) {
 
   return (
     <>
-      <Radio.Group
-        optionType="button"
-        buttonStyle="solid"
-        options={[
-          { label: "Vi", value: "vi" },
-          { label: "En", value: "en" },
-        ]}
-        value={lang}
-        onChange={(e) => setLang(e.target.value)}
-      />
       <RGrid
         loading={loading}
-        data={filterLang(lang, res?.data)}
+        data={res?.data}
         headDef={[
           { type: "refresh", onClick: () => refetch() },
           { type: "update", onClick: handleUpdate },
@@ -62,39 +49,30 @@ export default function Grid(props: GridProps) {
         ]}
         colDef={[
           {
-            title: "Title",
-            dataIndex: "title",
+            title: "Vi",
+            dataIndex: "vi",
+          },
+          {
+            title: "En",
+            dataIndex: "en",
+          },
+          {
+            title: "Key",
+            dataIndex: "key",
           },
           {
             title: "Type",
             dataIndex: "type",
-            render: (type) => <Tag color={NEWS_TYPES_GRID[type]?.color}>{NEWS_TYPES_GRID[type]?.name}</Tag>
-          },
-          {
-            title: "Category",
-            dataIndex: "category",
-          },
-          {
-            title: "Description",
-            dataIndex: "description",
-          },
-          {
-            title: "Primary",
-            dataIndex: "isPrimary",
-            render: (val) => val ? <Tag color="green">True</Tag> : <Tag color="red">False</Tag>
-          },
-          {
-            title: "Status",
-            dataIndex: "status",
-            render: (type) => <Tag color={POST_STATUS_GRID[type]?.color}>{POST_STATUS_GRID[type]?.name}</Tag>
+            render: (type) => <Tag color={LIBRARY_TYPE_GRID[type]?.color}>{LIBRARY_TYPE_GRID[type]?.name}</Tag>
           },
           {
             title: "Created",
             dataIndex: "createdAt",
-            render: (val) => moment(val).format("D/M/YYYY"),
+            render: (val) => val && moment(val).format("D/M/YYYY"),
           },
           {
             title: "Updated",
+
             dataIndex: "updatedAt",
             render: (val) => val && moment(val).format("D/M/YYYY"),
           },
@@ -107,8 +85,6 @@ export default function Grid(props: GridProps) {
           initRow,
           showForm,
           setShowForm,
-          setLang,
-          lang,
           refetch,
         }}
       />
