@@ -1,11 +1,15 @@
 import { message, Tabs } from "antd";
 import RDrawer from "components/Shared/RDrawer";
-import { useForm } from "components/Shared/RForm";
+import RForm, { useForm } from "components/Shared/RForm";
+import RInput from "components/Shared/RForm/RInput";
+import RSelect from "components/Shared/RForm/RSelect";
+import RSwitch from "components/Shared/RForm/RSwitch";
 import RUploads from "components/Shared/RForm/RUploads";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { handleFieldError, isEmpty } from "utils/form";
 import { getLang } from "utils/languages";
-import { handleRequestError, useMutation } from "utils/request";
+import { handleRequestError, useFetch, useMutation } from "utils/request";
+import moment from "moment";
 import Form from "./Form";
 
 interface UpdateProps {
@@ -31,11 +35,15 @@ export default function Update(props: UpdateProps) {
 
   const [enForm] = useForm();
   const [viForm] = useForm();
+  const [form] = useForm();
   const [enCK, setEnCK] = useState<string>();
   const [viCK, setViCK] = useState<string>();
   const [imgs, setImgs] = useState<string[]>();
 
   const [submitLoading, setSubmitLoading] = useState(false);
+  const [resCategory, { refetch: refetchCategory }] = useFetch({
+    api: "/career/category",
+  });
   const requestUpdate = useMutation({ method: "put" });
 
   const initData: any = {
@@ -44,12 +52,12 @@ export default function Update(props: UpdateProps) {
   };
 
   useEffect(() => {
-    if (!enForm.isFieldsTouched()){
+    if (!enForm.isFieldsTouched()) {
       enForm.setFieldsValue(initData["en"]);
       setEnCK(initData["en"]?.content || "");
     }
 
-    if (!viForm.isFieldsTouched()){
+    if (!viForm.isFieldsTouched()) {
       viForm.setFieldsValue(initData["vi"]);
       setViCK(initData["vi"]?.content || "");
       setImgs(initRow?.images);
@@ -57,23 +65,34 @@ export default function Update(props: UpdateProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initRow, lang]);
 
+  const setExpired = useCallback((period: number) => {
+    form.setFieldsValue({expired: moment(initRow?.createdAt).add("day", period).format("D/M/YYYY")})
+  }, [initRow, form])
+
+  useEffect(() => {
+    form.setFieldsValue({ ...initRow, expired: "" });
+    setExpired(initRow?.period)
+  }, [initRow, form, setExpired]);
+
   function handleClose() {
     setInitRow(undefined);
     setShowForm(false);
-    setEnCK('');
-    setViCK('');
+    setEnCK("");
+    setViCK("");
     setImgs(undefined);
     enForm.resetFields();
     viForm.resetFields();
+    form.resetFields();
   }
 
   function handleSubmit(submitImgs?: string[]) {
-    const enInputs =  enForm.validateFields();
-    const viInputs =  viForm.validateFields();
-    Promise.all([enInputs, viInputs])
-      .then(([en, vi]) => {
-        setSubmitLoading(true);
+    const enInputs = enForm.validateFields();
+    const viInputs = viForm.validateFields();
+    const formInputs = form.validateFields();
 
+    Promise.all([enInputs, viInputs, formInputs])
+      .then(([en, vi, form]) => {
+        setSubmitLoading(true);
         let data = [];
 
         if (initData["en"].name || enForm.isFieldsTouched())
@@ -89,10 +108,11 @@ export default function Update(props: UpdateProps) {
           ...(isEmpty(vi) ? initData["vi"] : vi),
         });
 
-        
         requestUpdate({
           api: "/career/" + initRow?._id,
           data: {
+            ...form,
+            online: !!form.online,
             images: submitImgs || imgs,
             data,
           },
@@ -114,6 +134,7 @@ export default function Update(props: UpdateProps) {
     setImgs(imgs);
     handleSubmit(imgs);
   }
+  
 
   return (
     <RDrawer
@@ -137,20 +158,47 @@ export default function Update(props: UpdateProps) {
     >
       <Tabs type="card" activeKey={lang} onTabClick={setLang}>
         <Tabs.TabPane key="vi" tab="Vietnamese">
-          <Form
-            form={viForm}
-            onChange={setViCK}
-            initCK={viCK}
-          />
+          <Form form={viForm} onChange={setViCK} initCK={viCK} />
         </Tabs.TabPane>
         <Tabs.TabPane key="en" tab="English">
-          <Form
-            form={enForm}
-            onChange={setEnCK}
-            initCK={enCK}
-          />
+          <Form form={enForm} onChange={setEnCK} initCK={enCK} />
         </Tabs.TabPane>
       </Tabs>
+      <RForm form={form}>
+        <RSelect
+          refetch={refetchCategory}
+          data={resCategory?.data}
+          label="Category"
+          name="categoryId"
+          labelRender={(row) => row[lang]}
+          optionRender={(row) => row[lang]}
+          optionValue={(row) => row._id}
+          filterProps={(row) => [row.en, row.vi]}
+          required
+        />
+
+        <RSwitch
+          name="online"
+          label="Type"
+          checkedText="Online"
+          unCheckedText="Offline"
+        />
+
+        <RInput name="number" label="Number" number />
+
+        <RInput
+          name="period"
+          label="Period (Days)"
+          onChange={setExpired}
+          number
+        />
+
+        <RInput
+          name="expired"
+          label="Job will be expired at"
+          disabled
+        />
+      </RForm>
       <RUploads
         onChange={handleImgsChange}
         label="Images"
