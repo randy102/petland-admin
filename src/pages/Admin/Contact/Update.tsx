@@ -95,6 +95,7 @@ export default function Update(props: UpdateProps) {
         requestUpdate({
           api: "/contact/" + initRow?._id,
           data: {
+            ...form,
             images: submitImgs || imgs,
             map: form.map,
             isPrimary: !!form.isPrimary,
@@ -162,6 +163,7 @@ export default function Update(props: UpdateProps) {
           checkedText="True"
           unCheckedText="False"
         />
+        <RInput name="seq" label="Sequence" number rules={{required: true}}/>
         <RInput name="map" label="Map" />
       </RForm>
       <RUploads
