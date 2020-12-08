@@ -117,6 +117,7 @@ export default function Create(props: CreateProps) {
           checkedText="True"
           unCheckedText="False"
         />
+        <RInput name="seq" label="Sequence" number rules={{required: true}}/>
         <RInput name="map" label="Map" />
       </RForm>
       <RUploads onChange={setImgs} label="Images" uploadApi={setUploadAPI} />
