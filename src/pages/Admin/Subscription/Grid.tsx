@@ -1,8 +1,7 @@
-import { message, Radio, Tag } from "antd";
+import { message } from "antd";
 import RGrid from "components/Shared/RGrid";
 import React, { useState } from "react";
 import { handleRequestError, useMutation } from "utils/request";
-import { filterLang } from "utils/languages";
 import Update from "./Update";
 import moment from "moment";
 
@@ -16,7 +15,6 @@ export default function Grid(props: GridProps) {
   const { res, loading, refetch } = props;
 
   const [deleteLoading, setDeleteLoading] = useState<boolean>(false);
-  const [lang, setLang] = useState<string>("vi");
   const [showForm, setShowForm] = useState<boolean>(false);
   const [initRow, setInitRow] = useState<any>();
 
@@ -24,13 +22,13 @@ export default function Grid(props: GridProps) {
 
   function handleDelete(row: any[]) {
     setDeleteLoading(true)
-    requestDelete({ api: "/career/" + row[0]._id })
+    requestDelete({ api: "/subscription/" + row[0]._id })
       .then(() => {
         message.success("Success!");
         refetch();
       })
       .catch(handleRequestError)
-      .finally(() => setDeleteLoading(false))
+      .finally(() => setDeleteLoading(false));
   }
 
   function handleUpdate(row: any[]) {
@@ -40,19 +38,9 @@ export default function Grid(props: GridProps) {
 
   return (
     <>
-      <Radio.Group
-        optionType="button"
-        buttonStyle="solid"
-        options={[
-          { label: "Vi", value: "vi" },
-          { label: "En", value: "en" },
-        ]}
-        value={lang}
-        onChange={(e) => setLang(e.target.value)}
-      />
       <RGrid
         loading={loading}
-        data={filterLang(lang, res?.data)}
+        data={res?.data}
         headDef={[
           { type: "refresh", onClick: () => refetch() },
           { type: "update", onClick: handleUpdate },
@@ -60,44 +48,17 @@ export default function Grid(props: GridProps) {
         ]}
         colDef={[
           {
-            title: "Name",
-            dataIndex: "name",
+            title: "Email",
+            dataIndex: "email",
           },
           {
-            title: "Workspace",
-            dataIndex: "workspace",
-          },
-          {
-            title: "Description",
-            dataIndex: "description",
-          },
-          {
-            title: "Type",
-            dataIndex: "online",
-            render: (online) => online ? <Tag color="green">Online</Tag> : <Tag>Offline</Tag>
-          },
-          {
-            title: "Category",
-            dataIndex: "category",
-            render: (category) => category && category[lang]
-          },
-          {
-            title: "Number",
-            dataIndex: "number",
-          },
-          {
-            title: "Period",
-            dataIndex: "period",
-          },
-          {
-            title: "Expired",
-            dataIndex: "expired",
-            render: (val) => moment(val).format("D/M/YYYY"),
+            title: "Note",
+            dataIndex: "note",
           },
           {
             title: "Created",
             dataIndex: "createdAt",
-            render: (val) => moment(val).format("D/M/YYYY"),
+            render: (val) => val && moment(val).format("D/M/YYYY"),
           },
           {
             title: "Updated",
@@ -113,8 +74,6 @@ export default function Grid(props: GridProps) {
           initRow,
           showForm,
           setShowForm,
-          setLang,
-          lang,
           refetch,
         }}
       />
