@@ -46,6 +46,7 @@ export default function Create(props: CreateProps) {
 
         requestCreate({
           data: {
+            ...form,
             images: imgs || [],
             map: form.map,
             isPrimary: !!form.isPrimary,
