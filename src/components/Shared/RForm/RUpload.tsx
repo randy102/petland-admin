@@ -36,7 +36,7 @@ interface RUploadProps {
 
 export default function RUpload(props: RUploadProps) {
   const {
-    crop = true,
+    crop = false,
     cropShape = "round",
     disabled = false,
     uploadApi = () => {},
