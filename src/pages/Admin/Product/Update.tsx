@@ -3,6 +3,7 @@ import { POST_STATUS } from "components/Shared/POST_STATUS";
 import RDrawer from "components/Shared/RDrawer";
 import RForm, { useForm } from "components/Shared/RForm";
 import RSelect from "components/Shared/RForm/RSelect";
+import RUpload from "components/Shared/RForm/RUpload";
 import RUploads from "components/Shared/RForm/RUploads";
 import React, { useEffect, useState } from "react";
 import { handleFieldError, isEmpty } from "utils/form";
@@ -38,9 +39,13 @@ export default function Update(props: UpdateProps) {
   const [enCK, setEnCK] = useState<string>();
   const [viCK, setViCK] = useState<string>();
   const [imgs, setImgs] = useState<string[]>();
+  const [img, setImg] = useState<string>();
+
   const [submitLoading, setSubmitLoading] = useState(false);
   const [type, setType] = useState<string>();
-  const [resCategory,  { refetch: refetchCategory }] = useFetch({api: "/product/category"})
+  const [resCategory, { refetch: refetchCategory }] = useFetch({
+    api: "/product/category",
+  });
   const requestUpdate = useMutation({ method: "put" });
 
   const initData: any = {
@@ -57,14 +62,15 @@ export default function Update(props: UpdateProps) {
     if (!viForm.isFieldsTouched()) {
       viForm.setFieldsValue(initData["vi"]);
       setViCK(initData["vi"]?.content || "");
-      setImgs(initRow?.images);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initRow, lang]);
 
   useEffect(() => {
     form.setFieldsValue(initRow);
-    setType(initRow?.type)
+    setType(initRow?.type);
+    setImgs(initRow?.images);
+    setImg(initRow?.mainImage);
   }, [initRow, form]);
 
   function handleClose() {
@@ -73,12 +79,13 @@ export default function Update(props: UpdateProps) {
     setEnCK("");
     setViCK("");
     setImgs(undefined);
+    setImg(undefined);
     enForm.resetFields();
     viForm.resetFields();
     form.resetFields();
   }
 
-  function handleSubmit(submitImgs?: string[]) {
+  function handleSubmit(submitImgs?: string[], submitImg?: string) {
     const enInputs = enForm.validateFields();
     const viInputs = viForm.validateFields();
     const formInputs = form.validateFields();
@@ -106,11 +113,12 @@ export default function Update(props: UpdateProps) {
           data: {
             ...form,
             images: submitImgs || imgs,
+            mainImage: submitImg !== undefined ? submitImg : img,
             data,
           },
         })
           .then(() => {
-            if (!submitImgs) {
+            if (!submitImgs && !submitImg && submitImg !== "") {
               handleClose();
               message.success("Success!");
             }
@@ -125,6 +133,11 @@ export default function Update(props: UpdateProps) {
   function handleImgsChange(imgs: string[]) {
     setImgs(imgs);
     handleSubmit(imgs);
+  }
+
+  function handleImgChange(img: string | undefined) {
+    setImg(img);
+    handleSubmit(undefined, img || "");
   }
 
   function handleTypeChange(type: string) {
@@ -161,7 +174,7 @@ export default function Update(props: UpdateProps) {
         </Tabs.TabPane>
       </Tabs>
       <RForm form={form}>
-      <RSelect
+        <RSelect
           data={CATEGORY_TYPES}
           label="Type"
           name="type"
@@ -171,7 +184,7 @@ export default function Update(props: UpdateProps) {
           required
           onChange={handleTypeChange}
         />
-        
+
         <RSelect
           refetch={refetchCategory}
           data={resCategory?.data.filter((cate: any) => cate.type === type)}
@@ -184,7 +197,7 @@ export default function Update(props: UpdateProps) {
           required
         />
 
-<RSelect
+        <RSelect
           data={POST_STATUS}
           label="Status"
           name="status"
@@ -194,6 +207,14 @@ export default function Update(props: UpdateProps) {
           required
         />
       </RForm>
+
+      <RUpload
+        onChange={handleImgChange}
+        crop={false}
+        label="Main Image"
+        initId={initRow?.mainImage}
+      />
+
       <RUploads
         onChange={handleImgsChange}
         label="Images"

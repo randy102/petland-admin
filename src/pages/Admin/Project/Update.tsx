@@ -4,6 +4,7 @@ import RDrawer from "components/Shared/RDrawer";
 import RForm, { useForm } from "components/Shared/RForm";
 import RSelect from "components/Shared/RForm/RSelect";
 import RUploads from "components/Shared/RForm/RUploads";
+import RUpload from "components/Shared/RForm/RUpload";
 import React, { useEffect, useState } from "react";
 import { handleFieldError, isEmpty } from "utils/form";
 import { getLang } from "utils/languages";
@@ -38,6 +39,8 @@ export default function Update(props: UpdateProps) {
   const [enCK, setEnCK] = useState<string>();
   const [viCK, setViCK] = useState<string>();
   const [imgs, setImgs] = useState<string[]>();
+  const [img, setImg] = useState<string>();
+
   const [submitLoading, setSubmitLoading] = useState(false);
   const [type, setType] = useState<string>();
 
@@ -60,7 +63,6 @@ export default function Update(props: UpdateProps) {
     if (!viForm.isFieldsTouched()) {
       viForm.setFieldsValue(initData["vi"]);
       setViCK(initData["vi"]?.content || "");
-      setImgs(initRow?.images);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initRow, lang]);
@@ -68,6 +70,8 @@ export default function Update(props: UpdateProps) {
   useEffect(() => {
     form.setFieldsValue(initRow);
     setType(initRow?.type);
+    setImgs(initRow?.images);
+    setImg(initRow?.mainImage);
   }, [initRow, form]);
 
   function handleClose() {
@@ -76,12 +80,13 @@ export default function Update(props: UpdateProps) {
     setEnCK("");
     setViCK("");
     setImgs(undefined);
+    setImg(undefined);
     enForm.resetFields();
     viForm.resetFields();
     form.resetFields();
   }
 
-  function handleSubmit(submitImgs?: string[]) {
+  function handleSubmit(submitImgs?: string[], submitImg?: string) {
     const enInputs = enForm.validateFields();
     const viInputs = viForm.validateFields();
     const formInputs = form.validateFields();
@@ -108,11 +113,12 @@ export default function Update(props: UpdateProps) {
           data: {
             ...form,
             images: submitImgs || imgs,
+            mainImage: submitImg !== undefined ? submitImg : img,
             data,
           },
         })
           .then(() => {
-            if (!submitImgs) {
+            if (!submitImgs && !submitImg && submitImg !== "") {
               handleClose();
               message.success("Success!");
             }
@@ -128,6 +134,12 @@ export default function Update(props: UpdateProps) {
     setImgs(imgs);
     handleSubmit(imgs);
   }
+
+  function handleImgChange(img: string | undefined) {
+    setImg(img);
+    handleSubmit(undefined, img || "");
+  }
+
 
   function handleTypeChange(type: string) {
     form.resetFields(["categoryId"]);
@@ -196,6 +208,14 @@ export default function Update(props: UpdateProps) {
           required
         />
       </RForm>
+      
+      <RUpload
+        onChange={handleImgChange}
+        crop={false}
+        label="Main Image"
+        initId={initRow?.mainImage}
+      />
+
       <RUploads
         onChange={handleImgsChange}
         label="Images"
