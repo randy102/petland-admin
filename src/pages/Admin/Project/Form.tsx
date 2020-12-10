@@ -25,8 +25,6 @@ export default function Form(props: FormProps) {
 
       <RInput number label="Year" name="year" />
 
-      <RInput label="Project Status" name="projectStatus" />
-
       <RInput label="Investor" name="investor"/>
 
       <RInput label="Area" name="area" />

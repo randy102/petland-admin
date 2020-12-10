@@ -13,6 +13,7 @@ import { handleFieldError, isEmpty } from "utils/form";
 import { handleRequestError, useFetch, useMutation } from "utils/request";
 import { CATEGORY_TYPES } from "./CATEGORY_TYPES";
 import Form from "./Form";
+import { PROJECT_STATUS } from "./PROJECT_STATUS";
 
 interface CreateProps extends StdCreateProps {
   refetch: Function;
@@ -145,6 +146,17 @@ export default function Create(props: CreateProps) {
           filterProps={(row) => [row.en, row.vi]}
           required
         />
+
+        <RSelect
+          data={PROJECT_STATUS}
+          label="Project Status"
+          name="projectStatus"
+          labelRender={(row) => row.name}
+          optionRender={(row) => row.name}
+          optionValue={(row) => row._id}
+          required
+        />
+
         <RSelect
           data={POST_STATUS}
           label="Status"

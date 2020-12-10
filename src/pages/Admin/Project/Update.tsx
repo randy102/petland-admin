@@ -11,6 +11,7 @@ import { getLang } from "utils/languages";
 import { handleRequestError, useFetch, useMutation } from "utils/request";
 import { CATEGORY_TYPES } from "./CATEGORY_TYPES";
 import Form from "./Form";
+import { PROJECT_STATUS } from "./PROJECT_STATUS";
 
 interface UpdateProps {
   setInitRow: React.Dispatch<any>;
@@ -140,7 +141,6 @@ export default function Update(props: UpdateProps) {
     handleSubmit(undefined, img || "");
   }
 
-
   function handleTypeChange(type: string) {
     form.resetFields(["categoryId"]);
     setType(type);
@@ -199,6 +199,16 @@ export default function Update(props: UpdateProps) {
         />
 
         <RSelect
+          data={PROJECT_STATUS}
+          label="Project Status"
+          name="projectStatus"
+          labelRender={(row) => row.name}
+          optionRender={(row) => row.name}
+          optionValue={(row) => row._id}
+          required
+        />
+
+        <RSelect
           data={POST_STATUS}
           label="Status"
           name="status"
@@ -208,7 +218,7 @@ export default function Update(props: UpdateProps) {
           required
         />
       </RForm>
-      
+
       <RUpload
         onChange={handleImgChange}
         crop={false}
