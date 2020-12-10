@@ -7,6 +7,7 @@ import Update from "./Update";
 import moment from "moment";
 import { CATEGORY_TYPE_GRID } from "./CATEGORY_TYPES";
 import { POST_STATUS_GRID } from "components/Shared/POST_STATUS";
+import { PROJECT_STATUS_GRID } from "./PROJECT_STATUS";
 
 interface GridProps {
   res: any;
@@ -95,6 +96,7 @@ export default function Grid(props: GridProps) {
           {
             title: "Project Status",
             dataIndex: "projectStatus",
+            render: (type) => <Tag color={PROJECT_STATUS_GRID[type]?.color}>{PROJECT_STATUS_GRID[type]?.name}</Tag>
           },
           {
             title: "Investor",

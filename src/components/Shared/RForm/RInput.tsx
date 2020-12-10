@@ -69,6 +69,7 @@ export default function RInput(props: RInputProps) {
     placeholder,
     value,
     autoFocus,
+    autoComplete: 'on',
     onKeyPress: (e: React.KeyboardEvent) => {
       if (disabled) {
         e.preventDefault();

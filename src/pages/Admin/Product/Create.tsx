@@ -2,6 +2,9 @@ import { Button, message, Space, Tabs } from "antd";
 import { POST_STATUS } from "components/Shared/POST_STATUS";
 import RForm, { useForm } from "components/Shared/RForm";
 import RSelect from "components/Shared/RForm/RSelect";
+import RUpload, {
+  UploadApi as MainUploadApi,
+} from "components/Shared/RForm/RUpload";
 import RUploads, { UploadApi } from "components/Shared/RForm/RUploads";
 import { StdCreateProps } from "components/Shared/RForm/types";
 import React, { Dispatch, useState } from "react";
@@ -24,7 +27,9 @@ export default function Create(props: CreateProps) {
   const [enCK, setEnCK] = useState<string>();
   const [viCK, setViCK] = useState<string>();
   const [imgs, setImgs] = useState<string[]>();
+  const [img, setImg] = useState<string>();
 
+  const [mainUploadAPI, setMainUploadAPI] = useState<MainUploadApi>();
   const [uploadAPI, setUploadAPI] = useState<UploadApi>();
   const [lang, setLang] = useState<string>("vi");
   const [saveLoading, setSaveLoading] = useState(false);
@@ -55,6 +60,7 @@ export default function Create(props: CreateProps) {
           data: {
             ...form,
             images: imgs || [],
+            mainImage: img || "",
             data: toCreateData,
           },
         })
@@ -67,6 +73,7 @@ export default function Create(props: CreateProps) {
             setEnCK("");
             setViCK("");
             uploadAPI?.reset();
+            mainUploadAPI?.reset();
           })
           .catch(handleRequestError)
           .finally(() => setSaveLoading(false));
@@ -147,6 +154,14 @@ export default function Create(props: CreateProps) {
           required
         />
       </RForm>
+
+      <RUpload
+        onChange={setImg}
+        label="Main Image"
+        crop={false}
+        uploadApi={setMainUploadAPI}
+      />
+
       <RUploads onChange={setImgs} label="Images" uploadApi={setUploadAPI} />
     </>
   );

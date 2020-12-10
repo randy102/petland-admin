@@ -3,12 +3,17 @@ import { POST_STATUS } from "components/Shared/POST_STATUS";
 import RForm, { useForm } from "components/Shared/RForm";
 import RSelect from "components/Shared/RForm/RSelect";
 import RUploads, { UploadApi } from "components/Shared/RForm/RUploads";
+import RUpload, {
+  UploadApi as MainUploadApi,
+} from "components/Shared/RForm/RUpload";
+
 import { StdCreateProps } from "components/Shared/RForm/types";
 import React, { Dispatch, useState } from "react";
 import { handleFieldError, isEmpty } from "utils/form";
 import { handleRequestError, useFetch, useMutation } from "utils/request";
 import { CATEGORY_TYPES } from "./CATEGORY_TYPES";
 import Form from "./Form";
+import { PROJECT_STATUS } from "./PROJECT_STATUS";
 
 interface CreateProps extends StdCreateProps {
   refetch: Function;
@@ -24,7 +29,9 @@ export default function Create(props: CreateProps) {
   const [enCK, setEnCK] = useState<string>();
   const [viCK, setViCK] = useState<string>();
   const [imgs, setImgs] = useState<string[]>();
+  const [img, setImg] = useState<string>();
 
+  const [mainUploadAPI, setMainUploadAPI] = useState<MainUploadApi>();
   const [type, setType] = useState<string>();
   const [uploadAPI, setUploadAPI] = useState<UploadApi>();
   const [lang, setLang] = useState<string>("vi");
@@ -55,6 +62,7 @@ export default function Create(props: CreateProps) {
           data: {
             ...form,
             images: imgs || [],
+            mainImage: img || "",
             data: toCreateData,
           },
         })
@@ -67,6 +75,7 @@ export default function Create(props: CreateProps) {
             setEnCK("");
             setViCK("");
             uploadAPI?.reset();
+            mainUploadAPI?.reset();
           })
           .catch(handleRequestError)
           .finally(() => setSaveLoading(false));
@@ -137,6 +146,17 @@ export default function Create(props: CreateProps) {
           filterProps={(row) => [row.en, row.vi]}
           required
         />
+
+        <RSelect
+          data={PROJECT_STATUS}
+          label="Project Status"
+          name="projectStatus"
+          labelRender={(row) => row.name}
+          optionRender={(row) => row.name}
+          optionValue={(row) => row._id}
+          required
+        />
+
         <RSelect
           data={POST_STATUS}
           label="Status"
@@ -147,6 +167,14 @@ export default function Create(props: CreateProps) {
           required
         />
       </RForm>
+      
+      <RUpload
+        onChange={setImg}
+        label="Main Image"
+        crop={false}
+        uploadApi={setMainUploadAPI}
+      />
+
       <RUploads onChange={setImgs} label="Images" uploadApi={setUploadAPI} />
     </>
   );
