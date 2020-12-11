@@ -14,6 +14,7 @@ import { handleRequestError, useFetch, useMutation } from "utils/request";
 import { CATEGORY_TYPES } from "./CATEGORY_TYPES";
 import Form from "./Form";
 import { PROJECT_STATUS } from "./PROJECT_STATUS";
+import RSwitch from "components/Shared/RForm/RSwitch";
 
 interface CreateProps extends StdCreateProps {
   refetch: Function;
@@ -47,7 +48,7 @@ export default function Create(props: CreateProps) {
     const viInputs = viForm.validateFields();
     const formInputs = form.validateFields();
     Promise.all([enInputs, viInputs, formInputs])
-      .then(([en, vi, form]) => {
+      .then(([en, vi, fo]) => {
         setSaveLoading(true);
 
         let toCreateData = [];
@@ -60,9 +61,10 @@ export default function Create(props: CreateProps) {
 
         requestCreate({
           data: {
-            ...form,
+            ...fo,
             images: imgs || [],
             mainImage: img || "",
+            isPrimary: !!fo.isPrimary,
             data: toCreateData,
           },
         })
@@ -72,6 +74,7 @@ export default function Create(props: CreateProps) {
             setCurTab("list");
             viForm.resetFields();
             enForm.resetFields();
+            form.resetFields();
             setEnCK("");
             setViCK("");
             uploadAPI?.reset();
@@ -93,9 +96,9 @@ export default function Create(props: CreateProps) {
     }
   }
 
-  function handleTypeChange(type: string){
-    form.resetFields(['categoryId'])
-    setType(type)
+  function handleTypeChange(type: string) {
+    form.resetFields(["categoryId"]);
+    setType(type);
   }
 
   return (
@@ -157,6 +160,13 @@ export default function Create(props: CreateProps) {
           required
         />
 
+        <RSwitch
+          name="isPrimary"
+          label="Primary"
+          checkedText="True"
+          unCheckedText="False"
+        />
+
         <RSelect
           data={POST_STATUS}
           label="Status"
@@ -167,7 +177,7 @@ export default function Create(props: CreateProps) {
           required
         />
       </RForm>
-      
+
       <RUpload
         onChange={setImg}
         label="Main Image"
