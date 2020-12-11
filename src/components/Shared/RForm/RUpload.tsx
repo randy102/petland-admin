@@ -78,7 +78,7 @@ export default function RUpload(props: RUploadProps) {
       cancelText: "No",
       onOk: () => {
         Axios.delete(`${url}/${imageId}`, { headers: { token: getToken() } })
-          .then(() => {
+          .finally(() => {
             message.success("Xóa thành công!");
             setImageId(undefined);
             onChange(undefined);
