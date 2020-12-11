@@ -12,6 +12,7 @@ import { handleRequestError, useFetch, useMutation } from "utils/request";
 import { CATEGORY_TYPES } from "./CATEGORY_TYPES";
 import Form from "./Form";
 import { PROJECT_STATUS } from "./PROJECT_STATUS";
+import RSwitch from "components/Shared/RForm/RSwitch";
 
 interface UpdateProps {
   setInitRow: React.Dispatch<any>;
@@ -115,6 +116,7 @@ export default function Update(props: UpdateProps) {
             ...form,
             images: submitImgs || imgs,
             mainImage: submitImg !== undefined ? submitImg : img,
+            isPrimary: !!form.isPrimary,
             data,
           },
         })
@@ -206,6 +208,13 @@ export default function Update(props: UpdateProps) {
           optionRender={(row) => row.name}
           optionValue={(row) => row._id}
           required
+        />
+
+        <RSwitch
+          name="isPrimary"
+          label="Primary"
+          checkedText="True"
+          unCheckedText="False"
         />
 
         <RSelect

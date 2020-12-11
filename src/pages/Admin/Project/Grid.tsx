@@ -99,6 +99,11 @@ export default function Grid(props: GridProps) {
             render: (type) => <Tag color={PROJECT_STATUS_GRID[type]?.color}>{PROJECT_STATUS_GRID[type]?.name}</Tag>
           },
           {
+            title: "Primary",
+            dataIndex: "isPrimary",
+            render: (val) => val ? <Tag color="green">True</Tag> : <Tag color="red">False</Tag>
+          },
+          {
             title: "Investor",
             dataIndex: "investor",
           },

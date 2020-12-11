@@ -74,7 +74,7 @@ export default function RUploads(props: RUploadsProps) {
     (file: UploadFile<any>) => {
       const id = file.response.fileId;
       Axios.delete(`${url}/${id}`, { headers: { token: getToken() } })
-        .then(() => {
+        .finally(() => {
           message.success("Xóa thành công!");
         })
         .catch((err) => message.error(err.message));
