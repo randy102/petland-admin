@@ -35,7 +35,7 @@ export default function Form(props: FormProps) {
                     fieldKey={[field.fieldKey, "key"]}
                     rules={[{ required: true, message: "Missing key" }]}
                   >
-                    <Input placeholder="Key" />
+                    <Input.TextArea placeholder="Key" />
                   </AndForm.Item>
                   <AndForm.Item
                     {...field}
@@ -43,7 +43,7 @@ export default function Form(props: FormProps) {
                     fieldKey={[field.fieldKey, "value"]}
                     rules={[{ required: true, message: "Missing value" }]}
                   >
-                    <Input placeholder="Value" />
+                    <Input.TextArea placeholder="Value" />
                   </AndForm.Item>
                   <Button
                     danger
