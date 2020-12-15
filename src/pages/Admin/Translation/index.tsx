@@ -50,6 +50,7 @@ export default function Translation() {
 
   function handleCopy() {
     const viData = viForm.getFieldsValue()
+
     switch(curTab){
       case 'en':
         enForm.setFieldsValue({en: viData.vi});
@@ -64,9 +65,9 @@ export default function Translation() {
       style={{ maxWidth: 900 }}
       tabBarExtraContent={
         <Space style={{ transform: "translateY(7px)" }}>
-          <Button onClick={handleCopy}>
-            Copy from {curTab === "vi" ? "English" : "Vietnamese"}
-          </Button>
+          {curTab !== "vi" && (
+              <Button onClick={handleCopy}>Copy from Vietnamese</Button>
+            )}
           <Button loading={saveLoading} onClick={handleSave} type="primary">
             Save
           </Button>
