@@ -63,6 +63,14 @@ export default function Grid(props: GridProps) {
             dataIndex: "en",
           },
           {
+            title: "Sub Vi",
+            dataIndex: "subVi",
+          },
+          {
+            title: "Sub En",
+            dataIndex: "subEn",
+          },
+          {
             title: "Link",
             dataIndex: "link",
             render: (link) => <a href={link}>{link}</a>,

@@ -19,6 +19,9 @@ export default function Form(props: FormProps) {
       <RInput label="Title (Vi)" name="vi" rules={{ required: true }} />
       <RInput label="Title (En)" name="en" />
 
+      <RInput label="Sub-Title (Vi)" name="subVi" />
+      <RInput label="Sub-Title (En)" name="subEn" />
+
       <RInput label="Link" name="link" />
 
       <RInput label="Extra link" name="extraLink" />
