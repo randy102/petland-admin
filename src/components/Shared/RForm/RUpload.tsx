@@ -89,15 +89,15 @@ export default function RUpload(props: RUploadProps) {
   }
 
   function beforeUpload(file: RcFile) {
-    const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
-    if (!isJpgOrPng) {
-      message.error("Bạn chỉ có thể tải file JPG/PNG");
-    }
-    const isLt2M = file.size / 1024 / 1024 < 2;
+    // const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
+    // if (!isJpgOrPng) {
+    //   message.error("Bạn chỉ có thể tải file JPG/PNG");
+    // }
+    const isLt2M = file.size / 1024 / 1024 < 5;
     if (!isLt2M) {
-      message.error("Dung lượng ảnh phải nhỏ hơn 2MB!");
+      message.error("Dung lượng ảnh phải nhỏ hơn 5MB!");
     }
-    return isJpgOrPng && isLt2M;
+    return isLt2M;
   }
 
   const uploadButton = (
