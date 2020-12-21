@@ -20,6 +20,8 @@ export default function Create(props: CreateProps) {
   const [viForm] = useForm();
   const [form] = useForm();
   const [image, setImage] = useState<string>();
+  const [enCK, setEnCK] = useState<string>();
+  const [viCK, setViCK] = useState<string>();
 
   const [uploadAPI, setUploadAPI] = useState<UploadApi>();
   const [lang, setLang] = useState<string>("vi");
@@ -36,10 +38,10 @@ export default function Create(props: CreateProps) {
 
         let toCreateData = [];
         if (!isEmpty(en)) {
-          toCreateData.push({ ...en, lang: "en" });
+          toCreateData.push({ ...en, content: enCK, lang: "en" });
         }
         if (!isEmpty(vi)) {
-          toCreateData.push({ ...vi, lang: "vi" });
+          toCreateData.push({ ...vi, content: viCK, lang: "vi" });
         }
 
         requestCreate({
@@ -57,6 +59,8 @@ export default function Create(props: CreateProps) {
             enForm.resetFields();
             uploadAPI?.reset();
             form.resetFields();
+            setEnCK("");
+            setViCK("");
           })
           .catch(handleRequestError)
           .finally(() => setSaveLoading(false));
@@ -92,11 +96,11 @@ export default function Create(props: CreateProps) {
         }
       >
         <Tabs.TabPane key="vi" tab="Vietnamese">
-          <Form form={viForm} />
+          <Form form={viForm} onChange={setViCK} initCK={viCK}/>
         </Tabs.TabPane>
 
         <Tabs.TabPane key="en" tab="English">
-          <Form form={enForm} />
+          <Form form={enForm} onChange={setEnCK} initCK={enCK} />
         </Tabs.TabPane>
       </Tabs>
       <RForm form={form}>

@@ -33,6 +33,8 @@ export default function Update(props: UpdateProps) {
   const [enForm] = useForm();
   const [viForm] = useForm();
   const [form] = useForm();
+  const [enCK, setEnCK] = useState<string>();
+  const [viCK, setViCK] = useState<string>();
 
   const [image, setImage] = useState<string>();
 
@@ -45,15 +47,19 @@ export default function Update(props: UpdateProps) {
   };
 
   useEffect(() => {
-    if (!enForm.isFieldsTouched()) enForm.setFieldsValue(initData["en"]);
+    if (!enForm.isFieldsTouched()) {
+      enForm.setFieldsValue(initData["en"]);
+      setEnCK(initData["en"]?.content || "");
+    }
     if (!viForm.isFieldsTouched()) {
       viForm.setFieldsValue(initData["vi"]);
-      setImage(initRow?.image);
+      setViCK(initData["vi"]?.content || "");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initRow, lang]);
 
   useEffect(() => {
+    setImage(initRow?.image);
     form.setFieldsValue(initRow);
   }, [initRow, form]);
 
@@ -63,6 +69,8 @@ export default function Update(props: UpdateProps) {
     setImage(undefined);
     enForm.resetFields();
     viForm.resetFields();
+    setEnCK("");
+    setViCK("");
   }
 
   function handleSubmit(submitImage?: string) {
@@ -79,11 +87,13 @@ export default function Update(props: UpdateProps) {
         if (initData["en"].name || enForm.isFieldsTouched())
           data.push({
             lang: "en",
+            content: enCK,
             ...(isEmpty(en) ? initData["en"] : en),
           });
 
         data.push({
           lang: "vi",
+          content: viCK,
           ...(isEmpty(vi) ? initData["vi"] : vi),
         });
 
@@ -135,10 +145,10 @@ export default function Update(props: UpdateProps) {
     >
       <Tabs type="card" activeKey={lang} onTabClick={setLang}>
         <Tabs.TabPane key="vi" tab="Vietnamese">
-          <Form form={viForm} />
+          <Form form={viForm} onChange={setViCK} initCK={viCK} />
         </Tabs.TabPane>
         <Tabs.TabPane key="en" tab="English">
-          <Form form={enForm} />
+          <Form form={enForm} onChange={setEnCK} initCK={enCK} />
         </Tabs.TabPane>
       </Tabs>
       <RForm form={form}>
