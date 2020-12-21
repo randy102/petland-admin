@@ -1124,11 +1124,6 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@ckeditor/ckeditor5-build-classic@^23.0.0":
-  version "23.0.0"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-build-classic/-/ckeditor5-build-classic-23.0.0.tgz#9b4ae5dc470e9ae4be14672b49d05d21887e2d81"
-  integrity sha512-9Pgb9OAPnx1577WDYizEuOFHmLyXkwU8UxneyP4Zkr9mrJUEL0w0uVgQhiB8DYlAAArHXeFasSogwFvLX6xBtw==
-
 "@ckeditor/ckeditor5-react@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-react/-/ckeditor5-react-2.1.0.tgz#f612546a5a328899a436d71b72ffd632600049e8"
@@ -3146,6 +3141,9 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
   dependencies:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
+
+"ckeditor5-custom-build@file:./ckeditor5":
+  version "0.0.1"
 
 class-utils@^0.3.5:
   version "0.3.6"
@@ -9062,7 +9060,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.4"
 
-prop-types@^15.5.10, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -9628,6 +9626,13 @@ react-dom@^16.13.1:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.19.1"
+
+react-drag-listview@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/react-drag-listview/-/react-drag-listview-0.1.7.tgz#ab9384a08c4bfc2863d950d326f24e62ad2ffdda"
+  integrity sha512-mnnAj0liaHcONEi7CtiGnLJl6EHy5huHiAfZmhjl3Z0cg9XrQnF5eFK0WqHkX1G80ys9D6rtxr4M75lrnbQs1A==
+  dependencies:
+    prop-types "^15.5.8"
 
 react-easy-crop@^3.1.1:
   version "3.2.0"

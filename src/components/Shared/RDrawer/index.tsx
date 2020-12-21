@@ -8,6 +8,7 @@ export interface DrawerProps {
   title: string;
   footDef?: FootDef[];
   children: any;
+  width?: number | string;
 }
 
 export interface FootDef {
@@ -19,7 +20,7 @@ export interface FootDef {
 }
 
 export default function RDrawer(props: DrawerProps) {
-  const { visible, onClose, title, footDef = [], children } = props;
+  const { visible, onClose, title, footDef = [], children, width = '100vw' } = props;
   const footer =
     footDef.length &&
     footDef.map(({ name, onClick, visible = true, type, loading=false }: FootDef) => {
@@ -38,7 +39,7 @@ export default function RDrawer(props: DrawerProps) {
 
   return (
     <AntDrawer
-      width={900}
+      width={width}
       visible={visible}
       onClose={onClose}
       title={title}
