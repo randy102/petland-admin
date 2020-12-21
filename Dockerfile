@@ -5,7 +5,8 @@ ENV REACT_APP_BACKEND_URL=$REACT_APP_BACKEND_URL
 RUN mkdir /app
 WORKDIR /app
 COPY package.json /app
-RUN npm install
+COPY ckeditor5 /app/ckeditor5
+RUN yarn install
 COPY . /app
 RUN REACT_APP_BACKEND_URL=$REACT_APP_BACKEND_URL npm run build
 
