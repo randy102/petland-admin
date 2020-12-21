@@ -6,6 +6,7 @@ import * as AntIcon from "@ant-design/icons";
 import { ColumnsType } from "antd/lib/table";
 import "./grid.scss";
 import { HEAD_DATA } from "./HeadTemplate";
+import ReactDragListView from "react-drag-listview";
 
 interface RGridProps {
   data: any[];
@@ -61,15 +62,32 @@ export default function RGrid(props: RGridProps) {
     expandRender,
     showSelection = true,
   } = props;
+  
 
   const [selectedRows, setSelectedRows] = useState<any>([]);
   const [selectedRowKeys, setSelectedRowKeys] = useState<any>([]);
+  const [dataResult, setDataResult] = useState<any>([]);
   var searchInput: Input | null;
 
   useEffect(() => {
     setSelectedRowKeys([]);
     setSelectedRows([]);
   }, [data]);
+
+  useEffect(() => {
+    setDataResult(props.data)
+  }, [props.data])
+
+
+  const onDragEnd = (fromIndex: number, toIndex: number) => {
+    if (toIndex < 0) return; // Ignores if outside designated area
+
+    const items = [...dataResult];
+    const item = items.splice(fromIndex, 1)[0];
+    items.splice(toIndex, 0, item);
+    setDataResult(items)
+  };
+  
 
   // Filter =>
   const getColumnSearchProps = (dataIndex: any) => ({
@@ -153,6 +171,7 @@ export default function RGrid(props: RGridProps) {
     <div>
       {headDef?.length && !loading && (
         <div className={`rui-grid-btn ${!data?.length ? 'reset' : ''}`}>
+
           <Space>
             {headDef &&
               headDef.map(
@@ -212,9 +231,14 @@ export default function RGrid(props: RGridProps) {
                 }
               )}
           </Space>
+          
         </div>
       )}
 
+      <ReactDragListView
+        nodeSelector="tr"
+        onDragEnd={onDragEnd}
+      >
       <Table
         className="rui-grid-table"
         size="small"
@@ -224,7 +248,7 @@ export default function RGrid(props: RGridProps) {
         pagination={pagination && { defaultPageSize: 8, position: ['topRight','bottomCenter'] }}
         loading={loading}
         columns={colDef}
-        dataSource={data}
+        dataSource={dataResult}
         rowKey="_id"
         expandedRowRender={expandRender}
         locale={{
@@ -244,6 +268,7 @@ export default function RGrid(props: RGridProps) {
             : undefined
         }
       />
+      </ReactDragListView>
     </div>
   );
 }

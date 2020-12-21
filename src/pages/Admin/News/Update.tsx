@@ -131,6 +131,7 @@ export default function Update(props: UpdateProps) {
       title="Edit"
       onClose={handleClose}
       visible={showForm}
+      width="100vw"
       footDef={[
         {
           name: "Save",
