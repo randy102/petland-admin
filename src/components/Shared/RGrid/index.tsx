@@ -75,16 +75,16 @@ export default function RGrid(props: RGridProps) {
   }, [data]);
 
   useEffect(() => {
-    setDataResult(props.data)
-  }, [props.data])
+    setDataResult(data)
+  }, [data])
 
 
   const onDragEnd = (fromIndex: number, toIndex: number) => {
     if (toIndex < 0) return; // Ignores if outside designated area
 
     const items = [...dataResult];
-    const item = items.splice(fromIndex, 1)[0];
-    items.splice(toIndex, 0, item);
+    const item = items.splice(fromIndex-1, 1)[0];
+    items.splice(toIndex-1, 0, item);
     setDataResult(items)
   };
   
