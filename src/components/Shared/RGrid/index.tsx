@@ -16,6 +16,8 @@ interface RGridProps {
   expandRender?: ExpandedRowRender<any>;
   showSelection?: boolean;
   pagination?: boolean;
+  onDrag?: (from: number, to: number) => void
+
 }
 
 declare type ExpandedRowRender<ValueType> = (
@@ -61,6 +63,7 @@ export default function RGrid(props: RGridProps) {
     loading = false,
     expandRender,
     showSelection = true,
+    onDrag = () => {}
   } = props;
   
 
@@ -86,6 +89,7 @@ export default function RGrid(props: RGridProps) {
     const item = items.splice(fromIndex-1, 1)[0];
     items.splice(toIndex-1, 0, item);
     setDataResult(items)
+    onDrag(fromIndex, toIndex)
   };
   
 
