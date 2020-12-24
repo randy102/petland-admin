@@ -44,7 +44,6 @@ export default function Grid(props: GridProps) {
     const from = res?.data[fromIndex]["_id"];
     const to = res?.data[toIndex]["_id"];
 
-    // const hide = message.loading("Swaping");
     setSwapLoading(true)
     requestSwap({
       data: {
@@ -91,10 +90,6 @@ export default function Grid(props: GridProps) {
           {
             title: "Workspace",
             dataIndex: "workspace",
-          },
-          {
-            title: "Description",
-            dataIndex: "description",
           },
           {
             title: "Type",

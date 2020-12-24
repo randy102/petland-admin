@@ -239,7 +239,6 @@ export default function RGrid(props: RGridProps) {
 
       <ReactDragListView nodeSelector="tr" onDragEnd={onDragEnd}>
         <Table
-          sticky
           className="rui-grid-table"
           size="small"
           scroll={{ x: true }}

@@ -36,7 +36,7 @@ export default function Create(props: CreateProps) {
     const viInputs = viForm.validateFields();
     const formInputs = form.validateFields();
     Promise.all([enInputs, viInputs, formInputs])
-      .then(([en, vi, form]) => {
+      .then(([en, vi, fo]) => {
         setSaveLoading(true);
 
         let toCreateData = [];
@@ -49,8 +49,8 @@ export default function Create(props: CreateProps) {
 
         requestCreate({
           data: {
-            ...form,
-            isPrimary: !!form.isPrimary,
+            ...fo,
+            isPrimary: !!fo.isPrimary,
             data: toCreateData,
             image,
           },
@@ -61,6 +61,7 @@ export default function Create(props: CreateProps) {
             setCurTab("list");
             viForm.resetFields();
             enForm.resetFields();
+            form.resetFields();
             setEnCK("");
             setViCK("");
             uploadAPI?.reset();

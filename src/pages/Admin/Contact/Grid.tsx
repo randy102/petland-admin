@@ -1,7 +1,7 @@
 import { message, Radio, Tag } from "antd";
 import RGrid from "components/Shared/RGrid";
 import React, { useState } from "react";
-import { handleRequestError, useMutation } from "utils/request";
+import { handleRequestError, useMutation, useSwap } from "utils/request";
 import { filterLang } from "utils/languages";
 import Update from "./Update";
 import moment from "moment";
@@ -19,7 +19,8 @@ export default function Grid(props: GridProps) {
   const [lang, setLang] = useState<string>("vi");
   const [showForm, setShowForm] = useState<boolean>(false);
   const [initRow, setInitRow] = useState<any>();
-
+  const [swapLoading, setSwapLoading] = useState<boolean>(false);
+  const requestSwap = useSwap();
   const requestDelete = useMutation({ method: "delete" });
 
   function handleDelete(row: any[]) {
@@ -38,6 +39,23 @@ export default function Grid(props: GridProps) {
     setShowForm(true);
   }
 
+  function handleSwap(fromIndex: number, toIndex: number) {
+    const from = res?.data[fromIndex]["_id"];
+    const to = res?.data[toIndex]["_id"];
+
+    setSwapLoading(true)
+    requestSwap({
+      data: {
+        from,
+        to,
+        model: "contacts",
+      },
+    })
+      .then(() => refetch())
+      .catch(handleRequestError)
+      .finally(() => setSwapLoading(false));
+  }
+
   return (
     <>
       <Radio.Group
@@ -51,7 +69,8 @@ export default function Grid(props: GridProps) {
         onChange={(e) => setLang(e.target.value)}
       />
       <RGrid
-        loading={loading}
+        onDrag={handleSwap}
+        loading={loading || swapLoading || deleteLoading}
         data={filterLang(lang, res?.data)}
         headDef={[
           { type: "refresh", onClick: () => refetch() },
@@ -60,12 +79,12 @@ export default function Grid(props: GridProps) {
         ]}
         colDef={[
           {
-            title: "Name",
-            dataIndex: "name",
+            title: "Seq",
+            dataIndex: "sequence",
           },
           {
-            title: "Sequence",
-            dataIndex: "seq",
+            title: "Name",
+            dataIndex: "name",
           },
           {
             title: "Address",

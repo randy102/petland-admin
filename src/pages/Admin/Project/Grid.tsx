@@ -1,7 +1,7 @@
 import { message, Radio, Tag } from "antd";
 import RGrid from "components/Shared/RGrid";
 import React, { useState } from "react";
-import { handleRequestError, useMutation } from "utils/request";
+import { handleRequestError, useMutation, useSwap } from "utils/request";
 import { filterLang } from "utils/languages";
 import Update from "./Update";
 import moment from "moment";
@@ -22,7 +22,8 @@ export default function Grid(props: GridProps) {
   const [lang, setLang] = useState<string>("vi");
   const [showForm, setShowForm] = useState<boolean>(false);
   const [initRow, setInitRow] = useState<any>();
-
+  const [swapLoading, setSwapLoading] = useState<boolean>(false);
+  const requestSwap = useSwap();
   const requestDelete = useMutation({ method: "delete" });
 
   function handleDelete(row: any[]) {
@@ -33,12 +34,29 @@ export default function Grid(props: GridProps) {
         refetch();
       })
       .catch(handleRequestError)
-      .finally(() => setDeleteLoading(false))
+      .finally(() => setDeleteLoading(false));
   }
 
   function handleUpdate(row: any[]) {
     setInitRow(res?.data.find((r: any) => r._id === row[0]._id));
     setShowForm(true);
+  }
+
+  function handleSwap(fromIndex: number, toIndex: number) {
+    const from = res?.data[fromIndex]["_id"];
+    const to = res?.data[toIndex]["_id"];
+
+    setSwapLoading(true);
+    requestSwap({
+      data: {
+        from,
+        to,
+        model: "projects",
+      },
+    })
+      .then(() => refetch())
+      .catch(handleRequestError)
+      .finally(() => setSwapLoading(false));
   }
 
   return (
@@ -54,7 +72,8 @@ export default function Grid(props: GridProps) {
         onChange={(e) => setLang(e.target.value)}
       />
       <RGrid
-        loading={loading}
+        onDrag={handleSwap}
+        loading={loading || swapLoading || deleteLoading}
         data={filterLang(lang, res?.data)}
         headDef={[
           { type: "refresh", onClick: () => refetch() },
@@ -62,6 +81,10 @@ export default function Grid(props: GridProps) {
           { type: "delete", onClick: handleDelete, loading: deleteLoading },
         ]}
         colDef={[
+          {
+            title: "Seq",
+            dataIndex: "sequence",
+          },
           {
             title: "Name",
             dataIndex: "name",
@@ -73,17 +96,25 @@ export default function Grid(props: GridProps) {
           {
             title: "Type",
             dataIndex: "type",
-            render: (type) => <Tag color={CATEGORY_TYPE_GRID[type]?.color}>{CATEGORY_TYPE_GRID[type]?.name}</Tag>
+            render: (type) => (
+              <Tag color={CATEGORY_TYPE_GRID[type]?.color}>
+                {CATEGORY_TYPE_GRID[type]?.name}
+              </Tag>
+            ),
           },
           {
             title: "Category",
             dataIndex: "category",
-            render: (category) => category && category[lang]
+            render: (category) => category && category[lang],
           },
           {
             title: "Status",
             dataIndex: "status",
-            render: (type) => <Tag color={POST_STATUS_GRID[type]?.color}>{POST_STATUS_GRID[type]?.name}</Tag>
+            render: (type) => (
+              <Tag color={POST_STATUS_GRID[type]?.color}>
+                {POST_STATUS_GRID[type]?.name}
+              </Tag>
+            ),
           },
           {
             title: "Address",
@@ -96,12 +127,21 @@ export default function Grid(props: GridProps) {
           {
             title: "Project Status",
             dataIndex: "projectStatus",
-            render: (type) => <Tag color={PROJECT_STATUS_GRID[type]?.color}>{PROJECT_STATUS_GRID[type]?.name}</Tag>
+            render: (type) => (
+              <Tag color={PROJECT_STATUS_GRID[type]?.color}>
+                {PROJECT_STATUS_GRID[type]?.name}
+              </Tag>
+            ),
           },
           {
             title: "Primary",
             dataIndex: "isPrimary",
-            render: (val) => val ? <Tag color="green">True</Tag> : <Tag color="red">False</Tag>
+            render: (val) =>
+              val ? (
+                <Tag color="green">True</Tag>
+              ) : (
+                <Tag color="red">False</Tag>
+              ),
           },
           {
             title: "Investor",
@@ -110,10 +150,6 @@ export default function Grid(props: GridProps) {
           {
             title: "Area",
             dataIndex: "area",
-          },
-          {
-            title: "Description",
-            dataIndex: "description",
           },
           {
             title: "Created",

@@ -2,6 +2,7 @@ import { message, Tabs } from "antd";
 import { POST_STATUS } from "components/Shared/POST_STATUS";
 import RDrawer from "components/Shared/RDrawer";
 import RForm, { useForm } from "components/Shared/RForm";
+import RInput from "components/Shared/RForm/RInput";
 import RSelect from "components/Shared/RForm/RSelect";
 import RUpload from "components/Shared/RForm/RUpload";
 import RUploads from "components/Shared/RForm/RUploads";
@@ -205,6 +206,13 @@ export default function Update(props: UpdateProps) {
           optionRender={(row) => row.name}
           optionValue={(row) => row._id}
           required
+        />
+
+        <RInput
+          name="sequence"
+          label="Sequence"
+          number
+          rules={{ required: true }}
         />
       </RForm>
 

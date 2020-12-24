@@ -2,6 +2,7 @@ import { message, Tabs } from "antd";
 import { POST_STATUS } from "components/Shared/POST_STATUS";
 import RDrawer from "components/Shared/RDrawer";
 import RForm, { useForm } from "components/Shared/RForm";
+import RInput from "components/Shared/RForm/RInput";
 import RSelect from "components/Shared/RForm/RSelect";
 import RSwitch from "components/Shared/RForm/RSwitch";
 import RUpload from "components/Shared/RForm/RUpload";
@@ -49,12 +50,12 @@ export default function Update(props: UpdateProps) {
   };
 
   useEffect(() => {
-    if (!enForm.isFieldsTouched()){
+    if (!enForm.isFieldsTouched()) {
       enForm.setFieldsValue(initData["en"]);
       setEnCK(initData["en"]?.content || "");
     }
 
-    if (!viForm.isFieldsTouched()){
+    if (!viForm.isFieldsTouched()) {
       viForm.setFieldsValue(initData["vi"]);
       setViCK(initData["vi"]?.content || "");
       setImage(initRow?.image);
@@ -74,6 +75,7 @@ export default function Update(props: UpdateProps) {
     setImage(undefined);
     enForm.resetFields();
     viForm.resetFields();
+    form.resetFields();
   }
 
   function handleSubmit(submitImage?: string) {
@@ -137,7 +139,7 @@ export default function Update(props: UpdateProps) {
           name: "Save",
           type: "primary",
           onClick: () => {
-            handleSubmit()
+            handleSubmit();
           },
           loading: submitLoading,
         },
@@ -179,6 +181,12 @@ export default function Update(props: UpdateProps) {
           optionRender={(r) => r.name}
           optionValue={(r) => r._id}
           required
+        />
+        <RInput
+          name="sequence"
+          label="Sequence"
+          number
+          rules={{ required: true }}
         />
       </RForm>
       <RUpload

@@ -6,10 +6,11 @@ import React, { useEffect } from "react";
 import { LIBRARY_TYPES } from "./LIBRARY_TYPES";
 
 interface FormProps extends StdRFormProps {
+  showSequence?: boolean
 }
 
 export default function Form(props: FormProps) {
-  const { form, init } = props;
+  const { form, init, showSequence=false } = props;
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => form?.resetFields(), [init]);
@@ -30,6 +31,7 @@ export default function Form(props: FormProps) {
         optionValue={r => r._id}
         required
       />
+      <RInput visible={showSequence} name="sequence" label="Sequence" number rules={{required: true}}/>
     </RForm>
   );
 }

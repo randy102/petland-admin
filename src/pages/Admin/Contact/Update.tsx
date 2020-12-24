@@ -69,6 +69,7 @@ export default function Update(props: UpdateProps) {
     enForm.resetFields();
     viForm.resetFields();
     setManufact(false);
+    form.resetFields();
   }
 
   function handleSubmit(submitImgs?: string[]) {
@@ -163,7 +164,7 @@ export default function Update(props: UpdateProps) {
           checkedText="True"
           unCheckedText="False"
         />
-        <RInput name="seq" label="Sequence" number rules={{required: true}}/>
+        <RInput name="sequence" label="Sequence" number rules={{required: true}}/>
         <RInput name="map" label="Map" />
       </RForm>
       <RUploads

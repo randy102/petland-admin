@@ -148,11 +148,6 @@ export default function Create(props: CreateProps) {
           disabled
         />
 
-        <RInput
-          name="sequence"
-          label="Sequence"
-          number
-        />
       </RForm>
       <RUploads onChange={setImgs} label="Images" uploadApi={setUploadAPI} />
     </>

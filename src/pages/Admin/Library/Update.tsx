@@ -31,6 +31,7 @@ export default function Update(props: UpdateProps) {
   function handleClose() {
     setInitRow(undefined);
     setShowForm(false);
+    form.resetFields();
   }
 
   function handleSubmit(submitFile?: string) {
@@ -81,7 +82,7 @@ export default function Update(props: UpdateProps) {
         },
       ]}
     >
-      <Form form={form} init={initRow} />
+      <Form form={form} init={initRow} showSequence />
       <RUploadFile
         onChange={handleImageChange}
         label="File"
