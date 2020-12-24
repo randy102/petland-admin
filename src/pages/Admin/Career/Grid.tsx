@@ -1,7 +1,7 @@
 import { message, Radio, Tag } from "antd";
 import RGrid from "components/Shared/RGrid";
 import React, { useState } from "react";
-import { handleRequestError, useMutation } from "utils/request";
+import { handleRequestError, useMutation, useSwap } from "utils/request";
 import { filterLang } from "utils/languages";
 import Update from "./Update";
 import moment from "moment";
@@ -16,26 +16,45 @@ export default function Grid(props: GridProps) {
   const { res, loading, refetch } = props;
 
   const [deleteLoading, setDeleteLoading] = useState<boolean>(false);
+  const [swapLoading, setSwapLoading] = useState<boolean>(false);
   const [lang, setLang] = useState<string>("vi");
   const [showForm, setShowForm] = useState<boolean>(false);
   const [initRow, setInitRow] = useState<any>();
 
   const requestDelete = useMutation({ method: "delete" });
+  const requestSwap = useSwap();
 
   function handleDelete(row: any[]) {
-    setDeleteLoading(true)
+    setDeleteLoading(true);
     requestDelete({ api: "/career/" + row[0]._id })
       .then(() => {
         message.success("Success!");
         refetch();
       })
       .catch(handleRequestError)
-      .finally(() => setDeleteLoading(false))
+      .finally(() => setDeleteLoading(false));
   }
 
   function handleUpdate(row: any[]) {
     setInitRow(res?.data.find((r: any) => r._id === row[0]._id));
     setShowForm(true);
+  }
+
+  function handleSwap(fromIndex: number, toIndex: number) {
+    const from = res?.data[fromIndex]["_id"];
+    const to = res?.data[toIndex]["_id"];
+
+    setSwapLoading(true)
+    requestSwap({
+      data: {
+        from,
+        to,
+        model: "careers",
+      },
+    })
+      .then(() => refetch())
+      .catch(handleRequestError)
+      .finally(() => setSwapLoading(false));
   }
 
   return (
@@ -51,7 +70,8 @@ export default function Grid(props: GridProps) {
         onChange={(e) => setLang(e.target.value)}
       />
       <RGrid
-        loading={loading}
+        onDrag={handleSwap}
+        loading={loading || swapLoading || deleteLoading}
         data={filterLang(lang, res?.data)}
         headDef={[
           { type: "refresh", onClick: () => refetch() },
@@ -59,6 +79,10 @@ export default function Grid(props: GridProps) {
           { type: "delete", onClick: handleDelete, loading: deleteLoading },
         ]}
         colDef={[
+          {
+            title: "Seq",
+            dataIndex: "sequence",
+          },
           {
             title: "Name",
             dataIndex: "name",
@@ -68,18 +92,15 @@ export default function Grid(props: GridProps) {
             dataIndex: "workspace",
           },
           {
-            title: "Description",
-            dataIndex: "description",
-          },
-          {
             title: "Type",
             dataIndex: "online",
-            render: (online) => online ? <Tag color="green">Online</Tag> : <Tag>Offline</Tag>
+            render: (online) =>
+              online ? <Tag color="green">Online</Tag> : <Tag>Offline</Tag>,
           },
           {
             title: "Category",
             dataIndex: "category",
-            render: (category) => category && category[lang]
+            render: (category) => category && category[lang],
           },
           {
             title: "Number",

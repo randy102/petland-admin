@@ -65,13 +65,20 @@ export default function Update(props: UpdateProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initRow, lang]);
 
-  const setExpired = useCallback((period: number) => {
-    form.setFieldsValue({expired: moment(initRow?.createdAt).add("day", period).format("D/M/YYYY")})
-  }, [initRow, form])
+  const setExpired = useCallback(
+    (period: number) => {
+      form.setFieldsValue({
+        expired: moment(initRow?.createdAt)
+          .add("day", period)
+          .format("D/M/YYYY"),
+      });
+    },
+    [initRow, form]
+  );
 
   useEffect(() => {
     form.setFieldsValue({ ...initRow, expired: "" });
-    setExpired(initRow?.period)
+    setExpired(initRow?.period);
   }, [initRow, form, setExpired]);
 
   function handleClose() {
@@ -134,7 +141,6 @@ export default function Update(props: UpdateProps) {
     setImgs(imgs);
     handleSubmit(imgs);
   }
-  
 
   return (
     <RDrawer
@@ -191,12 +197,16 @@ export default function Update(props: UpdateProps) {
           label="Period (Days)"
           onChange={setExpired}
           number
+          rules={{required: true}}
         />
 
+        <RInput name="expired" label="Job will be expired at" disabled />
+
         <RInput
-          name="expired"
-          label="Job will be expired at"
-          disabled
+          name="sequence"
+          label="Sequence"
+          number
+          rules={{ required: true }}
         />
       </RForm>
       <RUploads

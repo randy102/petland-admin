@@ -1,7 +1,7 @@
 import { message, Tag } from "antd";
 import RGrid from "components/Shared/RGrid";
 import React, { useState } from "react";
-import { handleRequestError, useMutation } from "utils/request";
+import { handleRequestError, useMutation, useSwap } from "utils/request";
 import Update from "./Update";
 import moment from "moment";
 import { LIBRARY_TYPE_GRID } from "./LIBRARY_TYPES";
@@ -18,7 +18,8 @@ export default function Grid(props: GridProps) {
   const [deleteLoading, setDeleteLoading] = useState<boolean>(false);
   const [showForm, setShowForm] = useState<boolean>(false);
   const [initRow, setInitRow] = useState<any>();
-
+  const [swapLoading, setSwapLoading] = useState<boolean>(false);
+  const requestSwap = useSwap();
   const requestDelete = useMutation({ method: "delete" });
 
   function handleDelete(row: any[]) {
@@ -37,10 +38,28 @@ export default function Grid(props: GridProps) {
     setShowForm(true);
   }
 
+  function handleSwap(fromIndex: number, toIndex: number) {
+    const from = res?.data[fromIndex]["_id"];
+    const to = res?.data[toIndex]["_id"];
+
+    setSwapLoading(true)
+    requestSwap({
+      data: {
+        from,
+        to,
+        model: "library",
+      },
+    })
+      .then(() => refetch())
+      .catch(handleRequestError)
+      .finally(() => setSwapLoading(false));
+  }
+
   return (
     <>
       <RGrid
-        loading={loading}
+        onDrag={handleSwap}
+        loading={loading || swapLoading || deleteLoading}
         data={res?.data}
         headDef={[
           { type: "refresh", onClick: () => refetch() },
@@ -48,6 +67,10 @@ export default function Grid(props: GridProps) {
           { type: "delete", onClick: handleDelete, loading: deleteLoading },
         ]}
         colDef={[
+          {
+            title: "Seq",
+            dataIndex: "sequence",
+          },
           {
             title: "Vi",
             dataIndex: "vi",
