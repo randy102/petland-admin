@@ -108,10 +108,6 @@ export default function Grid(props: GridProps) {
             dataIndex: "fax",
           },
           {
-            title: "Map",
-            dataIndex: "map",
-          },
-          {
             title: "Manufactory",
             dataIndex: "isManufactory",
             render: (val) => val ? <Tag color="green">True</Tag> : <Tag color="red">False</Tag>
