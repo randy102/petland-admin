@@ -139,12 +139,19 @@ export default function Create(props: CreateProps) {
           label="Period (Days)"
           onChange={(period: number) => form.setFieldsValue({expired: moment().add("day", period).format("D/M/YYYY")})}
           number
+          rules={{required: true}}
         />
 
         <RInput
           name="expired"
           label="Job will be expired at"
           disabled
+        />
+
+        <RInput
+          name="sequence"
+          label="Sequence"
+          number
         />
       </RForm>
       <RUploads onChange={setImgs} label="Images" uploadApi={setUploadAPI} />

@@ -8,6 +8,7 @@ import "./grid.scss";
 import { HEAD_DATA } from "./HeadTemplate";
 import ReactDragListView from "react-drag-listview";
 
+const DEFAULT_PAGE_SIZE = 10;
 interface RGridProps {
   data: any[];
   colDef: ColumnsType<any>;
@@ -16,8 +17,7 @@ interface RGridProps {
   expandRender?: ExpandedRowRender<any>;
   showSelection?: boolean;
   pagination?: boolean;
-  onDrag?: (from: number, to: number) => void
-
+  onDrag?: (from: number, to: number) => void;
 }
 
 declare type ExpandedRowRender<ValueType> = (
@@ -39,12 +39,7 @@ interface HeaderType {
   disabled?: boolean;
 }
 
-type HeaderBtnType =
-  | "create"
-  | "update"
-  | "delete"
-  | "refresh"
-  | "detail";
+type HeaderBtnType = "create" | "update" | "delete" | "refresh" | "detail";
 
 function getNestedPath(data: any, path: string) {
   if (!Array.isArray(path)) return data[path];
@@ -63,13 +58,14 @@ export default function RGrid(props: RGridProps) {
     loading = false,
     expandRender,
     showSelection = true,
-    onDrag = () => {}
+    onDrag = () => {},
   } = props;
-  
 
   const [selectedRows, setSelectedRows] = useState<any>([]);
   const [selectedRowKeys, setSelectedRowKeys] = useState<any>([]);
   const [dataResult, setDataResult] = useState<any>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
   var searchInput: Input | null;
 
   useEffect(() => {
@@ -78,20 +74,23 @@ export default function RGrid(props: RGridProps) {
   }, [data]);
 
   useEffect(() => {
-    setDataResult(data)
-  }, [data])
+    setDataResult(data);
+  }, [data]);
 
-
-  const onDragEnd = (fromIndex: number, toIndex: number) => {
+  function onDragEnd(fromIndex: number, toIndex: number) {
     if (toIndex < 0) return; // Ignores if outside designated area
 
+    const offset = (currentPage - 1) * DEFAULT_PAGE_SIZE;
+    const from = offset + fromIndex - 1;
+    const to = offset + toIndex - 1;
+
     const items = [...dataResult];
-    const item = items.splice(fromIndex-1, 1)[0];
-    items.splice(toIndex-1, 0, item);
-    setDataResult(items)
-    onDrag(fromIndex, toIndex)
-  };
-  
+    const temp = items[from];
+    items[from] = items[to];
+    items[to] = temp;
+    setDataResult(items);
+    onDrag(from, to);
+  }
 
   // Filter =>
   const getColumnSearchProps = (dataIndex: any) => ({
@@ -151,6 +150,9 @@ export default function RGrid(props: RGridProps) {
   function handleReset(clearFilters: any) {
     clearFilters();
   }
+  function handlePageChange(page: number) {
+    setCurrentPage(page);
+  }
   // <= Filter
 
   // Sorter =>
@@ -174,8 +176,7 @@ export default function RGrid(props: RGridProps) {
   return (
     <div>
       {headDef?.length && !loading && (
-        <div className={`rui-grid-btn ${!data?.length ? 'reset' : ''}`}>
-
+        <div className={`rui-grid-btn ${!data?.length ? "reset" : ""}`}>
           <Space>
             {headDef &&
               headDef.map(
@@ -194,7 +195,7 @@ export default function RGrid(props: RGridProps) {
                   name = name || HEAD_DATA[type || "create"]?.name;
                   selection = selection || (type && HEAD_DATA[type].selection);
                   confirm = confirm || HEAD_DATA[type || "create"]?.confirm;
-                 
+
                   // @ts-ignore
                   const Icon = AntIcon[icon];
                   const singleError =
@@ -210,9 +211,7 @@ export default function RGrid(props: RGridProps) {
 
                   function confirmClick(cb: any) {
                     Modal.confirm({
-                      title:
-                        confirmMessage ||
-                        "Are you sure?",
+                      title: confirmMessage || "Are you sure?",
                       icon: <ExclamationCircleOutlined />,
                       onOk: () => cb(selectedRows, setSelectedRows),
                     });
@@ -235,43 +234,49 @@ export default function RGrid(props: RGridProps) {
                 }
               )}
           </Space>
-          
         </div>
       )}
 
-      <ReactDragListView
-        nodeSelector="tr"
-        onDragEnd={onDragEnd}
-      >
-      <Table
-        className="rui-grid-table"
-        size="small"
-        scroll={{x : true}}
-        tableLayout="auto"
-        showSorterTooltip={false}
-        pagination={pagination && { defaultPageSize: 8, position: ['topRight','bottomCenter'] }}
-        loading={loading}
-        columns={colDef}
-        dataSource={dataResult}
-        rowKey="_id"
-        expandedRowRender={expandRender}
-        locale={{
-          emptyText: "Data empty!",
-        }}
-        rowSelection={
-          showSelection
-            ? {
-                type: "radio",
-                onChange: (keys, rows) => {
-                  setSelectedRows(rows);
-                  setSelectedRowKeys(keys);
-                },
-                selectedRowKeys,
-                preserveSelectedRowKeys: false,
-              }
-            : undefined
-        }
-      />
+      <ReactDragListView nodeSelector="tr" onDragEnd={onDragEnd}>
+        <Table
+          sticky
+          className="rui-grid-table"
+          size="small"
+          scroll={{ x: true }}
+          tableLayout="auto"
+          showSorterTooltip={false}
+          pagination={
+            pagination && {
+              defaultPageSize: DEFAULT_PAGE_SIZE,
+              position: ["topRight", "bottomCenter"],
+              current: currentPage,
+              onChange: handlePageChange,
+              showTotal: (total) => `Total ${total} records`,
+              showSizeChanger: true,
+            }
+          }
+          loading={loading}
+          columns={colDef}
+          dataSource={dataResult}
+          rowKey="_id"
+          expandedRowRender={expandRender}
+          locale={{
+            emptyText: "Data empty!",
+          }}
+          rowSelection={
+            showSelection
+              ? {
+                  type: "radio",
+                  onChange: (keys, rows) => {
+                    setSelectedRows(rows);
+                    setSelectedRowKeys(keys);
+                  },
+                  selectedRowKeys,
+                  preserveSelectedRowKeys: false,
+                }
+              : undefined
+          }
+        />
       </ReactDragListView>
     </div>
   );

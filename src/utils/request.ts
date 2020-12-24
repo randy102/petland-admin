@@ -103,3 +103,7 @@ export function handleRequestError(error: any){
   console.log({error})
   message.error(`Error: ${error?.response?.data}`)
 }
+
+export function useSwap(){
+  return useMutation({method: "post", api: "/sequence/swap"})
+}

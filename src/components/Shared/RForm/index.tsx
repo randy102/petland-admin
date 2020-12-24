@@ -18,7 +18,7 @@ export default function RForm(props: RFormProps) {
   const { style, children, form, initialValues, onEnter = () => {} } = props;
   return (
     <AntForm
-      style={style}
+      style={{...style, maxWidth: 900}}
       onKeyPress={(e) => e.key === "Enter" && onEnter(e)}
       form={form}
       layout="vertical"
