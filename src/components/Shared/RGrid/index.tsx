@@ -7,6 +7,7 @@ import { ColumnsType } from "antd/lib/table";
 import "./grid.scss";
 import { HEAD_DATA } from "./HeadTemplate";
 import ReactDragListView from "react-drag-listview";
+import { FilterDropdownProps } from "antd/lib/table/interface";
 
 const DEFAULT_PAGE_SIZE = 10;
 interface RGridProps {
@@ -41,7 +42,7 @@ interface HeaderType {
 
 type HeaderBtnType = "create" | "update" | "delete" | "refresh" | "detail";
 
-function getNestedPath(data: any, path: string) {
+function getNestedPath(data: any, path: string = '') {
   if (!Array.isArray(path)) return data[path];
   for (let p of path) {
     data = data[p];
@@ -65,6 +66,7 @@ export default function RGrid(props: RGridProps) {
   const [selectedRowKeys, setSelectedRowKeys] = useState<any>([]);
   const [dataResult, setDataResult] = useState<any>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [showPaginateReplica, setShowPaginateReplica] = useState<boolean>(false)
 
   var searchInput: Input | null;
 
@@ -99,7 +101,7 @@ export default function RGrid(props: RGridProps) {
       selectedKeys,
       confirm,
       clearFilters,
-    }: any) => (
+    }: FilterDropdownProps) => (
       <div style={{ padding: 8 }}>
         <Input
           ref={(node) => {
@@ -138,7 +140,7 @@ export default function RGrid(props: RGridProps) {
     ),
     onFilter: (value: string, record: any) =>
       getNestedPath(record, dataIndex)
-        .toString()
+        ?.toString()
         .toLowerCase()
         .includes(value.toLowerCase()),
     onFilterDropdownVisibleChange: (visible: any) =>
@@ -150,10 +152,11 @@ export default function RGrid(props: RGridProps) {
   function handleReset(clearFilters: any) {
     clearFilters();
   }
+  // <= Filter
+
   function handlePageChange(page: number) {
     setCurrentPage(page);
   }
-  // <= Filter
 
   // Sorter =>
   const getSorterProps = (cd: any) => ({
@@ -237,8 +240,13 @@ export default function RGrid(props: RGridProps) {
         </div>
       )}
 
+      { showPaginateReplica && <div style={{height: 55, width: '100%'}} />}
+
       <ReactDragListView nodeSelector="tr" onDragEnd={onDragEnd}>
         <Table
+          onChange={(...props) => {
+            setShowPaginateReplica(props[3].currentDataSource.length === 0)
+          }}
           className="rui-grid-table"
           size="small"
           scroll={{ x: true }}
