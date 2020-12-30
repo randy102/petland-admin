@@ -14,6 +14,7 @@ import History from "./History"
 import Member from "./Member";
 import Library from "./Library"
 import Subscription from "./Subscription";
+import Banner from "./Banner";
 
 interface RouteConfig {
   path: string
@@ -82,6 +83,12 @@ export const ROUTES: RouteConfig[] = [
     name: 'Slider',
     icon: PictureOutlined,
     component: Slider,
+  },
+  {
+    path: '/banner',
+    name: 'Banner',
+    icon: PictureOutlined,
+    component: Banner,
   },
   {
     path: '/library',
