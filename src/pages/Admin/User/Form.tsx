@@ -13,7 +13,8 @@ interface FormProps extends StdRFormProps {
 
 const ROLES = [
   {name: 'Admin'},
-  {name: 'SubUser'}
+  {name: 'SubUser'},
+  {name: 'HR'}
 ]
 
 export default function Form(props: FormProps) {

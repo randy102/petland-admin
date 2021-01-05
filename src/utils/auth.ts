@@ -1,15 +1,21 @@
 import jwt from "jsonwebtoken"
 
-interface UserPayload {
+export enum UserRole {
+  Admin = "Admin",
+  SubUser = "SubUser",
+  HR = "HR"
+}
+
+export interface UserPayload {
   username: string
-  roleName: 'Admin' | 'SubUser'
+  roleName: keyof UserRole
   _id: string
 }
 
 export function isLogin() {
   const token = getToken();
   if (!!token) {
-      return true
+    return true
   }
   return false;
 }
