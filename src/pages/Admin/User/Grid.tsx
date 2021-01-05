@@ -86,6 +86,7 @@ export default function Grid(props: GridProps) {
           {
             title: "Fullname",
             key: "fullname",
+            dataIndex: "firstName",
             render: (_, row) => `${row.lastName || ""} ${row.firstName || ""}`,
           },
           {

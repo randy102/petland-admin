@@ -95,8 +95,7 @@ export default function Grid(props: GridProps) {
           },
           {
             title: "Category",
-            dataIndex: "category",
-            render: (category) => category && category[lang]
+            dataIndex: ["category",lang]
           },
           {
             title: "Status",
