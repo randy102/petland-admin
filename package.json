@@ -14,7 +14,7 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/react-router-dom": "^5.1.6",
-    "antd": "^4.6.6",
+    "antd": "^4.10.0",
     "antd-img-crop": "^3.12.0",
     "axios": "^0.20.0",
     "ckeditor5-custom-build": "file:./ckeditor5",
@@ -26,7 +26,7 @@
     "react-drag-listview": "^0.1.7",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "typescript": "~3.7.2"
+    "typescript": "3.9.7"
   },
   "scripts": {
     "start": "react-scripts start",
