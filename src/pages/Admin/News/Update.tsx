@@ -88,7 +88,7 @@ export default function Update(props: UpdateProps) {
         setSubmitLoading(true);
         let data = [];
 
-        if (initData["en"].name || enForm.isFieldsTouched())
+        if (initData["en"].title || enForm.isFieldsTouched())
           data.push({
             lang: "en",
             content: enCK,
