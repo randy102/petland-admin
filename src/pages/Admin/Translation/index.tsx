@@ -24,6 +24,7 @@ export default function Translation() {
     const enInputs = await enForm.validateFields();
     const viInputs = await viForm.validateFields();
     const enData = res?.data.find((i18n: any) => i18n.lang === "en");
+    const viData = res?.data.find((i18n: any) => i18n.lang === "vi");
 
     setSaveLoading(true);
 
@@ -37,7 +38,7 @@ export default function Translation() {
     const upsertVi = requestSave({
       data: {
         lang: "vi",
-        data: viInputs.vi || [],
+        data: viInputs.vi || viData?.data,
       },
     }).catch(handleRequestError);
 
