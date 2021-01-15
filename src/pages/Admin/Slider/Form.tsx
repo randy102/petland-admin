@@ -5,8 +5,7 @@ import { StdRFormProps } from "components/Shared/RForm/types";
 import React, { useEffect } from "react";
 import { SLIDER_TYPES } from "./SLIDER_TYPES";
 
-interface FormProps extends StdRFormProps {
-}
+interface FormProps extends StdRFormProps {}
 
 export default function Form(props: FormProps) {
   const { form, init } = props;
@@ -30,10 +29,17 @@ export default function Form(props: FormProps) {
         label="Type"
         name="type"
         data={SLIDER_TYPES}
-        labelRender={r => r.name}
-        optionRender={r => r.name}
-        optionValue={r => r._id}
+        labelRender={(r) => r.name}
+        optionRender={(r) => r.name}
+        optionValue={(r) => r._id}
         required
+      />
+
+      <RInput
+        name="sequence"
+        label="Sequence"
+        number
+        rules={{ required: true }}
       />
     </RForm>
   );
