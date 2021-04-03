@@ -8,6 +8,7 @@ import "./grid.scss";
 import { HEAD_DATA } from "./HeadTemplate";
 import ReactDragListView from "react-drag-listview";
 import { FilterDropdownProps } from "antd/lib/table/interface";
+import { capitalize, removeAccents } from "../../../utils/string";
 
 const DEFAULT_PAGE_SIZE = 10;
 interface RGridProps {
@@ -139,10 +140,10 @@ export default function RGrid(props: RGridProps) {
       <SearchOutlined style={{ color: filtered ? "#1890ff" : undefined }} />
     ),
     onFilter: (value: string, record: any) =>
-      getNestedPath(record, dataIndex)
+      removeAccents(getNestedPath(record, dataIndex)
         ?.toString()
-        .toLowerCase()
-        .includes(value.toLowerCase()),
+        .toLowerCase())
+        ?.includes(removeAccents(value.toLowerCase())),
     onFilterDropdownVisibleChange: (visible: any) =>
       visible && setTimeout(() => searchInput?.select()),
   });
@@ -174,6 +175,7 @@ export default function RGrid(props: RGridProps) {
     ...cd,
     ...getColumnSearchProps(cd.dataIndex),
     ...getSorterProps(cd),
+    title: cd.title || capitalize(cd.dataIndex)
   }));
 
   return (

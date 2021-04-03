@@ -14,7 +14,7 @@ export default function LeftBar() {
   const [userRole, setUserRole] = useState<string>();
 
   useEffect(() => {
-    setUserRole(getUser("roleName"));
+    setUserRole(getUser("role"));
   }, []);
 
   return (

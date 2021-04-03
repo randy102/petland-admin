@@ -14,7 +14,7 @@ export const ROUTES = {
   LOGOUT: "/logout"
 }
 
-document.title = 'Daidung Back-office';
+document.title = 'Petland Admin';
 
 export default function RootPage() {
   return (

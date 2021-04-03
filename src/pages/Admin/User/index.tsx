@@ -7,7 +7,7 @@ import { useFetch } from "utils/request";
 
 export default function User() {
   const [curTab, setCurTab] = useState('list')
-  const [res, { loading, refetch }] = useFetch({ api: "/user" });
+  const [res, { loading, refetch }] = useFetch({ api: "user/list" });
   return (
     <div>
       <Tabs activeKey={curTab} onTabClick={(key) => setCurTab(key)}>

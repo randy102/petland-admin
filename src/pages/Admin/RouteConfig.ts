@@ -15,6 +15,7 @@ import Member from "./Member";
 import Library from "./Library"
 import Subscription from "./Subscription";
 import Banner from "./Banner";
+import { UserRole } from "../../utils/auth";
 interface RouteConfig {
   path: string
   name: string
@@ -23,9 +24,7 @@ interface RouteConfig {
   allowed: string[]
 }
 
-const ADMIN = "Admin"
-const SUB_USER = "SubUser"
-const HR = "HR" 
+const { ADMIN, MOD } = UserRole
 
 export const ROUTES: RouteConfig[] = [
   {
@@ -40,104 +39,104 @@ export const ROUTES: RouteConfig[] = [
     name: 'Projects',
     icon: ProjectOutlined,
     component: Project,
-    allowed: [ADMIN, SUB_USER]
+    allowed: [ADMIN, MOD]
   },
   {
     path: '/product',
     name: 'Products',
     icon: CodeSandboxOutlined,
     component: Product,
-    allowed: [ADMIN, SUB_USER]
+    allowed: [ADMIN, MOD]
   },
   {
     path: '/news',
     name: 'News & QHSE',
     icon: EditOutlined,
     component: News,
-    allowed: [ADMIN, SUB_USER]
+    allowed: [ADMIN, MOD]
   },
   {
     path: '/career',
     name: 'Careers',
     icon: ReconciliationOutlined,
     component: Career,
-    allowed: [ADMIN, SUB_USER, HR]
+    allowed: [ADMIN, MOD]
   },
   {
     path: '/partner',
     name: 'Partners',
     icon: TeamOutlined,
     component: Partner,
-    allowed: [ADMIN, SUB_USER]
+    allowed: [ADMIN, MOD]
   },
   {
     path: '/member',
     name: 'Members',
     icon: TeamOutlined,
     component: Member,
-    allowed: [ADMIN, SUB_USER]
+    allowed: [ADMIN, MOD]
   },
   {
     path: '/contact',
     name: 'Contacts',
     icon: WhatsAppOutlined,
     component: Contact,
-    allowed: [ADMIN, SUB_USER]
+    allowed: [ADMIN, MOD]
   },
   {
     path: '/translation',
     name: 'Translations',
     icon: TranslationOutlined,
     component: Translation,
-    allowed: [ADMIN, SUB_USER]
+    allowed: [ADMIN, MOD]
   },
   {
     path: '/slider',
     name: 'Slider',
     icon: PictureOutlined,
     component: Slider,
-    allowed: [ADMIN, SUB_USER]
+    allowed: [ADMIN, MOD]
   },
   {
     path: '/banner',
     name: 'Banner',
     icon: PictureOutlined,
     component: Banner,
-    allowed: [ADMIN, SUB_USER]
+    allowed: [ADMIN, MOD]
   },
   {
     path: '/library',
     name: 'Library',
     icon: PictureOutlined,
     component: Library,
-    allowed: [ADMIN, SUB_USER]
+    allowed: [ADMIN, MOD]
   },
   {
     path: '/history',
     name: 'History',
     icon: FieldTimeOutlined,
     component: History,
-    allowed: [ADMIN, SUB_USER]
+    allowed: [ADMIN, MOD]
   },
   {
     path: '/config',
     name: 'Config',
     icon: SettingOutlined,
     component: Config,
-    allowed: [ADMIN, SUB_USER]
+    allowed: [ADMIN, MOD]
   },
   {
     path: '/mailtemplate',
     name: 'Mail Template',
     icon: MailOutlined,
     component: MailTemplate,
-    allowed: [ADMIN, SUB_USER]
+    allowed: [ADMIN, MOD]
   },
   {
     path: '/subscription',
     name: 'Subscriptions',
     icon: BellOutlined,
     component: Subscription,
-    allowed: [ADMIN, SUB_USER]
+    allowed: [ADMIN, MOD]
   }
 ]

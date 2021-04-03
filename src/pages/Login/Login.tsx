@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form, message } from "antd";
-import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import RInput from "components/Shared/RForm/RInput";
 import RForm from "components/Shared/RForm";
 import RPassword from "components/Shared/RForm/RPassword";
@@ -9,10 +9,11 @@ import { isLogin, logIn } from "utils/auth";
 import { useMutation } from "utils/request";
 import { Redirect, useHistory } from "react-router-dom";
 import "./Login.scss";
+import { handleFieldError } from "../../utils/form";
 
 function Login() {
   const [loading, setLoading] = useState(false);
-  const requestLogin = useMutation({ api: "/login", method: "post" });
+  const requestLogin = useMutation({ api: "auth/login", method: "post" });
   const [form] = Form.useForm();
   const history = useHistory();
 
@@ -25,10 +26,10 @@ function Login() {
           history.push("/");
         })
         .catch((error) => {
-          message.error(`Error: ${error.response?.data}`)
+          message.error(`Error: ${error.response?.data.message}`)
         })
         .finally(() => setLoading(false))
-    });
+    }).catch(handleFieldError);
   }
   
   if(isLogin()) return <Redirect to="/"/>
@@ -37,10 +38,10 @@ function Login() {
     <LogForm title="Login">
       <RForm form={form} onEnter={onLogin}>
         <RInput
-          label="Username"
-          placeholder="Type username..."
-          name="username"
-          rules={{ required: true }}
+          label="Email"
+          placeholder="Type email..."
+          name="email"
+          rules={{ required: true, type: 'email' }}
           prefix={<UserOutlined />}
         />
 

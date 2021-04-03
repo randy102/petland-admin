@@ -2,7 +2,7 @@ import { Button, message, Space } from "antd";
 import { useForm } from "components/Shared/RForm";
 import { StdCreateProps } from "components/Shared/RForm/types";
 import React, { useState } from "react";
-import { useMutation } from "utils/request";
+import { handleRequestError, useMutation } from "utils/request";
 import Form from "./Form";
 
 interface CreateProps extends StdCreateProps {
@@ -14,7 +14,7 @@ export default function Create(props: CreateProps) {
 
   const [form] = useForm();
   const [loading, setLoading] = useState(false);
-  const requestCreate = useMutation({api: '/user', method: 'post'});
+  const requestCreate = useMutation({api: 'auth/register', method: 'post'});
 
   function handleSubmit() {
     form.validateFields().then((inputs) => {
@@ -26,7 +26,7 @@ export default function Create(props: CreateProps) {
           setCurTab('list');
           refetch();
         })
-        .catch((error) => message.error(`Error: ${error.response.data}`))
+        .catch(handleRequestError(form))
         .finally(() => setLoading(false));
     });
   }

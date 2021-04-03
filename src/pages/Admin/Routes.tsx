@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import { getUser } from "utils/auth";
+import { getUser, UserRole } from "utils/auth";
 import { ROUTES } from "./RouteConfig";
 
 
@@ -8,17 +8,15 @@ export default function Routes() {
   const [userRole, setUserRole] = useState<string>();
 
   useEffect(() => {
-    setUserRole(getUser("roleName"));
+    setUserRole(getUser('role'));
   }, []);
 
   function getDefaultRoute(){
     switch(userRole){
-      case "Admin":
+      case UserRole.ADMIN:
         return '/user'
-      case "SubUser":
+      case UserRole.MOD:
         return '/project'
-      case "HR":
-        return '/career'
     }
   }
   return (

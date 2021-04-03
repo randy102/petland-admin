@@ -2,6 +2,7 @@ import { message } from 'antd';
 import axios, { AxiosPromise } from 'axios';
 import { useCallback, useEffect, useState } from 'react';
 import { getToken } from './auth';
+import { FormInstance } from "antd/es/form";
 
 interface UseAxiosProps {
   method?: 'get' | 'post' | 'put' | 'delete';
@@ -29,7 +30,7 @@ export function useFetch(props: UseAxiosProps): [any, RequestInfo] {
       method,
       data: fetchData || data,
       headers: {
-        token: `Bearer ${getToken()}`,
+        Authorization: `Bearer ${getToken()}`,
       },
     }).then((response) => {
       setRes(response);
@@ -52,7 +53,7 @@ export function useFetch(props: UseAxiosProps): [any, RequestInfo] {
 }
 
 export function useLazyFetch(props: UseAxiosProps): [any, RequestInfo] {
-  const { method, api="", data } = props;
+  const { method, api = "", data } = props;
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<any>();
   const [res, setRes] = useState<any>();
@@ -65,7 +66,7 @@ export function useLazyFetch(props: UseAxiosProps): [any, RequestInfo] {
       method,
       data: fetchData || data,
       headers: {
-        token: `Bearer ${getToken()}`,
+        Authorization: `Bearer ${getToken()}`,
       },
     }).then((response) => {
       setRes(response);
@@ -81,7 +82,7 @@ export function useLazyFetch(props: UseAxiosProps): [any, RequestInfo] {
   return [res, { loading, error, refetch: fetchData }]
 }
 
-export function useMutation(props: UseAxiosProps): (data: UseAxiosProps) => AxiosPromise{
+export function useMutation(props: UseAxiosProps): (data: UseAxiosProps) => AxiosPromise {
   const { method, api, data } = props;
 
   const fetchData = (fetchProps: UseAxiosProps = {}) => {
@@ -91,7 +92,7 @@ export function useMutation(props: UseAxiosProps): (data: UseAxiosProps) => Axio
       method,
       data: fetchProps.data || data,
       headers: {
-        token: `Bearer ${getToken()}`,
+        Authorization: `Bearer ${getToken()}`,
       },
     })
   };
@@ -99,11 +100,27 @@ export function useMutation(props: UseAxiosProps): (data: UseAxiosProps) => Axio
   return fetchData
 }
 
-export function handleRequestError(error: any){
-  console.log({error})
-  message.error(`Error: ${error?.response?.data}`)
+
+export function handleRequestError(form?: FormInstance) {
+  return function (error: any) {
+    const response = error?.response?.data;
+    const isNormalError = response.message;
+    if (isNormalError) {
+      console.log({ error })
+      message.error(`Error: ${error?.response?.data.message}`)
+    } else {
+      const fieldErrors = Object.keys(response).map(key => {
+        return {
+          name: key,
+          errors: [response[key]]
+        }
+      })
+      form?.setFields(fieldErrors)
+    }
+
+  }
 }
 
-export function useSwap(){
-  return useMutation({method: "post", api: "/sequence/swap"})
+export function useSwap() {
+  return useMutation({ method: "post", api: "/sequence/swap" })
 }

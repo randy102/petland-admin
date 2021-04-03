@@ -2,22 +2,24 @@ import Header from "components/Header";
 import LeftBar from "components/LeftBar";
 import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
-import { isLogin, logOut } from "utils/auth";
+import { hasAdminPermission, isLogin, logOut } from "utils/auth";
 import { useFetch } from "utils/request";
 import Routes from "./Routes";
 import "./styles.scss";
 
 export default function Admin() {
-  const [,{error, loading}] = useFetch({api:'/ping'})
-  const [validToken, setValidToken] = useState(true)
+  const [result,{error, loading}] = useFetch({api:'user/profile'})
+  const [validUser, setValidUser] = useState(true)
 
   useEffect(() => {
-    if(!loading && error){
-      setValidToken(false)
+    if(!loading && (error || !hasAdminPermission(result?.data.role))){
+      setValidUser(false)
+    } else {
+      setValidUser(true)
     }
-  },[loading, error])
+  },[loading, error, result])
 
-  if (!isLogin() || !validToken){
+  if (!isLogin() || (!loading && !validUser)){
     logOut()
     return <Redirect to="/login" />
   } 

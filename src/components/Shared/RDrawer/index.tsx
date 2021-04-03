@@ -20,7 +20,7 @@ export interface FootDef {
 }
 
 export default function RDrawer(props: DrawerProps) {
-  const { visible, onClose, title, footDef = [], children, width = '100vw' } = props;
+  const { visible, onClose, title, footDef = [], children, width = '60vw' } = props;
   const footer =
     footDef.length &&
     footDef.map(({ name, onClick, visible = true, type, loading=false }: FootDef) => {
