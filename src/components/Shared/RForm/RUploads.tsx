@@ -46,9 +46,9 @@ export default function RUploads(props: RUploadsProps) {
     disabled = false,
     uploadApi = () => {},
     label,
-    url = process.env.REACT_APP_BACKEND_URL + '/file',
+    url = process.env.REACT_APP_BACKEND_URL + 'photo',
     initIds,
-    viewUrl = process.env.REACT_APP_BACKEND_URL + '/file',
+    viewUrl = process.env.REACT_APP_S3URL,
     onChange = () => {},
   } = props;
 
@@ -73,8 +73,8 @@ export default function RUploads(props: RUploadsProps) {
   const handleRemove = useCallback(
     (file: UploadFile<any>) => {
       const id = file.response.fileId;
-      Axios.delete(`${url}/${id}`, { headers: { token: getToken() } })
-        .finally(() => {
+      Axios.delete(`${url}/${id}`, { headers: { Authorization: `Bearer ${getToken()}` } })
+        .then(() => {
           message.success("Xóa thành công!");
         })
         .catch((err) => message.error(err.message));
@@ -139,7 +139,7 @@ export default function RUploads(props: RUploadsProps) {
         onRemove={handleRemove}
         onPreview={handlePreview}
         fileList={fileList}
-        headers={{ token: getToken() || "" }}
+        headers={{ Authorization: `Bearer ${getToken()}` }}
       >
         <div>
           <PlusOutlined />

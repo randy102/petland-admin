@@ -41,9 +41,9 @@ export default function RUpload(props: RUploadProps) {
     disabled = false,
     uploadApi = () => {},
     label,
-    url = process.env.REACT_APP_BACKEND_URL + "/file",
+    url = process.env.REACT_APP_BACKEND_URL + "/photo",
     initId,
-    viewUrl = process.env.REACT_APP_BACKEND_URL + "/file",
+    viewUrl = process.env.REACT_APP_S3URL,
     onChange = () => {},
   } = props;
 
@@ -77,8 +77,8 @@ export default function RUpload(props: RUploadProps) {
       okText: "Yes",
       cancelText: "No",
       onOk: () => {
-        Axios.delete(`${url}/${imageId}`, { headers: { token: getToken() } })
-          .finally(() => {
+        Axios.delete(`${url}/${imageId}`, { headers: { Authorization: `Bearer ${getToken()}` } })
+          .then(() => {
             message.success("Xóa thành công!");
             setImageId(undefined);
             onChange(undefined);
@@ -144,7 +144,7 @@ export default function RUpload(props: RUploadProps) {
         action={url}
         beforeUpload={beforeUpload}
         onChange={handleChange}
-        headers={{ token: getToken() || "" }}
+        headers={{ Authorization: `Bearer ${getToken()}` }}
       >
         {imageId ? (
           <img

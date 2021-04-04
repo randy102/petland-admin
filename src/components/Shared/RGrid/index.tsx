@@ -275,7 +275,7 @@ export default function RGrid(props: RGridProps) {
           rowSelection={
             showSelection
               ? {
-                  type: "radio",
+                  type: "checkbox",
                   onChange: (keys, rows) => {
                     setSelectedRows(rows);
                     setSelectedRowKeys(keys);
