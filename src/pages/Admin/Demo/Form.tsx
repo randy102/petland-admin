@@ -12,6 +12,7 @@ import RSwitch from "../../../components/Shared/RForm/RSwitch";
 import RDate from "../../../components/Shared/RForm/RDate";
 import RUpload from "../../../components/Shared/RForm/RUpload";
 import RUploads from "../../../components/Shared/RForm/RUploads";
+import CKEditor from "../../../components/Shared/CKEditor";
 
 interface FormProps extends StdRFormProps {
   isUpdate?: boolean
@@ -125,6 +126,8 @@ export default function Form(props: FormProps) {
       <RUploads
         label="Multiple Upload"
       />
+
+      <CKEditor onChange={(val) => console.log(val)}/>
     </RForm>
   );
 }
