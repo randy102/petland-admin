@@ -15,3 +15,5 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "petland-admin" #Must be unique in Heroku
           heroku_email: "welldey102@gmail.com"
+      - run: heroku git:remote -a petland-admin
+      - run: git push heroku master
