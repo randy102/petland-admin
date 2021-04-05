@@ -29,7 +29,6 @@ const SELECTIONS = [
 export default function Form(props: FormProps) {
   const { form, init, isUpdate = false } = props;
 
-
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => form?.resetFields(), [init]);
 
