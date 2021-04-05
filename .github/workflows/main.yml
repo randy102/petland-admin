@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - master
+    paths: 
+      - 'src/**'
+      - 'public/**'
+      - '@types/**'
+      - 'package.json'
+
 
 jobs:
   build:
