@@ -39,7 +39,7 @@ function Login() {
       <RForm form={form} onEnter={onLogin}>
         <RInput
           label="Email"
-          placeholder="Type email..."
+          placeholder="Type email here..."
           name="email"
           rules={{ required: true, type: 'email' }}
           prefix={<UserOutlined />}
