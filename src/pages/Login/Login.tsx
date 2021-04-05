@@ -39,7 +39,7 @@ function Login() {
       <RForm form={form} onEnter={onLogin}>
         <RInput
           label="Email"
-          placeholder="Type email here..."
+          placeholder="Type email..."
           name="email"
           rules={{ required: true, type: 'email' }}
           prefix={<UserOutlined />}
@@ -47,7 +47,7 @@ function Login() {
 
         <RPassword
           label="Password"
-          placeholder="Type password here..."
+          placeholder="Type password..."
           name="password"
           rules={{ required: true }}
           prefix={<LockOutlined />}
