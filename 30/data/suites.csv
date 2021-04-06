@@ -1,0 +1,6 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"broken","Mon Apr 05 13:22:42 GMT 2021","Mon Apr 05 13:22:52 GMT 2021","10079","Default Suite","petland-test","com.example.petland_test.MainPageTest","com.example.petland_test.MainPageTest","toolsMenu","toolsMenu",""
+"broken","Mon Apr 05 13:22:14 GMT 2021","Mon Apr 05 13:22:25 GMT 2021","10994","Default Suite","petland-test","com.example.petland_test.MainPageTest","com.example.petland_test.MainPageTest","navigationToAllTools","navigationToAllTools",""
+"broken","Mon Apr 05 13:20:48 GMT 2021","Mon Apr 05 13:20:48 GMT 2021","2","Default Suite","petland-test","com.example.petland_test.MainPageTest","com.example.petland_test.MainPageTest","setUp","setUp",""
+"passed","Mon Apr 05 13:32:13 GMT 2021","Mon Apr 05 13:32:13 GMT 2021","64","Default Suite","petland-test","com.example.petland_test.MainPageTest","com.example.petland_test.MainPageTest","testTitle","testTitle",""
+"broken","Mon Apr 05 13:22:28 GMT 2021","Mon Apr 05 13:22:38 GMT 2021","10041","Default Suite","petland-test","com.example.petland_test.MainPageTest","com.example.petland_test.MainPageTest","search","search",""
