@@ -1,0 +1,77 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "The path to the driver executable must be set by the webdriver.chrome.driver system property; for more information, see https://github.com/SeleniumHQ/selenium/wiki/ChromeDriver. The latest version can be downloaded from http://chromedriver.storage.googleapis.com/index.html",
+      "children" : [ {
+        "name" : "setUp",
+        "uid" : "59680b12160a32ff",
+        "parentUid" : "a93f3441509404bed9136fafeddeaabd",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617628848089,
+          "stop" : 1617628848091,
+          "duration" : 2
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "a93f3441509404bed9136fafeddeaabd"
+    }, {
+      "name" : "no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\".products\\-list\"}\n  (Session info: headless chrome=89.0.4389.90)\nFor documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html\nBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'\nSystem info: host: 'randy-ThinkPad-T530', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-206-generic', java.version: '15.0.2'\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.90, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: /tmp/.com.google.Chrome.UQpSoe}, goog:chromeOptions: {debuggerAddress: localhost:39257}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nSession ID: eccdc067e9757c7fee32331cfdbbeb4e\n*** Element info: {Using=class name, value=products-list}",
+      "children" : [ {
+        "name" : "navigationToAllTools",
+        "uid" : "59c5d9730278748c",
+        "parentUid" : "cd5a6fad51eaac9d91385e39176aeade",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617628934406,
+          "stop" : 1617628945400,
+          "duration" : 10994
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "cd5a6fad51eaac9d91385e39176aeade"
+    }, {
+      "name" : "no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"[data-test=menu-main-icon-search]\"}\n  (Session info: headless chrome=89.0.4389.90)\nFor documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html\nBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'\nSystem info: host: 'randy-ThinkPad-T530', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-206-generic', java.version: '15.0.2'\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 89.0.4389.90, chrome: {chromedriverVersion: 89.0.4389.23 (61b08ee2c5002..., userDataDir: /tmp/.com.google.Chrome.CPEPS8}, goog:chromeOptions: {debuggerAddress: localhost:33575}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nSession ID: 3659bdd3c5cfce22b9ddc54b75b39ae7\n*** Element info: {Using=css selector, value=[data-test=menu-main-icon-search]}",
+      "children" : [ {
+        "name" : "search",
+        "uid" : "c76fb9141b7b59e7",
+        "parentUid" : "6fc0f85079a5b186bdd8bd528bf1659d",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617628948794,
+          "stop" : 1617628958835,
+          "duration" : 10041
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "6fc0f85079a5b186bdd8bd528bf1659d"
+    }, {
+      "name" : "java.lang.reflect.InvocationTargetException\nBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'\nSystem info: host: 'randy-ThinkPad-T530', ip: '127.0.1.1', os.name: 'Linux', os.arch: 'amd64', os.version: '4.4.0-206-generic', java.version: '15.0.2'\nDriver info: driver.version: RemoteWebDriver",
+      "children" : [ {
+        "name" : "toolsMenu",
+        "uid" : "7cd80fc1d2ed770f",
+        "parentUid" : "8de51e66c322f957bc11fe3cb8eb4b83",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617628962142,
+          "stop" : 1617628972221,
+          "duration" : 10079
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "8de51e66c322f957bc11fe3cb8eb4b83"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ],
+  "name" : "categories"
+}
