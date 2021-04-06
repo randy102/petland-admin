@@ -1,0 +1,74 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "children" : [ {
+    "name" : "com.example.petland_test.MainPageTest",
+    "children" : [ {
+      "name" : "setUp",
+      "uid" : "7015244bec6beb1a",
+      "parentUid" : "9b4120fc75914ac3a90f59ecfeeeac06",
+      "status" : "broken",
+      "time" : {
+        "start" : 1617628848089,
+        "stop" : 1617628848091,
+        "duration" : 2
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "navigationToAllTools",
+      "uid" : "54e04de9fa07e0a5",
+      "parentUid" : "9b4120fc75914ac3a90f59ecfeeeac06",
+      "status" : "broken",
+      "time" : {
+        "start" : 1617628934406,
+        "stop" : 1617628945400,
+        "duration" : 10994
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "search",
+      "uid" : "eb60d80ac886da13",
+      "parentUid" : "9b4120fc75914ac3a90f59ecfeeeac06",
+      "status" : "broken",
+      "time" : {
+        "start" : 1617628948794,
+        "stop" : 1617628958835,
+        "duration" : 10041
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "toolsMenu",
+      "uid" : "4cc199e9ed6ab402",
+      "parentUid" : "9b4120fc75914ac3a90f59ecfeeeac06",
+      "status" : "broken",
+      "time" : {
+        "start" : 1617628962142,
+        "stop" : 1617628972221,
+        "duration" : 10079
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "testTitle",
+      "uid" : "2ab5622ff4d93d87",
+      "parentUid" : "9b4120fc75914ac3a90f59ecfeeeac06",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617629533751,
+        "stop" : 1617629533815,
+        "duration" : 64
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "com.example.petland_test.MainPageTest"
+  } ],
+  "name" : "packages"
+}
