@@ -1,0 +1,125 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "children" : [ {
+    "name" : "randy-ThinkPad-T530",
+    "children" : [ {
+      "name" : "12575@randy-ThinkPad-T530.main(1)",
+      "children" : [ {
+        "name" : "search",
+        "uid" : "f1b3f38297fc79e3",
+        "parentUid" : "03daad02cfe177050036a084d03f5ef1",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617628948794,
+          "stop" : 1617628958835,
+          "duration" : 10041
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "navigationToAllTools",
+        "uid" : "d3c8875a21f0f389",
+        "parentUid" : "03daad02cfe177050036a084d03f5ef1",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617628934406,
+          "stop" : 1617628945400,
+          "duration" : 10994
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "toolsMenu",
+        "uid" : "76a74afb0439f838",
+        "parentUid" : "03daad02cfe177050036a084d03f5ef1",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617628962142,
+          "stop" : 1617628972221,
+          "duration" : 10079
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "03daad02cfe177050036a084d03f5ef1"
+    }, {
+      "name" : "12445@randy-ThinkPad-T530.main(1)",
+      "children" : [ {
+        "name" : "toolsMenu",
+        "uid" : "2cefa3c55a89de35",
+        "parentUid" : "c8b761329cdc7060394d8b8d1fa4ad22",
+        "status" : "skipped",
+        "time" : {
+          "start" : 1617628848128,
+          "stop" : 1617628848128,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "search",
+        "uid" : "689be193faf008a2",
+        "parentUid" : "c8b761329cdc7060394d8b8d1fa4ad22",
+        "status" : "skipped",
+        "time" : {
+          "start" : 1617628848121,
+          "stop" : 1617628848122,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "setUp",
+        "uid" : "64811964be01ecea",
+        "parentUid" : "c8b761329cdc7060394d8b8d1fa4ad22",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617628848089,
+          "stop" : 1617628848091,
+          "duration" : 2
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "navigationToAllTools",
+        "uid" : "b447a3ce8d411ea6",
+        "parentUid" : "c8b761329cdc7060394d8b8d1fa4ad22",
+        "status" : "skipped",
+        "time" : {
+          "start" : 1617628848109,
+          "stop" : 1617628848113,
+          "duration" : 4
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "c8b761329cdc7060394d8b8d1fa4ad22"
+    }, {
+      "name" : "13125@randy-ThinkPad-T530.main(1)",
+      "children" : [ {
+        "name" : "testTitle",
+        "uid" : "27f5ca8824d84d9d",
+        "parentUid" : "5597938c850b9be1852775a85f37fdfa",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617629533751,
+          "stop" : 1617629533815,
+          "duration" : 64
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "5597938c850b9be1852775a85f37fdfa"
+    } ],
+    "uid" : "c36a0368f757530be396ccd07c6cab3f"
+  } ],
+  "name" : "timeline"
+}
