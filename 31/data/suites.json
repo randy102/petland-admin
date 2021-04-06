@@ -1,0 +1,43 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "children" : [ {
+    "name" : "Surefire suite",
+    "children" : [ {
+      "name" : "Surefire test",
+      "children" : [ {
+        "name" : "com.example.petland_test.MainPageTest",
+        "children" : [ {
+          "name" : "testFail",
+          "uid" : "41752e1d0f229178",
+          "parentUid" : "51f5f3431be90da7866ba86e3294f011",
+          "status" : "failed",
+          "time" : {
+            "start" : 1617714894850,
+            "stop" : 1617714894929,
+            "duration" : 79
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "testTitle",
+          "uid" : "7a18614ebee32fe8",
+          "parentUid" : "51f5f3431be90da7866ba86e3294f011",
+          "status" : "failed",
+          "time" : {
+            "start" : 1617714898192,
+            "stop" : 1617714898213,
+            "duration" : 21
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "51f5f3431be90da7866ba86e3294f011"
+      } ],
+      "uid" : "1fcb2e6ec8e5b5e8a1f2a70b87c80b24"
+    } ],
+    "uid" : "940a09faf31371a51747026c9d178f0a"
+  } ],
+  "name" : "suites"
+}

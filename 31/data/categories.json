@@ -1,0 +1,43 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "expected: 2\nbut was : 1",
+      "children" : [ {
+        "name" : "testFail",
+        "uid" : "41752e1d0f229178",
+        "parentUid" : "a5eb6e40d4dd8dad7e3e8fe23981ac4c",
+        "status" : "failed",
+        "time" : {
+          "start" : 1617714894850,
+          "stop" : 1617714894929,
+          "duration" : 79
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "a5eb6e40d4dd8dad7e3e8fe23981ac4c"
+    }, {
+      "name" : "value of: getTitle()\nexpected: Tiki\nbut was : Tiki - Mua hàng online giá tốt, hàng chuẩn, ship nhanh",
+      "children" : [ {
+        "name" : "testTitle",
+        "uid" : "7a18614ebee32fe8",
+        "parentUid" : "fce3ea9c4046625cfc5c03d9b7c81d11",
+        "status" : "failed",
+        "time" : {
+          "start" : 1617714898192,
+          "stop" : 1617714898213,
+          "duration" : 21
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "fce3ea9c4046625cfc5c03d9b7c81d11"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  } ],
+  "name" : "categories"
+}
