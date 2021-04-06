@@ -53,7 +53,7 @@ jobs:
       - name: Test marketplace action
         uses: simple-elf/allure-report-action@master
         if: always()
-        id: allure-report
+        id: allure-report-admin
         with:
           allure_results: allure-results
           gh_pages: gh-pages
