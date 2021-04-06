@@ -47,7 +47,7 @@ function Login() {
 
         <RPassword
           label="Password"
-          placeholder="Type password..."
+          placeholder="Type password here..."
           name="password"
           rules={{ required: true }}
           prefix={<LockOutlined />}
