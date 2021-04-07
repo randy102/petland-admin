@@ -1,0 +1,39 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "children" : [ {
+    "name" : "fv-az132-741",
+    "children" : [ {
+      "name" : "4142@fv-az132-741.main(1)",
+      "children" : [ {
+        "name" : "Open login page successfully",
+        "uid" : "3480108dcbd9996e",
+        "parentUid" : "d877d4433622bc8ded57ecbdba3c4878",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617766533752,
+          "stop" : 1617766534870,
+          "duration" : 1118
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "Email and password should required",
+        "uid" : "a00800824bbb1bc8",
+        "parentUid" : "d877d4433622bc8ded57ecbdba3c4878",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617766534964,
+          "stop" : 1617766535255,
+          "duration" : 291
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "d877d4433622bc8ded57ecbdba3c4878"
+    } ],
+    "uid" : "7ded16062133dd2d0fea06f300cbe355"
+  } ],
+  "name" : "timeline"
+}

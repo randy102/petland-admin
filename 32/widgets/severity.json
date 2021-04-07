@@ -1,0 +1,21 @@
+[ {
+  "uid" : "3480108dcbd9996e",
+  "name" : "Open login page successfully",
+  "time" : {
+    "start" : 1617766533752,
+    "stop" : 1617766534870,
+    "duration" : 1118
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a00800824bbb1bc8",
+  "name" : "Email and password should required",
+  "time" : {
+    "start" : 1617766534964,
+    "stop" : 1617766535255,
+    "duration" : 291
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]
