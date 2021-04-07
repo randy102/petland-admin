@@ -1,12 +1,12 @@
 {
-  "uid" : "3480108dcbd9996e",
+  "uid" : "570b20551ba7fa84",
   "name" : "Open login page successfully",
   "fullName" : "test.TestLoginPage.testOpenLoginPage",
   "historyId" : "35d37473aea567b4d0ca5321bf66e0ee",
   "time" : {
-    "start" : 1617766533752,
-    "stop" : 1617766534870,
-    "duration" : 1118
+    "start" : 1617767254089,
+    "stop" : 1617767255155,
+    "duration" : 1066
   },
   "status" : "passed",
   "flaky" : false,
@@ -14,9 +14,9 @@
   "beforeStages" : [ {
     "name" : "setup",
     "time" : {
-      "start" : 1617766530792,
-      "stop" : 1617766533636,
-      "duration" : 2844
+      "start" : 1617767250322,
+      "stop" : 1617767253961,
+      "duration" : 3639
     },
     "description" : "",
     "status" : "passed",
@@ -33,9 +33,9 @@
     "steps" : [ {
       "name" : "Open login page",
       "time" : {
-        "start" : 1617766533783,
-        "stop" : 1617766534785,
-        "duration" : 1002
+        "start" : 1617767254103,
+        "stop" : 1617767255069,
+        "duration" : 966
       },
       "status" : "passed",
       "steps" : [ ],
@@ -56,8 +56,8 @@
   "afterStages" : [ {
     "name" : "tearDown",
     "time" : {
-      "start" : 1617766535258,
-      "stop" : 1617766535327,
+      "start" : 1617767255510,
+      "stop" : 1617767255579,
       "duration" : 69
     },
     "description" : "",
@@ -90,10 +90,10 @@
     "value" : "test.TestLoginPage"
   }, {
     "name" : "host",
-    "value" : "fv-az132-741"
+    "value" : "fv-az129-901"
   }, {
     "name" : "thread",
-    "value" : "4142@fv-az132-741.main(1)"
+    "value" : "4076@fv-az129-901.main(1)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -117,6 +117,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "3480108dcbd9996e.json",
+  "source" : "570b20551ba7fa84.json",
   "parameterValues" : [ ]
 }

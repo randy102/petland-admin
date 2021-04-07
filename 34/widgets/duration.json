@@ -1,20 +1,20 @@
 [ {
-  "uid" : "3480108dcbd9996e",
+  "uid" : "570b20551ba7fa84",
   "name" : "Open login page successfully",
   "time" : {
-    "start" : 1617766533752,
-    "stop" : 1617766534870,
-    "duration" : 1118
+    "start" : 1617767254089,
+    "stop" : 1617767255155,
+    "duration" : 1066
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "a00800824bbb1bc8",
+  "uid" : "980fb3d13dd92e1d",
   "name" : "Email and password should required",
   "time" : {
-    "start" : 1617766534964,
-    "stop" : 1617766535255,
-    "duration" : 291
+    "start" : 1617767255256,
+    "stop" : 1617767255507,
+    "duration" : 251
   },
   "status" : "passed",
   "severity" : "normal"

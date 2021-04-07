@@ -1,12 +1,12 @@
 {
-  "uid" : "a00800824bbb1bc8",
+  "uid" : "980fb3d13dd92e1d",
   "name" : "Email and password should required",
   "fullName" : "test.TestLoginPage.testRequiredLogin",
   "historyId" : "22d8d424df7d4f3ae1119a81983fc8dc",
   "time" : {
-    "start" : 1617766534964,
-    "stop" : 1617766535255,
-    "duration" : 291
+    "start" : 1617767255256,
+    "stop" : 1617767255507,
+    "duration" : 251
   },
   "status" : "passed",
   "flaky" : false,
@@ -14,9 +14,9 @@
   "beforeStages" : [ {
     "name" : "setup",
     "time" : {
-      "start" : 1617766530792,
-      "stop" : 1617766533636,
-      "duration" : 2844
+      "start" : 1617767250322,
+      "stop" : 1617767253961,
+      "duration" : 3639
     },
     "description" : "",
     "status" : "passed",
@@ -33,9 +33,9 @@
     "steps" : [ {
       "name" : "Click Submit Button",
       "time" : {
-        "start" : 1617766534965,
-        "stop" : 1617766535092,
-        "duration" : 127
+        "start" : 1617767255257,
+        "stop" : 1617767255363,
+        "duration" : 106
       },
       "status" : "passed",
       "steps" : [ ],
@@ -56,8 +56,8 @@
   "afterStages" : [ {
     "name" : "tearDown",
     "time" : {
-      "start" : 1617766535258,
-      "stop" : 1617766535327,
+      "start" : 1617767255510,
+      "stop" : 1617767255579,
       "duration" : 69
     },
     "description" : "",
@@ -90,10 +90,10 @@
     "value" : "test.TestLoginPage"
   }, {
     "name" : "host",
-    "value" : "fv-az132-741"
+    "value" : "fv-az129-901"
   }, {
     "name" : "thread",
-    "value" : "4142@fv-az132-741.main(1)"
+    "value" : "4076@fv-az129-901.main(1)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -117,6 +117,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "a00800824bbb1bc8.json",
+  "source" : "980fb3d13dd92e1d.json",
   "parameterValues" : [ ]
 }
