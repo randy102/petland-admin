@@ -17,8 +17,8 @@ export default function Grid(props: GridProps) {
   const [showForm, setShowForm] = useState(false);
   const [initRow, setInitRow] = useState<any>();
 
-
   const requestLock = useMutation({ method: "put", api: "user/lockUser" });
+  const requestDelete = useMutation({ method: "delete", api: "user" });
 
 
   function toggleLock([row]: any[]) {
@@ -42,6 +42,19 @@ export default function Grid(props: GridProps) {
   }
 
 
+  function handleDelete(row: any[]) {
+    requestDelete({
+      data: {
+        ids: row?.map(r => r._id),
+      }
+    })
+      .then(() => {
+        message.success("Success!");
+        refetch();
+      })
+      .catch(handleRequestError);
+  }
+
   return (
     <>
       <RGrid
@@ -51,6 +64,7 @@ export default function Grid(props: GridProps) {
         headDef={[
           { type: "refresh", onClick: () => refetch() },
           { type: "update", onClick: handleUpdate },
+          { type: "delete", onClick: handleDelete },
           {
             name: "Toggle Lock",
             icon: "LockFilled",
