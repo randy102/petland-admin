@@ -1,0 +1,56 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "children" : [ {
+    "name" : "Admin can open login page",
+    "children" : [ {
+      "name" : "testOpenLoginPage",
+      "uid" : "820f76e64f3a0121",
+      "parentUid" : "30a3e68d3da14e8272cddbc3557344c3",
+      "status" : "passed",
+      "time" : {
+        "start" : 1618123688081,
+        "stop" : 1618123692277,
+        "duration" : 4196
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "30a3e68d3da14e8272cddbc3557344c3"
+  }, {
+    "name" : "Admin must input email and password",
+    "children" : [ {
+      "name" : "testRequiredLogin",
+      "uid" : "1854dae7db3f9a1f",
+      "parentUid" : "73636f30916865a7ec7283f098120592",
+      "status" : "passed",
+      "time" : {
+        "start" : 1618123692380,
+        "stop" : 1618123693107,
+        "duration" : 727
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "73636f30916865a7ec7283f098120592"
+  }, {
+    "name" : "Admin can login",
+    "children" : [ {
+      "name" : "testLoginSuccessfully",
+      "uid" : "8ecf3296b66b61c1",
+      "parentUid" : "84b22144d397887deb9feb047b07fce3",
+      "status" : "passed",
+      "time" : {
+        "start" : 1618123693182,
+        "stop" : 1618123694462,
+        "duration" : 1280
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "84b22144d397887deb9feb047b07fce3"
+  } ],
+  "name" : "behaviors"
+}

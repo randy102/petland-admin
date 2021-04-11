@@ -1,0 +1,56 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "children" : [ {
+    "name" : "Petland Admin",
+    "children" : [ {
+      "name" : "Login Page",
+      "children" : [ {
+        "name" : "test.TestLoginPage",
+        "children" : [ {
+          "name" : "testOpenLoginPage",
+          "uid" : "820f76e64f3a0121",
+          "parentUid" : "fe64aefed5bd9d95d8526a5f0a862801",
+          "status" : "passed",
+          "time" : {
+            "start" : 1618123688081,
+            "stop" : 1618123692277,
+            "duration" : 4196
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "testRequiredLogin",
+          "uid" : "1854dae7db3f9a1f",
+          "parentUid" : "fe64aefed5bd9d95d8526a5f0a862801",
+          "status" : "passed",
+          "time" : {
+            "start" : 1618123692380,
+            "stop" : 1618123693107,
+            "duration" : 727
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "testLoginSuccessfully",
+          "uid" : "8ecf3296b66b61c1",
+          "parentUid" : "fe64aefed5bd9d95d8526a5f0a862801",
+          "status" : "passed",
+          "time" : {
+            "start" : 1618123693182,
+            "stop" : 1618123694462,
+            "duration" : 1280
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "fe64aefed5bd9d95d8526a5f0a862801"
+      } ],
+      "uid" : "356b9fe8b60145b67f66c221c8682aa6"
+    } ],
+    "uid" : "c9b88f7585d3855e9d6853f5e43f6162"
+  } ],
+  "name" : "suites"
+}

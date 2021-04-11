@@ -1,0 +1,122 @@
+{
+  "uid" : "820f76e64f3a0121",
+  "name" : "testOpenLoginPage",
+  "fullName" : "test.TestLoginPage.testOpenLoginPage",
+  "historyId" : "35d37473aea567b4d0ca5321bf66e0ee",
+  "time" : {
+    "start" : 1618123688081,
+    "stop" : 1618123692277,
+    "duration" : 4196
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "setupTest",
+    "time" : {
+      "start" : 1618123687835,
+      "stop" : 1618123687903,
+      "duration" : 68
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "setup",
+    "time" : {
+      "start" : 1618123687917,
+      "stop" : 1618123687922,
+      "duration" : 5
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Open login page",
+      "time" : {
+        "start" : 1618123688133,
+        "stop" : 1618123692141,
+        "duration" : 4008
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 1,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "test.TestLoginPage"
+  }, {
+    "name" : "testClass",
+    "value" : "test.TestLoginPage"
+  }, {
+    "name" : "testMethod",
+    "value" : "testOpenLoginPage"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Petland Admin"
+  }, {
+    "name" : "suite",
+    "value" : "Login Page"
+  }, {
+    "name" : "subSuite",
+    "value" : "test.TestLoginPage"
+  }, {
+    "name" : "host",
+    "value" : "fv-az132-838"
+  }, {
+    "name" : "thread",
+    "value" : "3892@fv-az132-838.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "story",
+    "value" : "Admin can open login page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "820f76e64f3a0121.json",
+  "parameterValues" : [ ]
+}

@@ -1,3 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Wed Apr 07 03:47:34 GMT 2021","Wed Apr 07 03:47:35 GMT 2021","1066","Surefire suite","Surefire test","test.TestLoginPage","test.TestLoginPage","testOpenLoginPage","Open login page successfully",""
-"passed","Wed Apr 07 03:47:35 GMT 2021","Wed Apr 07 03:47:35 GMT 2021","251","Surefire suite","Surefire test","test.TestLoginPage","test.TestLoginPage","testRequiredLogin","Email and password should required",""
