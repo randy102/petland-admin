@@ -1,12 +1,12 @@
 {
-  "uid" : "7b7cc41beb9d29e6",
+  "uid" : "4f535c53ccb03aec",
   "name" : "testLoginSuccessfully",
   "fullName" : "test.TestLoginPage.testLoginSuccessfully",
   "historyId" : "75caf2f707f744831e92a06a8c8ec231",
   "time" : {
-    "start" : 1618127283884,
-    "stop" : 1618127285273,
-    "duration" : 1389
+    "start" : 1618128266163,
+    "stop" : 1618128267667,
+    "duration" : 1504
   },
   "status" : "passed",
   "flaky" : false,
@@ -14,90 +14,90 @@
   "beforeStages" : [ {
     "name" : "setupTest",
     "time" : {
-      "start" : 1618127273169,
-      "stop" : 1618127273284,
-      "duration" : 115
+      "start" : 1618128259206,
+      "stop" : 1618128259309,
+      "duration" : 103
     },
     "description" : "",
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "hasContent" : false,
     "stepsCount" : 0,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
   }, {
     "name" : "setup",
     "time" : {
-      "start" : 1618127273323,
-      "stop" : 1618127273334,
-      "duration" : 11
+      "start" : 1618128259329,
+      "stop" : 1618128259343,
+      "duration" : 14
     },
     "description" : "",
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "hasContent" : false,
     "stepsCount" : 0,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
   } ],
   "testStage" : {
     "status" : "passed",
     "steps" : [ {
       "name" : "Open login page",
       "time" : {
-        "start" : 1618127283884,
-        "stop" : 1618127284193,
-        "duration" : 309
+        "start" : 1618128266164,
+        "stop" : 1618128266477,
+        "duration" : 313
       },
       "status" : "passed",
       "steps" : [ ],
       "attachments" : [ ],
       "parameters" : [ ],
-      "hasContent" : false,
       "stepsCount" : 0,
       "attachmentsCount" : 0,
-      "shouldDisplayMessage" : false
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
     }, {
       "name" : "Type email and password",
       "time" : {
-        "start" : 1618127284193,
-        "stop" : 1618127284670,
-        "duration" : 477
+        "start" : 1618128266477,
+        "stop" : 1618128266989,
+        "duration" : 512
       },
       "status" : "passed",
       "steps" : [ ],
       "attachments" : [ ],
       "parameters" : [ ],
-      "hasContent" : false,
       "stepsCount" : 0,
       "attachmentsCount" : 0,
-      "shouldDisplayMessage" : false
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
     }, {
       "name" : "Click Submit Button",
       "time" : {
-        "start" : 1618127284670,
-        "stop" : 1618127284806,
-        "duration" : 136
+        "start" : 1618128266989,
+        "stop" : 1618128267136,
+        "duration" : 147
       },
       "status" : "passed",
       "steps" : [ ],
       "attachments" : [ ],
       "parameters" : [ ],
-      "hasContent" : false,
       "stepsCount" : 0,
       "attachmentsCount" : 0,
-      "shouldDisplayMessage" : false
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
     } ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "hasContent" : true,
     "stepsCount" : 3,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
   },
   "afterStages" : [ ],
   "labels" : [ {
@@ -120,10 +120,10 @@
     "value" : "test.TestLoginPage"
   }, {
     "name" : "host",
-    "value" : "fv-az129-662"
+    "value" : "fv-az278-724"
   }, {
     "name" : "thread",
-    "value" : "3776@fv-az129-662.main(1)"
+    "value" : "3904@fv-az278-724.main(1)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -147,6 +147,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "7b7cc41beb9d29e6.json",
+  "source" : "4f535c53ccb03aec.json",
   "parameterValues" : [ ]
 }

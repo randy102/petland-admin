@@ -9,13 +9,13 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "7b7cc41beb9d29e6",
-      "reportUrl" : "https://randy102.github.io/petland-admin/36//#testresult/7b7cc41beb9d29e6",
+      "uid" : "4f535c53ccb03aec",
+      "reportUrl" : "https://randy102.github.io/petland-admin/37//#testresult/4f535c53ccb03aec",
       "status" : "passed",
       "time" : {
-        "start" : 1618127283884,
-        "stop" : 1618127285273,
-        "duration" : 1389
+        "start" : 1618128266163,
+        "stop" : 1618128267667,
+        "duration" : 1504
       }
     } ]
   },
@@ -29,13 +29,13 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "f0acf1c8a040465a",
-      "reportUrl" : "https://randy102.github.io/petland-admin/36//#testresult/f0acf1c8a040465a",
+      "uid" : "d5b0514a2b19c05b",
+      "reportUrl" : "https://randy102.github.io/petland-admin/37//#testresult/d5b0514a2b19c05b",
       "status" : "passed",
       "time" : {
-        "start" : 1618127283162,
-        "stop" : 1618127283877,
-        "duration" : 715
+        "start" : 1618128265383,
+        "stop" : 1618128266160,
+        "duration" : 777
       }
     } ]
   },
@@ -49,13 +49,13 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "360d7105c07f791a",
-      "reportUrl" : "https://randy102.github.io/petland-admin/36//#testresult/360d7105c07f791a",
+      "uid" : "c472f1db7747cc5c",
+      "reportUrl" : "https://randy102.github.io/petland-admin/37//#testresult/c472f1db7747cc5c",
       "status" : "passed",
       "time" : {
-        "start" : 1618127273441,
-        "stop" : 1618127283052,
-        "duration" : 9611
+        "start" : 1618128259447,
+        "stop" : 1618128265291,
+        "duration" : 5844
       }
     } ]
   }

@@ -4,13 +4,13 @@
     "name" : "Admin can open login page",
     "children" : [ {
       "name" : "testOpenLoginPage",
-      "uid" : "360d7105c07f791a",
+      "uid" : "c472f1db7747cc5c",
       "parentUid" : "30a3e68d3da14e8272cddbc3557344c3",
       "status" : "passed",
       "time" : {
-        "start" : 1618127273441,
-        "stop" : 1618127283052,
-        "duration" : 9611
+        "start" : 1618128259447,
+        "stop" : 1618128265291,
+        "duration" : 5844
       },
       "flaky" : false,
       "newFailed" : false,
@@ -21,13 +21,13 @@
     "name" : "Admin must input email and password",
     "children" : [ {
       "name" : "testRequiredLogin",
-      "uid" : "f0acf1c8a040465a",
+      "uid" : "d5b0514a2b19c05b",
       "parentUid" : "73636f30916865a7ec7283f098120592",
       "status" : "passed",
       "time" : {
-        "start" : 1618127283162,
-        "stop" : 1618127283877,
-        "duration" : 715
+        "start" : 1618128265383,
+        "stop" : 1618128266160,
+        "duration" : 777
       },
       "flaky" : false,
       "newFailed" : false,
@@ -38,13 +38,13 @@
     "name" : "Admin can login",
     "children" : [ {
       "name" : "testLoginSuccessfully",
-      "uid" : "7b7cc41beb9d29e6",
+      "uid" : "4f535c53ccb03aec",
       "parentUid" : "84b22144d397887deb9feb047b07fce3",
       "status" : "passed",
       "time" : {
-        "start" : 1618127283884,
-        "stop" : 1618127285273,
-        "duration" : 1389
+        "start" : 1618128266163,
+        "stop" : 1618128267667,
+        "duration" : 1504
       },
       "flaky" : false,
       "newFailed" : false,

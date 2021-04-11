@@ -1,4 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Sun Apr 11 07:48:03 GMT 2021","Sun Apr 11 07:48:05 GMT 2021","1389","Petland Admin","Login Page","test.TestLoginPage","test.TestLoginPage","testLoginSuccessfully","testLoginSuccessfully",""
-"passed","Sun Apr 11 07:48:03 GMT 2021","Sun Apr 11 07:48:03 GMT 2021","715","Petland Admin","Login Page","test.TestLoginPage","test.TestLoginPage","testRequiredLogin","testRequiredLogin",""
-"passed","Sun Apr 11 07:47:53 GMT 2021","Sun Apr 11 07:48:03 GMT 2021","9611","Petland Admin","Login Page","test.TestLoginPage","test.TestLoginPage","testOpenLoginPage","testOpenLoginPage",""
