@@ -15,9 +15,6 @@ const ROLES = Object.keys(UserRole).map(role => ({ name: role }))
 
 export default function Form(props: FormProps) {
   const { form, init, isUpdate = false } = props;
-  const [city, setCity] = useState('');
-  const [resCity, { refetch: refetchCity }] = useFetch({ api: "city" });
-  const [resDistrict, { refetch: refetchDistrict }] = useFetch({ api: `district?city=${city}` });
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => form?.resetFields(), [init]);
@@ -63,35 +60,6 @@ export default function Form(props: FormProps) {
             init?.email === getUser("email")
           )
         }
-      />
-
-      <RSelect
-        refetch={refetchCity}
-        data={resCity?.data}
-        label="City"
-        name="cityID"
-        labelRender={city => city.name}
-        optionRender={city => city.name}
-        optionValue={city => city._id}
-        required
-        onChange={setCity}
-        disabled={isUpdate}
-        showSearch
-        filterProps={city => [city.name]}
-      />
-
-      <RSelect
-        refetch={refetchDistrict}
-        data={resDistrict?.data}
-        label="District"
-        name="districtID"
-        labelRender={district => district.name}
-        optionRender={district => district.name}
-        optionValue={district => district._id}
-        required
-        disabled={isUpdate || !city}
-        showSearch
-        filterProps={district => [district.name]}
       />
     </RForm>
   );

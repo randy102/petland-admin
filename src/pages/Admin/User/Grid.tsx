@@ -78,8 +78,6 @@ export default function Grid(props: GridProps) {
           { dataIndex: "phone" },
           { dataIndex: "name" },
           { dataIndex: "role" },
-          { dataIndex: "city" },
-          { dataIndex: "district" },
           {
             dataIndex: "isActive",
             title: "Status",
