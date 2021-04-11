@@ -37,8 +37,8 @@ function RSelect(props: RSelectProps) {
     onChange = () => {},
     refetch = () => {},
     optionRender = () => <></>,
-    optionValue = () => {},
-    labelRender = () => {},
+    optionValue = () => undefined,
+    labelRender = () => <></>,
     validator,
     onSearch = () => {},
   } = props;

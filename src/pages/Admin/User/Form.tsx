@@ -3,9 +3,9 @@ import RInput from "components/Shared/RForm/RInput";
 import RPassword from "components/Shared/RForm/RPassword";
 import RSelect from "components/Shared/RForm/RSelect";
 import { StdRFormProps } from "components/Shared/RForm/types";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { getUser, UserRole } from "../../../utils/auth";
-import { useFetch, useLazyFetch } from "../../../utils/request";
+
 
 interface FormProps extends StdRFormProps {
   isUpdate?: boolean
@@ -28,20 +28,20 @@ export default function Form(props: FormProps) {
         rules={{ type: "email", required: true }}
       />
 
-      <RPassword rules={{required: true}} name="password" label="Password" visible={!isUpdate}/>
+      <RPassword rules={{ required: true }} name="password" label="Password" visible={!isUpdate}/>
 
       <RInput
         label="Name"
         name="name"
         disabled={isUpdate}
-        rules={{required: true}}
+        rules={{ required: true }}
       />
 
       <RInput
         label="Phone"
         name="phone"
         disabled={isUpdate}
-        rules={{required: true}}
+        rules={{ required: true }}
       />
 
       <RSelect
@@ -53,12 +53,11 @@ export default function Form(props: FormProps) {
         optionValue={role => role.name}
         required
         disabled={
-          isUpdate && (
-            // As a SubUser, not able to change roles
-            getUser("role") === UserRole.MOD ||
-            // As a Admin, not able to change it's own role
-            init?.email === getUser("email")
-          )
+          !isUpdate ||
+          // As a SubUser, not able to change roles
+          getUser("role") === UserRole.MOD ||
+          // As a Admin, not able to change it's own role
+          init?.email === getUser("email")
         }
       />
     </RForm>
