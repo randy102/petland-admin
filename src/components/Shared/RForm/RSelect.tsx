@@ -46,7 +46,7 @@ function RSelect(props: RSelectProps) {
   const itemProps: any = {
     name,
     label,
-    rules: [{ required }],
+    rules: [{ required: !disabled && required }],
   };
 
   if (validator !== undefined) itemProps.rules.push({ validator });
