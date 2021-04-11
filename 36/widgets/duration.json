@@ -1,0 +1,31 @@
+[ {
+  "uid" : "7b7cc41beb9d29e6",
+  "name" : "testLoginSuccessfully",
+  "time" : {
+    "start" : 1618127283884,
+    "stop" : 1618127285273,
+    "duration" : 1389
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f0acf1c8a040465a",
+  "name" : "testRequiredLogin",
+  "time" : {
+    "start" : 1618127283162,
+    "stop" : 1618127283877,
+    "duration" : 715
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "360d7105c07f791a",
+  "name" : "testOpenLoginPage",
+  "time" : {
+    "start" : 1618127273441,
+    "stop" : 1618127283052,
+    "duration" : 9611
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

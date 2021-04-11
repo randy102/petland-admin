@@ -1,12 +1,12 @@
 {
-  "uid" : "8ecf3296b66b61c1",
-  "name" : "testLoginSuccessfully",
-  "fullName" : "test.TestLoginPage.testLoginSuccessfully",
-  "historyId" : "75caf2f707f744831e92a06a8c8ec231",
+  "uid" : "360d7105c07f791a",
+  "name" : "testOpenLoginPage",
+  "fullName" : "test.TestLoginPage.testOpenLoginPage",
+  "historyId" : "35d37473aea567b4d0ca5321bf66e0ee",
   "time" : {
-    "start" : 1618123693182,
-    "stop" : 1618123694462,
-    "duration" : 1280
+    "start" : 1618127273441,
+    "stop" : 1618127283052,
+    "duration" : 9611
   },
   "status" : "passed",
   "flaky" : false,
@@ -14,90 +14,60 @@
   "beforeStages" : [ {
     "name" : "setupTest",
     "time" : {
-      "start" : 1618123687835,
-      "stop" : 1618123687903,
-      "duration" : 68
+      "start" : 1618127273169,
+      "stop" : 1618127273284,
+      "duration" : 115
     },
     "description" : "",
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
+    "hasContent" : false,
     "stepsCount" : 0,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
-    "hasContent" : false
+    "shouldDisplayMessage" : false
   }, {
     "name" : "setup",
     "time" : {
-      "start" : 1618123687917,
-      "stop" : 1618123687922,
-      "duration" : 5
+      "start" : 1618127273323,
+      "stop" : 1618127273334,
+      "duration" : 11
     },
     "description" : "",
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
+    "hasContent" : false,
     "stepsCount" : 0,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
-    "hasContent" : false
+    "shouldDisplayMessage" : false
   } ],
   "testStage" : {
     "status" : "passed",
     "steps" : [ {
       "name" : "Open login page",
       "time" : {
-        "start" : 1618123693182,
-        "stop" : 1618123693480,
-        "duration" : 298
+        "start" : 1618127273479,
+        "stop" : 1618127282876,
+        "duration" : 9397
       },
       "status" : "passed",
       "steps" : [ ],
       "attachments" : [ ],
       "parameters" : [ ],
+      "hasContent" : false,
       "stepsCount" : 0,
       "attachmentsCount" : 0,
-      "shouldDisplayMessage" : false,
-      "hasContent" : false
-    }, {
-      "name" : "Type email and password",
-      "time" : {
-        "start" : 1618123693481,
-        "stop" : 1618123693903,
-        "duration" : 422
-      },
-      "status" : "passed",
-      "steps" : [ ],
-      "attachments" : [ ],
-      "parameters" : [ ],
-      "stepsCount" : 0,
-      "attachmentsCount" : 0,
-      "shouldDisplayMessage" : false,
-      "hasContent" : false
-    }, {
-      "name" : "Click Submit Button",
-      "time" : {
-        "start" : 1618123693903,
-        "stop" : 1618123694038,
-        "duration" : 135
-      },
-      "status" : "passed",
-      "steps" : [ ],
-      "attachments" : [ ],
-      "parameters" : [ ],
-      "stepsCount" : 0,
-      "attachmentsCount" : 0,
-      "shouldDisplayMessage" : false,
-      "hasContent" : false
+      "shouldDisplayMessage" : false
     } ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 3,
+    "hasContent" : true,
+    "stepsCount" : 1,
     "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
-    "hasContent" : true
+    "shouldDisplayMessage" : false
   },
   "afterStages" : [ ],
   "labels" : [ {
@@ -108,7 +78,7 @@
     "value" : "test.TestLoginPage"
   }, {
     "name" : "testMethod",
-    "value" : "testLoginSuccessfully"
+    "value" : "testOpenLoginPage"
   }, {
     "name" : "parentSuite",
     "value" : "Petland Admin"
@@ -120,10 +90,10 @@
     "value" : "test.TestLoginPage"
   }, {
     "name" : "host",
-    "value" : "fv-az132-838"
+    "value" : "fv-az129-662"
   }, {
     "name" : "thread",
-    "value" : "3892@fv-az132-838.main(1)"
+    "value" : "3776@fv-az129-662.main(1)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -132,7 +102,7 @@
     "value" : "java"
   }, {
     "name" : "story",
-    "value" : "Admin can login"
+    "value" : "Admin can open login page"
   }, {
     "name" : "resultFormat",
     "value" : "allure2"
@@ -147,6 +117,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "8ecf3296b66b61c1.json",
+  "source" : "360d7105c07f791a.json",
   "parameterValues" : [ ]
 }
