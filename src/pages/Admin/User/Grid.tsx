@@ -62,7 +62,7 @@ export default function Grid(props: GridProps) {
           { type: 'update', onClick: handleUpdate },
           { type: 'delete', onClick: handleDelete },
           {
-            name: 'Toggle Lock',
+            name: 'Khóa/Mở khóa',
             icon: 'LockFilled',
             selection: 'single',
             confirm: true,
@@ -71,17 +71,17 @@ export default function Grid(props: GridProps) {
         ]}
         colDef={[
           { dataIndex: 'email' },
-          { dataIndex: 'phone' },
-          { dataIndex: 'name' },
-          { dataIndex: 'role' },
+          { dataIndex: 'phone', title: 'Điện thoại' },
+          { dataIndex: 'name', title: 'Tên' },
+          { dataIndex: 'role', title: 'Vai trò' },
           {
             dataIndex: 'isActive',
             title: 'Status',
             render: isActive =>
               isActive ? (
-                <Tag color={'success'}>Active</Tag>
+                <Tag color={'success'}>Hoạt động</Tag>
               ) : (
-                <Tag color={'default'}>Locked</Tag>
+                <Tag color={'default'}>Bị khóa</Tag>
               ),
           },
         ]}

@@ -1,25 +1,25 @@
-import React from "react";
-import { Form as AntForm } from "antd";
-import "./index.scss";
-import { FormInstance } from "antd/lib/form";
-import { Store } from "antd/lib/form/interface";
+import React from 'react';
+import { Form as AntForm } from 'antd';
+import './index.scss';
+import { FormInstance } from 'antd/lib/form';
+import { Store } from 'antd/lib/form/interface';
 
 export const useForm = AntForm.useForm;
 
-interface RFormProps{
-  style?: React.CSSProperties
-  children: any
-  form?: FormInstance
-  initialValues?: Store
-  onEnter?: (e: React.KeyboardEvent) => void
+interface RFormProps {
+  style?: React.CSSProperties;
+  children: any;
+  form?: FormInstance;
+  initialValues?: Store;
+  onEnter?: (e: React.KeyboardEvent) => void;
 }
 
 export default function RForm(props: RFormProps) {
   const { style, children, form, initialValues, onEnter = () => {} } = props;
   return (
     <AntForm
-      style={{...style, maxWidth: 900}}
-      onKeyPress={(e) => e.key === "Enter" && onEnter(e)}
+      style={{ ...style, maxWidth: 900 }}
+      onKeyPress={e => e.key === 'Enter' && onEnter(e)}
       form={form}
       layout="vertical"
       autoComplete="off"
@@ -33,37 +33,37 @@ export default function RForm(props: RFormProps) {
 
 const validateMessages = {
   // eslint-disable-next-line
-  required: "'${label}' is required!",
+  required: '${label} không được để trống!',
   // eslint-disable-next-line
-  whitespace: "'${label}' is required!",
+  whitespace: '${label} không được để trống!',
   string: {
     // eslint-disable-next-line
-    min: "'Minimum of ${label}' must be ${min} symbols",
+    min: '${label} dài tối thiểu ${min} ký tự',
     // eslint-disable-next-line
-    max: "'Maximum of ${label}' must be ${max} symbols",
+    max: '${label} dài tối đa ${max} ký tự',
     // eslint-disable-next-line
-    range: "'${label}' length must in range from ${min} to ${max} symbols",
+    range: '${label} dài từ ${min} đến ${max} ký tự',
   },
   number: {
     // eslint-disable-next-line
-    min: "'${label}' must at least ${min}",
+    min: '${label} tối thiểu ${min}',
     // eslint-disable-next-line
-    max: "'${label}' must greater than ${max}",
+    max: '${label} phải lớn hơn ${max}',
     // eslint-disable-next-line
-    range: "'${label}' must in range from ${min} to ${max}",
+    range: '${label} phải trong khoảng ${min} đến ${max}',
   },
   pattern: {
     // eslint-disable-next-line
-    mismatch: "'${label}' invalid",
+    mismatch: '${label} không hợp lệ',
   },
   types: {
     // eslint-disable-next-line
-    integer: "'${label}' must be integer",
+    integer: '${label} phải là số nguyên',
     // eslint-disable-next-line
-    number: "'${label}' must be number",
+    number: '${label} phải là số',
     // eslint-disable-next-line
-    email: "'${label}' invalid",
+    email: '${label} không hợp lệ',
     // eslint-disable-next-line
-    url: "'${label}' is not a valid URL",
+    url: '${label} không phải là URL hợp lệ',
   },
 };

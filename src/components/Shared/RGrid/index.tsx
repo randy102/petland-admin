@@ -1,14 +1,14 @@
 /* tslint:disable */
-import React, { useState, useEffect } from "react";
-import { Button, Table, Input, Space, Modal } from "antd";
-import { SearchOutlined, ExclamationCircleOutlined } from "@ant-design/icons";
-import * as AntIcon from "@ant-design/icons";
-import { ColumnsType } from "antd/lib/table";
-import "./grid.scss";
-import { HEAD_DATA } from "./HeadTemplate";
-import ReactDragListView from "react-drag-listview";
-import { FilterDropdownProps } from "antd/lib/table/interface";
-import { capitalize, removeAccents } from "../../../utils/string";
+import React, { useState, useEffect } from 'react';
+import { Button, Table, Input, Space, Modal } from 'antd';
+import { SearchOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
+import * as AntIcon from '@ant-design/icons';
+import { ColumnsType } from 'antd/lib/table';
+import './grid.scss';
+import { HEAD_DATA } from './HeadTemplate';
+import ReactDragListView from 'react-drag-listview';
+import { FilterDropdownProps } from 'antd/lib/table/interface';
+import { capitalize, removeAccents } from '../../../utils/string';
 
 const DEFAULT_PAGE_SIZE = 10;
 interface RGridProps {
@@ -32,7 +32,7 @@ declare type ExpandedRowRender<ValueType> = (
 interface HeaderType {
   icon?: string;
   name?: string;
-  selection?: "multiple" | "single" | undefined;
+  selection?: 'multiple' | 'single' | undefined;
   onClick?: (rows: any[], setSelectedRow: Function) => void;
   type?: HeaderBtnType;
   confirm?: boolean;
@@ -41,7 +41,7 @@ interface HeaderType {
   disabled?: boolean;
 }
 
-type HeaderBtnType = "create" | "update" | "delete" | "refresh" | "detail";
+type HeaderBtnType = 'create' | 'update' | 'delete' | 'refresh' | 'detail';
 
 function getNestedPath(data: any, path: string = '') {
   if (!Array.isArray(path)) return data[path];
@@ -67,7 +67,9 @@ export default function RGrid(props: RGridProps) {
   const [selectedRowKeys, setSelectedRowKeys] = useState<any>([]);
   const [dataResult, setDataResult] = useState<any>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [showPaginateReplica, setShowPaginateReplica] = useState<boolean>(false)
+  const [showPaginateReplica, setShowPaginateReplica] = useState<boolean>(
+    false
+  );
 
   var searchInput: Input | null;
 
@@ -105,16 +107,16 @@ export default function RGrid(props: RGridProps) {
     }: FilterDropdownProps) => (
       <div style={{ padding: 8 }}>
         <Input
-          ref={(node) => {
+          ref={node => {
             searchInput = node;
           }}
           placeholder={`Search ${dataIndex}`}
           value={selectedKeys[0]}
-          onChange={(e) =>
+          onChange={e =>
             setSelectedKeys(e.target.value ? [e.target.value] : [])
           }
           onPressEnter={() => handleSearch(confirm)}
-          style={{ width: 188, marginBottom: 8, display: "block" }}
+          style={{ width: 188, marginBottom: 8, display: 'block' }}
         />
         <Space>
           <Button
@@ -124,7 +126,7 @@ export default function RGrid(props: RGridProps) {
             size="small"
             style={{ width: 90 }}
           >
-            Search
+            Tìm kiếm
           </Button>
           <Button
             onClick={() => handleReset(clearFilters)}
@@ -137,13 +139,12 @@ export default function RGrid(props: RGridProps) {
       </div>
     ),
     filterIcon: (filtered: any) => (
-      <SearchOutlined style={{ color: filtered ? "#1890ff" : undefined }} />
+      <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />
     ),
     onFilter: (value: string, record: any) =>
-      removeAccents(getNestedPath(record, dataIndex)
-        ?.toString()
-        .toLowerCase())
-        ?.includes(removeAccents(value.toLowerCase())),
+      removeAccents(
+        getNestedPath(record, dataIndex)?.toString().toLowerCase()
+      )?.includes(removeAccents(value.toLowerCase())),
     onFilterDropdownVisibleChange: (visible: any) =>
       visible && setTimeout(() => searchInput?.select()),
   });
@@ -175,13 +176,13 @@ export default function RGrid(props: RGridProps) {
     ...cd,
     ...getColumnSearchProps(cd.dataIndex),
     ...getSorterProps(cd),
-    title: cd.title || capitalize(cd.dataIndex)
+    title: cd.title || capitalize(cd.dataIndex),
   }));
 
   return (
     <div>
       {headDef?.length && !loading && (
-        <div className={`rui-grid-btn ${!data?.length ? "reset" : ""}`}>
+        <div className={`rui-grid-btn ${!data?.length ? 'reset' : ''}`}>
           <Space>
             {headDef &&
               headDef.map(
@@ -196,17 +197,18 @@ export default function RGrid(props: RGridProps) {
                   confirmMessage,
                   loading = false,
                 }) => {
-                  icon = icon || HEAD_DATA[type || "create"]?.icon;
-                  name = name || HEAD_DATA[type || "create"]?.name;
+                  icon = icon || HEAD_DATA[type || 'create']?.icon;
+                  name = name || HEAD_DATA[type || 'create']?.name;
+
                   selection = selection || (type && HEAD_DATA[type].selection);
-                  confirm = confirm || HEAD_DATA[type || "create"]?.confirm;
+                  confirm = confirm || HEAD_DATA[type || 'create']?.confirm;
 
                   // @ts-ignore
                   const Icon = AntIcon[icon];
                   const singleError =
-                    selection === "single" && selectedRows.length !== 1;
+                    selection === 'single' && selectedRows.length !== 1;
                   const multipleError =
-                    selection === "multiple" && selectedRows.length === 0;
+                    selection === 'multiple' && selectedRows.length === 0;
                   const isDisabled =
                     disabled || singleError
                       ? true
@@ -216,7 +218,7 @@ export default function RGrid(props: RGridProps) {
 
                   function confirmClick(cb: any) {
                     Modal.confirm({
-                      title: confirmMessage || "Are you sure?",
+                      title: confirmMessage || 'Chắc chưa?',
                       icon: <ExclamationCircleOutlined />,
                       onOk: () => cb(selectedRows, setSelectedRows),
                     });
@@ -242,12 +244,12 @@ export default function RGrid(props: RGridProps) {
         </div>
       )}
 
-      { showPaginateReplica && <div style={{height: 55, width: '100%'}} />}
+      {showPaginateReplica && <div style={{ height: 55, width: '100%' }} />}
 
       <ReactDragListView nodeSelector="tr" onDragEnd={onDragEnd}>
         <Table
           onChange={(...props) => {
-            setShowPaginateReplica(props[3].currentDataSource.length === 0)
+            setShowPaginateReplica(props[3].currentDataSource.length === 0);
           }}
           className="rui-grid-table"
           size="small"
@@ -257,10 +259,10 @@ export default function RGrid(props: RGridProps) {
           pagination={
             pagination && {
               defaultPageSize: DEFAULT_PAGE_SIZE,
-              position: ["topRight", "bottomCenter"],
+              position: ['topRight', 'bottomCenter'],
               current: currentPage,
               onChange: handlePageChange,
-              showTotal: (total) => `Total ${total} records`,
+              showTotal: total => `Tổng ${total} mục`,
               showSizeChanger: true,
             }
           }
@@ -270,12 +272,12 @@ export default function RGrid(props: RGridProps) {
           rowKey="_id"
           expandedRowRender={expandRender}
           locale={{
-            emptyText: "Data empty!",
+            emptyText: 'Không có dữ liệu!',
           }}
           rowSelection={
             showSelection
               ? {
-                  type: "checkbox",
+                  type: 'checkbox',
                   onChange: (keys, rows) => {
                     setSelectedRows(rows);
                     setSelectedRowKeys(keys);

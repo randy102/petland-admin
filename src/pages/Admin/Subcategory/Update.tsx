@@ -32,7 +32,7 @@ export default function Update(props: UpdateProps) {
         },
       })
         .then(() => {
-          message.success('Success!');
+          message.success('Chỉnh sửa thành công!');
           refetch();
           handleClose();
         })
@@ -48,18 +48,18 @@ export default function Update(props: UpdateProps) {
 
   return (
     <RDrawer
-      title="Edit"
+      title="Chỉnh sửa"
       onClose={handleClose}
       visible={showForm}
       footDef={[
         {
-          name: 'Save',
+          name: 'Lưu',
           type: 'primary',
           onClick: handleSubmit,
           loading: submitLoading,
         },
         {
-          name: 'Close',
+          name: 'Hủy',
           onClick: handleClose,
         },
       ]}

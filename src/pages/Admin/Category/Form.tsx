@@ -13,7 +13,7 @@ export default function Form(props: FormProps) {
 
   return (
     <RForm form={form} initialValues={init}>
-      <RInput label="Name" name="name" rules={{ required: true }} />
+      <RInput label="Tên" name="name" rules={{ required: true }} />
     </RForm>
   );
 }

@@ -23,7 +23,7 @@ export default function Create(props: CreateProps) {
       setLoading(true);
       requestCreate({ data: inputs })
         .then(() => {
-          message.success('Success!');
+          message.success('Tạo thành công!');
           form.resetFields();
           setCurTab('list');
           refetch();
@@ -37,7 +37,7 @@ export default function Create(props: CreateProps) {
       <Form form={form} />
       <Space>
         <Button loading={loading} type="primary" onClick={handleSubmit}>
-          Create
+          Tạo
         </Button>
         <Button onClick={() => form.resetFields()}>Reset</Button>
       </Space>

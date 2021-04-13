@@ -52,7 +52,10 @@ export default function Grid(props: GridProps) {
           { type: 'update', onClick: handleUpdate },
           { type: 'delete', onClick: handleDelete },
         ]}
-        colDef={[{ dataIndex: 'name' }, { dataIndex: 'category' }]}
+        colDef={[
+          { dataIndex: 'name', title: 'Tên' },
+          { dataIndex: 'category', title: 'Thể loại' },
+        ]}
       />
 
       <Update

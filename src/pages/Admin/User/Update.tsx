@@ -1,9 +1,9 @@
-import { message } from "antd";
-import RDrawer from "components/Shared/RDrawer";
-import { useForm } from "components/Shared/RForm";
-import React, { useState } from "react";
-import { handleRequestError, useMutation } from "utils/request";
-import Form from "./Form";
+import { message } from 'antd';
+import RDrawer from 'components/Shared/RDrawer';
+import { useForm } from 'components/Shared/RForm';
+import React, { useState } from 'react';
+import { handleRequestError, useMutation } from 'utils/request';
+import Form from './Form';
 
 interface UpdateProps {
   setInitRow: React.Dispatch<any>;
@@ -14,29 +14,23 @@ interface UpdateProps {
 }
 
 export default function Update(props: UpdateProps) {
-  const {
-    setInitRow,
-    setShowForm,
-    initRow,
-    refetch,
-    showForm,
-  } = props;
+  const { setInitRow, setShowForm, initRow, refetch, showForm } = props;
 
   const [submitLoading, setSubmitLoading] = useState(false);
-  const requestUpdate = useMutation({ method: "put", api: "user/role" });
+  const requestUpdate = useMutation({ method: 'put', api: 'user/role' });
   const [form] = useForm();
 
   function handleSubmit() {
-    form.validateFields().then((inputs) => {
+    form.validateFields().then(inputs => {
       setSubmitLoading(true);
       requestUpdate({
         data: {
           id: initRow?._id,
-          role: inputs.role
+          role: inputs.role,
         },
       })
         .then(() => {
-          message.success("Success!");
+          message.success('Chỉnh sửa thành công!');
           refetch();
           handleClose();
         })
@@ -50,30 +44,25 @@ export default function Update(props: UpdateProps) {
     setShowForm(false);
   }
 
-
   return (
     <RDrawer
-      title="Edit"
+      title="Chỉnh sửa"
       onClose={handleClose}
       visible={showForm}
       footDef={[
         {
-          name: "Save",
-          type: "primary",
+          name: 'Lưu',
+          type: 'primary',
           onClick: handleSubmit,
           loading: submitLoading,
         },
         {
-          name: "Close",
+          name: 'Hủy',
           onClick: handleClose,
         },
       ]}
     >
-      <Form
-        form={form}
-        init={initRow}
-        isUpdate
-      />
+      <Form form={form} init={initRow} isUpdate />
     </RDrawer>
   );
 }

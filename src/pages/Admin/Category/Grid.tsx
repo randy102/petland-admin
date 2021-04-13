@@ -35,7 +35,7 @@ export default function Grid(props: GridProps) {
       },
     })
       .then(() => {
-        message.success('Success!');
+        message.success('Xóa thành công!');
         refetch();
       })
       .catch(handleRequestError)
@@ -52,7 +52,7 @@ export default function Grid(props: GridProps) {
           { type: 'update', onClick: handleUpdate },
           { type: 'delete', onClick: handleDelete },
         ]}
-        colDef={[{ dataIndex: 'name' }]}
+        colDef={[{ dataIndex: 'name', title: 'Tên' }]}
       />
 
       <Update

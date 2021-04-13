@@ -21,7 +21,7 @@ export default function Subcategory() {
           tab={
             <span>
               <UnorderedListOutlined />
-              List
+              Danh sách
             </span>
           }
         >
@@ -33,7 +33,7 @@ export default function Subcategory() {
           tab={
             <span>
               <PlusOutlined />
-              Create
+              Tạo mới
             </span>
           }
         >

@@ -1,16 +1,17 @@
-.rui-grid-btn{
+.rui-grid-btn {
   margin-top: 10px;
   margin-bottom: -40px;
   position: relative;
   z-index: 1;
 
-  &.reset{
+  &.reset {
     margin-bottom: 15px;
   }
 }
 
-.ant-table-column-sorters{
+.ant-table-column-sorters {
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .rui-grid-table {
@@ -18,4 +19,3 @@
     z-index: 1;
   }
 }
-

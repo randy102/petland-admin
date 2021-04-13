@@ -19,7 +19,7 @@ export default function Category() {
           tab={
             <span>
               <UnorderedListOutlined />
-              List
+              Danh sách
             </span>
           }
         >
@@ -31,7 +31,7 @@ export default function Category() {
           tab={
             <span>
               <PlusOutlined />
-              Create
+              Tạo mới
             </span>
           }
         >

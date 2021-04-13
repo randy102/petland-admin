@@ -3,6 +3,7 @@ import {
   ProjectFilled,
   TagOutlined,
   TagsOutlined,
+  NotificationOutlined,
 } from '@ant-design/icons';
 
 import User from './User';
@@ -11,6 +12,7 @@ import { UserRole } from '../../utils/auth';
 import React from 'react';
 import Demo from './Demo';
 import Subcategory from './Subcategory';
+import Post from './Post';
 
 interface RouteConfig {
   path: string;
@@ -25,24 +27,31 @@ const { ADMIN, MOD } = UserRole;
 export const ROUTES: RouteConfig[] = [
   {
     path: '/user',
-    name: 'Users',
+    name: 'Tài khoản',
     icon: UserOutlined,
     component: User,
     allowed: [ADMIN],
   },
   {
     path: '/category',
-    name: 'Categories',
+    name: 'Loại thú cưng',
     icon: TagOutlined,
     component: Category,
     allowed: [ADMIN],
   },
   {
     path: '/subcategory',
-    name: 'Subcategory',
+    name: 'Giống thú cưng',
     icon: TagsOutlined,
     component: Subcategory,
     allowed: [ADMIN],
+  },
+  {
+    path: '/post',
+    name: 'Bài đăng',
+    icon: NotificationOutlined,
+    component: Post,
+    allowed: [ADMIN, MOD],
   },
   {
     path: '/demo',

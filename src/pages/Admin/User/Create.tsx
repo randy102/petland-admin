@@ -1,27 +1,27 @@
-import { Button, message, Space } from "antd";
-import { useForm } from "components/Shared/RForm";
-import { StdCreateProps } from "components/Shared/RForm/types";
-import React, { useState } from "react";
-import { handleRequestError, useMutation } from "utils/request";
-import Form from "./Form";
+import { Button, message, Space } from 'antd';
+import { useForm } from 'components/Shared/RForm';
+import { StdCreateProps } from 'components/Shared/RForm/types';
+import React, { useState } from 'react';
+import { handleRequestError, useMutation } from 'utils/request';
+import Form from './Form';
 
 interface CreateProps extends StdCreateProps {
-  refetch: Function
+  refetch: Function;
 }
 
 export default function Create(props: CreateProps) {
-  const {setCurTab, refetch} = props;
+  const { setCurTab, refetch } = props;
 
   const [form] = useForm();
   const [loading, setLoading] = useState(false);
-  const requestCreate = useMutation({api: 'auth/register', method: 'post'});
+  const requestCreate = useMutation({ api: 'auth/register', method: 'post' });
 
   function handleSubmit() {
-    form.validateFields().then((inputs) => {
+    form.validateFields().then(inputs => {
       setLoading(true);
-      requestCreate({data: inputs})
+      requestCreate({ data: inputs })
         .then(() => {
-          message.success("Success!");
+          message.success('Tạo thành công!');
           form.resetFields();
           setCurTab('list');
           refetch();
@@ -35,7 +35,7 @@ export default function Create(props: CreateProps) {
       <Form form={form} />
       <Space>
         <Button loading={loading} type="primary" onClick={handleSubmit}>
-          Create
+          Tạo
         </Button>
         <Button onClick={() => form.resetFields()}>Reset</Button>
       </Space>
