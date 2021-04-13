@@ -1,10 +1,16 @@
-import { UserOutlined, ProjectFilled, TagOutlined } from '@ant-design/icons';
+import {
+  UserOutlined,
+  ProjectFilled,
+  TagOutlined,
+  TagsOutlined,
+} from '@ant-design/icons';
 
 import User from './User';
 import Category from './Category';
 import { UserRole } from '../../utils/auth';
 import React from 'react';
 import Demo from './Demo';
+import Subcategory from './Subcategory';
 
 interface RouteConfig {
   path: string;
@@ -29,6 +35,13 @@ export const ROUTES: RouteConfig[] = [
     name: 'Categories',
     icon: TagOutlined,
     component: Category,
+    allowed: [ADMIN],
+  },
+  {
+    path: '/subcategory',
+    name: 'Subcategory',
+    icon: TagsOutlined,
+    component: Subcategory,
     allowed: [ADMIN],
   },
   {
