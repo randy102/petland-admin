@@ -1,9 +1,0 @@
-[ {
-  "buildOrder" : 42,
-  "reportUrl" : "https://randy102.github.io/petland-admin/42/",
-  "reportName" : "Allure Report with history",
-  "data" : {
-    "run" : 8,
-    "retry" : 0
-  }
-} ]

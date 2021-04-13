@@ -1,0 +1,60 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "Element not found {button[type='button']}\nExpected: visible or transparent: visible or have css value opacity=0\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1618323544651.0.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1618323544651.0.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"button[type='button']\"}",
+      "children" : [ {
+        "name" : "testRequiredLogin",
+        "uid" : "d193ca31e6244a56",
+        "parentUid" : "38aede4b873552184e4173c36da895bc",
+        "status" : "failed",
+        "time" : {
+          "start" : 1618323529188,
+          "stop" : 1618323544909,
+          "duration" : 15721
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "38aede4b873552184e4173c36da895bc"
+    }, {
+      "name" : "Element not found {by text: Login}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1618323556722.1.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1618323556722.1.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\".//*/text()[normalize-space(translate(string(.), '",
+      "children" : [ {
+        "name" : "testLoginSuccessfully",
+        "uid" : "887efc49e93f5304",
+        "parentUid" : "b8d5ebe93cdc859dcf17247bcd119275",
+        "status" : "failed",
+        "time" : {
+          "start" : 1618323545163,
+          "stop" : 1618323556950,
+          "duration" : 11787
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "b8d5ebe93cdc859dcf17247bcd119275"
+    }, {
+      "name" : "Element not found {#email}\nExpected: visible or transparent: visible or have css value opacity=0\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1618323568422.2.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1618323568422.2.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"#email\"}",
+      "children" : [ {
+        "name" : "openUserPage",
+        "uid" : "b4a60c735ea6d027",
+        "parentUid" : "5f7554cbd16cbd8c330caf47db15061c",
+        "status" : "failed",
+        "time" : {
+          "start" : 1618323568576,
+          "stop" : 1618323568577,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "5f7554cbd16cbd8c330caf47db15061c"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  } ],
+  "name" : "categories"
+}
