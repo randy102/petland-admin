@@ -1,0 +1,8 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Apr 13 12:54:51 GMT 2021","Tue Apr 13 12:54:56 GMT 2021","5455","Petland Admin","Login Page","test.TestLoginPage","test.TestLoginPage","testRequiredLogin","testRequiredLogin",""
+"passed","Tue Apr 13 12:55:07 GMT 2021","Tue Apr 13 12:55:11 GMT 2021","4034","Petland Admin","Login Page","test.TestUserPage","test.TestUserPage","testUpdateUser","testUpdateUser",""
+"passed","Tue Apr 13 12:55:02 GMT 2021","Tue Apr 13 12:55:05 GMT 2021","3037","Petland Admin","Login Page","test.TestUserPage","test.TestUserPage","testCreateUser","testCreateUser",""
+"passed","Tue Apr 13 12:55:13 GMT 2021","Tue Apr 13 12:55:17 GMT 2021","3983","Petland Admin","Login Page","test.TestUserPage","test.TestUserPage","testLockUser","testLockUser",""
+"passed","Tue Apr 13 12:54:57 GMT 2021","Tue Apr 13 12:54:59 GMT 2021","2313","Petland Admin","Login Page","test.TestLoginPage","test.TestLoginPage","testLoginSuccessfully","testLoginSuccessfully",""
+"passed","Tue Apr 13 12:55:20 GMT 2021","Tue Apr 13 12:55:23 GMT 2021","3217","Petland Admin","Login Page","test.TestUserPage","test.TestUserPage","testUnLockUser","testUnLockUser",""
+"passed","Tue Apr 13 12:55:25 GMT 2021","Tue Apr 13 12:55:29 GMT 2021","3637","Petland Admin","Login Page","test.TestUserPage","test.TestUserPage","testDeleteUser","testDeleteUser",""

@@ -1,0 +1,71 @@
+[ {
+  "uid" : "c6dfe8d971d8e44b",
+  "name" : "testRequiredLogin",
+  "time" : {
+    "start" : 1618318491466,
+    "stop" : 1618318496921,
+    "duration" : 5455
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a992cb8923bdd5c1",
+  "name" : "testUpdateUser",
+  "time" : {
+    "start" : 1618318507584,
+    "stop" : 1618318511618,
+    "duration" : 4034
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "da576cf202be301b",
+  "name" : "testCreateUser",
+  "time" : {
+    "start" : 1618318502219,
+    "stop" : 1618318505256,
+    "duration" : 3037
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "31791b85ae0f0843",
+  "name" : "testLockUser",
+  "time" : {
+    "start" : 1618318513792,
+    "stop" : 1618318517775,
+    "duration" : 3983
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5b04ee97eab48e07",
+  "name" : "testLoginSuccessfully",
+  "time" : {
+    "start" : 1618318497240,
+    "stop" : 1618318499553,
+    "duration" : 2313
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b2e909dc73b951aa",
+  "name" : "testUnLockUser",
+  "time" : {
+    "start" : 1618318520056,
+    "stop" : 1618318523273,
+    "duration" : 3217
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3e5a58772b04a5bd",
+  "name" : "testDeleteUser",
+  "time" : {
+    "start" : 1618318525572,
+    "stop" : 1618318529209,
+    "duration" : 3637
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]
