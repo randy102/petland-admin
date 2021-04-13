@@ -1,4 +1,4 @@
-import { message } from 'antd';
+import { message, Tag } from 'antd';
 import RGrid from 'components/Shared/RGrid';
 import React, { useState } from 'react';
 import parseEpoch from 'utils/parseEpoch';
@@ -67,6 +67,23 @@ export default function Grid(props: GridProps) {
       });
   }
 
+  function renderState(value: string) {
+    let color = 'default';
+
+    // Change color based on state
+    switch (value) {
+      case 'PUBLISHED': {
+        color = 'success';
+        break;
+      }
+      case 'REJECTED': {
+        color = 'error';
+      }
+    }
+
+    return <Tag color={color}>{value}</Tag>;
+  }
+
   return (
     <>
       <RGrid
@@ -116,6 +133,7 @@ export default function Grid(props: GridProps) {
           { dataIndex: 'price', title: 'Giá' },
           { dataIndex: 'origin', title: 'Xuất xứ' },
           { dataIndex: 'subcategory', title: 'Giống' },
+          { dataIndex: 'state', title: 'Trạng thái', render: renderState },
         ]}
       />
     </>
