@@ -44,7 +44,7 @@ export default function Create(props: CreateProps) {
 
   return (
     <div>
-      <Form form={form} categories={categoriesRes?.data} />
+      <Form form={form} categories={categoriesRes?.data || []} />
       <Space>
         <Button loading={loading} type="primary" onClick={handleSubmit}>
           Tạo

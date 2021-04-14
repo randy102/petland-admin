@@ -5,11 +5,12 @@ import { StdRFormProps } from 'components/Shared/RForm/types';
 import React, { useEffect } from 'react';
 
 interface FormProps extends StdRFormProps {
-  categories?: any[];
+  isUpdate?: boolean;
+  categories: any[];
 }
 
 export default function Form(props: FormProps) {
-  const { form, init } = props;
+  const { form, init, isUpdate } = props;
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => form?.resetFields(), [init]);
@@ -18,17 +19,16 @@ export default function Form(props: FormProps) {
     <RForm form={form} initialValues={init}>
       <RInput label="Tên" name="name" rules={{ required: true }} />
 
-      {props.categories && (
-        <RSelect
-          data={props.categories}
-          label="Thể loại"
-          name="categoryID"
-          labelRender={category => category.name}
-          optionValue={category => category._id}
-          optionRender={category => category.name}
-          required
-        />
-      )}
+      <RSelect
+        data={props.categories}
+        label="Thể loại"
+        name="categoryID"
+        labelRender={category => category.name}
+        optionValue={category => category._id}
+        optionRender={category => category.name}
+        required
+        disabled={isUpdate}
+      />
     </RForm>
   );
 }
