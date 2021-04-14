@@ -97,6 +97,11 @@ export default function Grid(props: GridProps) {
     return 'Đực';
   }
 
+  function renderVaccination(value: boolean) {
+    if (value) return 'Có';
+    return 'Không';
+  }
+
   return (
     <>
       <RGrid
@@ -144,7 +149,11 @@ export default function Grid(props: GridProps) {
             render: renderSex,
           },
           { dataIndex: 'age', title: 'Tuổi' },
-          { dataIndex: 'vaccination', title: 'Tiêm chủng' },
+          {
+            dataIndex: 'vaccination',
+            title: 'Đã tiêm chủng',
+            render: renderVaccination,
+          },
           { dataIndex: 'price', title: 'Giá' },
           { dataIndex: 'state', title: 'Trạng thái', render: renderState },
         ]}
