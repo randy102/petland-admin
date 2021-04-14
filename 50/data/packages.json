@@ -1,0 +1,207 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "children" : [ {
+    "name" : "test",
+    "children" : [ {
+      "name" : "TestLoginPage",
+      "children" : [ {
+        "name" : "testRequiredLogin",
+        "uid" : "7c8458a6c7b68eab",
+        "parentUid" : "139c1c5ccf6d5978c1bf9f97585fb9eb",
+        "status" : "failed",
+        "time" : {
+          "start" : 1618377402517,
+          "stop" : 1618377418589,
+          "duration" : 16072
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testLoginSuccessfully",
+        "uid" : "29370240b7ddc0bd",
+        "parentUid" : "139c1c5ccf6d5978c1bf9f97585fb9eb",
+        "status" : "failed",
+        "time" : {
+          "start" : 1618377418853,
+          "stop" : 1618377430312,
+          "duration" : 11459
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "139c1c5ccf6d5978c1bf9f97585fb9eb"
+    }, {
+      "name" : "TestUserPage",
+      "children" : [ {
+        "name" : "testCreateUser",
+        "uid" : "5dab65ec3b6d496f",
+        "parentUid" : "3bfee7dbc778982afa5ef6cc2d6fbb86",
+        "status" : "passed",
+        "time" : {
+          "start" : 1618377433266,
+          "stop" : 1618377436019,
+          "duration" : 2753
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testUpdateUser",
+        "uid" : "1d89283e2abddf6",
+        "parentUid" : "3bfee7dbc778982afa5ef6cc2d6fbb86",
+        "status" : "passed",
+        "time" : {
+          "start" : 1618377438736,
+          "stop" : 1618377442914,
+          "duration" : 4178
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testLockUser",
+        "uid" : "50c5dd927258326a",
+        "parentUid" : "3bfee7dbc778982afa5ef6cc2d6fbb86",
+        "status" : "passed",
+        "time" : {
+          "start" : 1618377445104,
+          "stop" : 1618377448286,
+          "duration" : 3182
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testUnLockUser",
+        "uid" : "c1c6f77d4c7126",
+        "parentUid" : "3bfee7dbc778982afa5ef6cc2d6fbb86",
+        "status" : "passed",
+        "time" : {
+          "start" : 1618377450744,
+          "stop" : 1618377453925,
+          "duration" : 3181
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testDeleteUser",
+        "uid" : "d2c61361ade3579b",
+        "parentUid" : "3bfee7dbc778982afa5ef6cc2d6fbb86",
+        "status" : "passed",
+        "time" : {
+          "start" : 1618377456120,
+          "stop" : 1618377459179,
+          "duration" : 3059
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "3bfee7dbc778982afa5ef6cc2d6fbb86"
+    }, {
+      "name" : "TestCategoryPage",
+      "children" : [ {
+        "name" : "testAddCategory",
+        "uid" : "aff1f5c889aaf31f",
+        "parentUid" : "04ee24d63619e53d418170f3faeefb45",
+        "status" : "failed",
+        "time" : {
+          "start" : 1618377461334,
+          "stop" : 1618377472733,
+          "duration" : 11399
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testUpdateCategory",
+        "uid" : "69aa7570f961e653",
+        "parentUid" : "04ee24d63619e53d418170f3faeefb45",
+        "status" : "broken",
+        "time" : {
+          "start" : 1618377475064,
+          "stop" : 1618377475228,
+          "duration" : 164
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testDeleteCategory",
+        "uid" : "bf9d41091702b7a3",
+        "parentUid" : "04ee24d63619e53d418170f3faeefb45",
+        "status" : "failed",
+        "time" : {
+          "start" : 1618377477613,
+          "stop" : 1618377488188,
+          "duration" : 10575
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "04ee24d63619e53d418170f3faeefb45"
+    }, {
+      "name" : "TestSubCategoryPage",
+      "children" : [ {
+        "name" : "testAddSubCategory",
+        "uid" : "e60d1762b154cef9",
+        "parentUid" : "c10d5506333e831e9c2d50776230cbe2",
+        "status" : "failed",
+        "time" : {
+          "start" : 1618377490499,
+          "stop" : 1618377502926,
+          "duration" : 12427
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testUpdateCategory",
+        "uid" : "566cdf70714d1fc9",
+        "parentUid" : "c10d5506333e831e9c2d50776230cbe2",
+        "status" : "broken",
+        "time" : {
+          "start" : 1618377505219,
+          "stop" : 1618377505354,
+          "duration" : 135
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testDeleteCategory",
+        "uid" : "7fe4bceb658a72f7",
+        "parentUid" : "c10d5506333e831e9c2d50776230cbe2",
+        "status" : "broken",
+        "time" : {
+          "start" : 1618377507713,
+          "stop" : 1618377507854,
+          "duration" : 141
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "cleanUp",
+        "uid" : "f933ecd14a5b64b3",
+        "parentUid" : "c10d5506333e831e9c2d50776230cbe2",
+        "status" : "broken",
+        "time" : {
+          "start" : 1618377510154,
+          "stop" : 1618377510154,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "c10d5506333e831e9c2d50776230cbe2"
+    } ],
+    "uid" : "d662795e8d349f9b5595bf62f43ea7ae"
+  } ],
+  "name" : "packages"
+}
