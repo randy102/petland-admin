@@ -1,4 +1,7 @@
-import { message, Tag } from 'antd';
+import { message, Modal, Tag } from 'antd';
+import { useForm } from 'antd/lib/form/Form';
+import RForm from 'components/Shared/RForm';
+import RInput from 'components/Shared/RForm/RInput';
 import RGrid from 'components/Shared/RGrid';
 import React, { useState } from 'react';
 import epochToString from 'utils/epochToString';
@@ -16,6 +19,8 @@ export default function Grid(props: GridProps) {
   const [verifying, setVerifying] = useState<boolean>(false);
 
   const [rejecting, setRejecting] = useState<boolean>(false);
+
+  const [rejectForm] = useForm();
 
   const requestVerify = useMutation({
     method: 'put',
@@ -35,12 +40,10 @@ export default function Grid(props: GridProps) {
     setVerifying(true);
 
     requestVerify({
-      data: {
-        ids: rows.map(r => r._id),
-      },
+      api: `post/verify/${rows[0]._id}`,
     })
       .then(() => {
-        message.success('Success!');
+        message.success('Duyệt thành công!');
         refetch();
       })
       .catch(handleRequestError)
@@ -49,22 +52,39 @@ export default function Grid(props: GridProps) {
       });
   }
 
-  function handleReject(rows: any[]) {
-    setRejecting(true);
+  function submitReject(_id: string) {
+    rejectForm.validateFields().then(inputs => {
+      setRejecting(true);
 
-    requestReject({
-      data: {
-        ids: rows.map(r => r._id),
-      },
-    })
-      .then(() => {
-        message.success('Success!');
-        refetch();
+      requestReject({
+        api: `post/reject/${_id}`,
+        data: inputs,
       })
-      .catch(handleRequestError)
-      .finally(() => {
-        setRejecting(false);
-      });
+        .then(() => {
+          message.success('Từ chối thành công!');
+          refetch();
+        })
+        .catch(handleRequestError)
+        .finally(() => {
+          setRejecting(false);
+        });
+    });
+  }
+
+  function handleReject(rows: any[]) {
+    Modal.confirm({
+      title: 'Từ chối bài viết',
+      content: (
+        <RForm form={rejectForm}>
+          <RInput
+            label="Lý do từ chối"
+            name="reason"
+            rules={{ required: true }}
+          />
+        </RForm>
+      ),
+      onOk: () => submitReject(rows[0]._id),
+    });
   }
 
   function renderState(value: string) {
@@ -122,13 +142,14 @@ export default function Grid(props: GridProps) {
             selection: 'single',
             confirm: true,
             onClick: handleVerify,
+            disabled: rows => !rows.length || rows[0].state !== 'PENDING',
           },
           {
             name: 'Từ chối',
             icon: 'StopOutlined',
             selection: 'single',
-            confirm: true,
             onClick: handleReject,
+            disabled: rows => !rows.length || rows[0].state !== 'PENDING',
           },
         ]}
         colDef={[

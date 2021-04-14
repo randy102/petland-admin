@@ -38,7 +38,7 @@ interface HeaderType {
   confirm?: boolean;
   confirmMessage?: string;
   loading?: boolean;
-  disabled?: boolean;
+  disabled?: (selectedRows: any[]) => boolean;
 }
 
 type HeaderBtnType = 'create' | 'update' | 'delete' | 'refresh' | 'detail';
@@ -187,7 +187,7 @@ export default function RGrid(props: RGridProps) {
             {headDef &&
               headDef.map(
                 ({
-                  disabled = false,
+                  disabled = () => false,
                   icon,
                   selection,
                   name,
@@ -210,7 +210,7 @@ export default function RGrid(props: RGridProps) {
                   const multipleError =
                     selection === 'multiple' && selectedRows.length === 0;
                   const isDisabled =
-                    disabled || singleError
+                    disabled(selectedRows) || singleError
                       ? true
                       : multipleError
                       ? true
