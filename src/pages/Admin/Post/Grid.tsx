@@ -1,7 +1,7 @@
 import { message, Tag } from 'antd';
 import RGrid from 'components/Shared/RGrid';
 import React, { useState } from 'react';
-import parseEpoch from 'utils/parseEpoch';
+import epochToString from 'utils/epochToString';
 import { handleRequestError, useMutation } from 'utils/request';
 
 interface GridProps {
@@ -72,16 +72,29 @@ export default function Grid(props: GridProps) {
 
     // Change color based on state
     switch (value) {
+      case 'DRAFT': {
+        color = 'blue';
+        break;
+      }
       case 'PUBLISHED': {
         color = 'success';
         break;
       }
       case 'REJECTED': {
         color = 'error';
+        break;
+      }
+      case 'PENDING': {
+        color = 'gold';
       }
     }
 
     return <Tag color={color}>{value}</Tag>;
+  }
+
+  function renderSex(value: string) {
+    if (value === 'FEMALE') return 'Cái';
+    return 'Đực';
   }
 
   return (
@@ -101,32 +114,32 @@ export default function Grid(props: GridProps) {
           {
             name: 'Duyệt',
             icon: 'CheckOutlined',
-            selection: 'multiple',
+            selection: 'single',
             confirm: true,
             onClick: handleVerify,
           },
           {
             name: 'Từ chối',
             icon: 'StopOutlined',
-            selection: 'multiple',
+            selection: 'single',
             confirm: true,
             onClick: handleReject,
           },
         ]}
         colDef={[
           { dataIndex: 'name', title: 'Tên' },
-          { dataIndex: 'createdAt', title: 'Ngày tạo', render: parseEpoch },
+          { dataIndex: 'createdAt', title: 'Ngày tạo', render: epochToString },
           { dataIndex: 'createdBy', title: 'Người tạo' },
           {
             dataIndex: 'updatedAt',
             title: 'Ngày cập nhật',
-            render: parseEpoch,
+            render: epochToString,
           },
           { dataIndex: 'category', title: 'Thể loại' },
           {
             dataIndex: 'sex',
             title: 'Giới tính',
-            render: value => (value === 'FEMALE' ? 'Cái' : 'Đực'),
+            render: renderSex,
           },
           { dataIndex: 'vaccination', title: 'Tiêm chủng' },
           { dataIndex: 'age', title: 'Tuổi' },

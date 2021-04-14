@@ -1,4 +1,4 @@
-export default function parseEpoch(epoch: number) {
+export default function epochToString(epoch: number) {
   if (!epoch) return '';
 
   const date = new Date(0);
