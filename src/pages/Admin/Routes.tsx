@@ -34,7 +34,7 @@ export default function Routes() {
             );
           return undefined
         })}
-        <Route path={`/`} render={() => <Redirect to={`/admin${getDefaultRoute()}`}/>}  />
+        {userRole && <Route path={`/`} render={() => <Redirect to={`/admin${getDefaultRoute()}`}/>} />}
       </Switch>
     </div>
   );
