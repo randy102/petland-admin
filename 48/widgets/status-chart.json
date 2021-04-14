@@ -1,0 +1,141 @@
+[ {
+  "uid" : "2abdf1818720c0ca",
+  "name" : "testUpdateCategory",
+  "time" : {
+    "start" : 1618374854028,
+    "stop" : 1618374854169,
+    "duration" : 141
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "a6cd3e6689e14ecf",
+  "name" : "testAddSubCategory",
+  "time" : {
+    "start" : 1618374838836,
+    "stop" : 1618374851334,
+    "duration" : 12498
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "bb9ee696aecdd12a",
+  "name" : "testRequiredLogin",
+  "time" : {
+    "start" : 1618374742431,
+    "stop" : 1618374761619,
+    "duration" : 19188
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "b8632d71333b6da1",
+  "name" : "testDeleteCategory",
+  "time" : {
+    "start" : 1618374856688,
+    "stop" : 1618374856835,
+    "duration" : 147
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "31b3ac2b4d9511d7",
+  "name" : "testUpdateCategory",
+  "time" : {
+    "start" : 1618374823121,
+    "stop" : 1618374823277,
+    "duration" : 156
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "cfd3d33537da1514",
+  "name" : "testLoginSuccessfully",
+  "time" : {
+    "start" : 1618374761875,
+    "stop" : 1618374773876,
+    "duration" : 12001
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "ef47c3aa17ea257d",
+  "name" : "cleanUp",
+  "time" : {
+    "start" : 1618374859425,
+    "stop" : 1618374859426,
+    "duration" : 1
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "bab4154cbafdab9b",
+  "name" : "testLockUser",
+  "time" : {
+    "start" : 1618374789996,
+    "stop" : 1618374793454,
+    "duration" : 3458
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "49d439ccd1f75824",
+  "name" : "testAddCategory",
+  "time" : {
+    "start" : 1618374809112,
+    "stop" : 1618374820346,
+    "duration" : 11234
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "68a0c093b3499d84",
+  "name" : "testUnLockUser",
+  "time" : {
+    "start" : 1618374796113,
+    "stop" : 1618374799856,
+    "duration" : 3743
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bfe4f7ce16bf467c",
+  "name" : "testCreateUser",
+  "time" : {
+    "start" : 1618374777362,
+    "stop" : 1618374780261,
+    "duration" : 2899
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8160d8accd5e6ab2",
+  "name" : "testUpdateUser",
+  "time" : {
+    "start" : 1618374783020,
+    "stop" : 1618374787401,
+    "duration" : 4381
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f65b974a456652b6",
+  "name" : "testDeleteCategory",
+  "time" : {
+    "start" : 1618374825870,
+    "stop" : 1618374836376,
+    "duration" : 10506
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "1f4cd562b0e4e4ca",
+  "name" : "testDeleteUser",
+  "time" : {
+    "start" : 1618374802745,
+    "stop" : 1618374806423,
+    "duration" : 3678
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]
