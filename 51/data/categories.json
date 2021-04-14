@@ -1,0 +1,162 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "Element not found {by text: 'Email' is required!}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1618411289963.0.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1618411289963.0.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\".//*/text()[normalize-space(translate(string(.), '",
+      "children" : [ {
+        "name" : "testRequiredLogin",
+        "uid" : "5e599bcd28cf6fd6",
+        "parentUid" : "d5eda5093bab4a84fa75095fab4a8ced",
+        "status" : "failed",
+        "time" : {
+          "start" : 1618411274067,
+          "stop" : 1618411290301,
+          "duration" : 16234
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "d5eda5093bab4a84fa75095fab4a8ced"
+    }, {
+      "name" : "Element not found {by text: Login}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1618411302072.1.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1618411302072.1.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\".//*/text()[normalize-space(translate(string(.), '",
+      "children" : [ {
+        "name" : "testLoginSuccessfully",
+        "uid" : "b06f0044c6e06d8f",
+        "parentUid" : "127b93084e736a4df6ad983b30bf5544",
+        "status" : "failed",
+        "time" : {
+          "start" : 1618411290508,
+          "stop" : 1618411302326,
+          "duration" : 11818
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "127b93084e736a4df6ad983b30bf5544"
+    }, {
+      "name" : "Element not found {By.xpath: //tr[./td[text()='d634baf3-3f43-40c4-92ad-0566b6f9f32f']]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1618411348971.2.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1618411348971.2.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//tr[./td[text()='d634baf3-3f43-40c4-92ad-0566b6f9f32f']]\"}",
+      "children" : [ {
+        "name" : "testAddCategory",
+        "uid" : "5e7a1873a6d84f3e",
+        "parentUid" : "d5fb683002b654afc754c346aa8d500f",
+        "status" : "failed",
+        "time" : {
+          "start" : 1618411337934,
+          "stop" : 1618411349201,
+          "duration" : 11267
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "d5fb683002b654afc754c346aa8d500f"
+    }, {
+      "name" : "Element not found {By.xpath: //tr[./td[text()='153699fb-3e8f-4659-bf25-b7d56c0eec0f']]}\nExpected: exist\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1618411364300.4.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1618411364300.4.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//tr[./td[text()='153699fb-3e8f-4659-bf25-b7d56c0eec0f']]\"}",
+      "children" : [ {
+        "name" : "testDeleteCategory",
+        "uid" : "3be61f686b706894",
+        "parentUid" : "b5be915ddd8ce9f23c1120050b0353b9",
+        "status" : "failed",
+        "time" : {
+          "start" : 1618411354007,
+          "stop" : 1618411364579,
+          "duration" : 10572
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "b5be915ddd8ce9f23c1120050b0353b9"
+    }, {
+      "name" : "Element not found {By.xpath: //tr[./td[text()='79158c19-b75f-40ac-acb1-6849ae026c95']]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1618411379343.5.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1618411379343.5.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//tr[./td[text()='79158c19-b75f-40ac-acb1-6849ae026c95']]\"}",
+      "children" : [ {
+        "name" : "testAddSubCategory",
+        "uid" : "c8241f4c2e178aa1",
+        "parentUid" : "32dd21b95e9f49a8bd68a71dce4c7008",
+        "status" : "failed",
+        "time" : {
+          "start" : 1618411367199,
+          "stop" : 1618411379593,
+          "duration" : 12394
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "32dd21b95e9f49a8bd68a71dce4c7008"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  }, {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "Cannot read field \"name\" because \"this.created\" is null",
+      "children" : [ {
+        "name" : "testUpdateCategory",
+        "uid" : "678fabd90547ffbc",
+        "parentUid" : "b3dbb225e0d003de15c6d36ca92c2999",
+        "status" : "broken",
+        "time" : {
+          "start" : 1618411351622,
+          "stop" : 1618411351750,
+          "duration" : 128
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "testUpdateCategory",
+        "uid" : "24b4e7b79091ac15",
+        "parentUid" : "b3dbb225e0d003de15c6d36ca92c2999",
+        "status" : "broken",
+        "time" : {
+          "start" : 1618411382479,
+          "stop" : 1618411382610,
+          "duration" : 131
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "b3dbb225e0d003de15c6d36ca92c2999"
+    }, {
+      "name" : "Cannot read field \"name\" because \"this.updated\" is null",
+      "children" : [ {
+        "name" : "testDeleteCategory",
+        "uid" : "46def09b0b806fed",
+        "parentUid" : "c29ba6f862382fe845d9a7770365a952",
+        "status" : "broken",
+        "time" : {
+          "start" : 1618411385481,
+          "stop" : 1618411385617,
+          "duration" : 136
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "c29ba6f862382fe845d9a7770365a952"
+    }, {
+      "name" : "Cannot read field \"category\" because \"this.created\" is null",
+      "children" : [ {
+        "name" : "cleanUp",
+        "uid" : "65469b25b6d20123",
+        "parentUid" : "711d6c8c16712fa33347281b084eecd3",
+        "status" : "broken",
+        "time" : {
+          "start" : 1618411388446,
+          "stop" : 1618411388446,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "711d6c8c16712fa33347281b084eecd3"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ],
+  "name" : "categories"
+}
