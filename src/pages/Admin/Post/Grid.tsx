@@ -88,33 +88,39 @@ export default function Grid(props: GridProps) {
   }
 
   function renderState(value: string) {
+    // Default color and text for HIDDEN state
     let color = 'default';
+    let text = 'Đã ẩn';
 
-    // Change color based on state
+    // Change color and text based on state
     switch (value) {
       case 'DRAFT': {
         color = 'blue';
+        text = 'Bản nháp';
         break;
       }
       case 'PUBLISHED': {
         color = 'success';
+        text = 'Đã duyệt';
         break;
       }
       case 'REJECTED': {
         color = 'error';
+        text = 'Đã từ chối';
         break;
       }
       case 'PENDING': {
         color = 'gold';
+        text = 'Chờ duyệt';
       }
     }
 
-    return <Tag color={color}>{value}</Tag>;
+    return <Tag color={color}>{text}</Tag>;
   }
 
   function renderSex(value: string) {
-    if (value === 'FEMALE') return 'Cái';
-    return 'Đực';
+    if (value === 'MAKE') return 'Đực';
+    return 'Cái';
   }
 
   function renderVaccination(value: boolean) {
@@ -141,6 +147,7 @@ export default function Grid(props: GridProps) {
             icon: 'CheckOutlined',
             selection: 'single',
             confirm: true,
+            confirmMessage: 'Duyệt các bài đăng này?',
             onClick: handleVerify,
             disabled: rows => !rows.length || rows[0].state !== 'PENDING',
           },
