@@ -127,25 +127,25 @@ export default function Grid(props: GridProps) {
           },
         ]}
         colDef={[
-          { dataIndex: 'name', title: 'Tên' },
-          { dataIndex: 'createdAt', title: 'Ngày tạo', render: epochToString },
+          { dataIndex: 'name', title: 'Tên bài đăng' },
           { dataIndex: 'createdBy', title: 'Người tạo' },
+          { dataIndex: 'createdAt', title: 'Ngày tạo', render: epochToString },
           {
             dataIndex: 'updatedAt',
             title: 'Ngày cập nhật',
             render: epochToString,
           },
           { dataIndex: 'category', title: 'Thể loại' },
+          { dataIndex: 'subCategory', title: 'Giống' },
+          { dataIndex: 'origin', title: 'Xuất xứ' },
           {
             dataIndex: 'sex',
             title: 'Giới tính',
             render: renderSex,
           },
-          { dataIndex: 'vaccination', title: 'Tiêm chủng' },
           { dataIndex: 'age', title: 'Tuổi' },
+          { dataIndex: 'vaccination', title: 'Tiêm chủng' },
           { dataIndex: 'price', title: 'Giá' },
-          { dataIndex: 'origin', title: 'Xuất xứ' },
-          { dataIndex: 'subcategory', title: 'Giống' },
           { dataIndex: 'state', title: 'Trạng thái', render: renderState },
         ]}
       />
