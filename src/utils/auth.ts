@@ -25,10 +25,11 @@ export function logOut() {
   const token = window.localStorage.getItem('token') as string;
 
   const decoded = jwt.decode(token) as any;
-
-  Object.keys(decoded).forEach(key => {
-    window.localStorage.removeItem(`user.${key}`);
-  });
+  if (decoded){
+    Object.keys(decoded).forEach(key => {
+      window.localStorage.removeItem(`user.${key}`);
+    });
+  }
 
   window.localStorage.removeItem('token');
 }
