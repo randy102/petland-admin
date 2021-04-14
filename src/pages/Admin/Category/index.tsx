@@ -5,9 +5,12 @@ import Grid from './Grid';
 import Create from './Create';
 import { useFetch } from 'utils/request';
 
-export default function User() {
+export default function Category() {
   const [curTab, setCurTab] = useState('list');
-  const [res, { loading, refetch }] = useFetch({ api: 'user/list' });
+  const [res, { loading, refetch }] = useFetch({
+    api: 'category',
+    method: 'get',
+  });
   return (
     <div>
       <Tabs activeKey={curTab} onTabClick={key => setCurTab(key)}>

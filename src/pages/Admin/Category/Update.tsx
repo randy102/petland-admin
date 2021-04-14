@@ -17,7 +17,9 @@ export default function Update(props: UpdateProps) {
   const { setInitRow, setShowForm, initRow, refetch, showForm } = props;
 
   const [submitLoading, setSubmitLoading] = useState(false);
-  const requestUpdate = useMutation({ method: 'put', api: 'user/role' });
+
+  const requestUpdate = useMutation({ method: 'put', api: 'category' });
+
   const [form] = useForm();
 
   function handleSubmit() {
@@ -26,7 +28,7 @@ export default function Update(props: UpdateProps) {
       requestUpdate({
         data: {
           id: initRow?._id,
-          role: inputs.role,
+          newName: inputs.name,
         },
       })
         .then(() => {
@@ -62,7 +64,7 @@ export default function Update(props: UpdateProps) {
         },
       ]}
     >
-      <Form form={form} init={initRow} isUpdate />
+      <Form form={form} init={initRow} />
     </RDrawer>
   );
 }

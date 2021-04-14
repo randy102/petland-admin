@@ -1,13 +1,17 @@
+import { UnorderedListOutlined } from '@ant-design/icons';
 import { Tabs } from 'antd';
 import React, { useState } from 'react';
-import { PlusOutlined, UnorderedListOutlined } from '@ant-design/icons';
-import Grid from './Grid';
-import Create from './Create';
 import { useFetch } from 'utils/request';
+import Grid from './Grid';
 
-export default function User() {
+export default function Post() {
   const [curTab, setCurTab] = useState('list');
-  const [res, { loading, refetch }] = useFetch({ api: 'user/list' });
+
+  const [res, { loading, refetch }] = useFetch({
+    api: 'post',
+    method: 'get',
+  });
+
   return (
     <div>
       <Tabs activeKey={curTab} onTabClick={key => setCurTab(key)}>
@@ -21,18 +25,6 @@ export default function User() {
           }
         >
           <Grid res={res} loading={loading} refetch={refetch} />
-        </Tabs.TabPane>
-
-        <Tabs.TabPane
-          key="add"
-          tab={
-            <span>
-              <PlusOutlined />
-              Tạo mới
-            </span>
-          }
-        >
-          <Create refetch={refetch} setCurTab={setCurTab} />
         </Tabs.TabPane>
       </Tabs>
     </div>

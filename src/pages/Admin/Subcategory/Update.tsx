@@ -1,8 +1,8 @@
-import { message } from 'antd';
+import { message, Spin } from 'antd';
 import RDrawer from 'components/Shared/RDrawer';
 import { useForm } from 'components/Shared/RForm';
 import React, { useState } from 'react';
-import { handleRequestError, useMutation } from 'utils/request';
+import { handleRequestError, useFetch, useMutation } from 'utils/request';
 import Form from './Form';
 
 interface UpdateProps {
@@ -17,7 +17,14 @@ export default function Update(props: UpdateProps) {
   const { setInitRow, setShowForm, initRow, refetch, showForm } = props;
 
   const [submitLoading, setSubmitLoading] = useState(false);
-  const requestUpdate = useMutation({ method: 'put', api: 'user/role' });
+
+  const requestUpdate = useMutation({ method: 'put', api: 'sub-category' });
+
+  const [categoriesRes, { loading: loadingCategories }] = useFetch({
+    api: 'category',
+    method: 'get',
+  });
+
   const [form] = useForm();
 
   function handleSubmit() {
@@ -26,7 +33,7 @@ export default function Update(props: UpdateProps) {
       requestUpdate({
         data: {
           id: initRow?._id,
-          role: inputs.role,
+          newName: inputs.name,
         },
       })
         .then(() => {
@@ -62,7 +69,16 @@ export default function Update(props: UpdateProps) {
         },
       ]}
     >
-      <Form form={form} init={initRow} isUpdate />
+      {loadingCategories ? (
+        <Spin />
+      ) : (
+        <Form
+          form={form}
+          init={initRow}
+          categories={categoriesRes?.data || []}
+          isUpdate
+        />
+      )}
     </RDrawer>
   );
 }

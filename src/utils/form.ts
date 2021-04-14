@@ -1,7 +1,7 @@
-import { message } from "antd";
+import { message } from 'antd';
 
-export function handleFieldError(error: any){
-  message.error("Please complete all fields in each tab correctly!");
+export function handleFieldError(error: any) {
+  message.error('Xin hãy điền đủ thông tin');
 }
 
 export function isEmpty(obj: Object) {

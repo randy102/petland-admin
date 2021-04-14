@@ -13,8 +13,10 @@ export default function Create(props: CreateProps) {
   const { setCurTab, refetch } = props;
 
   const [form] = useForm();
+
   const [loading, setLoading] = useState(false);
-  const requestCreate = useMutation({ api: 'auth/register', method: 'post' });
+
+  const requestCreate = useMutation({ api: 'category', method: 'post' });
 
   function handleSubmit() {
     form.validateFields().then(inputs => {

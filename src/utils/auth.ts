@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken"
+import jwt from 'jsonwebtoken';
 
 export enum UserRole {
   ADMIN = 'ADMIN',
@@ -7,9 +7,9 @@ export enum UserRole {
 }
 
 export interface UserPayload {
-  email: string
-  role: UserRole
-  _id: string
+  email: string;
+  role: UserRole;
+  _id: string;
 }
 
 export function isLogin() {
@@ -17,27 +17,42 @@ export function isLogin() {
   return !!token;
 }
 
-export function hasAdminPermission(role: string){
-  return role && ["ADMIN", "MOD"].includes(role);
+export function hasAdminPermission(role: string) {
+  return role && ['ADMIN', 'MOD'].includes(role);
 }
 
 export function logOut() {
-  window.localStorage.removeItem("token");
+  const token = window.localStorage.getItem('token') as string;
+
+  const decoded = jwt.decode(token) as any;
+  if (decoded){
+    Object.keys(decoded).forEach(key => {
+      window.localStorage.removeItem(`user.${key}`);
+    });
+  }
+
+  window.localStorage.removeItem('token');
 }
 
 export function logIn(token: string) {
-  window.localStorage.setItem("token", token);
+  window.localStorage.setItem('token', token);
+
+  const decoded = jwt.decode(token) as any;
+
+  Object.keys(decoded).forEach(key => {
+    window.localStorage.setItem(`user.${key}`, decoded[key]);
+  });
 }
 
 export function getToken() {
-  return window.localStorage.getItem("token");
+  return window.localStorage.getItem('token');
 }
 
 export function getUser(field: keyof UserPayload): string | undefined {
-  const token = getToken()
+  const token = getToken();
   if (field && !!token) {
-    const payload: any = jwt.decode(token)
+    const payload: any = jwt.decode(token);
     return payload ? payload[field] : undefined;
   }
-  return undefined
+  return undefined;
 }

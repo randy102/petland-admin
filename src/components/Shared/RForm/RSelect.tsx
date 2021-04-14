@@ -1,9 +1,9 @@
-import React from "react";
-import { Form, Select } from "antd";
-import { removeAccents } from "utils/string";
+import React from 'react';
+import { Form, Select } from 'antd';
+import { removeAccents } from 'utils/string';
 
 interface RSelectProps {
-  mode?: "multiple" | "tags";
+  mode?: 'multiple' | 'tags';
   disabled?: boolean;
   name: string;
   label: string;
@@ -37,8 +37,8 @@ function RSelect(props: RSelectProps) {
     onChange = () => {},
     refetch = () => {},
     optionRender = () => <></>,
-    optionValue = () => {},
-    labelRender = () => {},
+    optionValue = () => undefined,
+    labelRender = () => <></>,
     validator,
     onSearch = () => {},
   } = props;
@@ -46,7 +46,7 @@ function RSelect(props: RSelectProps) {
   const itemProps: any = {
     name,
     label,
-    rules: [{ required }],
+    rules: [{ required: !disabled && required }],
   };
 
   if (validator !== undefined) itemProps.rules.push({ validator });
@@ -72,7 +72,7 @@ function RSelect(props: RSelectProps) {
             .indexOf(removeAccents(input).toLowerCase()) >= 0
       );
     },
-    optionLabelProp: "label",
+    optionLabelProp: 'label',
     onSearch,
   };
 
@@ -80,17 +80,15 @@ function RSelect(props: RSelectProps) {
     <Form.Item {...itemProps}>
       <Select {...inputProps}>
         {data &&
-          data.map((row: any) => {
-            return (
-              <Select.Option
-                label={labelRender(row)}
-                key={row._id}
-                value={optionValue(row)}
-              >
-                {optionRender(row)}
-              </Select.Option>
-            );
-          })}
+          data.map((row: any) => (
+            <Select.Option
+              label={labelRender(row)}
+              key={row._id}
+              value={optionValue(row)}
+            >
+              {optionRender(row)}
+            </Select.Option>
+          ))}
       </Select>
     </Form.Item>
   );
