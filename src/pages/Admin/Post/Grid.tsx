@@ -80,28 +80,31 @@ export default function Grid(props: GridProps) {
   function promiseSubmitReject(_id: string) {
     setRejecting(true);
 
-    return rejectForm
-      .validateFields()
-      .then(inputs =>
-        requestReject({
-          api: `post/reject/${_id}`,
-          data: inputs,
+    return new Promise(resolve => {
+      rejectForm
+        .validateFields()
+        .then(inputs =>
+          requestReject({
+            api: `post/reject/${_id}`,
+            data: inputs,
+          })
+        )
+        .then(response => {
+          message.success('Từ chối thành công!');
+          refetch();
+          resolve();
         })
-      )
-      .then(response => {
-        message.success('Từ chối thành công!');
-        refetch();
-      })
-      .catch(error => {
-        if (error.errorFields) {
-          console.log({ error });
-        } else {
-          handleRequestError()(error);
-        }
-      })
-      .finally(() => {
-        setRejecting(false);
-      });
+        .catch(error => {
+          if (error.errorFields) {
+            console.log({ error });
+          } else {
+            handleRequestError()(error);
+          }
+        })
+        .finally(() => {
+          setRejecting(false);
+        });
+    })
   }
 
   function handleReject(rows: any[]) {
