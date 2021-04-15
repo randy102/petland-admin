@@ -52,23 +52,56 @@ export default function Grid(props: GridProps) {
       });
   }
 
-  function submitReject(_id: string) {
-    rejectForm.validateFields().then(inputs => {
+  async function asyncSubmitReject(_id: string) {
+    try {
       setRejecting(true);
 
-      requestReject({
+      const inputs = await rejectForm.validateFields();
+
+      await requestReject({
         api: `post/reject/${_id}`,
         data: inputs,
-      })
-        .then(() => {
-          message.success('Từ chối thành công!');
-          refetch();
+      });
+
+      message.success('Từ chối thành công!');
+      refetch();
+    } catch (error) {
+      if (error.errorFields) {
+        console.log({ error });
+        return;
+      }
+
+      handleRequestError()(error);
+    } finally {
+      setRejecting(false);
+    }
+  }
+
+  function promiseSubmitReject(_id: string) {
+    setRejecting(true);
+
+    return rejectForm
+      .validateFields()
+      .then(inputs =>
+        requestReject({
+          api: `post/reject/${_id}`,
+          data: inputs,
         })
-        .catch(handleRequestError)
-        .finally(() => {
-          setRejecting(false);
-        });
-    });
+      )
+      .then(response => {
+        message.success('Từ chối thành công!');
+        refetch();
+      })
+      .catch(error => {
+        if (error.errorFields) {
+          console.log({ error });
+        } else {
+          handleRequestError()(error);
+        }
+      })
+      .finally(() => {
+        setRejecting(false);
+      });
   }
 
   function handleReject(rows: any[]) {
@@ -83,7 +116,9 @@ export default function Grid(props: GridProps) {
           />
         </RForm>
       ),
-      onOk: () => submitReject(rows[0]._id),
+      onOk() {
+        return promiseSubmitReject(rows[0]._id);
+      },
     });
   }
 
@@ -156,34 +191,63 @@ export default function Grid(props: GridProps) {
             icon: 'StopOutlined',
             selection: 'single',
             onClick: handleReject,
-            disabled: rows => !rows.length || rows[0].state !== 'PENDING',
+            // disabled: rows => !rows.length || rows[0].state !== 'PENDING',
           },
         ]}
         colDef={[
-          { dataIndex: 'name', title: 'Tên bài đăng' },
-          { dataIndex: 'createdBy', title: 'Người tạo' },
-          { dataIndex: 'createdAt', title: 'Ngày tạo', render: epochToString },
+          {
+            dataIndex: 'name',
+            title: 'Tên bài đăng',
+          },
+          {
+            dataIndex: 'createdBy',
+            title: 'Người tạo',
+          },
+          {
+            dataIndex: 'createdAt',
+            title: 'Ngày tạo',
+            render: epochToString,
+          },
           {
             dataIndex: 'updatedAt',
             title: 'Ngày cập nhật',
             render: epochToString,
           },
-          { dataIndex: 'category', title: 'Thể loại' },
-          { dataIndex: 'subCategory', title: 'Giống' },
-          { dataIndex: 'origin', title: 'Xuất xứ' },
+          {
+            dataIndex: 'category',
+            title: 'Thể loại',
+          },
+          {
+            dataIndex: 'subCategory',
+            title: 'Giống',
+          },
+          {
+            dataIndex: 'origin',
+            title: 'Xuất xứ',
+          },
           {
             dataIndex: 'sex',
             title: 'Giới tính',
             render: renderSex,
           },
-          { dataIndex: 'age', title: 'Tuổi' },
+          {
+            dataIndex: 'age',
+            title: 'Tuổi',
+          },
           {
             dataIndex: 'vaccination',
             title: 'Đã tiêm chủng',
             render: renderVaccination,
           },
-          { dataIndex: 'price', title: 'Giá' },
-          { dataIndex: 'state', title: 'Trạng thái', render: renderState },
+          {
+            dataIndex: 'price',
+            title: 'Giá',
+          },
+          {
+            dataIndex: 'state',
+            title: 'Trạng thái',
+            render: renderState,
+          },
         ]}
       />
     </>
