@@ -33,7 +33,7 @@ export default function Grid(props: GridProps) {
   });
 
   function handleView(rows: any[]) {
-    // Open post from main website in new tab
+    // Open post details in modal
   }
 
   function handleVerify(rows: any[]) {
@@ -52,25 +52,6 @@ export default function Grid(props: GridProps) {
       });
   }
 
-  function submitReject(_id: string) {
-    rejectForm.validateFields().then(inputs => {
-      setRejecting(true);
-
-      requestReject({
-        api: `post/reject/${_id}`,
-        data: inputs,
-      })
-        .then(() => {
-          message.success('Từ chối thành công!');
-          refetch();
-        })
-        .catch(handleRequestError)
-        .finally(() => {
-          setRejecting(false);
-        });
-    });
-  }
-
   function handleReject(rows: any[]) {
     Modal.confirm({
       title: 'Từ chối bài viết',
@@ -83,7 +64,31 @@ export default function Grid(props: GridProps) {
           />
         </RForm>
       ),
-      onOk: () => submitReject(rows[0]._id),
+      onOk() {
+        return new Promise((resolve, reject) => {
+          rejectForm
+            .validateFields()
+            .then(inputs =>
+              requestReject({
+                api: `post/reject/${rows[0]._id}`,
+                data: inputs,
+              })
+            )
+            .then(response => {
+              message.success('Từ chối thành công!');
+              refetch();
+              resolve(response);
+            })
+            .catch(error => {
+              handleRequestError()(error);
+
+              reject(true);
+            })
+            .finally(() => {
+              setRejecting(false);
+            });
+        });
+      },
     });
   }
 
@@ -160,30 +165,59 @@ export default function Grid(props: GridProps) {
           },
         ]}
         colDef={[
-          { dataIndex: 'name', title: 'Tên bài đăng' },
-          { dataIndex: 'createdBy', title: 'Người tạo' },
-          { dataIndex: 'createdAt', title: 'Ngày tạo', render: epochToString },
+          {
+            dataIndex: 'name',
+            title: 'Tên bài đăng',
+          },
+          {
+            dataIndex: 'createdBy',
+            title: 'Người tạo',
+          },
+          {
+            dataIndex: 'createdAt',
+            title: 'Ngày tạo',
+            render: epochToString,
+          },
           {
             dataIndex: 'updatedAt',
             title: 'Ngày cập nhật',
             render: epochToString,
           },
-          { dataIndex: 'category', title: 'Thể loại' },
-          { dataIndex: 'subCategory', title: 'Giống' },
-          { dataIndex: 'origin', title: 'Xuất xứ' },
+          {
+            dataIndex: 'category',
+            title: 'Thể loại',
+          },
+          {
+            dataIndex: 'subCategory',
+            title: 'Giống',
+          },
+          {
+            dataIndex: 'origin',
+            title: 'Xuất xứ',
+          },
           {
             dataIndex: 'sex',
             title: 'Giới tính',
             render: renderSex,
           },
-          { dataIndex: 'age', title: 'Tuổi' },
+          {
+            dataIndex: 'age',
+            title: 'Tuổi',
+          },
           {
             dataIndex: 'vaccination',
             title: 'Đã tiêm chủng',
             render: renderVaccination,
           },
-          { dataIndex: 'price', title: 'Giá' },
-          { dataIndex: 'state', title: 'Trạng thái', render: renderState },
+          {
+            dataIndex: 'price',
+            title: 'Giá',
+          },
+          {
+            dataIndex: 'state',
+            title: 'Trạng thái',
+            render: renderState,
+          },
         ]}
       />
     </>
