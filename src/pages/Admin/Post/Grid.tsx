@@ -33,7 +33,7 @@ export default function Grid(props: GridProps) {
   });
 
   function handleView(rows: any[]) {
-    // Open post from main website in new tab
+    // Open post details in modal
   }
 
   function handleVerify(rows: any[]) {
@@ -52,61 +52,6 @@ export default function Grid(props: GridProps) {
       });
   }
 
-  async function asyncSubmitReject(_id: string) {
-    try {
-      setRejecting(true);
-
-      const inputs = await rejectForm.validateFields();
-
-      await requestReject({
-        api: `post/reject/${_id}`,
-        data: inputs,
-      });
-
-      message.success('Từ chối thành công!');
-      refetch();
-    } catch (error) {
-      if (error.errorFields) {
-        console.log({ error });
-        return;
-      }
-
-      handleRequestError()(error);
-    } finally {
-      setRejecting(false);
-    }
-  }
-
-  function promiseSubmitReject(_id: string) {
-    setRejecting(true);
-
-    return new Promise(resolve => {
-      rejectForm
-        .validateFields()
-        .then(inputs =>
-          requestReject({
-            api: `post/reject/${_id}`,
-            data: inputs,
-          })
-        )
-        .then(response => {
-          message.success('Từ chối thành công!');
-          refetch();
-          resolve();
-        })
-        .catch(error => {
-          if (error.errorFields) {
-            console.log({ error });
-          } else {
-            handleRequestError()(error);
-          }
-        })
-        .finally(() => {
-          setRejecting(false);
-        });
-    })
-  }
-
   function handleReject(rows: any[]) {
     Modal.confirm({
       title: 'Từ chối bài viết',
@@ -120,7 +65,29 @@ export default function Grid(props: GridProps) {
         </RForm>
       ),
       onOk() {
-        return promiseSubmitReject(rows[0]._id);
+        return new Promise((resolve, reject) => {
+          rejectForm
+            .validateFields()
+            .then(inputs =>
+              requestReject({
+                api: `post/reject/${rows[0]._id}`,
+                data: inputs,
+              })
+            )
+            .then(response => {
+              message.success('Từ chối thành công!');
+              refetch();
+              resolve(response);
+            })
+            .catch(error => {
+              handleRequestError()(error);
+
+              reject(true);
+            })
+            .finally(() => {
+              setRejecting(false);
+            });
+        });
       },
     });
   }
@@ -194,7 +161,7 @@ export default function Grid(props: GridProps) {
             icon: 'StopOutlined',
             selection: 'single',
             onClick: handleReject,
-            // disabled: rows => !rows.length || rows[0].state !== 'PENDING',
+            disabled: rows => !rows.length || rows[0].state !== 'PENDING',
           },
         ]}
         colDef={[

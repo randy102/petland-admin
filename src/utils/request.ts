@@ -108,13 +108,17 @@ export function useMutation(
 
 export function handleRequestError(form?: FormInstance) {
   return function (error: any) {
+    if (error?.errorFields) {
+      return;
+    }
+
     const response = error?.response?.data;
 
     const isNormalError = response.message;
 
     if (isNormalError) {
       console.log({ error });
-      message.error(`Error: ${error?.response?.data.message}`);
+      message.error(`Lỗi: ${error?.response?.data.message}`);
     } else {
       const fieldErrors = Object.keys(response).map(key => {
         return {
