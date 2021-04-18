@@ -1,0 +1,211 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "children" : [ {
+    "name" : "Petland Admin",
+    "children" : [ {
+      "name" : "Login Page",
+      "children" : [ {
+        "name" : "test.TestLoginPage",
+        "children" : [ {
+          "name" : "testRequiredLogin",
+          "uid" : "616647c9f9c4bb28",
+          "parentUid" : "fe64aefed5bd9d95d8526a5f0a862801",
+          "status" : "failed",
+          "time" : {
+            "start" : 1618757529162,
+            "stop" : 1618757550347,
+            "duration" : 21185
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "testLoginSuccessfully",
+          "uid" : "d02df75e78feafa7",
+          "parentUid" : "fe64aefed5bd9d95d8526a5f0a862801",
+          "status" : "failed",
+          "time" : {
+            "start" : 1618757550552,
+            "stop" : 1618757562597,
+            "duration" : 12045
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "fe64aefed5bd9d95d8526a5f0a862801"
+      }, {
+        "name" : "test.TestUserPage",
+        "children" : [ {
+          "name" : "testCreateUser",
+          "uid" : "6786b69d84fd546c",
+          "parentUid" : "59e61209bf4f15af0e8085e271b88054",
+          "status" : "passed",
+          "time" : {
+            "start" : 1618757566202,
+            "stop" : 1618757569077,
+            "duration" : 2875
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "testUpdateUser",
+          "uid" : "10a2a369f546937e",
+          "parentUid" : "59e61209bf4f15af0e8085e271b88054",
+          "status" : "passed",
+          "time" : {
+            "start" : 1618757572043,
+            "stop" : 1618757576387,
+            "duration" : 4344
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "testLockUser",
+          "uid" : "d690e0e70e3be1e6",
+          "parentUid" : "59e61209bf4f15af0e8085e271b88054",
+          "status" : "passed",
+          "time" : {
+            "start" : 1618757579289,
+            "stop" : 1618757583484,
+            "duration" : 4195
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "testUnLockUser",
+          "uid" : "6f46765a3a3b808b",
+          "parentUid" : "59e61209bf4f15af0e8085e271b88054",
+          "status" : "passed",
+          "time" : {
+            "start" : 1618757586346,
+            "stop" : 1618757590414,
+            "duration" : 4068
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "testDeleteUser",
+          "uid" : "98a66a6f9694fb31",
+          "parentUid" : "59e61209bf4f15af0e8085e271b88054",
+          "status" : "passed",
+          "time" : {
+            "start" : 1618757593234,
+            "stop" : 1618757596954,
+            "duration" : 3720
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "59e61209bf4f15af0e8085e271b88054"
+      }, {
+        "name" : "test.TestCategoryPage",
+        "children" : [ {
+          "name" : "testAddCategory",
+          "uid" : "ee9ad8f9dc746d61",
+          "parentUid" : "bc2a799692debd802ca7918e6b803c55",
+          "status" : "failed",
+          "time" : {
+            "start" : 1618757599802,
+            "stop" : 1618757611039,
+            "duration" : 11237
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "testUpdateCategory",
+          "uid" : "1e94da0ff188b9db",
+          "parentUid" : "bc2a799692debd802ca7918e6b803c55",
+          "status" : "failed",
+          "time" : {
+            "start" : 1618757613850,
+            "stop" : 1618757624291,
+            "duration" : 10441
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "testDeleteCategory",
+          "uid" : "70f522f28645f46b",
+          "parentUid" : "bc2a799692debd802ca7918e6b803c55",
+          "status" : "failed",
+          "time" : {
+            "start" : 1618757627162,
+            "stop" : 1618757637809,
+            "duration" : 10647
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "bc2a799692debd802ca7918e6b803c55"
+      }, {
+        "name" : "test.TestSubCategoryPage",
+        "children" : [ {
+          "name" : "testAddSubCategory",
+          "uid" : "7bb453aab99c508d",
+          "parentUid" : "f4fc921a9568a7155eed9da0a16cd999",
+          "status" : "failed",
+          "time" : {
+            "start" : 1618757640799,
+            "stop" : 1618757652868,
+            "duration" : 12069
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "testUpdateCategory",
+          "uid" : "cfdb52a0e869266",
+          "parentUid" : "f4fc921a9568a7155eed9da0a16cd999",
+          "status" : "failed",
+          "time" : {
+            "start" : 1618757655845,
+            "stop" : 1618757666540,
+            "duration" : 10695
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "testDeleteCategory",
+          "uid" : "bae4efe055298b30",
+          "parentUid" : "f4fc921a9568a7155eed9da0a16cd999",
+          "status" : "broken",
+          "time" : {
+            "start" : 1618757669351,
+            "stop" : 1618757669487,
+            "duration" : 136
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "cleanUp",
+          "uid" : "d670a4011500a938",
+          "parentUid" : "f4fc921a9568a7155eed9da0a16cd999",
+          "status" : "broken",
+          "time" : {
+            "start" : 1618757670759,
+            "stop" : 1618757670760,
+            "duration" : 1
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "f4fc921a9568a7155eed9da0a16cd999"
+      } ],
+      "uid" : "356b9fe8b60145b67f66c221c8682aa6"
+    } ],
+    "uid" : "c9b88f7585d3855e9d6853f5e43f6162"
+  } ],
+  "name" : "suites"
+}
