@@ -33,6 +33,7 @@ export default function Update(props: UpdateProps) {
       requestUpdate({
         data: {
           id: initRow?._id,
+          categoryID: initRow?.categoryID,
           newName: inputs.name,
         },
       })

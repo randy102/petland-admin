@@ -1,14 +1,13 @@
 /* tslint:disable */
-import React, { useState, useEffect } from 'react';
-import { Button, Table, Input, Space, Modal } from 'antd';
-import { SearchOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
-import * as AntIcon from '@ant-design/icons';
+import { SearchOutlined } from '@ant-design/icons';
+import { Button, Input, Space, Table } from 'antd';
 import { ColumnsType } from 'antd/lib/table';
-import './grid.scss';
-import { HEAD_DATA } from './HeadTemplate';
-import ReactDragListView from 'react-drag-listview';
 import { FilterDropdownProps } from 'antd/lib/table/interface';
+import React, { useEffect, useState } from 'react';
+import ReactDragListView from 'react-drag-listview';
 import { capitalize, removeAccents } from '../../../utils/string';
+import './grid.scss';
+import HeadButton from './HeadButton';
 
 const DEFAULT_PAGE_SIZE = 10;
 interface RGridProps {
@@ -22,15 +21,15 @@ interface RGridProps {
   onDrag?: (from: number, to: number) => void;
 }
 
-declare type ExpandedRowRender<ValueType> = (
+type ExpandedRowRender<ValueType> = (
   record: ValueType,
   index: number,
   indent: number,
   expanded: boolean
 ) => React.ReactNode;
 
-interface HeaderType {
-  icon?: string;
+export type HeaderType = {
+  icon?: string | React.ReactNode;
   name?: string;
   selection?: 'multiple' | 'single' | undefined;
   onClick?: (rows: any[], setSelectedRow: Function) => void;
@@ -39,7 +38,7 @@ interface HeaderType {
   confirmMessage?: string;
   loading?: boolean;
   disabled?: (selectedRows: any[]) => boolean;
-}
+};
 
 type HeaderBtnType = 'create' | 'update' | 'delete' | 'refresh' | 'detail';
 
@@ -185,61 +184,12 @@ export default function RGrid(props: RGridProps) {
         <div className={`rui-grid-btn ${!data?.length ? 'reset' : ''}`}>
           <Space>
             {headDef &&
-              headDef.map(
-                ({
-                  disabled = () => false,
-                  icon,
-                  selection,
-                  name,
-                  onClick = () => {},
-                  type,
-                  confirm,
-                  confirmMessage,
-                  loading = false,
-                }) => {
-                  icon = icon || HEAD_DATA[type || 'create']?.icon;
-                  name = name || HEAD_DATA[type || 'create']?.name;
-
-                  selection = selection || (type && HEAD_DATA[type].selection);
-                  confirm = confirm || HEAD_DATA[type || 'create']?.confirm;
-
-                  // @ts-ignore
-                  const Icon = AntIcon[icon];
-                  const singleError =
-                    selection === 'single' && selectedRows.length !== 1;
-                  const multipleError =
-                    selection === 'multiple' && selectedRows.length === 0;
-                  const isDisabled =
-                    disabled(selectedRows) || singleError
-                      ? true
-                      : multipleError
-                      ? true
-                      : false;
-
-                  function confirmClick(cb: any) {
-                    Modal.confirm({
-                      title: confirmMessage || 'Chắc chưa?',
-                      icon: <ExclamationCircleOutlined />,
-                      onOk: () => cb(selectedRows, setSelectedRows),
-                    });
-                  }
-                  return (
-                    <Button
-                      loading={loading}
-                      key={name}
-                      disabled={isDisabled}
-                      onClick={() =>
-                        confirm
-                          ? confirmClick(onClick)
-                          : onClick(selectedRows, setSelectedRows)
-                      }
-                      icon={Icon && <Icon />}
-                    >
-                      {name}
-                    </Button>
-                  );
-                }
-              )}
+              headDef.map(headProps => (
+                <HeadButton
+                  {...headProps}
+                  {...{ selectedRows, setSelectedRows }}
+                />
+              ))}
           </Space>
         </div>
       )}
@@ -248,8 +198,8 @@ export default function RGrid(props: RGridProps) {
 
       <ReactDragListView nodeSelector="tr" onDragEnd={onDragEnd}>
         <Table
-          onChange={(...props) => {
-            setShowPaginateReplica(props[3].currentDataSource.length === 0);
+          onChange={(_pagination, _filters, _sorter, extra) => {
+            setShowPaginateReplica(extra.currentDataSource.length === 0);
           }}
           className="rui-grid-table"
           size="small"
