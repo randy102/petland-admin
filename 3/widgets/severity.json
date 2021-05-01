@@ -1,0 +1,191 @@
+[ {
+  "uid" : "8e9db72446840138",
+  "name" : "openPage",
+  "time" : {
+    "start" : 1619869284942,
+    "stop" : 1619869284943,
+    "duration" : 1
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "aecb15b938da5b3",
+  "name" : "openPage",
+  "time" : {
+    "start" : 1619869309656,
+    "stop" : 1619869309658,
+    "duration" : 2
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "13f368f84463ca93",
+  "name" : "testDeleteUser",
+  "time" : {
+    "start" : 1619869244768,
+    "stop" : 1619869247898,
+    "duration" : 3130
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bd892fb5382c3ccb",
+  "name" : "testUnLockUser",
+  "time" : {
+    "start" : 1619869239748,
+    "stop" : 1619869242753,
+    "duration" : 3005
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "1cafb150bb08f13e",
+  "name" : "testRequiredLogin",
+  "time" : {
+    "start" : 1619869175314,
+    "stop" : 1619869179884,
+    "duration" : 4570
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a04abcea1b6c72ce",
+  "name" : "testDeclinePost",
+  "time" : {
+    "start" : 1619869309664,
+    "stop" : 1619869309668,
+    "duration" : 4
+  },
+  "status" : "skipped",
+  "severity" : "normal"
+}, {
+  "uid" : "1610bbd461d45191",
+  "name" : "cleanUp",
+  "time" : {
+    "start" : 1619869309733,
+    "stop" : 1619869309733,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "e0f8c785c20dcd1a",
+  "name" : "testUpdateCategory",
+  "time" : {
+    "start" : 1619869272665,
+    "stop" : 1619869272668,
+    "duration" : 3
+  },
+  "status" : "skipped",
+  "severity" : "normal"
+}, {
+  "uid" : "b72b7f556f7fe1e4",
+  "name" : "testDeleteCategory",
+  "time" : {
+    "start" : 1619869284950,
+    "stop" : 1619869284952,
+    "duration" : 2
+  },
+  "status" : "skipped",
+  "severity" : "normal"
+}, {
+  "uid" : "e0a87014494adf1e",
+  "name" : "testDeleteCategory",
+  "time" : {
+    "start" : 1619869210546,
+    "stop" : 1619869221029,
+    "duration" : 10483
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "c0176c8cf45a186f",
+  "name" : "testAddCategory",
+  "time" : {
+    "start" : 1619869184624,
+    "stop" : 1619869195930,
+    "duration" : 11306
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "f886e3ad8a87edf8",
+  "name" : "testUpdateCategory",
+  "time" : {
+    "start" : 1619869197911,
+    "stop" : 1619869208410,
+    "duration" : 10499
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "855bd4e939f09599",
+  "name" : "testUpdateUser",
+  "time" : {
+    "start" : 1619869228025,
+    "stop" : 1619869232232,
+    "duration" : 4207
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f73a910b2fab0f5c",
+  "name" : "testLockUser",
+  "time" : {
+    "start" : 1619869234205,
+    "stop" : 1619869237686,
+    "duration" : 3481
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5f543a0631ecdec0",
+  "name" : "testCreateUser",
+  "time" : {
+    "start" : 1619869223163,
+    "stop" : 1619869225971,
+    "duration" : 2808
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3448ca555928ed93",
+  "name" : "testAddSubCategory",
+  "time" : {
+    "start" : 1619869260184,
+    "stop" : 1619869260186,
+    "duration" : 2
+  },
+  "status" : "skipped",
+  "severity" : "normal"
+}, {
+  "uid" : "ae04217e660d7068",
+  "name" : "testLoginSuccessfully",
+  "time" : {
+    "start" : 1619869179973,
+    "stop" : 1619869182035,
+    "duration" : 2062
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8b25d8459f24a096",
+  "name" : "cleanUp",
+  "time" : {
+    "start" : 1619869285027,
+    "stop" : 1619869285027,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "d5e49717bc077e46",
+  "name" : "testVerifyPost",
+  "time" : {
+    "start" : 1619869297384,
+    "stop" : 1619869297390,
+    "duration" : 6
+  },
+  "status" : "skipped",
+  "severity" : "normal"
+} ]
