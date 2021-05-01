@@ -41,7 +41,7 @@ export default function RUpload(props: RUploadProps) {
     disabled = false,
     uploadApi = () => {},
     label,
-    url = process.env.REACT_APP_BACKEND_URL + "/photo",
+    url = process.env.REACT_APP_BACKEND_URL + "photo",
     initId,
     viewUrl = process.env.REACT_APP_S3URL,
     onChange = () => {},
@@ -59,15 +59,15 @@ export default function RUpload(props: RUploadProps) {
     });
   }, [uploadApi]);
 
-  function handleChange(info: UploadChangeParam<UploadFile<any>>) {
+  async function handleChange(info: UploadChangeParam<UploadFile<any>>) {
     if (info.file.status === "uploading") {
       setLoading(true);
       return;
     }
     if (info.file.status === "done") {
-      setImageId(info.file.response?.fileId);
+      setImageId(info.file.response);
       setLoading(false);
-      onChange(info.file.response?.fileId);
+      onChange(info.file.response);
     }
   }
 

@@ -6,7 +6,7 @@ import Grid from './Grid';
 
 export default function Post() {
   const [curTab, setCurTab] = useState('list');
-
+  
   const [res, { loading, refetch }] = useFetch({
     api: 'post',
     method: 'get',

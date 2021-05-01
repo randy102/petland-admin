@@ -4,6 +4,7 @@ import {
   TagOutlined,
   TagsOutlined,
   NotificationOutlined,
+  SoundOutlined,
 } from '@ant-design/icons';
 
 import User from './User';
@@ -13,6 +14,7 @@ import React from 'react';
 import Demo from './Demo';
 import Subcategory from './Subcategory';
 import Post from './Post';
+import Ads from './Ads';
 
 interface RouteConfig {
   path: string;
@@ -51,6 +53,13 @@ export const ROUTES: RouteConfig[] = [
     name: 'Bài đăng',
     icon: NotificationOutlined,
     component: Post,
+    allowed: [ADMIN, MOD],
+  },
+  {
+    path: '/ads',
+    name: 'Quảng cáo',
+    icon: SoundOutlined,
+    component: Ads,
     allowed: [ADMIN, MOD],
   },
   {

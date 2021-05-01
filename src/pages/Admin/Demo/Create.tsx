@@ -14,7 +14,6 @@ export default function Create(props: CreateProps) {
 
   const [form] = useForm();
 
-
   function handleSubmit() {
     form.validateFields().then((inputs) => {
       message.success("Success!");

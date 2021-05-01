@@ -18,7 +18,8 @@ export interface RInputProps {
   number?: boolean
   price?: boolean
   autoFocus?: boolean
-  style?: React.CSSProperties 
+  style?: React.CSSProperties
+  readonly?: boolean
 }
 
 export interface Rules {
@@ -62,7 +63,10 @@ export default function RInput(props: RInputProps) {
   };
 
   const inputProps: any = {
-    style,
+    style: {
+      ...props.style,
+      pointerEvents: props.readonly ? 'none' : 'auto'
+    },
     prefix,
     suffix,
     disabled,
