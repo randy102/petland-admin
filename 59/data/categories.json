@@ -1,0 +1,128 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "Element not found {By.xpath: //tr[./td[text()='cd232f88-7492-41de-a3ad-46da59133316']]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619865655831.0.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619865655831.0.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//tr[./td[text()='cd232f88-7492-41de-a3ad-46da59133316']]\"}",
+      "children" : [ {
+        "name" : "testAddCategory",
+        "uid" : "3d41d60dd55d1815",
+        "parentUid" : "d1ca068b8efa53820210257755e5ce2e",
+        "status" : "failed",
+        "time" : {
+          "start" : 1619865644644,
+          "stop" : 1619865656016,
+          "duration" : 11372
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "d1ca068b8efa53820210257755e5ce2e"
+    }, {
+      "name" : "Element not found {By.xpath: //tr[./td[text()='cd232f88-7492-41de-a3ad-46da59133316']]}\nExpected: exist\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619865669230.2.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619865669230.2.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//tr[./td[text()='cd232f88-7492-41de-a3ad-46da59133316']]\"}",
+      "children" : [ {
+        "name" : "testUpdateCategory",
+        "uid" : "396769451918aac8",
+        "parentUid" : "b029c508a73d16bc895f501fbea50cac",
+        "status" : "failed",
+        "time" : {
+          "start" : 1619865658859,
+          "stop" : 1619865669406,
+          "duration" : 10547
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "b029c508a73d16bc895f501fbea50cac"
+    }, {
+      "name" : "Element not found {By.xpath: //tr[./td[text()='96c28099-41b4-4cc2-b78a-a34a23f489ee']]}\nExpected: exist\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619865682456.4.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619865682456.4.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//tr[./td[text()='96c28099-41b4-4cc2-b78a-a34a23f489ee']]\"}",
+      "children" : [ {
+        "name" : "testDeleteCategory",
+        "uid" : "33b96523273c7ca3",
+        "parentUid" : "b9089761c9d2f5c1ab6d6859b4a336ea",
+        "status" : "failed",
+        "time" : {
+          "start" : 1619865672090,
+          "stop" : 1619865682646,
+          "duration" : 10556
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "b9089761c9d2f5c1ab6d6859b4a336ea"
+    }, {
+      "name" : "Element not found {By.xpath: //table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619865753992.7.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619865753992.7.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]\"}",
+      "children" : [ {
+        "name" : "openPage",
+        "uid" : "695602a168e505a",
+        "parentUid" : "af2bffcde28da060b5ca9030991ec4b2",
+        "status" : "failed",
+        "time" : {
+          "start" : 1619865754153,
+          "stop" : 1619865754155,
+          "duration" : 2
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "af2bffcde28da060b5ca9030991ec4b2"
+    }, {
+      "name" : "Element not found {By.xpath: //table[.//th//span[text()[contains(.,'Tên bài đăng')]] and .//th//span[text()[contains(.,'Thể loại')]] and .//th//span[text()[contains(.,'Giống')]] and .//th//span[text()[contains(.,'Xuất xứ')]]]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619865779854.9.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619865779854.9.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//table[.//th//span[text()[contains(.,'Tên bài đăng')]] and .//th//span[text()[contains(.,'Thể loại')]] and .//th//span[text()[contains(.,'Giống')]] and .//th//span[text()[contains(.,'Xuất xứ')]]]\"}",
+      "children" : [ {
+        "name" : "openPage",
+        "uid" : "86e9609da30da612",
+        "parentUid" : "579595d562492fc6d2763d163cfc8b4a",
+        "status" : "failed",
+        "time" : {
+          "start" : 1619865780026,
+          "stop" : 1619865780028,
+          "duration" : 2
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "579595d562492fc6d2763d163cfc8b4a"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  }, {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "Cannot read field \"id\" because \"dto\" is null",
+      "children" : [ {
+        "name" : "cleanUp",
+        "uid" : "2d0d8d458d417dd",
+        "parentUid" : "6d14eb310cb06bfffbdb4ba38ebc9023",
+        "status" : "broken",
+        "time" : {
+          "start" : 1619865754233,
+          "stop" : 1619865754233,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "cleanUp",
+        "uid" : "e4abdb649b2cf4ba",
+        "parentUid" : "6d14eb310cb06bfffbdb4ba38ebc9023",
+        "status" : "broken",
+        "time" : {
+          "start" : 1619865780104,
+          "stop" : 1619865780104,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "6d14eb310cb06bfffbdb4ba38ebc9023"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ],
+  "name" : "categories"
+}
