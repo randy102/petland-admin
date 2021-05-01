@@ -1,12 +1,12 @@
 {
-  "uid" : "fdea2ec425cc2a1b",
-  "name" : "testRequiredLogin",
-  "fullName" : "test.TestLoginPage.testRequiredLogin",
-  "historyId" : "22d8d424df7d4f3ae1119a81983fc8dc",
+  "uid" : "d87296232b785a8d",
+  "name" : "testLoginSuccessfully",
+  "fullName" : "test.TestLoginPage.testLoginSuccessfully",
+  "historyId" : "75caf2f707f744831e92a06a8c8ec231",
   "time" : {
-    "start" : 1619844510650,
-    "stop" : 1619844520199,
-    "duration" : 9549
+    "start" : 1619862231510,
+    "stop" : 1619862233451,
+    "duration" : 1941
   },
   "status" : "passed",
   "flaky" : false,
@@ -14,9 +14,9 @@
   "beforeStages" : [ {
     "name" : "setup",
     "time" : {
-      "start" : 1619844510414,
-      "stop" : 1619844510542,
-      "duration" : 128
+      "start" : 1619862225675,
+      "stop" : 1619862225763,
+      "duration" : 88
     },
     "description" : "",
     "status" : "passed",
@@ -33,9 +33,24 @@
     "steps" : [ {
       "name" : "Open login page",
       "time" : {
-        "start" : 1619844510680,
-        "stop" : 1619844519732,
-        "duration" : 9052
+        "start" : 1619862231511,
+        "stop" : 1619862232620,
+        "duration" : 1109
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "Type email and password",
+      "time" : {
+        "start" : 1619862232659,
+        "stop" : 1619862232955,
+        "duration" : 296
       },
       "status" : "passed",
       "steps" : [ ],
@@ -48,9 +63,9 @@
     }, {
       "name" : "Click Submit Button",
       "time" : {
-        "start" : 1619844519732,
-        "stop" : 1619844519997,
-        "duration" : 265
+        "start" : 1619862232955,
+        "stop" : 1619862233044,
+        "duration" : 89
       },
       "status" : "passed",
       "steps" : [ ],
@@ -63,7 +78,7 @@
     } ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 2,
+    "stepsCount" : 3,
     "attachmentsCount" : 0,
     "shouldDisplayMessage" : false,
     "hasContent" : true
@@ -71,9 +86,9 @@
   "afterStages" : [ {
     "name" : "tearDown",
     "time" : {
-      "start" : 1619844520209,
-      "stop" : 1619844520298,
-      "duration" : 89
+      "start" : 1619862233453,
+      "stop" : 1619862233569,
+      "duration" : 116
     },
     "description" : "",
     "status" : "passed",
@@ -93,7 +108,7 @@
     "value" : "test.TestLoginPage"
   }, {
     "name" : "testMethod",
-    "value" : "testRequiredLogin"
+    "value" : "testLoginSuccessfully"
   }, {
     "name" : "parentSuite",
     "value" : "Petland Admin"
@@ -105,10 +120,10 @@
     "value" : "test.TestLoginPage"
   }, {
     "name" : "host",
-    "value" : "fv-az272-114"
+    "value" : "fv-az129-152"
   }, {
     "name" : "thread",
-    "value" : "3802@fv-az272-114.main(1)"
+    "value" : "3773@fv-az129-152.main(1)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -117,7 +132,7 @@
     "value" : "java"
   }, {
     "name" : "story",
-    "value" : "Email and password should be required"
+    "value" : "Admin can login"
   }, {
     "name" : "resultFormat",
     "value" : "allure2"
@@ -132,6 +147,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "fdea2ec425cc2a1b.json",
+  "source" : "d87296232b785a8d.json",
   "parameterValues" : [ ]
 }

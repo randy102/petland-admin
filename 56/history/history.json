@@ -1,4 +1,25 @@
 {
+  "bb545aafbac5b208eb9fcf0e9985b475" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "d53b78943a8ff690",
+      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/d53b78943a8ff690",
+      "status" : "failed",
+      "statusDetails" : "Element not found {By.xpath: //table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619862309353.5.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619862309353.5.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]\"}",
+      "time" : {
+        "start" : 1619862309498,
+        "stop" : 1619862309499,
+        "duration" : 1
+      }
+    } ]
+  },
   "63e38a8280bca310c1f5b68c7d8daf81" : {
     "statistic" : {
       "failed" : 0,
@@ -9,13 +30,13 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "c66e9294f36af145",
-      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/c66e9294f36af145",
+      "uid" : "bbc1638a581a2bb0",
+      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/bbc1638a581a2bb0",
       "status" : "passed",
       "time" : {
-        "start" : 1619844526647,
-        "stop" : 1619844529615,
-        "duration" : 2968
+        "start" : 1619862273369,
+        "stop" : 1619862275875,
+        "duration" : 2506
       }
     } ]
   },
@@ -29,14 +50,14 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "e85cee20b8da027c",
-      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/e85cee20b8da027c",
+      "uid" : "34f5863f96f77f8e",
+      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/34f5863f96f77f8e",
       "status" : "failed",
-      "statusDetails" : "Element not found {By.xpath: //tr[./td[text()='7a6022c1-65e9-42db-b49f-b39c09ba809e']]}\nExpected: exist\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619844596105.4.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619844596105.4.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//tr[./td[text()='7a6022c1-65e9-42db-b49f-b39c09ba809e']]\"}",
+      "statusDetails" : "Element not found {By.xpath: //tr[./td[text()='4cbbba08-c194-41c8-a718-d2c28bb86a54']]}\nExpected: exist\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619862271256.4.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619862271256.4.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//tr[./td[text()='4cbbba08-c194-41c8-a718-d2c28bb86a54']]\"}",
       "time" : {
-        "start" : 1619844585862,
-        "stop" : 1619844596276,
-        "duration" : 10414
+        "start" : 1619862261070,
+        "stop" : 1619862271396,
+        "duration" : 10326
       }
     } ]
   },
@@ -50,13 +71,13 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "a0d2fe9b7c22b633",
-      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/a0d2fe9b7c22b633",
+      "uid" : "6987aa0486ae5ff3",
+      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/6987aa0486ae5ff3",
       "status" : "skipped",
-      "statusDetails" : "Element not found {By.xpath: //table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619844609192.5.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619844609192.5.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]\"}",
+      "statusDetails" : "Element not found {By.xpath: //table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619862309353.5.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619862309353.5.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]\"}",
       "time" : {
-        "start" : 1619844609350,
-        "stop" : 1619844609352,
+        "start" : 1619862309507,
+        "stop" : 1619862309509,
         "duration" : 2
       }
     } ]
@@ -71,13 +92,13 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "5333b1c702a418ad",
-      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/5333b1c702a418ad",
+      "uid" : "534d747ce524c56",
+      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/534d747ce524c56",
       "status" : "skipped",
-      "statusDetails" : "Element not found {By.xpath: //table[.//th//span[text()[contains(.,'Tên bài đăng')]] and .//th//span[text()[contains(.,'Thể loại')]] and .//th//span[text()[contains(.,'Giống')]] and .//th//span[text()[contains(.,'Xuất xứ')]]]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619844620595.6.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619844620595.6.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//table[.//th//span[text()[contains(.,'Tên bài đăng')]] and .//th//span[text()[contains(.,'Thể loại')]] and .//th//span[text()[contains(.,'Giống')]] and .//th//span[text()[contains(.,'Xuất xứ')]]]\"}",
+      "statusDetails" : "Element not found {By.xpath: //table[.//th//span[text()[contains(.,'Tên bài đăng')]] and .//th//span[text()[contains(.,'Thể loại')]] and .//th//span[text()[contains(.,'Giống')]] and .//th//span[text()[contains(.,'Xuất xứ')]]]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619862320474.6.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619862320474.6.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//table[.//th//span[text()[contains(.,'Tên bài đăng')]] and .//th//span[text()[contains(.,'Thể loại')]] and .//th//span[text()[contains(.,'Giống')]] and .//th//span[text()[contains(.,'Xuất xứ')]]]\"}",
       "time" : {
-        "start" : 1619844620752,
-        "stop" : 1619844620755,
+        "start" : 1619862320617,
+        "stop" : 1619862320620,
         "duration" : 3
       }
     } ]
@@ -92,34 +113,13 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "e92ab1bcec2355e",
-      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/e92ab1bcec2355e",
+      "uid" : "5b99bd1dbd9e5c3",
+      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/5b99bd1dbd9e5c3",
       "status" : "passed",
       "time" : {
-        "start" : 1619844532373,
-        "stop" : 1619844536844,
-        "duration" : 4471
-      }
-    } ]
-  },
-  "a4131aae0c1d6d30ded9ab40a2f1f697" : {
-    "statistic" : {
-      "failed" : 1,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 0,
-      "unknown" : 0,
-      "total" : 1
-    },
-    "items" : [ {
-      "uid" : "322b8fd614f987e",
-      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/322b8fd614f987e",
-      "status" : "failed",
-      "statusDetails" : "Element not found {By.xpath: //table[.//th//span[text()[contains(.,'Tên bài đăng')]] and .//th//span[text()[contains(.,'Thể loại')]] and .//th//span[text()[contains(.,'Giống')]] and .//th//span[text()[contains(.,'Xuất xứ')]]]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619844620595.6.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619844620595.6.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//table[.//th//span[text()[contains(.,'Tên bài đăng')]] and .//th//span[text()[contains(.,'Thể loại')]] and .//th//span[text()[contains(.,'Giống')]] and .//th//span[text()[contains(.,'Xuất xứ')]]]\"}",
-      "time" : {
-        "start" : 1619844620741,
-        "stop" : 1619844620744,
-        "duration" : 3
+        "start" : 1619862277836,
+        "stop" : 1619862281562,
+        "duration" : 3726
       }
     } ]
   },
@@ -133,14 +133,14 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "b019e1c5653dc151",
-      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/b019e1c5653dc151",
+      "uid" : "4e49ecbd4ff136f9",
+      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/4e49ecbd4ff136f9",
       "status" : "skipped",
-      "statusDetails" : "Element not found {By.xpath: //table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619844609192.5.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619844609192.5.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]\"}",
+      "statusDetails" : "Element not found {By.xpath: //table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619862309353.5.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619862309353.5.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]\"}",
       "time" : {
-        "start" : 1619844609354,
-        "stop" : 1619844609356,
-        "duration" : 2
+        "start" : 1619862309516,
+        "stop" : 1619862309517,
+        "duration" : 1
       }
     } ]
   },
@@ -154,55 +154,14 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "361b0ab312784c1a",
-      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/361b0ab312784c1a",
+      "uid" : "6e9e99be1738206f",
+      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/6e9e99be1738206f",
       "status" : "failed",
-      "statusDetails" : "Element not found {By.xpath: //tr[./td[text()='3a01661a-f872-4e70-83ce-b6251698e7f3']]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619844569703.0.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619844569703.0.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//tr[./td[text()='3a01661a-f872-4e70-83ce-b6251698e7f3']]\"}",
+      "statusDetails" : "Element not found {By.xpath: //tr[./td[text()='e7186442-1678-40ac-bfad-cc22fce4fbd8']]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619862246832.0.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619862246832.0.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//tr[./td[text()='e7186442-1678-40ac-bfad-cc22fce4fbd8']]\"}",
       "time" : {
-        "start" : 1619844558777,
-        "stop" : 1619844569880,
-        "duration" : 11103
-      }
-    } ]
-  },
-  "41d39b1190a5eaf83fb6efc15d570f3d" : {
-    "statistic" : {
-      "failed" : 1,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 0,
-      "unknown" : 0,
-      "total" : 1
-    },
-    "items" : [ {
-      "uid" : "f5b7b102fdbd9e5c",
-      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/f5b7b102fdbd9e5c",
-      "status" : "failed",
-      "statusDetails" : "Element not found {By.xpath: //table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619844609192.5.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619844609192.5.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]\"}",
-      "time" : {
-        "start" : 1619844609338,
-        "stop" : 1619844609340,
-        "duration" : 2
-      }
-    } ]
-  },
-  "75caf2f707f744831e92a06a8c8ec231" : {
-    "statistic" : {
-      "failed" : 0,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 1,
-      "unknown" : 0,
-      "total" : 1
-    },
-    "items" : [ {
-      "uid" : "6ef429de0a797184",
-      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/6ef429de0a797184",
-      "status" : "passed",
-      "time" : {
-        "start" : 1619844520303,
-        "stop" : 1619844523165,
-        "duration" : 2862
+        "start" : 1619862236009,
+        "stop" : 1619862246997,
+        "duration" : 10988
       }
     } ]
   },
@@ -216,14 +175,34 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "63d0d0fa510ab15f",
-      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/63d0d0fa510ab15f",
+      "uid" : "6a61e6ed6bc45b4c",
+      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/6a61e6ed6bc45b4c",
       "status" : "failed",
-      "statusDetails" : "Element not found {By.xpath: //tr[./td[text()='3a01661a-f872-4e70-83ce-b6251698e7f3']]}\nExpected: exist\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619844582996.2.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619844582996.2.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//tr[./td[text()='3a01661a-f872-4e70-83ce-b6251698e7f3']]\"}",
+      "statusDetails" : "Element not found {By.xpath: //tr[./td[text()='e7186442-1678-40ac-bfad-cc22fce4fbd8']]}\nExpected: exist\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619862259063.2.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619862259063.2.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//tr[./td[text()='e7186442-1678-40ac-bfad-cc22fce4fbd8']]\"}",
       "time" : {
-        "start" : 1619844572724,
-        "stop" : 1619844583167,
-        "duration" : 10443
+        "start" : 1619862248862,
+        "stop" : 1619862259221,
+        "duration" : 10359
+      }
+    } ]
+  },
+  "75caf2f707f744831e92a06a8c8ec231" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "d87296232b785a8d",
+      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/d87296232b785a8d",
+      "status" : "passed",
+      "time" : {
+        "start" : 1619862231510,
+        "stop" : 1619862233451,
+        "duration" : 1941
       }
     } ]
   },
@@ -237,13 +216,34 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "fdea2ec425cc2a1b",
-      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/fdea2ec425cc2a1b",
+      "uid" : "bd0db5e05c9e4e78",
+      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/bd0db5e05c9e4e78",
       "status" : "passed",
       "time" : {
-        "start" : 1619844510650,
-        "stop" : 1619844520199,
-        "duration" : 9549
+        "start" : 1619862225864,
+        "stop" : 1619862231426,
+        "duration" : 5562
+      }
+    } ]
+  },
+  "2a6b07d7836eac78a8c46a6db15e9f19" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "b45dc9bcb1263c4f",
+      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/b45dc9bcb1263c4f",
+      "status" : "failed",
+      "statusDetails" : "Element not found {By.xpath: //table[.//th//span[text()[contains(.,'Tên bài đăng')]] and .//th//span[text()[contains(.,'Thể loại')]] and .//th//span[text()[contains(.,'Giống')]] and .//th//span[text()[contains(.,'Xuất xứ')]]]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619862320474.6.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619862320474.6.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//table[.//th//span[text()[contains(.,'Tên bài đăng')]] and .//th//span[text()[contains(.,'Thể loại')]] and .//th//span[text()[contains(.,'Giống')]] and .//th//span[text()[contains(.,'Xuất xứ')]]]\"}",
+      "time" : {
+        "start" : 1619862320613,
+        "stop" : 1619862320615,
+        "duration" : 2
       }
     } ]
   },
@@ -257,13 +257,13 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "e90314d0c201f48f",
-      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/e90314d0c201f48f",
+      "uid" : "46706a3830a127e2",
+      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/46706a3830a127e2",
       "status" : "passed",
       "time" : {
-        "start" : 1619844539667,
-        "stop" : 1619844543610,
-        "duration" : 3943
+        "start" : 1619862283464,
+        "stop" : 1619862287005,
+        "duration" : 3541
       }
     } ]
   },
@@ -277,14 +277,14 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "c078ebb9c538611d",
-      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/c078ebb9c538611d",
+      "uid" : "3b1810a15a5518cc",
+      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/3b1810a15a5518cc",
       "status" : "skipped",
-      "statusDetails" : "Element not found {By.xpath: //table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619844609192.5.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619844609192.5.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]\"}",
+      "statusDetails" : "Element not found {By.xpath: //table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619862309353.5.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619862309353.5.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]\"}",
       "time" : {
-        "start" : 1619844609344,
-        "stop" : 1619844609347,
-        "duration" : 3
+        "start" : 1619862309502,
+        "stop" : 1619862309503,
+        "duration" : 1
       }
     } ]
   },
@@ -298,13 +298,13 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "634f4c6ac54a9043",
-      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/634f4c6ac54a9043",
+      "uid" : "58a7d54f0213be18",
+      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/58a7d54f0213be18",
       "status" : "passed",
       "time" : {
-        "start" : 1619844552841,
-        "stop" : 1619844555990,
-        "duration" : 3149
+        "start" : 1619862294244,
+        "stop" : 1619862297510,
+        "duration" : 3266
       }
     } ]
   },
@@ -318,13 +318,13 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "fc9ff0ae99ccdd8a",
-      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/fc9ff0ae99ccdd8a",
+      "uid" : "1820f9dc4ff439a4",
+      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/1820f9dc4ff439a4",
       "status" : "passed",
       "time" : {
-        "start" : 1619844546483,
-        "stop" : 1619844550070,
-        "duration" : 3587
+        "start" : 1619862288830,
+        "stop" : 1619862292406,
+        "duration" : 3576
       }
     } ]
   },
@@ -338,13 +338,13 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "7a9c491a9e500d79",
-      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/7a9c491a9e500d79",
+      "uid" : "5bce489ee58b0eb6",
+      "reportUrl" : "https://randy102.github.io/petland-admin/56//#testresult/5bce489ee58b0eb6",
       "status" : "skipped",
-      "statusDetails" : "Element not found {By.xpath: //table[.//th//span[text()[contains(.,'Tên bài đăng')]] and .//th//span[text()[contains(.,'Thể loại')]] and .//th//span[text()[contains(.,'Giống')]] and .//th//span[text()[contains(.,'Xuất xứ')]]]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619844620595.6.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619844620595.6.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//table[.//th//span[text()[contains(.,'Tên bài đăng')]] and .//th//span[text()[contains(.,'Thể loại')]] and .//th//span[text()[contains(.,'Giống')]] and .//th//span[text()[contains(.,'Xuất xứ')]]]\"}",
+      "statusDetails" : "Element not found {By.xpath: //table[.//th//span[text()[contains(.,'Tên bài đăng')]] and .//th//span[text()[contains(.,'Thể loại')]] and .//th//span[text()[contains(.,'Giống')]] and .//th//span[text()[contains(.,'Xuất xứ')]]]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619862320474.6.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619862320474.6.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//table[.//th//span[text()[contains(.,'Tên bài đăng')]] and .//th//span[text()[contains(.,'Thể loại')]] and .//th//span[text()[contains(.,'Giống')]] and .//th//span[text()[contains(.,'Xuất xứ')]]]\"}",
       "time" : {
-        "start" : 1619844620759,
-        "stop" : 1619844620762,
+        "start" : 1619862320623,
+        "stop" : 1619862320626,
         "duration" : 3
       }
     } ]

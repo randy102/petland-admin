@@ -1,12 +1,12 @@
 {
-  "uid" : "634f4c6ac54a9043",
-  "name" : "testDeleteUser",
-  "fullName" : "test.TestUserPage.testDeleteUser",
-  "historyId" : "d78f0ffc9876b0ecb68c0612752f9587",
+  "uid" : "5b99bd1dbd9e5c3",
+  "name" : "testUpdateUser",
+  "fullName" : "test.TestUserPage.testUpdateUser",
+  "historyId" : "c759a397e611954d21f9f5833f2b02fc",
   "time" : {
-    "start" : 1619844552841,
-    "stop" : 1619844555990,
-    "duration" : 3149
+    "start" : 1619862277836,
+    "stop" : 1619862281562,
+    "duration" : 3726
   },
   "status" : "passed",
   "flaky" : false,
@@ -14,8 +14,8 @@
   "beforeStages" : [ {
     "name" : "setup",
     "time" : {
-      "start" : 1619844523245,
-      "stop" : 1619844523246,
+      "start" : 1619862271541,
+      "stop" : 1619862271542,
       "duration" : 1
     },
     "description" : "",
@@ -28,36 +28,36 @@
     "shouldDisplayMessage" : false,
     "hasContent" : false
   }, {
-    "name" : "openUserPage",
+    "name" : "openPage",
     "time" : {
-      "start" : 1619844550132,
-      "stop" : 1619844552839,
-      "duration" : 2707
+      "start" : 1619862275984,
+      "stop" : 1619862277832,
+      "duration" : 1848
     },
     "description" : "",
     "status" : "passed",
     "steps" : [ {
       "name" : "Open user page",
       "time" : {
-        "start" : 1619844550133,
-        "stop" : 1619844552839,
-        "duration" : 2706
+        "start" : 1619862275984,
+        "stop" : 1619862277832,
+        "duration" : 1848
       },
       "status" : "passed",
       "steps" : [ {
         "name" : "Login with Admin",
         "time" : {
-          "start" : 1619844550133,
-          "stop" : 1619844552348,
-          "duration" : 2215
+          "start" : 1619862275984,
+          "stop" : 1619862277472,
+          "duration" : 1488
         },
         "status" : "passed",
         "steps" : [ {
           "name" : "Open login page",
           "time" : {
-            "start" : 1619844551840,
-            "stop" : 1619844552348,
-            "duration" : 508
+            "start" : 1619862277061,
+            "stop" : 1619862277472,
+            "duration" : 411
           },
           "status" : "passed",
           "steps" : [ ],
@@ -94,24 +94,24 @@
     "steps" : [ {
       "name" : "Check grid line",
       "time" : {
-        "start" : 1619844552841,
-        "stop" : 1619844554029,
-        "duration" : 1188
+        "start" : 1619862277836,
+        "stop" : 1619862278958,
+        "duration" : 1122
       },
       "status" : "passed",
       "steps" : [ {
         "name" : "Get grid line",
         "time" : {
-          "start" : 1619844552841,
-          "stop" : 1619844552842,
-          "duration" : 1
+          "start" : 1619862277836,
+          "stop" : 1619862277836,
+          "duration" : 0
         },
         "status" : "passed",
         "steps" : [ ],
         "attachments" : [ ],
         "parameters" : [ {
           "name" : "key",
-          "value" : "2dd92e71-9629-403d-9e48-84b4cb7bd415@gmail.com"
+          "value" : "7188d58c-9c99-4fb6-99a0-a1c3d63711a3@gmail.com"
         } ],
         "stepsCount" : 0,
         "attachmentsCount" : 0,
@@ -121,18 +121,18 @@
       "attachments" : [ ],
       "parameters" : [ {
         "name" : "key",
-        "value" : "2dd92e71-9629-403d-9e48-84b4cb7bd415@gmail.com"
+        "value" : "7188d58c-9c99-4fb6-99a0-a1c3d63711a3@gmail.com"
       } ],
       "stepsCount" : 1,
       "attachmentsCount" : 0,
       "shouldDisplayMessage" : false,
       "hasContent" : true
     }, {
-      "name" : "Click delete button",
+      "name" : "Click update button",
       "time" : {
-        "start" : 1619844554029,
-        "stop" : 1619844554171,
-        "duration" : 142
+        "start" : 1619862278958,
+        "stop" : 1619862279175,
+        "duration" : 217
       },
       "status" : "passed",
       "steps" : [ ],
@@ -143,11 +143,29 @@
       "shouldDisplayMessage" : false,
       "hasContent" : false
     }, {
-      "name" : "Confirm popup",
+      "name" : "Update user's role",
       "time" : {
-        "start" : 1619844554172,
-        "stop" : 1619844554324,
-        "duration" : 152
+        "start" : 1619862279294,
+        "stop" : 1619862279733,
+        "duration" : 439
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "role",
+        "value" : "MOD"
+      } ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Submit update",
+      "time" : {
+        "start" : 1619862279733,
+        "stop" : 1619862279832,
+        "duration" : 99
       },
       "status" : "passed",
       "steps" : [ ],
@@ -160,8 +178,8 @@
     }, {
       "name" : "Get grid line",
       "time" : {
-        "start" : 1619844554324,
-        "stop" : 1619844554324,
+        "start" : 1619862279863,
+        "stop" : 1619862279863,
         "duration" : 0
       },
       "status" : "passed",
@@ -169,7 +187,7 @@
       "attachments" : [ ],
       "parameters" : [ {
         "name" : "key",
-        "value" : "2dd92e71-9629-403d-9e48-84b4cb7bd415@gmail.com"
+        "value" : "7188d58c-9c99-4fb6-99a0-a1c3d63711a3@gmail.com"
       } ],
       "stepsCount" : 0,
       "attachmentsCount" : 0,
@@ -178,7 +196,7 @@
     } ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 5,
+    "stepsCount" : 6,
     "attachmentsCount" : 0,
     "shouldDisplayMessage" : false,
     "hasContent" : true
@@ -186,9 +204,9 @@
   "afterStages" : [ {
     "name" : "tearDown",
     "time" : {
-      "start" : 1619844555991,
-      "stop" : 1619844556101,
-      "duration" : 110
+      "start" : 1619862281563,
+      "stop" : 1619862281670,
+      "duration" : 107
     },
     "description" : "",
     "status" : "passed",
@@ -208,7 +226,7 @@
     "value" : "test.TestUserPage"
   }, {
     "name" : "testMethod",
-    "value" : "testDeleteUser"
+    "value" : "testUpdateUser"
   }, {
     "name" : "parentSuite",
     "value" : "Petland Admin"
@@ -220,10 +238,10 @@
     "value" : "test.TestUserPage"
   }, {
     "name" : "host",
-    "value" : "fv-az272-114"
+    "value" : "fv-az129-152"
   }, {
     "name" : "thread",
-    "value" : "3802@fv-az272-114.main(1)"
+    "value" : "3773@fv-az129-152.main(1)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -232,7 +250,7 @@
     "value" : "java"
   }, {
     "name" : "story",
-    "value" : "Admin can delete user"
+    "value" : "Admin can update user's role"
   }, {
     "name" : "resultFormat",
     "value" : "allure2"
@@ -247,6 +265,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "634f4c6ac54a9043.json",
+  "source" : "5b99bd1dbd9e5c3.json",
   "parameterValues" : [ ]
 }

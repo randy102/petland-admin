@@ -1,47 +1,63 @@
 {
-  "uid" : "e90314d0c201f48f",
-  "name" : "testLockUser",
-  "fullName" : "test.TestUserPage.testLockUser",
-  "historyId" : "9487dbe3bdcfdbb8e18b7f037c8849ae",
+  "uid" : "bbc1638a581a2bb0",
+  "name" : "testCreateUser",
+  "fullName" : "test.TestUserPage.testCreateUser",
+  "historyId" : "63e38a8280bca310c1f5b68c7d8daf81",
   "time" : {
-    "start" : 1619844539667,
-    "stop" : 1619844543610,
-    "duration" : 3943
+    "start" : 1619862273369,
+    "stop" : 1619862275875,
+    "duration" : 2506
   },
   "status" : "passed",
   "flaky" : false,
   "newFailed" : false,
   "beforeStages" : [ {
-    "name" : "openUserPage",
+    "name" : "setup",
     "time" : {
-      "start" : 1619844536907,
-      "stop" : 1619844539665,
-      "duration" : 2758
+      "start" : 1619862271541,
+      "stop" : 1619862271542,
+      "duration" : 1
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "openPage",
+    "time" : {
+      "start" : 1619862271542,
+      "stop" : 1619862273368,
+      "duration" : 1826
     },
     "description" : "",
     "status" : "passed",
     "steps" : [ {
       "name" : "Open user page",
       "time" : {
-        "start" : 1619844536907,
-        "stop" : 1619844539665,
-        "duration" : 2758
+        "start" : 1619862271543,
+        "stop" : 1619862273367,
+        "duration" : 1824
       },
       "status" : "passed",
       "steps" : [ {
         "name" : "Login with Admin",
         "time" : {
-          "start" : 1619844536907,
-          "stop" : 1619844539179,
-          "duration" : 2272
+          "start" : 1619862271543,
+          "stop" : 1619862272976,
+          "duration" : 1433
         },
         "status" : "passed",
         "steps" : [ {
           "name" : "Open login page",
           "time" : {
-            "start" : 1619844538644,
-            "stop" : 1619844539179,
-            "duration" : 535
+            "start" : 1619862272571,
+            "stop" : 1619862272976,
+            "duration" : 405
           },
           "status" : "passed",
           "steps" : [ ],
@@ -72,67 +88,15 @@
     "attachmentsCount" : 0,
     "shouldDisplayMessage" : false,
     "hasContent" : true
-  }, {
-    "name" : "setup",
-    "time" : {
-      "start" : 1619844523245,
-      "stop" : 1619844523246,
-      "duration" : 1
-    },
-    "description" : "",
-    "status" : "passed",
-    "steps" : [ ],
-    "attachments" : [ ],
-    "parameters" : [ ],
-    "stepsCount" : 0,
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
-    "hasContent" : false
   } ],
   "testStage" : {
     "status" : "passed",
     "steps" : [ {
-      "name" : "Check grid line",
+      "name" : "Open create tab",
       "time" : {
-        "start" : 1619844539668,
-        "stop" : 1619844540953,
-        "duration" : 1285
-      },
-      "status" : "passed",
-      "steps" : [ {
-        "name" : "Get grid line",
-        "time" : {
-          "start" : 1619844539668,
-          "stop" : 1619844539668,
-          "duration" : 0
-        },
-        "status" : "passed",
-        "steps" : [ ],
-        "attachments" : [ ],
-        "parameters" : [ {
-          "name" : "key",
-          "value" : "2dd92e71-9629-403d-9e48-84b4cb7bd415@gmail.com"
-        } ],
-        "stepsCount" : 0,
-        "attachmentsCount" : 0,
-        "shouldDisplayMessage" : false,
-        "hasContent" : true
-      } ],
-      "attachments" : [ ],
-      "parameters" : [ {
-        "name" : "key",
-        "value" : "2dd92e71-9629-403d-9e48-84b4cb7bd415@gmail.com"
-      } ],
-      "stepsCount" : 1,
-      "attachmentsCount" : 0,
-      "shouldDisplayMessage" : false,
-      "hasContent" : true
-    }, {
-      "name" : "Click toggle lock button",
-      "time" : {
-        "start" : 1619844540953,
-        "stop" : 1619844541065,
-        "duration" : 112
+        "start" : 1619862273369,
+        "stop" : 1619862273530,
+        "duration" : 161
       },
       "status" : "passed",
       "steps" : [ ],
@@ -143,11 +107,29 @@
       "shouldDisplayMessage" : false,
       "hasContent" : false
     }, {
-      "name" : "Confirm popup",
+      "name" : "Input create user form",
       "time" : {
-        "start" : 1619844541066,
-        "stop" : 1619844541634,
-        "duration" : 568
+        "start" : 1619862273617,
+        "stop" : 1619862274288,
+        "duration" : 671
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "role",
+        "value" : "USER"
+      } ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Submit create",
+      "time" : {
+        "start" : 1619862274288,
+        "stop" : 1619862274356,
+        "duration" : 68
       },
       "status" : "passed",
       "steps" : [ ],
@@ -160,8 +142,8 @@
     }, {
       "name" : "Get grid line",
       "time" : {
-        "start" : 1619844541635,
-        "stop" : 1619844541635,
+        "start" : 1619862274356,
+        "stop" : 1619862274356,
         "duration" : 0
       },
       "status" : "passed",
@@ -169,7 +151,7 @@
       "attachments" : [ ],
       "parameters" : [ {
         "name" : "key",
-        "value" : "2dd92e71-9629-403d-9e48-84b4cb7bd415@gmail.com"
+        "value" : "7188d58c-9c99-4fb6-99a0-a1c3d63711a3@gmail.com"
       } ],
       "stepsCount" : 0,
       "attachmentsCount" : 0,
@@ -178,7 +160,7 @@
     } ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 5,
+    "stepsCount" : 4,
     "attachmentsCount" : 0,
     "shouldDisplayMessage" : false,
     "hasContent" : true
@@ -186,9 +168,9 @@
   "afterStages" : [ {
     "name" : "tearDown",
     "time" : {
-      "start" : 1619844543611,
-      "stop" : 1619844543719,
-      "duration" : 108
+      "start" : 1619862275876,
+      "stop" : 1619862275983,
+      "duration" : 107
     },
     "description" : "",
     "status" : "passed",
@@ -208,7 +190,7 @@
     "value" : "test.TestUserPage"
   }, {
     "name" : "testMethod",
-    "value" : "testLockUser"
+    "value" : "testCreateUser"
   }, {
     "name" : "parentSuite",
     "value" : "Petland Admin"
@@ -220,10 +202,10 @@
     "value" : "test.TestUserPage"
   }, {
     "name" : "host",
-    "value" : "fv-az272-114"
+    "value" : "fv-az129-152"
   }, {
     "name" : "thread",
-    "value" : "3802@fv-az272-114.main(1)"
+    "value" : "3773@fv-az129-152.main(1)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -232,7 +214,7 @@
     "value" : "java"
   }, {
     "name" : "story",
-    "value" : "Admin can lock user"
+    "value" : "Admin can create user"
   }, {
     "name" : "resultFormat",
     "value" : "allure2"
@@ -247,6 +229,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "e90314d0c201f48f.json",
+  "source" : "bbc1638a581a2bb0.json",
   "parameterValues" : [ ]
 }

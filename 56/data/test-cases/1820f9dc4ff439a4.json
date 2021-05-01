@@ -1,77 +1,63 @@
 {
-  "uid" : "c66e9294f36af145",
-  "name" : "testCreateUser",
-  "fullName" : "test.TestUserPage.testCreateUser",
-  "historyId" : "63e38a8280bca310c1f5b68c7d8daf81",
+  "uid" : "1820f9dc4ff439a4",
+  "name" : "testUnLockUser",
+  "fullName" : "test.TestUserPage.testUnLockUser",
+  "historyId" : "487ede50b143e45061f15b6d7ec6e171",
   "time" : {
-    "start" : 1619844526647,
-    "stop" : 1619844529615,
-    "duration" : 2968
+    "start" : 1619862288830,
+    "stop" : 1619862292406,
+    "duration" : 3576
   },
   "status" : "passed",
   "flaky" : false,
   "newFailed" : false,
   "beforeStages" : [ {
-    "name" : "openUserPage",
+    "name" : "setup",
     "time" : {
-      "start" : 1619844523247,
-      "stop" : 1619844526640,
-      "duration" : 3393
+      "start" : 1619862271541,
+      "stop" : 1619862271542,
+      "duration" : 1
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "openPage",
+    "time" : {
+      "start" : 1619862287066,
+      "stop" : 1619862288828,
+      "duration" : 1762
     },
     "description" : "",
     "status" : "passed",
     "steps" : [ {
       "name" : "Open user page",
       "time" : {
-        "start" : 1619844523248,
-        "stop" : 1619844526640,
-        "duration" : 3392
+        "start" : 1619862287066,
+        "stop" : 1619862288828,
+        "duration" : 1762
       },
       "status" : "passed",
       "steps" : [ {
         "name" : "Login with Admin",
         "time" : {
-          "start" : 1619844523248,
-          "stop" : 1619844526076,
-          "duration" : 2828
+          "start" : 1619862287066,
+          "stop" : 1619862288484,
+          "duration" : 1418
         },
         "status" : "passed",
         "steps" : [ {
           "name" : "Open login page",
           "time" : {
-            "start" : 1619844523249,
-            "stop" : 1619844524976,
-            "duration" : 1727
-          },
-          "status" : "passed",
-          "steps" : [ ],
-          "attachments" : [ ],
-          "parameters" : [ ],
-          "stepsCount" : 0,
-          "attachmentsCount" : 0,
-          "shouldDisplayMessage" : false,
-          "hasContent" : false
-        }, {
-          "name" : "Type email and password",
-          "time" : {
-            "start" : 1619844524977,
-            "stop" : 1619844525356,
-            "duration" : 379
-          },
-          "status" : "passed",
-          "steps" : [ ],
-          "attachments" : [ ],
-          "parameters" : [ ],
-          "stepsCount" : 0,
-          "attachmentsCount" : 0,
-          "shouldDisplayMessage" : false,
-          "hasContent" : false
-        }, {
-          "name" : "Click Submit Button",
-          "time" : {
-            "start" : 1619844525356,
-            "stop" : 1619844525490,
-            "duration" : 134
+            "start" : 1619862288092,
+            "stop" : 1619862288484,
+            "duration" : 392
           },
           "status" : "passed",
           "steps" : [ ],
@@ -84,49 +70,69 @@
         } ],
         "attachments" : [ ],
         "parameters" : [ ],
-        "stepsCount" : 3,
+        "stepsCount" : 1,
         "attachmentsCount" : 0,
         "shouldDisplayMessage" : false,
         "hasContent" : true
       } ],
       "attachments" : [ ],
       "parameters" : [ ],
-      "stepsCount" : 4,
+      "stepsCount" : 2,
       "attachmentsCount" : 0,
       "shouldDisplayMessage" : false,
       "hasContent" : true
     } ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 5,
+    "stepsCount" : 3,
     "attachmentsCount" : 0,
     "shouldDisplayMessage" : false,
     "hasContent" : true
-  }, {
-    "name" : "setup",
-    "time" : {
-      "start" : 1619844523245,
-      "stop" : 1619844523246,
-      "duration" : 1
-    },
-    "description" : "",
-    "status" : "passed",
-    "steps" : [ ],
-    "attachments" : [ ],
-    "parameters" : [ ],
-    "stepsCount" : 0,
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
-    "hasContent" : false
   } ],
   "testStage" : {
     "status" : "passed",
     "steps" : [ {
-      "name" : "Open create tab",
+      "name" : "Check grid line",
       "time" : {
-        "start" : 1619844526648,
-        "stop" : 1619844526813,
-        "duration" : 165
+        "start" : 1619862288830,
+        "stop" : 1619862290031,
+        "duration" : 1201
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "Get grid line",
+        "time" : {
+          "start" : 1619862288830,
+          "stop" : 1619862288830,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ {
+          "name" : "key",
+          "value" : "7188d58c-9c99-4fb6-99a0-a1c3d63711a3@gmail.com"
+        } ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : true
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "key",
+        "value" : "7188d58c-9c99-4fb6-99a0-a1c3d63711a3@gmail.com"
+      } ],
+      "stepsCount" : 1,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Click toggle lock button",
+      "time" : {
+        "start" : 1619862290031,
+        "stop" : 1619862290142,
+        "duration" : 111
       },
       "status" : "passed",
       "steps" : [ ],
@@ -137,29 +143,11 @@
       "shouldDisplayMessage" : false,
       "hasContent" : false
     }, {
-      "name" : "Input create user form",
+      "name" : "Confirm popup",
       "time" : {
-        "start" : 1619844526909,
-        "stop" : 1619844527659,
-        "duration" : 750
-      },
-      "status" : "passed",
-      "steps" : [ ],
-      "attachments" : [ ],
-      "parameters" : [ {
-        "name" : "role",
-        "value" : "USER"
-      } ],
-      "stepsCount" : 0,
-      "attachmentsCount" : 0,
-      "shouldDisplayMessage" : false,
-      "hasContent" : true
-    }, {
-      "name" : "Submit create user",
-      "time" : {
-        "start" : 1619844527660,
-        "stop" : 1619844527791,
-        "duration" : 131
+        "start" : 1619862290142,
+        "stop" : 1619862290628,
+        "duration" : 486
       },
       "status" : "passed",
       "steps" : [ ],
@@ -172,8 +160,8 @@
     }, {
       "name" : "Get grid line",
       "time" : {
-        "start" : 1619844527791,
-        "stop" : 1619844527791,
+        "start" : 1619862290628,
+        "stop" : 1619862290628,
         "duration" : 0
       },
       "status" : "passed",
@@ -181,7 +169,7 @@
       "attachments" : [ ],
       "parameters" : [ {
         "name" : "key",
-        "value" : "2dd92e71-9629-403d-9e48-84b4cb7bd415@gmail.com"
+        "value" : "7188d58c-9c99-4fb6-99a0-a1c3d63711a3@gmail.com"
       } ],
       "stepsCount" : 0,
       "attachmentsCount" : 0,
@@ -190,7 +178,7 @@
     } ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "stepsCount" : 4,
+    "stepsCount" : 5,
     "attachmentsCount" : 0,
     "shouldDisplayMessage" : false,
     "hasContent" : true
@@ -198,9 +186,9 @@
   "afterStages" : [ {
     "name" : "tearDown",
     "time" : {
-      "start" : 1619844529616,
-      "stop" : 1619844529676,
-      "duration" : 60
+      "start" : 1619862292407,
+      "stop" : 1619862292473,
+      "duration" : 66
     },
     "description" : "",
     "status" : "passed",
@@ -220,7 +208,7 @@
     "value" : "test.TestUserPage"
   }, {
     "name" : "testMethod",
-    "value" : "testCreateUser"
+    "value" : "testUnLockUser"
   }, {
     "name" : "parentSuite",
     "value" : "Petland Admin"
@@ -232,10 +220,10 @@
     "value" : "test.TestUserPage"
   }, {
     "name" : "host",
-    "value" : "fv-az272-114"
+    "value" : "fv-az129-152"
   }, {
     "name" : "thread",
-    "value" : "3802@fv-az272-114.main(1)"
+    "value" : "3773@fv-az129-152.main(1)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -244,7 +232,7 @@
     "value" : "java"
   }, {
     "name" : "story",
-    "value" : "Admin can create user"
+    "value" : "Admin can unlock user"
   }, {
     "name" : "resultFormat",
     "value" : "allure2"
@@ -259,6 +247,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "c66e9294f36af145.json",
+  "source" : "1820f9dc4ff439a4.json",
   "parameterValues" : [ ]
 }

@@ -1,63 +1,47 @@
 {
-  "uid" : "fc9ff0ae99ccdd8a",
-  "name" : "testUnLockUser",
-  "fullName" : "test.TestUserPage.testUnLockUser",
-  "historyId" : "487ede50b143e45061f15b6d7ec6e171",
+  "uid" : "58a7d54f0213be18",
+  "name" : "testDeleteUser",
+  "fullName" : "test.TestUserPage.testDeleteUser",
+  "historyId" : "d78f0ffc9876b0ecb68c0612752f9587",
   "time" : {
-    "start" : 1619844546483,
-    "stop" : 1619844550070,
-    "duration" : 3587
+    "start" : 1619862294244,
+    "stop" : 1619862297510,
+    "duration" : 3266
   },
   "status" : "passed",
   "flaky" : false,
   "newFailed" : false,
   "beforeStages" : [ {
-    "name" : "setup",
+    "name" : "openPage",
     "time" : {
-      "start" : 1619844523245,
-      "stop" : 1619844523246,
-      "duration" : 1
-    },
-    "description" : "",
-    "status" : "passed",
-    "steps" : [ ],
-    "attachments" : [ ],
-    "parameters" : [ ],
-    "stepsCount" : 0,
-    "attachmentsCount" : 0,
-    "shouldDisplayMessage" : false,
-    "hasContent" : false
-  }, {
-    "name" : "openUserPage",
-    "time" : {
-      "start" : 1619844543721,
-      "stop" : 1619844546480,
-      "duration" : 2759
+      "start" : 1619862292475,
+      "stop" : 1619862294242,
+      "duration" : 1767
     },
     "description" : "",
     "status" : "passed",
     "steps" : [ {
       "name" : "Open user page",
       "time" : {
-        "start" : 1619844543721,
-        "stop" : 1619844546480,
-        "duration" : 2759
+        "start" : 1619862292475,
+        "stop" : 1619862294242,
+        "duration" : 1767
       },
       "status" : "passed",
       "steps" : [ {
         "name" : "Login with Admin",
         "time" : {
-          "start" : 1619844543722,
-          "stop" : 1619844545960,
-          "duration" : 2238
+          "start" : 1619862292475,
+          "stop" : 1619862293892,
+          "duration" : 1417
         },
         "status" : "passed",
         "steps" : [ {
           "name" : "Open login page",
           "time" : {
-            "start" : 1619844545435,
-            "stop" : 1619844545960,
-            "duration" : 525
+            "start" : 1619862293495,
+            "stop" : 1619862293892,
+            "duration" : 397
           },
           "status" : "passed",
           "steps" : [ ],
@@ -88,22 +72,38 @@
     "attachmentsCount" : 0,
     "shouldDisplayMessage" : false,
     "hasContent" : true
+  }, {
+    "name" : "setup",
+    "time" : {
+      "start" : 1619862271541,
+      "stop" : 1619862271542,
+      "duration" : 1
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
   } ],
   "testStage" : {
     "status" : "passed",
     "steps" : [ {
       "name" : "Check grid line",
       "time" : {
-        "start" : 1619844546483,
-        "stop" : 1619844547731,
-        "duration" : 1248
+        "start" : 1619862294244,
+        "stop" : 1619862295442,
+        "duration" : 1198
       },
       "status" : "passed",
       "steps" : [ {
         "name" : "Get grid line",
         "time" : {
-          "start" : 1619844546484,
-          "stop" : 1619844546484,
+          "start" : 1619862294244,
+          "stop" : 1619862294244,
           "duration" : 0
         },
         "status" : "passed",
@@ -111,7 +111,7 @@
         "attachments" : [ ],
         "parameters" : [ {
           "name" : "key",
-          "value" : "2dd92e71-9629-403d-9e48-84b4cb7bd415@gmail.com"
+          "value" : "7188d58c-9c99-4fb6-99a0-a1c3d63711a3@gmail.com"
         } ],
         "stepsCount" : 0,
         "attachmentsCount" : 0,
@@ -121,18 +121,18 @@
       "attachments" : [ ],
       "parameters" : [ {
         "name" : "key",
-        "value" : "2dd92e71-9629-403d-9e48-84b4cb7bd415@gmail.com"
+        "value" : "7188d58c-9c99-4fb6-99a0-a1c3d63711a3@gmail.com"
       } ],
       "stepsCount" : 1,
       "attachmentsCount" : 0,
       "shouldDisplayMessage" : false,
       "hasContent" : true
     }, {
-      "name" : "Click toggle lock button",
+      "name" : "Click delete button",
       "time" : {
-        "start" : 1619844547731,
-        "stop" : 1619844547809,
-        "duration" : 78
+        "start" : 1619862295443,
+        "stop" : 1619862295523,
+        "duration" : 80
       },
       "status" : "passed",
       "steps" : [ ],
@@ -145,9 +145,9 @@
     }, {
       "name" : "Confirm popup",
       "time" : {
-        "start" : 1619844547809,
-        "stop" : 1619844547972,
-        "duration" : 163
+        "start" : 1619862295523,
+        "stop" : 1619862295662,
+        "duration" : 139
       },
       "status" : "passed",
       "steps" : [ ],
@@ -160,8 +160,8 @@
     }, {
       "name" : "Get grid line",
       "time" : {
-        "start" : 1619844547972,
-        "stop" : 1619844547972,
+        "start" : 1619862295662,
+        "stop" : 1619862295662,
         "duration" : 0
       },
       "status" : "passed",
@@ -169,7 +169,7 @@
       "attachments" : [ ],
       "parameters" : [ {
         "name" : "key",
-        "value" : "2dd92e71-9629-403d-9e48-84b4cb7bd415@gmail.com"
+        "value" : "7188d58c-9c99-4fb6-99a0-a1c3d63711a3@gmail.com"
       } ],
       "stepsCount" : 0,
       "attachmentsCount" : 0,
@@ -186,9 +186,9 @@
   "afterStages" : [ {
     "name" : "tearDown",
     "time" : {
-      "start" : 1619844550072,
-      "stop" : 1619844550131,
-      "duration" : 59
+      "start" : 1619862297511,
+      "stop" : 1619862297569,
+      "duration" : 58
     },
     "description" : "",
     "status" : "passed",
@@ -208,7 +208,7 @@
     "value" : "test.TestUserPage"
   }, {
     "name" : "testMethod",
-    "value" : "testUnLockUser"
+    "value" : "testDeleteUser"
   }, {
     "name" : "parentSuite",
     "value" : "Petland Admin"
@@ -220,10 +220,10 @@
     "value" : "test.TestUserPage"
   }, {
     "name" : "host",
-    "value" : "fv-az272-114"
+    "value" : "fv-az129-152"
   }, {
     "name" : "thread",
-    "value" : "3802@fv-az272-114.main(1)"
+    "value" : "3773@fv-az129-152.main(1)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -232,7 +232,7 @@
     "value" : "java"
   }, {
     "name" : "story",
-    "value" : "Admin can unlock user"
+    "value" : "Admin can delete user"
   }, {
     "name" : "resultFormat",
     "value" : "allure2"
@@ -247,6 +247,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "fc9ff0ae99ccdd8a.json",
+  "source" : "58a7d54f0213be18.json",
   "parameterValues" : [ ]
 }
