@@ -1,0 +1,354 @@
+{
+  "uid" : "3053950c43103010",
+  "name" : "testAddCategory",
+  "fullName" : "test.TestCategoryPage.testAddCategory",
+  "historyId" : "bf5057789477a06f059aa97f3bb62a2b",
+  "time" : {
+    "start" : 1619871758357,
+    "stop" : 1619871759338,
+    "duration" : 981
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "openPage",
+    "time" : {
+      "start" : 1619871754584,
+      "stop" : 1619871758353,
+      "duration" : 3769
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Open category page",
+      "time" : {
+        "start" : 1619871754585,
+        "stop" : 1619871758353,
+        "duration" : 3768
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "Login with Admin",
+        "time" : {
+          "start" : 1619871754585,
+          "stop" : 1619871757764,
+          "duration" : 3179
+        },
+        "status" : "passed",
+        "steps" : [ {
+          "name" : "Open login page",
+          "time" : {
+            "start" : 1619871754586,
+            "stop" : 1619871756670,
+            "duration" : 2084
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 0,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : false
+        }, {
+          "name" : "Type email and password",
+          "time" : {
+            "start" : 1619871756670,
+            "stop" : 1619871757030,
+            "duration" : 360
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 0,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : false
+        }, {
+          "name" : "Click Submit Button",
+          "time" : {
+            "start" : 1619871757030,
+            "stop" : 1619871757166,
+            "duration" : 136
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 0,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : false
+        } ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 3,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : true
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 4,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 5,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  }, {
+    "name" : "setup",
+    "time" : {
+      "start" : 1619871754583,
+      "stop" : 1619871754584,
+      "duration" : 1
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Open create tab",
+      "time" : {
+        "start" : 1619871758358,
+        "stop" : 1619871758516,
+        "duration" : 158
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "Input new category",
+      "time" : {
+        "start" : 1619871758626,
+        "stop" : 1619871759192,
+        "duration" : 566
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "Clear and send keys",
+        "time" : {
+          "start" : 1619871758770,
+          "stop" : 1619871759192,
+          "duration" : 422
+        },
+        "status" : "passed",
+        "steps" : [ {
+          "name" : "Clear input",
+          "time" : {
+            "start" : 1619871758878,
+            "stop" : 1619871758938,
+            "duration" : 60
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ {
+            "name" : "input",
+            "value" : "<input autocomplete=\"on\" class=\"ant-input\" id=\"name\" type=\"text\" value></input>"
+          } ],
+          "stepsCount" : 0,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : true
+        } ],
+        "attachments" : [ ],
+        "parameters" : [ {
+          "name" : "input",
+          "value" : "<input autocomplete=\"on\" class=\"ant-input\" id=\"name\" type=\"text\" value></input>"
+        }, {
+          "name" : "keys",
+          "value" : "d6b49562-864b-4021-a481-ec99e7f2bcb8"
+        } ],
+        "stepsCount" : 1,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : true
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "created",
+        "value" : "dto.CategoryDTO@cb1c58c"
+      } ],
+      "stepsCount" : 2,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Submit create",
+      "time" : {
+        "start" : 1619871759192,
+        "stop" : 1619871759316,
+        "duration" : 124
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "Get grid line",
+      "time" : {
+        "start" : 1619871759316,
+        "stop" : 1619871759316,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "key",
+        "value" : "d6b49562-864b-4021-a481-ec99e7f2bcb8"
+      } ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 6,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "tearDown",
+    "time" : {
+      "start" : 1619871759340,
+      "stop" : 1619871759449,
+      "duration" : 109
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "test.TestCategoryPage"
+  }, {
+    "name" : "testClass",
+    "value" : "test.TestCategoryPage"
+  }, {
+    "name" : "testMethod",
+    "value" : "testAddCategory"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Petland Admin"
+  }, {
+    "name" : "suite",
+    "value" : "Category Page"
+  }, {
+    "name" : "subSuite",
+    "value" : "test.TestCategoryPage"
+  }, {
+    "name" : "host",
+    "value" : "fv-az272-114"
+  }, {
+    "name" : "thread",
+    "value" : "2919@fv-az272-114.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "story",
+    "value" : "Admin can add category"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 4,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 1,
+        "unknown" : 0,
+        "total" : 5
+      },
+      "items" : [ {
+        "uid" : "c0176c8cf45a186f",
+        "reportUrl" : "https://randy102.github.io/petland-admin/3//#testresult/c0176c8cf45a186f",
+        "status" : "failed",
+        "statusDetails" : "Element not found {By.xpath: //tr[./td[text()='b8bdef20-4bfc-4cbf-bfb5-f23354980418']]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619869195743.0.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619869195743.0.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//tr[./td[text()='b8bdef20-4bfc-4cbf-bfb5-f23354980418']]\"}",
+        "time" : {
+          "start" : 1619869184624,
+          "stop" : 1619869195930,
+          "duration" : 11306
+        }
+      }, {
+        "uid" : "6af7b997dc34f4ce",
+        "reportUrl" : "https://randy102.github.io/petland-admin/60//#testresult/6af7b997dc34f4ce",
+        "status" : "failed",
+        "statusDetails" : "Element not found {By.xpath: //tr[./td[text()='28e8e8fd-31b5-463d-836c-e7d045789e2b']]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619866729557.0.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619866729557.0.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//tr[./td[text()='28e8e8fd-31b5-463d-836c-e7d045789e2b']]\"}",
+        "time" : {
+          "start" : 1619866718463,
+          "stop" : 1619866729742,
+          "duration" : 11279
+        }
+      }, {
+        "uid" : "dfc11d6863c5e641",
+        "reportUrl" : "https://randy102.github.io/petland-admin/2//#testresult/dfc11d6863c5e641",
+        "status" : "failed",
+        "statusDetails" : "Element not found {By.xpath: //tr[./td[text()='38eb0fc4-5b55-4046-bffb-9d2791de1791']]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619866711199.0.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619866711199.0.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//tr[./td[text()='38eb0fc4-5b55-4046-bffb-9d2791de1791']]\"}",
+        "time" : {
+          "start" : 1619866700061,
+          "stop" : 1619866711377,
+          "duration" : 11316
+        }
+      }, {
+        "uid" : "3d41d60dd55d1815",
+        "reportUrl" : "https://randy102.github.io/petland-admin/59//#testresult/3d41d60dd55d1815",
+        "status" : "failed",
+        "statusDetails" : "Element not found {By.xpath: //tr[./td[text()='cd232f88-7492-41de-a3ad-46da59133316']]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619865655831.0.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1619865655831.0.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//tr[./td[text()='cd232f88-7492-41de-a3ad-46da59133316']]\"}",
+        "time" : {
+          "start" : 1619865644644,
+          "stop" : 1619865656016,
+          "duration" : 11372
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "3053950c43103010.json",
+  "parameterValues" : [ ]
+}
