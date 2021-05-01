@@ -1,0 +1,326 @@
+{
+  "uid" : "4d4c7cd59aa9d3c8",
+  "name" : "testUpdateUser",
+  "fullName" : "test.TestUserPage.testUpdateUser",
+  "historyId" : "c759a397e611954d21f9f5833f2b02fc",
+  "time" : {
+    "start" : 1619872074486,
+    "stop" : 1619872078376,
+    "duration" : 3890
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "openPage",
+    "time" : {
+      "start" : 1619872072469,
+      "stop" : 1619872074483,
+      "duration" : 2014
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Open user page",
+      "time" : {
+        "start" : 1619872072470,
+        "stop" : 1619872074483,
+        "duration" : 2013
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "Login with Admin",
+        "time" : {
+          "start" : 1619872072470,
+          "stop" : 1619872074101,
+          "duration" : 1631
+        },
+        "status" : "passed",
+        "steps" : [ {
+          "name" : "Open login page",
+          "time" : {
+            "start" : 1619872073683,
+            "stop" : 1619872074101,
+            "duration" : 418
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 0,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : false
+        } ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 1,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : true
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 2,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  }, {
+    "name" : "setup",
+    "time" : {
+      "start" : 1619872068098,
+      "stop" : 1619872068098,
+      "duration" : 0
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Check grid line",
+      "time" : {
+        "start" : 1619872074487,
+        "stop" : 1619872075520,
+        "duration" : 1033
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "Get grid line",
+        "time" : {
+          "start" : 1619872074487,
+          "stop" : 1619872074487,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ {
+          "name" : "key",
+          "value" : "952fde56-8c67-48af-a66e-097ab67e465e@gmail.com"
+        } ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : true
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "key",
+        "value" : "952fde56-8c67-48af-a66e-097ab67e465e@gmail.com"
+      } ],
+      "stepsCount" : 1,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Click update button",
+      "time" : {
+        "start" : 1619872075520,
+        "stop" : 1619872075785,
+        "duration" : 265
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "Update user's role",
+      "time" : {
+        "start" : 1619872075912,
+        "stop" : 1619872076365,
+        "duration" : 453
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "role",
+        "value" : "MOD"
+      } ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Submit update",
+      "time" : {
+        "start" : 1619872076365,
+        "stop" : 1619872076496,
+        "duration" : 131
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "Get grid line",
+      "time" : {
+        "start" : 1619872076562,
+        "stop" : 1619872076562,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "key",
+        "value" : "952fde56-8c67-48af-a66e-097ab67e465e@gmail.com"
+      } ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 6,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "tearDown",
+    "time" : {
+      "start" : 1619872078377,
+      "stop" : 1619872078443,
+      "duration" : 66
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "test.TestUserPage"
+  }, {
+    "name" : "testClass",
+    "value" : "test.TestUserPage"
+  }, {
+    "name" : "testMethod",
+    "value" : "testUpdateUser"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Petland Admin"
+  }, {
+    "name" : "suite",
+    "value" : "User Page"
+  }, {
+    "name" : "subSuite",
+    "value" : "test.TestUserPage"
+  }, {
+    "name" : "host",
+    "value" : "fv-az182-872"
+  }, {
+    "name" : "thread",
+    "value" : "2873@fv-az182-872.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "story",
+    "value" : "Admin can update user's role"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 6,
+        "unknown" : 0,
+        "total" : 6
+      },
+      "items" : [ {
+        "uid" : "5a1a80a428b38247",
+        "reportUrl" : "https://randy102.github.io/petland-admin/4//#testresult/5a1a80a428b38247",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619871795127,
+          "stop" : 1619871799924,
+          "duration" : 4797
+        }
+      }, {
+        "uid" : "855bd4e939f09599",
+        "reportUrl" : "https://randy102.github.io/petland-admin/3//#testresult/855bd4e939f09599",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619869228025,
+          "stop" : 1619869232232,
+          "duration" : 4207
+        }
+      }, {
+        "uid" : "a1d18ee55f185a9e",
+        "reportUrl" : "https://randy102.github.io/petland-admin/60//#testresult/a1d18ee55f185a9e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619866761685,
+          "stop" : 1619866765878,
+          "duration" : 4193
+        }
+      }, {
+        "uid" : "fc98bed0cf8780ad",
+        "reportUrl" : "https://randy102.github.io/petland-admin/2//#testresult/fc98bed0cf8780ad",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619866746986,
+          "stop" : 1619866751278,
+          "duration" : 4292
+        }
+      }, {
+        "uid" : "66e05ddfe49e2f7f",
+        "reportUrl" : "https://randy102.github.io/petland-admin/59//#testresult/66e05ddfe49e2f7f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619865691302,
+          "stop" : 1619865695885,
+          "duration" : 4583
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "4d4c7cd59aa9d3c8.json",
+  "parameterValues" : [ ]
+}
