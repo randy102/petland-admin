@@ -28,7 +28,7 @@ jobs:
     needs: [deploy]
     steps:
       - name: Checkout the test repository
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
         with:
           repository: randy102/petland-test
 
