@@ -1,0 +1,201 @@
+[ {
+  "uid" : "c61f4be9f704f3d5",
+  "name" : "testRequiredLogin",
+  "time" : {
+    "start" : 1620029581526,
+    "stop" : 1620029586383,
+    "duration" : 4857
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "167d59a00c13ba0a",
+  "name" : "openPage",
+  "time" : {
+    "start" : 1620029709377,
+    "stop" : 1620029709378,
+    "duration" : 1
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "6a723a335f9c86b1",
+  "name" : "testUpdateCategory",
+  "time" : {
+    "start" : 1620029696304,
+    "stop" : 1620029696306,
+    "duration" : 2
+  },
+  "status" : "skipped",
+  "severity" : "normal"
+}, {
+  "uid" : "d6a3d3d619be0a0",
+  "name" : "cleanUp",
+  "time" : {
+    "start" : 1620029709460,
+    "stop" : 1620029709460,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "d4e4b11c7b588cc7",
+  "name" : "testCreateUser",
+  "time" : {
+    "start" : 1620029640448,
+    "stop" : 1620029643195,
+    "duration" : 2747
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "83f0ca71e25d95e9",
+  "name" : "testLockUser",
+  "time" : {
+    "start" : 1620029653172,
+    "stop" : 1620029657054,
+    "duration" : 3882
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ae44b4791d2c0c08",
+  "name" : "testDeleteCategory",
+  "time" : {
+    "start" : 1620029709383,
+    "stop" : 1620029709385,
+    "duration" : 2
+  },
+  "status" : "skipped",
+  "severity" : "normal"
+}, {
+  "uid" : "6d9e5a1dd63dd554",
+  "name" : "testVerifyPost",
+  "time" : {
+    "start" : 1620029722547,
+    "stop" : 1620029722550,
+    "duration" : 3
+  },
+  "status" : "skipped",
+  "severity" : "normal"
+}, {
+  "uid" : "a2c8971bb0b59b4e",
+  "name" : "testDeleteUser",
+  "time" : {
+    "start" : 1620029666488,
+    "stop" : 1620029670135,
+    "duration" : 3647
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2f5327e04d11b6b4",
+  "name" : "testUpdateCategory",
+  "time" : {
+    "start" : 1620029623269,
+    "stop" : 1620029623411,
+    "duration" : 142
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "ce57df26dd4e7f0c",
+  "name" : "testUnLockUser",
+  "time" : {
+    "start" : 1620029659893,
+    "stop" : 1620029663749,
+    "duration" : 3856
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "dd5210b392e57641",
+  "name" : "openPage",
+  "time" : {
+    "start" : 1620029735601,
+    "stop" : 1620029735603,
+    "duration" : 2
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "28201a129193b9ee",
+  "name" : "openPage",
+  "time" : {
+    "start" : 1620029619814,
+    "stop" : 1620029619814,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "c95a608eaa655cbf",
+  "name" : "testLoginSuccessfully",
+  "time" : {
+    "start" : 1620029586535,
+    "stop" : 1620029589389,
+    "duration" : 2854
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8e112a4abbbbee6b",
+  "name" : "testDeclinePost",
+  "time" : {
+    "start" : 1620029735618,
+    "stop" : 1620029735621,
+    "duration" : 3
+  },
+  "status" : "skipped",
+  "severity" : "normal"
+}, {
+  "uid" : "5bdad1f57ace6ea1",
+  "name" : "testAddSubCategory",
+  "time" : {
+    "start" : 1620029683232,
+    "stop" : 1620029683235,
+    "duration" : 3
+  },
+  "status" : "skipped",
+  "severity" : "normal"
+}, {
+  "uid" : "5b3e0bd10db3ce2f",
+  "name" : "testAddCategory",
+  "time" : {
+    "start" : 1620029619843,
+    "stop" : 1620029619845,
+    "duration" : 2
+  },
+  "status" : "skipped",
+  "severity" : "normal"
+}, {
+  "uid" : "18a68bd2ef1d091a",
+  "name" : "testUpdateUser",
+  "time" : {
+    "start" : 1620029645938,
+    "stop" : 1620029650358,
+    "duration" : 4420
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a112242499d8c551",
+  "name" : "testDeleteCategory",
+  "time" : {
+    "start" : 1620029626671,
+    "stop" : 1620029637230,
+    "duration" : 10559
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "9e9f13ebd9ee1a96",
+  "name" : "cleanUp",
+  "time" : {
+    "start" : 1620029735694,
+    "stop" : 1620029735694,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+} ]

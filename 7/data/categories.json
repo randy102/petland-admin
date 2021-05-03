@@ -1,0 +1,128 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "timeout: Timed out receiving message from renderer: -0.000\n  (Session info: headless chrome=90.0.4430.85)\nBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'\nSystem info: host: 'fv-az231-191', ip: '10.1.0.93', os.name: 'Linux', os.arch: 'amd64', os.version: '5.4.0-1046-azure', java.version: '15.0.3'\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nselenide.url: https://petland-admin.herokuapp.com//login\nCapabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 90.0.4430.85, chrome: {chromedriverVersion: 90.0.4430.24 (4c6d850f087da..., userDataDir: /tmp/.com.google.Chrome.JZ8Rjf}, goog:chromeOptions: {debuggerAddress: localhost:39485}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nselenide.baseUrl: https://petland-admin.herokuapp.com/\nSession ID: 6163b9aeff969df94389055026aaf883",
+      "children" : [ {
+        "name" : "openPage",
+        "uid" : "28201a129193b9ee",
+        "parentUid" : "4eb311c7e5f9e40c087b34d2e2e63849",
+        "status" : "broken",
+        "time" : {
+          "start" : 1620029619814,
+          "stop" : 1620029619814,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "4eb311c7e5f9e40c087b34d2e2e63849"
+    }, {
+      "name" : "Cannot read field \"name\" because \"this.created\" is null",
+      "children" : [ {
+        "name" : "testUpdateCategory",
+        "uid" : "2f5327e04d11b6b4",
+        "parentUid" : "b3dbb225e0d003de15c6d36ca92c2999",
+        "status" : "broken",
+        "time" : {
+          "start" : 1620029623269,
+          "stop" : 1620029623411,
+          "duration" : 142
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "b3dbb225e0d003de15c6d36ca92c2999"
+    }, {
+      "name" : "Cannot read field \"id\" because \"dto\" is null",
+      "children" : [ {
+        "name" : "cleanUp",
+        "uid" : "d6a3d3d619be0a0",
+        "parentUid" : "6d14eb310cb06bfffbdb4ba38ebc9023",
+        "status" : "broken",
+        "time" : {
+          "start" : 1620029709460,
+          "stop" : 1620029709460,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "cleanUp",
+        "uid" : "9e9f13ebd9ee1a96",
+        "parentUid" : "6d14eb310cb06bfffbdb4ba38ebc9023",
+        "status" : "broken",
+        "time" : {
+          "start" : 1620029735694,
+          "stop" : 1620029735694,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "6d14eb310cb06bfffbdb4ba38ebc9023"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  }, {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "Element not found {By.xpath: //tr[./td[text()='3ad47ac2-23b4-4224-a17a-96271948c061']]}\nExpected: exist\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1620029636931.1.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1620029636931.1.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//tr[./td[text()='3ad47ac2-23b4-4224-a17a-96271948c061']]\"}",
+      "children" : [ {
+        "name" : "testDeleteCategory",
+        "uid" : "a112242499d8c551",
+        "parentUid" : "175d5c3ce96dbe34c22f5533f599b7c8",
+        "status" : "failed",
+        "time" : {
+          "start" : 1620029626671,
+          "stop" : 1620029637230,
+          "duration" : 10559
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "175d5c3ce96dbe34c22f5533f599b7c8"
+    }, {
+      "name" : "Element not found {By.xpath: //table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1620029709228.4.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1620029709228.4.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]\"}",
+      "children" : [ {
+        "name" : "openPage",
+        "uid" : "167d59a00c13ba0a",
+        "parentUid" : "0f4304ff574e1a1473dc82ecc35fbcc7",
+        "status" : "failed",
+        "time" : {
+          "start" : 1620029709377,
+          "stop" : 1620029709378,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "0f4304ff574e1a1473dc82ecc35fbcc7"
+    }, {
+      "name" : "Element not found {By.xpath: //table[.//th//span[text()[contains(.,'Tên bài đăng')]] and .//th//span[text()[contains(.,'Thể loại')]] and .//th//span[text()[contains(.,'Giống')]] and .//th//span[text()[contains(.,'Xuất xứ')]]]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1620029735444.6.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1620029735444.6.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//table[.//th//span[text()[contains(.,'Tên bài đăng')]] and .//th//span[text()[contains(.,'Thể loại')]] and .//th//span[text()[contains(.,'Giống')]] and .//th//span[text()[contains(.,'Xuất xứ')]]]\"}",
+      "children" : [ {
+        "name" : "openPage",
+        "uid" : "dd5210b392e57641",
+        "parentUid" : "fdece799a734ad524af7f144cc310486",
+        "status" : "failed",
+        "time" : {
+          "start" : 1620029735601,
+          "stop" : 1620029735603,
+          "duration" : 2
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "fdece799a734ad524af7f144cc310486"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  } ],
+  "name" : "categories"
+}
