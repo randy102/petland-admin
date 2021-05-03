@@ -13,7 +13,7 @@ jobs:
       - uses: browser-actions/setup-chrome@latest
       - run: chrome --version
 
-      - name: Checkout the test repository
+      - name: Checkout the repository
         uses: actions/checkout@v2
         with:
           repository: randy102/petland-test
@@ -47,8 +47,8 @@ jobs:
 #        id: allure-report-admin
         with:
           allure_results: target/allure-results
-          #      gh_pages: gh-pages
-          #      allure_report: allure-report
+          #          gh_pages: gh-pages
+          #          allure_report: allure-report
           allure_history: allure-history
 
       - name: Deploy report to Github Pages
