@@ -6,6 +6,7 @@ import RGrid from 'components/Shared/RGrid';
 import React, { useState } from 'react';
 import epochToString from 'utils/epochToString';
 import { handleRequestError, useMutation } from 'utils/request';
+import Detail from './Detail';
 
 interface GridProps {
   res: any;
@@ -15,6 +16,10 @@ interface GridProps {
 
 export default function Grid(props: GridProps) {
   const { res, loading, refetch } = props;
+
+  const [showDetail, setShowDetail] = useState<boolean>(false);
+
+  const [details, setDetails] = useState()
 
   const [verifying, setVerifying] = useState<boolean>(false);
 
@@ -33,7 +38,15 @@ export default function Grid(props: GridProps) {
   });
 
   function handleView(rows: any[]) {
-    // Open post details in modal
+    const data = {...rows[0]};
+    data.vaccination = data.vaccination ? 'Có' : 'Không'
+    setShowDetail(true)
+    setDetails(data)
+  }
+
+  function handleCloseDetail() {
+    setShowDetail(false)
+    setDetails(undefined)
   }
 
   function handleVerify(rows: any[]) {
@@ -220,6 +233,8 @@ export default function Grid(props: GridProps) {
           },
         ]}
       />
+
+      <Detail showDetail={showDetail} onClose={handleCloseDetail} details={details} />
     </>
   );
 }

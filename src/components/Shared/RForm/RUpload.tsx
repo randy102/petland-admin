@@ -41,7 +41,7 @@ export default function RUpload(props: RUploadProps) {
     disabled = false,
     uploadApi = () => {},
     label,
-    url = process.env.REACT_APP_BACKEND_URL + "/photo",
+    url = process.env.REACT_APP_BACKEND_URL + "photo",
     initId,
     viewUrl = process.env.REACT_APP_S3URL,
     onChange = () => {},
@@ -59,15 +59,15 @@ export default function RUpload(props: RUploadProps) {
     });
   }, [uploadApi]);
 
-  function handleChange(info: UploadChangeParam<UploadFile<any>>) {
+  async function handleChange(info: UploadChangeParam<UploadFile<any>>) {
     if (info.file.status === "uploading") {
       setLoading(true);
       return;
     }
     if (info.file.status === "done") {
-      setImageId(info.file.response?.fileId);
+      setImageId((info.file.response)[0]);
       setLoading(false);
-      onChange(info.file.response?.fileId);
+      onChange((info.file.response)[0]);
     }
   }
 
@@ -77,7 +77,7 @@ export default function RUpload(props: RUploadProps) {
       okText: "Yes",
       cancelText: "No",
       onOk: () => {
-        Axios.delete(`${url}/${imageId}`, { headers: { Authorization: `Bearer ${getToken()}` } })
+        Axios.delete(`${url}`, { data: {ids: [imageId]}, headers: { Authorization: `Bearer ${getToken()}` } })
           .then(() => {
             message.success("Xóa thành công!");
             setImageId(undefined);
@@ -112,7 +112,7 @@ export default function RUpload(props: RUploadProps) {
       return (
         <ImgCrop shape={cropShape} rotate>
           <Upload
-            name={"file"}
+            name={"files"}
             listType="picture-card"
             className="avatar-uploader"
             disabled={!!(imageId || disabled)}
@@ -136,7 +136,7 @@ export default function RUpload(props: RUploadProps) {
       );
     return (
       <Upload
-        name={"file"}
+        name={"files"}
         listType="picture-card"
         className="avatar-uploader"
         disabled={!!imageId}

@@ -1,14 +1,14 @@
 import { Tabs } from 'antd';
 import React, { useState } from 'react';
 import { PlusOutlined, UnorderedListOutlined } from '@ant-design/icons';
-import Grid from './Grid';
-import Create from './Create';
 import { useFetch } from 'utils/request';
+import Create from './Create';
+import Grid from './Grid';
 
 export default function Category() {
   const [curTab, setCurTab] = useState('list');
   const [res, { loading, refetch }] = useFetch({
-    api: 'category',
+    api: 'ads',
     method: 'get',
   });
   
