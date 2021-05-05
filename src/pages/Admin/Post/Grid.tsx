@@ -183,6 +183,11 @@ export default function Grid(props: GridProps) {
             title: 'Tên bài đăng',
           },
           {
+            dataIndex: 'state',
+            title: 'Trạng thái',
+            render: renderState,
+          },
+          {
             dataIndex: 'createdName',
             title: 'Người tạo',
           },
@@ -225,11 +230,6 @@ export default function Grid(props: GridProps) {
           {
             dataIndex: 'price',
             title: 'Giá',
-          },
-          {
-            dataIndex: 'state',
-            title: 'Trạng thái',
-            render: renderState,
           },
         ]}
       />
