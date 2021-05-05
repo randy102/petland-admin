@@ -1,0 +1,353 @@
+{
+  "uid" : "8f3c2244f8172d5b",
+  "name" : "testLockUser",
+  "fullName" : "test.TestUserPage.testLockUser",
+  "historyId" : "9487dbe3bdcfdbb8e18b7f037c8849ae",
+  "time" : {
+    "start" : 1620197272206,
+    "stop" : 1620197275956,
+    "duration" : 3750
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "setup",
+    "time" : {
+      "start" : 1620197259076,
+      "stop" : 1620197259077,
+      "duration" : 1
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "openPage",
+    "time" : {
+      "start" : 1620197270089,
+      "stop" : 1620197272203,
+      "duration" : 2114
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Open user page",
+      "time" : {
+        "start" : 1620197270089,
+        "stop" : 1620197272203,
+        "duration" : 2114
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "Login with Admin",
+        "time" : {
+          "start" : 1620197270089,
+          "stop" : 1620197271793,
+          "duration" : 1704
+        },
+        "status" : "passed",
+        "steps" : [ {
+          "name" : "Open login page",
+          "time" : {
+            "start" : 1620197271311,
+            "stop" : 1620197271793,
+            "duration" : 482
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "stepsCount" : 0,
+          "attachmentsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "hasContent" : false
+        } ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "stepsCount" : 1,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : true
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 2,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Check grid line",
+      "time" : {
+        "start" : 1620197272206,
+        "stop" : 1620197273340,
+        "duration" : 1134
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "Get grid line",
+        "time" : {
+          "start" : 1620197272206,
+          "stop" : 1620197272206,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ {
+          "name" : "key",
+          "value" : "2bbb096e-e8b5-4e1f-bdfa-c8c3210d0f5d@gmail.com"
+        } ],
+        "stepsCount" : 0,
+        "attachmentsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "hasContent" : true
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "key",
+        "value" : "2bbb096e-e8b5-4e1f-bdfa-c8c3210d0f5d@gmail.com"
+      } ],
+      "stepsCount" : 1,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    }, {
+      "name" : "Click toggle lock button",
+      "time" : {
+        "start" : 1620197273340,
+        "stop" : 1620197273459,
+        "duration" : 119
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "Confirm popup",
+      "time" : {
+        "start" : 1620197273460,
+        "stop" : 1620197273910,
+        "duration" : 450
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "Get grid line",
+      "time" : {
+        "start" : 1620197273910,
+        "stop" : 1620197273910,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "key",
+        "value" : "2bbb096e-e8b5-4e1f-bdfa-c8c3210d0f5d@gmail.com"
+      } ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 5,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "tearDown",
+    "time" : {
+      "start" : 1620197275958,
+      "stop" : 1620197276018,
+      "duration" : 60
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "test.TestUserPage"
+  }, {
+    "name" : "testClass",
+    "value" : "test.TestUserPage"
+  }, {
+    "name" : "testMethod",
+    "value" : "testLockUser"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Petland Admin"
+  }, {
+    "name" : "suite",
+    "value" : "User Page"
+  }, {
+    "name" : "subSuite",
+    "value" : "test.TestUserPage"
+  }, {
+    "name" : "host",
+    "value" : "fv-az129-152"
+  }, {
+    "name" : "thread",
+    "value" : "2907@fv-az129-152.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "story",
+    "value" : "Admin can lock user"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 11,
+        "unknown" : 0,
+        "total" : 11
+      },
+      "items" : [ {
+        "uid" : "dd09e1bb371bc8d8",
+        "reportUrl" : "https://randy102.github.io/petland-admin/8//#testresult/dd09e1bb371bc8d8",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620196882003,
+          "stop" : 1620196885549,
+          "duration" : 3546
+        }
+      }, {
+        "uid" : "22562e94ec1abdb7",
+        "reportUrl" : "https://randy102.github.io/petland-admin/61//#testresult/22562e94ec1abdb7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620030124278,
+          "stop" : 1620030127907,
+          "duration" : 3629
+        }
+      }, {
+        "uid" : "83f0ca71e25d95e9",
+        "reportUrl" : "https://randy102.github.io/petland-admin/7//#testresult/83f0ca71e25d95e9",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620029653172,
+          "stop" : 1620029657054,
+          "duration" : 3882
+        }
+      }, {
+        "uid" : "2ca6b6226a590651",
+        "reportUrl" : "https://randy102.github.io/petland-admin/6//#testresult/2ca6b6226a590651",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619873228943,
+          "stop" : 1619873232908,
+          "duration" : 3965
+        }
+      }, {
+        "uid" : "877f40ee98d046fc",
+        "reportUrl" : "https://randy102.github.io/petland-admin/5//#testresult/877f40ee98d046fc",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619872080376,
+          "stop" : 1619872083708,
+          "duration" : 3332
+        }
+      }, {
+        "uid" : "d62799a2f2990e3e",
+        "reportUrl" : "https://randy102.github.io/petland-admin/4//#testresult/d62799a2f2990e3e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619871802775,
+          "stop" : 1619871807037,
+          "duration" : 4262
+        }
+      }, {
+        "uid" : "f73a910b2fab0f5c",
+        "reportUrl" : "https://randy102.github.io/petland-admin/3//#testresult/f73a910b2fab0f5c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619869234205,
+          "stop" : 1619869237686,
+          "duration" : 3481
+        }
+      }, {
+        "uid" : "621f4cf08f15ea46",
+        "reportUrl" : "https://randy102.github.io/petland-admin/60//#testresult/621f4cf08f15ea46",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619866767898,
+          "stop" : 1619866771460,
+          "duration" : 3562
+        }
+      }, {
+        "uid" : "84893548ad005ce6",
+        "reportUrl" : "https://randy102.github.io/petland-admin/2//#testresult/84893548ad005ce6",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619866754126,
+          "stop" : 1619866758271,
+          "duration" : 4145
+        }
+      }, {
+        "uid" : "ef047f5890d3deee",
+        "reportUrl" : "https://randy102.github.io/petland-admin/59//#testresult/ef047f5890d3deee",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619865698612,
+          "stop" : 1619865702531,
+          "duration" : 3919
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "8f3c2244f8172d5b.json",
+  "parameterValues" : [ ]
+}
