@@ -27,3 +27,4 @@ yarn-error.log*
 /.idea/petland-admin.iml
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/vcs.xml
+package-lock.json
