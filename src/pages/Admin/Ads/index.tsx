@@ -3,11 +3,12 @@ import React, { useState } from 'react';
 import { PlusOutlined, UnorderedListOutlined } from '@ant-design/icons';
 import { useFetch } from 'utils/request';
 import Create from './Create';
+import Grid from './Grid';
 
 export default function Category() {
   const [curTab, setCurTab] = useState('list');
   const [res, { loading, refetch }] = useFetch({
-    api: 'category',
+    api: 'ads',
     method: 'get',
   });
   
@@ -23,6 +24,7 @@ export default function Category() {
             </span>
           }
         >
+          <Grid res={res} loading={loading} refetch={refetch} />
         </Tabs.TabPane>
 
         <Tabs.TabPane

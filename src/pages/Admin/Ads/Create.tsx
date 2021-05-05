@@ -16,12 +16,15 @@ export default function Create(props: CreateProps) {
 
   const [loading, setLoading] = useState(false);
 
+  const [imageId, setImageId] = useState<any>();
+
   const requestCreate = useMutation({ api: 'ads', method: 'post' });
 
   function handleSubmit() {
+    setImageId(form.getFieldValue('imageId'));
     form.validateFields().then((inputs) => {
       setLoading(true);
-      requestCreate({ data: {inputs,'fileID': }})
+      requestCreate({ data: {...inputs, fileID: imageId}})
         .then(() => {
           message.success('Tạo thành công!');
           form.resetFields();
@@ -34,7 +37,7 @@ export default function Create(props: CreateProps) {
   }
   return (
     <div>
-      <Form form={form}/>
+      <Form form={form} imageId={imageId} setImageId={setImageId}/>
       <Space>
         <Button loading={loading} type="primary" onClick={handleSubmit}>
           Tạo

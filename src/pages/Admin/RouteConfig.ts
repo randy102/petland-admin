@@ -3,8 +3,8 @@ import {
   ProjectFilled,
   TagOutlined,
   TagsOutlined,
-  NotificationOutlined,
   SoundOutlined,
+  CreditCardOutlined,
 } from '@ant-design/icons';
 
 import User from './User';
@@ -51,7 +51,7 @@ export const ROUTES: RouteConfig[] = [
   {
     path: '/post',
     name: 'Bài đăng',
-    icon: NotificationOutlined,
+    icon: CreditCardOutlined,
     component: Post,
     allowed: [ADMIN, MOD],
   },
