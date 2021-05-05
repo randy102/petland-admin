@@ -61,7 +61,7 @@ export default function Grid(props: GridProps) {
             title: "Hình ảnh",
             render: (fileID) => <RImage id={fileID} width={120}/>,
           },
-          { dataIndex: 'position', title: 'Vị trí trên màn hình' }
+          { dataIndex: 'position', title: 'Vị trí trên trang web' }
         ]}
       />
 
