@@ -66,7 +66,7 @@ export const ROUTES: RouteConfig[] = [
   },
   {
     path: '/report',
-    name: 'Báo cáo bài đăng',
+    name: 'Báo cáo',
     icon: BugOutlined,
     component: Report,
     allowed: [ADMIN],
