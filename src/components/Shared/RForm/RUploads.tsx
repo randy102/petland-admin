@@ -98,7 +98,7 @@ export default function RUploads(props: RUploadsProps) {
 
   function handleChange({ fileList }: UploadChangeParam<UploadFile<any>>) {
     const filtered = fileList.filter(
-      (file) => file.type.includes("image")
+      (file) => file.type?.includes("image")
     );
     setFileList(filtered);
     onChange(filtered?.map((file) => file.response?.fileId || "") || []);

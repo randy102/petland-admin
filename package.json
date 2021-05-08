@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@ant-design/icons": "^4.2.2",
+    "@ant-design/icons": "^4.6.2",
     "@ckeditor/ckeditor5-react": "^2.1.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -11,10 +11,10 @@
     "@types/jest": "^24.0.0",
     "@types/jsonwebtoken": "^8.5.0",
     "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
+    "@types/react": "^16.14.6",
     "@types/react-dom": "^16.9.0",
     "@types/react-router-dom": "^5.1.6",
-    "antd": "^4.10.0",
+    "antd": "^4.15.4",
     "antd-img-crop": "^3.12.0",
     "axios": "^0.21.1",
     "ckeditor5-custom-build": "file:./ckeditor5",
@@ -26,7 +26,7 @@
     "react-drag-listview": "^0.1.7",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
-    "typescript": "3.9.7"
+    "typescript": "^3.9.7"
   },
   "scripts": {
     "start": "react-scripts start",

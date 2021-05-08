@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import RDrawer from "components/Shared/RDrawer";
 import RInput from 'components/Shared/RForm/RInput';
 import RForm from 'components/Shared/RForm';
@@ -12,6 +12,8 @@ type Props = {
 
 export default function Detail(props: Props) {
     const [form] = useForm();
+
+    useEffect(() => form?.resetFields(), [props.details]);
 
     return (
         <RDrawer 

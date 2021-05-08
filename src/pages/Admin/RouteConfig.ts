@@ -5,6 +5,7 @@ import {
   TagsOutlined,
   SoundOutlined,
   CreditCardOutlined,
+  BugOutlined,
 } from '@ant-design/icons';
 
 import User from './User';
@@ -15,6 +16,7 @@ import Demo from './Demo';
 import Subcategory from './Subcategory';
 import Post from './Post';
 import Ads from './Ads';
+import Report from './Report';
 
 interface RouteConfig {
   path: string;
@@ -61,6 +63,13 @@ export const ROUTES: RouteConfig[] = [
     icon: SoundOutlined,
     component: Ads,
     allowed: [ADMIN, MOD],
+  },
+  {
+    path: '/report',
+    name: 'Báo cáo bài đăng',
+    icon: BugOutlined,
+    component: Report,
+    allowed: [ADMIN],
   },
   {
     path: '/demo',
