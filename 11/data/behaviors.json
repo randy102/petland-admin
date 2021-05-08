@@ -1,0 +1,304 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "children" : [ {
+    "name" : "Email and password should be required",
+    "children" : [ {
+      "name" : "testRequiredLogin",
+      "uid" : "3c8431db603b9e2e",
+      "parentUid" : "d3e1fae2471f3ddcb8cad9d80bff379e",
+      "status" : "broken",
+      "time" : {
+        "start" : 1620457238927,
+        "stop" : 1620457277682,
+        "duration" : 38755
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "d3e1fae2471f3ddcb8cad9d80bff379e"
+  }, {
+    "name" : "Admin can login",
+    "children" : [ {
+      "name" : "testLoginSuccessfully",
+      "uid" : "8a7cf2eb2665de00",
+      "parentUid" : "84b22144d397887deb9feb047b07fce3",
+      "status" : "passed",
+      "time" : {
+        "start" : 1620457278289,
+        "stop" : 1620457282303,
+        "duration" : 4014
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "84b22144d397887deb9feb047b07fce3"
+  }, {
+    "name" : "Admin can add category",
+    "children" : [ {
+      "name" : "testAddCategory",
+      "uid" : "12fff746d41c02cd",
+      "parentUid" : "d0b69d343f7f93afdb5f3bb622db48ad",
+      "status" : "failed",
+      "time" : {
+        "start" : 1620457286024,
+        "stop" : 1620457297321,
+        "duration" : 11297
+      },
+      "flaky" : true,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "d0b69d343f7f93afdb5f3bb622db48ad"
+  }, {
+    "name" : "Admin can update category",
+    "children" : [ {
+      "name" : "testUpdateCategory",
+      "uid" : "d3152c15417b0096",
+      "parentUid" : "b22cb453b649d95b989c30152652ef72",
+      "status" : "failed",
+      "time" : {
+        "start" : 1620457300668,
+        "stop" : 1620457311262,
+        "duration" : 10594
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "testUpdateCategory",
+      "uid" : "565337f7873c0812",
+      "parentUid" : "b22cb453b649d95b989c30152652ef72",
+      "status" : "skipped",
+      "time" : {
+        "start" : 1620457385595,
+        "stop" : 1620457385597,
+        "duration" : 2
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "b22cb453b649d95b989c30152652ef72"
+  }, {
+    "name" : "Admin can delete category",
+    "children" : [ {
+      "name" : "testDeleteCategory",
+      "uid" : "4535acf13368182c",
+      "parentUid" : "52f98a5401742bc4c67f9213123d5e86",
+      "status" : "failed",
+      "time" : {
+        "start" : 1620457314391,
+        "stop" : 1620457324989,
+        "duration" : 10598
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "testDeleteCategory",
+      "uid" : "3e549c447793ed9b",
+      "parentUid" : "52f98a5401742bc4c67f9213123d5e86",
+      "status" : "skipped",
+      "time" : {
+        "start" : 1620457398933,
+        "stop" : 1620457398935,
+        "duration" : 2
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "52f98a5401742bc4c67f9213123d5e86"
+  }, {
+    "name" : "Admin can create user",
+    "children" : [ {
+      "name" : "testCreateUser",
+      "uid" : "9b24cf675df7b0e4",
+      "parentUid" : "267bc5f4af674582467413ea4125eec2",
+      "status" : "passed",
+      "time" : {
+        "start" : 1620457328694,
+        "stop" : 1620457331547,
+        "duration" : 2853
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "267bc5f4af674582467413ea4125eec2"
+  }, {
+    "name" : "Admin can update user's role",
+    "children" : [ {
+      "name" : "testUpdateUser",
+      "uid" : "4afb510681d606b9",
+      "parentUid" : "6638acd04eb867df67ad1d0b3a02c7b4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1620457334535,
+        "stop" : 1620457338962,
+        "duration" : 4427
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "6638acd04eb867df67ad1d0b3a02c7b4"
+  }, {
+    "name" : "Admin can lock user",
+    "children" : [ {
+      "name" : "testLockUser",
+      "uid" : "789b6d38c6a25c3a",
+      "parentUid" : "ceeff0701514319d1c520737b4f3d8c0",
+      "status" : "passed",
+      "time" : {
+        "start" : 1620457341886,
+        "stop" : 1620457345852,
+        "duration" : 3966
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "ceeff0701514319d1c520737b4f3d8c0"
+  }, {
+    "name" : "Admin can unlock user",
+    "children" : [ {
+      "name" : "testUnLockUser",
+      "uid" : "a0b6ef4dc38dc760",
+      "parentUid" : "0192e14f3cfe88713e4ccec90cd82c60",
+      "status" : "passed",
+      "time" : {
+        "start" : 1620457348807,
+        "stop" : 1620457352692,
+        "duration" : 3885
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "0192e14f3cfe88713e4ccec90cd82c60"
+  }, {
+    "name" : "Admin can delete user",
+    "children" : [ {
+      "name" : "testDeleteUser",
+      "uid" : "f1e780a266fb3346",
+      "parentUid" : "847913637458ff8cc8c67139b7730b95",
+      "status" : "passed",
+      "time" : {
+        "start" : 1620457355850,
+        "stop" : 1620457359408,
+        "duration" : 3558
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "847913637458ff8cc8c67139b7730b95"
+  }, {
+    "name" : "Admin can add subcategory",
+    "children" : [ {
+      "name" : "testAddSubCategory",
+      "uid" : "c0ac510c639368d9",
+      "parentUid" : "b37fbca35411d5d8079fbb3fca5319bf",
+      "status" : "skipped",
+      "time" : {
+        "start" : 1620457372576,
+        "stop" : 1620457372578,
+        "duration" : 2
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "b37fbca35411d5d8079fbb3fca5319bf"
+  }, {
+    "name" : "openPage",
+    "uid" : "96afb741bbcf15c5",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "failed",
+    "time" : {
+      "start" : 1620457398930,
+      "stop" : 1620457398931,
+      "duration" : 1
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "cleanUp",
+    "uid" : "ab9b9688297dc057",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "broken",
+    "time" : {
+      "start" : 1620457399020,
+      "stop" : 1620457399020,
+      "duration" : 0
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "Admin can verify post",
+    "children" : [ {
+      "name" : "testVerifyPost",
+      "uid" : "45278217cea17e1d",
+      "parentUid" : "244782d7ff48c44020248ebd9be3bc0b",
+      "status" : "skipped",
+      "time" : {
+        "start" : 1620457412183,
+        "stop" : 1620457412191,
+        "duration" : 8
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "244782d7ff48c44020248ebd9be3bc0b"
+  }, {
+    "name" : "openPage",
+    "uid" : "1272b50a71c9faf1",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "failed",
+    "time" : {
+      "start" : 1620457425396,
+      "stop" : 1620457425398,
+      "duration" : 2
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "Admin can decline post",
+    "children" : [ {
+      "name" : "testDeclinePost",
+      "uid" : "209c6d515de34ce3",
+      "parentUid" : "6bd69b5cf3ea6f839ba804b9253803f1",
+      "status" : "skipped",
+      "time" : {
+        "start" : 1620457425400,
+        "stop" : 1620457425403,
+        "duration" : 3
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "6bd69b5cf3ea6f839ba804b9253803f1"
+  }, {
+    "name" : "cleanUp",
+    "uid" : "909d2280a3a83c3e",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "broken",
+    "time" : {
+      "start" : 1620457425467,
+      "stop" : 1620457425467,
+      "duration" : 0
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  } ],
+  "name" : "behaviors"
+}
