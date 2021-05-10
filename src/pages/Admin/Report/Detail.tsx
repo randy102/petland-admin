@@ -15,13 +15,18 @@ interface updateProps{
   }
 
 export default function Detail(props: updateProps) {
-    const { setShowDetail, refetch } = props;
+    const { 
+      setShowDetail, 
+      refetch,
+      showDetail, 
+      details,
+    } = props;
 
     const [form] = useForm();
 
     const [loading,setLoading] = useState(false);
 
-    const resolved = Boolean(props.details?.resolved);
+    const resolved = Boolean(details?.resolved);
 
     useEffect(() => form?.resetFields(), [props.details]);
 
@@ -50,15 +55,19 @@ export default function Detail(props: updateProps) {
             title="Chi tiết báo cáo" 
             visible={props.showDetail} 
             onClose={props.onClose}
+            footDef={[
+              {
+                name: 'Đã xử lí',
+                type: 'primary',
+                visible: !resolved,
+                onClick: handleSubmit,
+                loading: loading,
+              },
+            ]}
             >
            <RForm form={form} initialValues={props.details}>
                 <RInput label="Nội dung" name="content" readonly />
            </RForm>
-           <Space>
-                <Button disabled={resolved} loading={loading} type="primary" onClick={handleSubmit}>
-                Đã xử lí
-                </Button>
-            </Space>
         </RDrawer>
     )
 }

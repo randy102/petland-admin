@@ -6,6 +6,7 @@ import {
   SoundOutlined,
   CreditCardOutlined,
   BugOutlined,
+  MessageOutlined,
 } from '@ant-design/icons';
 
 import User from './User';
@@ -17,6 +18,8 @@ import Subcategory from './Subcategory';
 import Post from './Post';
 import Ads from './Ads';
 import Report from './Report';
+import Chargerequest from './Charge-request';
+
 
 interface RouteConfig {
   path: string;
@@ -62,6 +65,13 @@ export const ROUTES: RouteConfig[] = [
     name: 'Quảng cáo',
     icon: SoundOutlined,
     component: Ads,
+    allowed: [ADMIN, MOD],
+  },
+  {
+    path: '/charge-request',
+    name: 'Yêu cầu nạp điểm',
+    icon: MessageOutlined,
+    component: Chargerequest,
     allowed: [ADMIN, MOD],
   },
   {
