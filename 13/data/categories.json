@@ -1,0 +1,145 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "timeout: Timed out receiving message from renderer: -0.000\n  (Session info: headless chrome=90.0.4430.93)\nBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'\nSystem info: host: 'fv-az278-801', ip: '10.1.1.65', os.name: 'Linux', os.arch: 'amd64', os.version: '5.4.0-1046-azure', java.version: '15.0.3'\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nselenide.url: https://petland-admin.herokuapp.com//login\nCapabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 90.0.4430.93, chrome: {chromedriverVersion: 90.0.4430.24 (4c6d850f087da..., userDataDir: /tmp/.com.google.Chrome.YBHRd6}, goog:chromeOptions: {debuggerAddress: localhost:45677}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nselenide.baseUrl: https://petland-admin.herokuapp.com/\nSession ID: c3c09451b82e849d15c9036566af46ea",
+      "children" : [ {
+        "name" : "testRequiredLogin",
+        "uid" : "7a14ac74d05d1076",
+        "parentUid" : "ec80abdef1ea204ae8418fd7c424a988",
+        "status" : "broken",
+        "time" : {
+          "start" : 1620653153907,
+          "stop" : 1620653187203,
+          "duration" : 33296
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "ec80abdef1ea204ae8418fd7c424a988"
+    }, {
+      "name" : "Cannot read field \"id\" because \"dto\" is null",
+      "children" : [ {
+        "name" : "cleanUp",
+        "uid" : "bcb9b7ceadba4490",
+        "parentUid" : "6d14eb310cb06bfffbdb4ba38ebc9023",
+        "status" : "broken",
+        "time" : {
+          "start" : 1620653327387,
+          "stop" : 1620653327387,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "cleanUp",
+        "uid" : "3de4b9339e42db0",
+        "parentUid" : "6d14eb310cb06bfffbdb4ba38ebc9023",
+        "status" : "broken",
+        "time" : {
+          "start" : 1620653354355,
+          "stop" : 1620653354356,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "6d14eb310cb06bfffbdb4ba38ebc9023"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  }, {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "Element not found {By.xpath: //tr[./td[text()='fa49e6c2-7b05-4d69-9e24-c0fdb8f4870e']]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1620653225821.0.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1620653225821.0.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//tr[./td[text()='fa49e6c2-7b05-4d69-9e24-c0fdb8f4870e']]\"}",
+      "children" : [ {
+        "name" : "testAddCategory",
+        "uid" : "95050de864c72bf2",
+        "parentUid" : "71e6501feb1dcaad6c5629d45c7d3543",
+        "status" : "failed",
+        "time" : {
+          "start" : 1620653214654,
+          "stop" : 1620653226117,
+          "duration" : 11463
+        },
+        "flaky" : true,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "71e6501feb1dcaad6c5629d45c7d3543"
+    }, {
+      "name" : "Element not found {By.xpath: //tr[./td[text()='fa49e6c2-7b05-4d69-9e24-c0fdb8f4870e']]}\nExpected: exist\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1620653239698.2.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1620653239698.2.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//tr[./td[text()='fa49e6c2-7b05-4d69-9e24-c0fdb8f4870e']]\"}",
+      "children" : [ {
+        "name" : "testUpdateCategory",
+        "uid" : "fa819cb0f5b8f717",
+        "parentUid" : "a81ad2f10059a8394f3fddc53e852098",
+        "status" : "failed",
+        "time" : {
+          "start" : 1620653229431,
+          "stop" : 1620653239978,
+          "duration" : 10547
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "a81ad2f10059a8394f3fddc53e852098"
+    }, {
+      "name" : "Element not found {By.xpath: //tr[./td[text()='4ed51e98-47cc-4c9b-a82b-43465bb438c8']]}\nExpected: exist\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1620653253613.4.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1620653253613.4.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//tr[./td[text()='4ed51e98-47cc-4c9b-a82b-43465bb438c8']]\"}",
+      "children" : [ {
+        "name" : "testDeleteCategory",
+        "uid" : "dcc2568774aa317",
+        "parentUid" : "23b5527c5cfba3498040f9456425f569",
+        "status" : "failed",
+        "time" : {
+          "start" : 1620653243270,
+          "stop" : 1620653253906,
+          "duration" : 10636
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "23b5527c5cfba3498040f9456425f569"
+    }, {
+      "name" : "Element not found {By.xpath: //table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1620653327142.7.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1620653327142.7.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//table[.//th//span[text()[contains(.,'Tên')]] and .//th//span[text()[contains(.,'Thể loại')]]]\"}",
+      "children" : [ {
+        "name" : "openPage",
+        "uid" : "9b7782dc17c05bfb",
+        "parentUid" : "071780f624fc921134522a2ca685f1d3",
+        "status" : "failed",
+        "time" : {
+          "start" : 1620653327292,
+          "stop" : 1620653327293,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "071780f624fc921134522a2ca685f1d3"
+    }, {
+      "name" : "Element not found {By.xpath: //table[.//th//span[text()[contains(.,'Tên bài đăng')]] and .//th//span[text()[contains(.,'Thể loại')]] and .//th//span[text()[contains(.,'Giống')]] and .//th//span[text()[contains(.,'Xuất xứ')]]]}\nExpected: visible\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1620653354129.9.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1620653354129.9.html\nTimeout: 10 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//table[.//th//span[text()[contains(.,'Tên bài đăng')]] and .//th//span[text()[contains(.,'Thể loại')]] and .//th//span[text()[contains(.,'Giống')]] and .//th//span[text()[contains(.,'Xuất xứ')]]]\"}",
+      "children" : [ {
+        "name" : "openPage",
+        "uid" : "79e9981b984842c3",
+        "parentUid" : "6d0c2e0460bccae9723dc7091c9e4656",
+        "status" : "failed",
+        "time" : {
+          "start" : 1620653354280,
+          "stop" : 1620653354283,
+          "duration" : 3
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "6d0c2e0460bccae9723dc7091c9e4656"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  } ],
+  "name" : "categories"
+}
