@@ -1,0 +1,191 @@
+[ {
+  "uid" : "f31b0429e5e4181e",
+  "name" : "cleanUp",
+  "time" : {
+    "start" : 1620653737417,
+    "stop" : 1620653737417,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "c7fa24bc7156da10",
+  "name" : "testLockUser",
+  "time" : {
+    "start" : 1620653680144,
+    "stop" : 1620653684169,
+    "duration" : 4025
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3a70be0f4d66d46e",
+  "name" : "testUpdateUser",
+  "time" : {
+    "start" : 1620653672354,
+    "stop" : 1620653677123,
+    "duration" : 4769
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "296a6abc0e487326",
+  "name" : "testDeleteCategory",
+  "time" : {
+    "start" : 1620653652103,
+    "stop" : 1620653662740,
+    "duration" : 10637
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "e3f36befd4c1328e",
+  "name" : "testUpdateCategory",
+  "time" : {
+    "start" : 1620653724004,
+    "stop" : 1620653724010,
+    "duration" : 6
+  },
+  "status" : "skipped",
+  "severity" : "normal"
+}, {
+  "uid" : "856d997c45d805f9",
+  "name" : "openPage",
+  "time" : {
+    "start" : 1620653737331,
+    "stop" : 1620653737333,
+    "duration" : 2
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "a196a8af37703dc0",
+  "name" : "testDeleteCategory",
+  "time" : {
+    "start" : 1620653737337,
+    "stop" : 1620653737339,
+    "duration" : 2
+  },
+  "status" : "skipped",
+  "severity" : "normal"
+}, {
+  "uid" : "84d747e410a21953",
+  "name" : "testAddSubCategory",
+  "time" : {
+    "start" : 1620653710911,
+    "stop" : 1620653710914,
+    "duration" : 3
+  },
+  "status" : "skipped",
+  "severity" : "normal"
+}, {
+  "uid" : "c788b2b2d59aec74",
+  "name" : "testLoginSuccessfully",
+  "time" : {
+    "start" : 1620653616329,
+    "stop" : 1620653619579,
+    "duration" : 3250
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "19df86231d743b1f",
+  "name" : "cleanUp",
+  "time" : {
+    "start" : 1620653764137,
+    "stop" : 1620653764137,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "4ce192be0673973b",
+  "name" : "testRequiredLogin",
+  "time" : {
+    "start" : 1620653607069,
+    "stop" : 1620653616190,
+    "duration" : 9121
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "570163046f27a8e9",
+  "name" : "testVerifyPost",
+  "time" : {
+    "start" : 1620653750796,
+    "stop" : 1620653750800,
+    "duration" : 4
+  },
+  "status" : "skipped",
+  "severity" : "normal"
+}, {
+  "uid" : "dc4591648ce16b4b",
+  "name" : "testAddCategory",
+  "time" : {
+    "start" : 1620653623389,
+    "stop" : 1620653634901,
+    "duration" : 11512
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "a1f561d8f25a4c1b",
+  "name" : "testUnLockUser",
+  "time" : {
+    "start" : 1620653687179,
+    "stop" : 1620653691262,
+    "duration" : 4083
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "df4bf697daa9815e",
+  "name" : "testCreateUser",
+  "time" : {
+    "start" : 1620653666186,
+    "stop" : 1620653669251,
+    "duration" : 3065
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "13badb03d17e5972",
+  "name" : "testUpdateCategory",
+  "time" : {
+    "start" : 1620653638191,
+    "stop" : 1620653648786,
+    "duration" : 10595
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "a99d2ee8b20774",
+  "name" : "openPage",
+  "time" : {
+    "start" : 1620653764051,
+    "stop" : 1620653764054,
+    "duration" : 3
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "53bc35f8a93303a6",
+  "name" : "testDeclinePost",
+  "time" : {
+    "start" : 1620653764062,
+    "stop" : 1620653764067,
+    "duration" : 5
+  },
+  "status" : "skipped",
+  "severity" : "normal"
+}, {
+  "uid" : "62920cf30c0f2c2e",
+  "name" : "testDeleteUser",
+  "time" : {
+    "start" : 1620653694179,
+    "stop" : 1620653697798,
+    "duration" : 3619
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]
