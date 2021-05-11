@@ -1,0 +1,344 @@
+{
+  "uid" : "c14626f2470f7d9e",
+  "name" : "testLoginSuccessfully",
+  "fullName" : "test.TestLoginPage.testLoginSuccessfully",
+  "historyId" : "75caf2f707f744831e92a06a8c8ec231",
+  "time" : {
+    "start" : 1620744656120,
+    "stop" : 1620744659566,
+    "duration" : 3446
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "setup",
+    "time" : {
+      "start" : 1620744650087,
+      "stop" : 1620744650271,
+      "duration" : 184
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Open login page",
+      "time" : {
+        "start" : 1620744656120,
+        "stop" : 1620744658350,
+        "duration" : 2230
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "Type email and password",
+      "time" : {
+        "start" : 1620744658387,
+        "stop" : 1620744658869,
+        "duration" : 482
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "Click Submit Button",
+      "time" : {
+        "start" : 1620744658870,
+        "stop" : 1620744659006,
+        "duration" : 136
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "tearDown",
+    "time" : {
+      "start" : 1620744659571,
+      "stop" : 1620744659641,
+      "duration" : 70
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "test.TestLoginPage"
+  }, {
+    "name" : "testClass",
+    "value" : "test.TestLoginPage"
+  }, {
+    "name" : "testMethod",
+    "value" : "testLoginSuccessfully"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Petland Admin"
+  }, {
+    "name" : "suite",
+    "value" : "Login Page"
+  }, {
+    "name" : "subSuite",
+    "value" : "test.TestLoginPage"
+  }, {
+    "name" : "host",
+    "value" : "fv-az278-801"
+  }, {
+    "name" : "thread",
+    "value" : "3470@fv-az278-801.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "story",
+    "value" : "Admin can login"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 1,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 20,
+        "unknown" : 0,
+        "total" : 21
+      },
+      "items" : [ {
+        "uid" : "aa625d14ce7b1c9e",
+        "reportUrl" : "https://randy102.github.io/petland-admin/14//#testresult/aa625d14ce7b1c9e",
+        "status" : "failed",
+        "statusDetails" : "Element should not exist {by text: Đăng nhập}\nElement: '<div class=\"title\">Đăng nhập</div>'\nScreenshot: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1620744253144.0.png\nPage source: file:/home/runner/work/petland-admin/petland-admin/build/reports/tests/1620744253144.0.html\nTimeout: 10 s.",
+        "time" : {
+          "start" : 1620744216458,
+          "stop" : 1620744253623,
+          "duration" : 37165
+        }
+      }, {
+        "uid" : "c788b2b2d59aec74",
+        "reportUrl" : "https://randy102.github.io/petland-admin/68//#testresult/c788b2b2d59aec74",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620653616329,
+          "stop" : 1620653619579,
+          "duration" : 3250
+        }
+      }, {
+        "uid" : "72715a6bdf539bef",
+        "reportUrl" : "https://randy102.github.io/petland-admin/13//#testresult/72715a6bdf539bef",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620653187705,
+          "stop" : 1620653210922,
+          "duration" : 23217
+        }
+      }, {
+        "uid" : "7f8ad45db9ce5ba2",
+        "reportUrl" : "https://randy102.github.io/petland-admin/67//#testresult/7f8ad45db9ce5ba2",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620458380922,
+          "stop" : 1620458383463,
+          "duration" : 2541
+        }
+      }, {
+        "uid" : "74ec60c1bfe5c1ab",
+        "reportUrl" : "https://randy102.github.io/petland-admin/12//#testresult/74ec60c1bfe5c1ab",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620457884094,
+          "stop" : 1620457886263,
+          "duration" : 2169
+        }
+      }, {
+        "uid" : "c1b17d9ea1a0f6cf",
+        "reportUrl" : "https://randy102.github.io/petland-admin/66//#testresult/c1b17d9ea1a0f6cf",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620457731788,
+          "stop" : 1620457734782,
+          "duration" : 2994
+        }
+      }, {
+        "uid" : "8a7cf2eb2665de00",
+        "reportUrl" : "https://randy102.github.io/petland-admin/11//#testresult/8a7cf2eb2665de00",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620457278289,
+          "stop" : 1620457282303,
+          "duration" : 4014
+        }
+      }, {
+        "uid" : "64864d04bbadf543",
+        "reportUrl" : "https://randy102.github.io/petland-admin/65//#testresult/64864d04bbadf543",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620210763103,
+          "stop" : 1620210765972,
+          "duration" : 2869
+        }
+      }, {
+        "uid" : "829b7318694fca88",
+        "reportUrl" : "https://randy102.github.io/petland-admin/10//#testresult/829b7318694fca88",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620204786878,
+          "stop" : 1620204796054,
+          "duration" : 9176
+        }
+      }, {
+        "uid" : "a08bcee9a8adecb9",
+        "reportUrl" : "https://randy102.github.io/petland-admin/9//#testresult/a08bcee9a8adecb9",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620197216055,
+          "stop" : 1620197218654,
+          "duration" : 2599
+        }
+      }, {
+        "uid" : "86d0a051be7e810a",
+        "reportUrl" : "https://randy102.github.io/petland-admin/8//#testresult/86d0a051be7e810a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620196821796,
+          "stop" : 1620196831703,
+          "duration" : 9907
+        }
+      }, {
+        "uid" : "12a299563c331f0b",
+        "reportUrl" : "https://randy102.github.io/petland-admin/61//#testresult/12a299563c331f0b",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620030071866,
+          "stop" : 1620030073762,
+          "duration" : 1896
+        }
+      }, {
+        "uid" : "c95a608eaa655cbf",
+        "reportUrl" : "https://randy102.github.io/petland-admin/7//#testresult/c95a608eaa655cbf",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620029586535,
+          "stop" : 1620029589389,
+          "duration" : 2854
+        }
+      }, {
+        "uid" : "d9ca94cea6752617",
+        "reportUrl" : "https://randy102.github.io/petland-admin/6//#testresult/d9ca94cea6752617",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619873168010,
+          "stop" : 1619873171243,
+          "duration" : 3233
+        }
+      }, {
+        "uid" : "4b3b3821961f4ff9",
+        "reportUrl" : "https://randy102.github.io/petland-admin/5//#testresult/4b3b3821961f4ff9",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619872037382,
+          "stop" : 1619872039672,
+          "duration" : 2290
+        }
+      }, {
+        "uid" : "5ebad7f36c43ba06",
+        "reportUrl" : "https://randy102.github.io/petland-admin/4//#testresult/5ebad7f36c43ba06",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619871751372,
+          "stop" : 1619871754512,
+          "duration" : 3140
+        }
+      }, {
+        "uid" : "ae04217e660d7068",
+        "reportUrl" : "https://randy102.github.io/petland-admin/3//#testresult/ae04217e660d7068",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619869179973,
+          "stop" : 1619869182035,
+          "duration" : 2062
+        }
+      }, {
+        "uid" : "456414e8c4a2c1ef",
+        "reportUrl" : "https://randy102.github.io/petland-admin/60//#testresult/456414e8c4a2c1ef",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619866713632,
+          "stop" : 1619866715831,
+          "duration" : 2199
+        }
+      }, {
+        "uid" : "b3bbb550ab0a63f6",
+        "reportUrl" : "https://randy102.github.io/petland-admin/2//#testresult/b3bbb550ab0a63f6",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619866693541,
+          "stop" : 1619866696543,
+          "duration" : 3002
+        }
+      }, {
+        "uid" : "b65335389818133b",
+        "reportUrl" : "https://randy102.github.io/petland-admin/59//#testresult/b65335389818133b",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619865638318,
+          "stop" : 1619865641202,
+          "duration" : 2884
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "c14626f2470f7d9e.json",
+  "parameterValues" : [ ]
+}

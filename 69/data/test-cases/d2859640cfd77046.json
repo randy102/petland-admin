@@ -1,0 +1,332 @@
+{
+  "uid" : "d2859640cfd77046",
+  "name" : "testRequiredLogin",
+  "fullName" : "test.TestLoginPage.testRequiredLogin",
+  "historyId" : "22d8d424df7d4f3ae1119a81983fc8dc",
+  "time" : {
+    "start" : 1620744650349,
+    "stop" : 1620744655994,
+    "duration" : 5645
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "setup",
+    "time" : {
+      "start" : 1620744650087,
+      "stop" : 1620744650271,
+      "duration" : 184
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Open login page",
+      "time" : {
+        "start" : 1620744650365,
+        "stop" : 1620744655580,
+        "duration" : 5215
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "Click Submit Button",
+      "time" : {
+        "start" : 1620744655581,
+        "stop" : 1620744655810,
+        "duration" : 229
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 2,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "tearDown",
+    "time" : {
+      "start" : 1620744656018,
+      "stop" : 1620744656115,
+      "duration" : 97
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "test.TestLoginPage"
+  }, {
+    "name" : "testClass",
+    "value" : "test.TestLoginPage"
+  }, {
+    "name" : "testMethod",
+    "value" : "testRequiredLogin"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Petland Admin"
+  }, {
+    "name" : "suite",
+    "value" : "Login Page"
+  }, {
+    "name" : "subSuite",
+    "value" : "test.TestLoginPage"
+  }, {
+    "name" : "host",
+    "value" : "fv-az278-801"
+  }, {
+    "name" : "thread",
+    "value" : "3470@fv-az278-801.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "story",
+    "value" : "Email and password should be required"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 4,
+        "skipped" : 0,
+        "passed" : 17,
+        "unknown" : 0,
+        "total" : 21
+      },
+      "items" : [ {
+        "uid" : "24449e1fc250d9f5",
+        "reportUrl" : "https://randy102.github.io/petland-admin/14//#testresult/24449e1fc250d9f5",
+        "status" : "broken",
+        "statusDetails" : "timeout: Timed out receiving message from renderer: -0.001\n  (Session info: headless chrome=90.0.4430.93)\nBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'\nSystem info: host: 'fv-az173-805', ip: '10.1.0.40', os.name: 'Linux', os.arch: 'amd64', os.version: '5.4.0-1046-azure', java.version: '15.0.3'\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nselenide.url: https://petland-admin.herokuapp.com//login\nCapabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 90.0.4430.93, chrome: {chromedriverVersion: 90.0.4430.24 (4c6d850f087da..., userDataDir: /tmp/.com.google.Chrome.MlzKeg}, goog:chromeOptions: {debuggerAddress: localhost:45681}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nselenide.baseUrl: https://petland-admin.herokuapp.com/\nSession ID: a15ed8ecc5b2fc7c13849a46171493e9",
+        "time" : {
+          "start" : 1620744182674,
+          "stop" : 1620744215964,
+          "duration" : 33290
+        }
+      }, {
+        "uid" : "4ce192be0673973b",
+        "reportUrl" : "https://randy102.github.io/petland-admin/68//#testresult/4ce192be0673973b",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620653607069,
+          "stop" : 1620653616190,
+          "duration" : 9121
+        }
+      }, {
+        "uid" : "7a14ac74d05d1076",
+        "reportUrl" : "https://randy102.github.io/petland-admin/13//#testresult/7a14ac74d05d1076",
+        "status" : "broken",
+        "statusDetails" : "timeout: Timed out receiving message from renderer: -0.000\n  (Session info: headless chrome=90.0.4430.93)\nBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'\nSystem info: host: 'fv-az278-801', ip: '10.1.1.65', os.name: 'Linux', os.arch: 'amd64', os.version: '5.4.0-1046-azure', java.version: '15.0.3'\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nselenide.url: https://petland-admin.herokuapp.com//login\nCapabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 90.0.4430.93, chrome: {chromedriverVersion: 90.0.4430.24 (4c6d850f087da..., userDataDir: /tmp/.com.google.Chrome.YBHRd6}, goog:chromeOptions: {debuggerAddress: localhost:45677}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nselenide.baseUrl: https://petland-admin.herokuapp.com/\nSession ID: c3c09451b82e849d15c9036566af46ea",
+        "time" : {
+          "start" : 1620653153907,
+          "stop" : 1620653187203,
+          "duration" : 33296
+        }
+      }, {
+        "uid" : "e40c9d76926e2fdf",
+        "reportUrl" : "https://randy102.github.io/petland-admin/67//#testresult/e40c9d76926e2fdf",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620458376397,
+          "stop" : 1620458380766,
+          "duration" : 4369
+        }
+      }, {
+        "uid" : "611fa5bb02b9cd7d",
+        "reportUrl" : "https://randy102.github.io/petland-admin/12//#testresult/611fa5bb02b9cd7d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620457879870,
+          "stop" : 1620457883993,
+          "duration" : 4123
+        }
+      }, {
+        "uid" : "3d475c5afb542942",
+        "reportUrl" : "https://randy102.github.io/petland-admin/66//#testresult/3d475c5afb542942",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620457727093,
+          "stop" : 1620457731672,
+          "duration" : 4579
+        }
+      }, {
+        "uid" : "3c8431db603b9e2e",
+        "reportUrl" : "https://randy102.github.io/petland-admin/11//#testresult/3c8431db603b9e2e",
+        "status" : "broken",
+        "statusDetails" : "timeout: Timed out receiving message from renderer: -0.000\n  (Session info: headless chrome=90.0.4430.93)\nBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'\nSystem info: host: 'fv-az278-801', ip: '10.1.1.130', os.name: 'Linux', os.arch: 'amd64', os.version: '5.4.0-1046-azure', java.version: '15.0.3'\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nselenide.url: https://petland-admin.herokuapp.com//login\nCapabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 90.0.4430.93, chrome: {chromedriverVersion: 90.0.4430.24 (4c6d850f087da..., userDataDir: /tmp/.com.google.Chrome.SAPcVy}, goog:chromeOptions: {debuggerAddress: localhost:38357}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nselenide.baseUrl: https://petland-admin.herokuapp.com/\nSession ID: 095b180e017b36025f582936882f8db5",
+        "time" : {
+          "start" : 1620457238927,
+          "stop" : 1620457277682,
+          "duration" : 38755
+        }
+      }, {
+        "uid" : "493bf8577580b67d",
+        "reportUrl" : "https://randy102.github.io/petland-admin/65//#testresult/493bf8577580b67d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620210758276,
+          "stop" : 1620210763010,
+          "duration" : 4734
+        }
+      }, {
+        "uid" : "42bd523855e2d7fd",
+        "reportUrl" : "https://randy102.github.io/petland-admin/10//#testresult/42bd523855e2d7fd",
+        "status" : "broken",
+        "statusDetails" : "timeout: Timed out receiving message from renderer: -0.000\n  (Session info: headless chrome=90.0.4430.85)\nBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'\nSystem info: host: 'fv-az275-461', ip: '10.1.0.122', os.name: 'Linux', os.arch: 'amd64', os.version: '5.4.0-1046-azure', java.version: '15.0.3'\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nselenide.url: https://petland-admin.herokuapp.com//login\nCapabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 90.0.4430.85, chrome: {chromedriverVersion: 90.0.4430.24 (4c6d850f087da..., userDataDir: /tmp/.com.google.Chrome.lsJXnT}, goog:chromeOptions: {debuggerAddress: localhost:42303}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nselenide.baseUrl: https://petland-admin.herokuapp.com/\nSession ID: b75e9eed87e858d485b41965fc112b11",
+        "time" : {
+          "start" : 1620204750508,
+          "stop" : 1620204786375,
+          "duration" : 35867
+        }
+      }, {
+        "uid" : "8664b79bf5a8fe95",
+        "reportUrl" : "https://randy102.github.io/petland-admin/9//#testresult/8664b79bf5a8fe95",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620197211230,
+          "stop" : 1620197215947,
+          "duration" : 4717
+        }
+      }, {
+        "uid" : "9e9c88db8168e122",
+        "reportUrl" : "https://randy102.github.io/petland-admin/8//#testresult/9e9c88db8168e122",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620196782410,
+          "stop" : 1620196821651,
+          "duration" : 39241
+        }
+      }, {
+        "uid" : "855b3aec245e51a4",
+        "reportUrl" : "https://randy102.github.io/petland-admin/61//#testresult/855b3aec245e51a4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620030061209,
+          "stop" : 1620030071734,
+          "duration" : 10525
+        }
+      }, {
+        "uid" : "c61f4be9f704f3d5",
+        "reportUrl" : "https://randy102.github.io/petland-admin/7//#testresult/c61f4be9f704f3d5",
+        "status" : "passed",
+        "time" : {
+          "start" : 1620029581526,
+          "stop" : 1620029586383,
+          "duration" : 4857
+        }
+      }, {
+        "uid" : "bb5c57226047752a",
+        "reportUrl" : "https://randy102.github.io/petland-admin/6//#testresult/bb5c57226047752a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619873161665,
+          "stop" : 1619873167895,
+          "duration" : 6230
+        }
+      }, {
+        "uid" : "62a52a85e38724d4",
+        "reportUrl" : "https://randy102.github.io/petland-admin/5//#testresult/62a52a85e38724d4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619872028889,
+          "stop" : 1619872037239,
+          "duration" : 8350
+        }
+      }, {
+        "uid" : "1351145494f04fa0",
+        "reportUrl" : "https://randy102.github.io/petland-admin/4//#testresult/1351145494f04fa0",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619871740797,
+          "stop" : 1619871751251,
+          "duration" : 10454
+        }
+      }, {
+        "uid" : "1cafb150bb08f13e",
+        "reportUrl" : "https://randy102.github.io/petland-admin/3//#testresult/1cafb150bb08f13e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619869175314,
+          "stop" : 1619869179884,
+          "duration" : 4570
+        }
+      }, {
+        "uid" : "218e08a5f2c69b30",
+        "reportUrl" : "https://randy102.github.io/petland-admin/60//#testresult/218e08a5f2c69b30",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619866704144,
+          "stop" : 1619866713507,
+          "duration" : 9363
+        }
+      }, {
+        "uid" : "5888f348c3334312",
+        "reportUrl" : "https://randy102.github.io/petland-admin/2//#testresult/5888f348c3334312",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619866688130,
+          "stop" : 1619866693446,
+          "duration" : 5316
+        }
+      }, {
+        "uid" : "c3a661c22d0dc718",
+        "reportUrl" : "https://randy102.github.io/petland-admin/59//#testresult/c3a661c22d0dc718",
+        "status" : "passed",
+        "time" : {
+          "start" : 1619865632132,
+          "stop" : 1619865638220,
+          "duration" : 6088
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "d2859640cfd77046.json",
+  "parameterValues" : [ ]
+}
