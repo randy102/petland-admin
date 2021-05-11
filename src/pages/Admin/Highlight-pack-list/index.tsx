@@ -6,7 +6,7 @@ import Create from './Create';
 import { useFetch } from 'utils/request';
 import GridPost from './GridPost';
 
-export default function Category() {
+export default function Highlight_pack_list() {
   const [curTab, setCurTab] = useState('list');
   const [res, { loading, refetch }] = useFetch({
     api: 'pack',
@@ -48,7 +48,7 @@ export default function Category() {
             </span>
           }
         >
-          <GridPost res={res} loading={loading} refetch={refetch} />
+          <GridPost/>
         </Tabs.TabPane>
       </Tabs>
     </div>

@@ -1,122 +1,52 @@
-import { message, Tag } from 'antd';
 import RGrid from 'components/Shared/RGrid';
 import React, { useState } from 'react';
-import { handleRequestError, useMutation } from 'utils/request';
-import Update from './Update';
+import epochToString from 'utils/epochToString';
+import { useFetch } from 'utils/request';
+import Detail from './Detail';
 
-interface GridProps {
-  res: any;
-  loading: boolean;
-  refetch: Function;
-}
+export default function GridPost() {
+  const [showDetail, setShowDetail] = useState(false);
 
-export default function Grid(props: GridProps) {
-  const { res, loading, refetch } = props;
+  const [details, setDetails] = useState();
 
-  const [showForm, setShowForm] = useState(false);
+  const [res, { loading, refetch }] = useFetch({
+    api: 'post/public/highlight',
+    method: 'get',
+  });
 
-  const [initRow, setInitRow] = useState<any>();
-
-  const [deleting, setDeleting] = useState<boolean>(false);
-
-  const [hiding, setHiding] = useState<boolean>(false);
-  
-  const [publish, setPublish] = useState<boolean>(false);
-
-  const requestDelete = useMutation({ method: 'delete', api: 'pack' });
-
-  const requestHide = useMutation({ method: 'put', api: 'pack/hide' });
-
-  const requestPublish = useMutation({ method: 'put', api: 'pack/publish' });
-
-  function handleUpdate(row: any[]) {
-    setInitRow(row[0]);
-    setShowForm(true);
+  function handleView(rows: any[]) {
+    const data = {...rows[0]};
+    data.vaccination = data.vaccination ? 'Có' : 'Không'
+    setShowDetail(true)
+    setDetails(data)
   }
 
-  function handleDelete(row: any[]) {
-    setDeleting(true);
-
-    requestDelete({
-      data: row?.map(r => r._id)
-    })
-      .then(() => {
-        message.success('Xóa thành công!');
-        refetch();
-      })
-      .catch(handleRequestError)
-      .finally(() => setDeleting(false));
-  }
-
-  function handleHide(row: any[]){
-    setHiding(true);
-
-    requestHide({
-      data: row?.map(r => r._id )
-    })
-      .then(() => {
-        message.success('Ẩn thành công!');
-        refetch();
-      })
-      .catch(handleRequestError)
-      .finally(() => setHiding(false));
-  }
-
-  function renderState(value: boolean){
-    let color = 'error';
-    let text = 'Đã ẩn';
-
-    if( value ){
-      color = 'success';
-      text = 'Công khai';
-    }
-
-    return <Tag color={color}>{text}</Tag>
-  }
-
-  function handlePublish(row: any[]){
-    setPublish(true);
-
-    requestPublish({
-      data: row?.map( r => r._id )
-    })
-    .then(() => {
-      message.success('Công khai thành công!');
-      refetch();
-    })
-    .catch(handleRequestError)
-    .finally(() => setPublish(false));
-  }
-
-  function disablePublish(row: any[]){
-    let disable: boolean = false;
-
-    row?.forEach(element => {
-      if( element.state == true){
-        disable = true;
-      }   
-    });
-    return disable;
-  }
-
-  function disableHide(row: any[]){
-    let disable: boolean = false;
-
-    row?.forEach(element => {
-      if( element.state == false){
-        disable = true;
-      }   
-    });
-    return disable;
+  function handleCloseDetail() {
+    setShowDetail(false)
+    setDetails(undefined)
   }
 
   return (
     <>
       <RGrid
-        loading={loading || deleting || hiding || publish}
-        data={res?.data}
+        loading={loading}
+        data={res?.data?.map( (r: any) => {
+          return {
+            ...r,
+            highlightExpired: epochToString(r.highlightExpired),
+            createdName: r.createdUser.name,
+          }
+          }
+        )}
         headDef={[
-          { type: 'refresh', onClick: () => refetch() },
+          { 
+            type: 'refresh', 
+            onClick: () => refetch() 
+          },
+          {
+            type: 'detail',
+            onClick: handleView,
+          },
         ]}
         colDef={[
           { 
@@ -124,29 +54,17 @@ export default function Grid(props: GridProps) {
             title: 'Tên', 
           },
           { 
-            dataIndex: 'createdUser.name', 
+            dataIndex: 'createdName', 
             title: 'Người tạo',
           },
           { 
             dataIndex: 'highlightExpired', 
-            title: 'Ngày đăng ký gói', 
-          },
-          { 
-            dataIndex: 'price', 
             title: 'Ngày hết hạn của gói', 
           },
         ]}
       />
-
-      <Update
-        {...{
-          setInitRow,
-          initRow,
-          showForm,
-          setShowForm,
-          refetch,
-        }}
-      />
+      <Detail showDetail={showDetail} onClose={handleCloseDetail} details={details} />
     </>
   );
 }
+
