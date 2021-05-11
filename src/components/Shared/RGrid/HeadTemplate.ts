@@ -28,4 +28,16 @@ export const HEAD_DATA: any = {
     selection: 'multiple',
     confirm: true,
   },
+  hide: {
+    icon: 'EyeInvisibleOutlined',
+    name: 'Ẩn',
+    selection: 'multiple',
+    confirm: false,
+  },
+  publish: {
+    icon: 'EyeOutlined',
+    name: 'Công khai',
+    selection: 'multiple',
+    confirm: false,
+  }
 };

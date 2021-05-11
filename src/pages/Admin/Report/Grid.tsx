@@ -54,24 +54,13 @@ export default function Grid(props: GridProps) {
   }
 
   function renderState(value: boolean) {
-    // Default color and text for HIDDEN state
     let color = 'default';
     let text = 'Chưa xử lí';
-
-    // Change color and text based on state
-    switch (value) {
-      case false: {
-        color = 'blue';
-        text = 'Chưa xử lí';
-        break;
-      }
-      case true: {
-        color = 'success';
-        text = 'Đã xử lí';
-        break;
-      }
+    
+    if(value){
+      color = 'success';
+      text = 'Đã xử lí';
     }
-
     return <Tag color={color}>{text}</Tag>;
   }
 

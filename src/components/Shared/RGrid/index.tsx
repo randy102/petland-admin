@@ -40,7 +40,7 @@ export type HeaderType = {
   disabled?: (selectedRows: any[]) => boolean;
 };
 
-type HeaderBtnType = 'create' | 'update' | 'delete' | 'refresh' | 'detail';
+type HeaderBtnType = 'create' | 'update' | 'delete' | 'refresh' | 'detail' | 'hide'| 'publish';
 
 function getNestedPath(data: any, path: string = '') {
   if (!Array.isArray(path)) return data[path];

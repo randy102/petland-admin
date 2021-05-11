@@ -7,6 +7,7 @@ import {
   CreditCardOutlined,
   BugOutlined,
   MessageOutlined,
+  HighlightOutlined,
 } from '@ant-design/icons';
 
 import User from './User';
@@ -19,6 +20,7 @@ import Post from './Post';
 import Ads from './Ads';
 import Report from './Report';
 import Chargerequest from './Charge-request';
+import Highlightpacklist from './Highlight-pack-list';
 
 
 interface RouteConfig {
@@ -65,6 +67,13 @@ export const ROUTES: RouteConfig[] = [
     name: 'Quảng cáo',
     icon: SoundOutlined,
     component: Ads,
+    allowed: [ADMIN, MOD],
+  },
+  {
+    path: '/pack',
+    name: 'Gói nổi bật',
+    icon: HighlightOutlined,
+    component: Highlightpacklist,
     allowed: [ADMIN, MOD],
   },
   {
